@@ -6,9 +6,11 @@ import { customBlack, customOrange, customTomato } from "../colors";
 const PulseAnimation = keyframes`${pulse}`;
 
 export const StyledImage = styled.img`
-  width: 250px;
-  height: 250px;
-  border-radius: 5px;
+  width: 900px;
+  height: 442px;
+  border: 2px solid ${customBlack};
+  border-radius: 15px;
+  margin: 15px auto 40px auto;
 
   &.loading {
     filter: blur(10px);
@@ -17,12 +19,36 @@ export const StyledImage = styled.img`
   &.loaded {
     filter: blur(0px);
     transition: filter 0.5s linear;
-    border: 2px solid ${customBlack};
+  }
+
+  @media screen and (max-width: 1366px) {
+    width: 700px;
+    height: 344px;
+  }
+
+  @media screen and (max-width: 820px) {
+    width: 500px;
+    height: 246px;
+  }
+
+  @media screen and (max-width: 650px) {
+    width: 400px;
+    height: 196px;
   }
 
   @media screen and (max-width: 450px) {
-    width: 180px;
-    height: 180px;
+    width: 300px;
+    height: 147px;
+  }
+
+  @media screen and (max-width: 350px) {
+    width: 270px;
+    height: 133px;
+  }
+
+  @media screen and (max-width: 280px) {
+    width: 230px;
+    height: 113px;
   }
 `;
 
