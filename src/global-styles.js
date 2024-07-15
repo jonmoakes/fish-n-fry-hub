@@ -1,7 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-import { customBlack, customBlue, customTomato } from "./styles/colors";
-
-import BackgroundImage from "./assets/crayons.svg";
+import { customBlack, customBlue } from "./styles/colors";
 
 export const GlobalStyle = createGlobalStyle`
     html {

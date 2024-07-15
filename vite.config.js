@@ -14,11 +14,7 @@ export default defineConfig(() => {
     build: {
       outDir: "dist",
     },
-    plugins: [
-      react({ include: "**/*.jsx" }),
-      svgr({ svgrOptions: { icon: true } }),
-      eslint(),
-    ],
+    plugins: [react({ include: "**/*.jsx" }), svgr(), eslint()],
   };
 });
 

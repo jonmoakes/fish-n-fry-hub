@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-import { ReactComponent as LoaderSVG } from "../../assets/loader.svg";
-import { ReactComponent as StripeSVG } from "../../assets/stripe-logo.svg";
+import LoaderSVG from "../../assets/loader.svg?react";
+import StripeSVG from "../../assets/stripe-logo.svg?react";
 
 export const StripeLogo = styled(StripeSVG)`
   width: 300px;

@@ -1,9 +1,10 @@
+import { useSelector } from "react-redux";
 import { Outlet } from "react-router-dom";
 
-import useGetCurrentUserSelectors from "../../hooks/get-selectors/use-get-current-user-selectors";
+import { selectCurrentUserSelectors } from "../../store/user/user.slice";
 
 const PrivateRoutes = () => {
-  const { currentUser } = useGetCurrentUserSelectors();
+  const { currentUser } = useSelector(selectCurrentUserSelectors);
   return <>{currentUser ? <Outlet /> : null}</>;
 };
 
