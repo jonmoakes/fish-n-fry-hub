@@ -1,7 +1,13 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { customBlack, customBlue, customTomato, customWhite } from "../colors";
+import {
+  customBlack,
+  customBlue,
+  customTomato,
+  customWhite,
+  customYellow,
+} from "../colors";
 
 export const StyledLink = styled(Link)`
   color: ${customBlue};
@@ -13,6 +19,18 @@ export const StyledLink = styled(Link)`
 
     @media screen and (max-width: 1366px) {
       color: ${customBlue};
+    }
+  }
+
+  &.yellow {
+    color: ${customYellow};
+
+    &:hover {
+      color: ${customTomato};
+
+      @media screen and (max-width: 1366px) {
+        color: ${customYellow};
+      }
     }
   }
 `;

@@ -1,19 +1,19 @@
 import { combineReducers } from "@reduxjs/toolkit";
 
 import { hamburgerMenuReducer } from "./hamburger-menu/hamburger-menu.slice";
-// import { signUpFormReducer } from "./sign-up-form/sign-up-form.slice";
+import { signUpFormReducer } from "./sign-up-form/sign-up-form.slice";
 // import { signInFormReducer } from "./sign-in-form/sign-in-form.slice";
 // import { contactFormReducer } from "./contact-form/contact-form.slice";
 import { userReducer } from "./user/user.slice";
-// import { passwordIsVisibleReducer } from "./password-is-visible/password-is-visible.slice";
+import { passwordIsVisibleReducer } from "./password-is-visible/password-is-visible.slice";
 // import { updateEmailReducer } from "./update-email/update-email.slice";
 
 export const rootReducer = combineReducers({
   hamburgerMenu: hamburgerMenuReducer,
-  // signUpForm: signUpFormReducer,
+  signUpForm: signUpFormReducer,
   // signInForm: signInFormReducer,
   // contactForm: contactFormReducer,
   user: userReducer,
-  // passwordIsVisible: passwordIsVisibleReducer,
+  passwordIsVisible: passwordIsVisibleReducer,
   // updateEmail: updateEmailReducer,
 });

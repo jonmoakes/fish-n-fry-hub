@@ -32,7 +32,7 @@ export const signInAsync = createAsyncThunk(
   "user/signIn",
   async ({ email, password }, thunkAPI) => {
     try {
-      await account.createEmailSession(email, password);
+      await account.createEmailPasswordSession(email, password);
       return await getRetrievedUserFromDocument();
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -45,7 +45,7 @@ export const signUpAsync = createAsyncThunk(
   async ({ email, password, name }, thunkAPI) => {
     try {
       await account.create(ID.unique(), email, password, name);
-      await account.createEmailSession(email, password);
+      await account.createEmailPasswordSession(email, password);
       return await createDocumentAndSetUser();
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

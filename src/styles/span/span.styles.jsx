@@ -33,6 +33,16 @@ export const BorderLink = styled.span`
   border: 2px solid ${customWhite};
   padding: 5px;
   border-radius: 5px;
+
+  &:hover {
+    color: ${customLightGreen};
+    border: 2px solid ${customLightGreen};
+
+    @media screen and (max-width: 1366px) {
+      color: ${customWhite};
+      border: 2px solid ${customWhite};
+    }
+  }
 `;
 
 export const RedSpan = styled.span`
@@ -114,18 +124,18 @@ export const ToggleSignInPassword = styled.span.withConfig({
   }
 `;
 
-export const ToggleSignUpPassword = styled(ToggleSignInPassword).withConfig({
+export const SignUpPasswordEye = styled(ToggleSignInPassword).withConfig({
   shouldForwardProp: (prop) => prop !== "signUpPasswordIsVisible",
 })`
   background-image: ${(props) =>
     `url(${props.signUpPasswordIsVisible ? eyeIconHide : eyeIcon})`};
 `;
 
-export const ToggleSignUpConfirmPassword = styled(
-  ToggleSignInPassword
-).withConfig({
-  shouldForwardProp: (prop) => prop !== "signUpConfirmPasswordIsVisible",
-})`
+export const SignUpConfirmPasswordEye = styled(ToggleSignInPassword).withConfig(
+  {
+    shouldForwardProp: (prop) => prop !== "signUpConfirmPasswordIsVisible",
+  }
+)`
   background-image: ${(props) =>
     `url(${props.signUpConfirmPasswordIsVisible ? eyeIconHide : eyeIcon})`};
   width: ${(props) =>

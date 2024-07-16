@@ -1,5 +1,5 @@
 import useGetCurrentUserSelectors from "../../hooks/selectors/use-get-current-user-selectors";
-// import useSignOutSubmitThunk from "../../hooks/get-actions-and-thunks/current-user-actions-and-thunks/use-sign-out-submit-thunk";
+import useSignOutSubmitThunk from "./nav-hooks/use-sign-out-submit-thunk";
 import useConfirmSwal from "../../hooks/use-confirm-swal";
 import useFireSwal from "../../hooks/use-fire-swal";
 import useIsOnline from "../../hooks/use-is-online";
@@ -8,7 +8,6 @@ import { NavLink } from "../../styles/p/p.styles";
 import { BorderLink } from "../../styles/span/span.styles";
 
 import { noNetworkMessage } from "../../strings/errors/errors-strings";
-
 import {
   confirmSignOutMessage,
   yesSignOutMessage,
@@ -17,14 +16,13 @@ import {
 const NavSignOut = () => {
   const { currentUser } = useGetCurrentUserSelectors();
 
-  // const { signOutSubmitThunk } = useSignOutSubmitThunk();
+  const { signOutSubmitThunk } = useSignOutSubmitThunk();
   const { confirmSwal } = useConfirmSwal();
   const { fireSwal } = useFireSwal();
   const { isOnline } = useIsOnline();
 
   const confirmResult = () => {
-    console.log("sign out here");
-    // signOutSubmitThunk();
+    signOutSubmitThunk();
   };
 
   const confirmSignOut = () => {

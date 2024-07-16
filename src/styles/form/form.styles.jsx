@@ -9,6 +9,7 @@ import {
   customLightGreen,
   customLightGrey,
   customTomato,
+  customGrey,
 } from "../colors";
 
 const bounceInDownAnimation = keyframes`${bounceInDown}`;
@@ -17,25 +18,13 @@ const slideInRightAnimation = keyframes`${slideInRight}`;
 export const Form = styled.form`
   width: 75%;
   padding: 30px 0px;
-  margin: 20px auto 70px auto;
-  background-color: ${customBlue};
+  margin: 50px auto 70px auto;
+  background-color: ${customGrey};
   border: 2px solid ${customBlack};
   border-radius: 5px;
 
   &.below-accordion {
     margin: 20px auto 70px auto;
-  }
-
-  &.add-funds {
-    margin: 0px auto 30px auto;
-  }
-
-  &.book-session {
-    margin: 20px auto 20px auto;
-  }
-
-  &.emergency-contacts {
-    margin: 20px auto;
   }
 
   input {
@@ -308,16 +297,10 @@ export const PaginationSelect = styled.select`
 
 export const Label = styled.label`
   font-size: 18px;
-  color: ${customYellow};
-  text-shadow: 1px 1px 1px ${customBlack};
+  color: ${customBlue};
+  text-shadow: 0.5px 0.5px 0.5px ${customBlack};
   float: left;
   padding-left: 20px;
-
-  &.book-session {
-    float: unset;
-    padding-left: 0px;
-    text-align: center;
-  }
 
   @media screen and (max-width: 1000px) {
     padding-left: 15px;
