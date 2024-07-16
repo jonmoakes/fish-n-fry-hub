@@ -1,12 +1,11 @@
-import { useSelector } from "react-redux";
-
-import { selectCurrentUserSelectors } from "../../store/user/user.slice";
+import useGetCurrentUserSelectors from "../../hooks/selectors/use-get-current-user-selectors";
 
 import useIsRouteWithNavWarning from "../../hooks/use-is-route-with-nav-warning";
 import useConfirmSwal from "../../hooks/use-confirm-swal";
 import useHamburgerHandlerNavigate from "../../hooks/use-hamburger-handler-navigate";
 
-import Logo from "../../assets/logo-no-text.png";
+import Logo from "../../assets//logo-no-text.webp";
+
 import { LogoContainer } from "../../styles/div/div.styles";
 import { LogoImage } from "../../styles/image/image.styles";
 
@@ -17,7 +16,7 @@ import {
 import { loseAllDataMessage } from "../../strings/info/info-strings";
 
 const NavLogo = () => {
-  const { currentUser } = useSelector(selectCurrentUserSelectors);
+  const { currentUser } = useGetCurrentUserSelectors();
   const { isRouteWithNavWarning } = useIsRouteWithNavWarning();
   const { confirmForwardToNewRoute } = useConfirmSwal();
   const { hamburgerHandlerNavigate } = useHamburgerHandlerNavigate();

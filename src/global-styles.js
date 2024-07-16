@@ -1,11 +1,16 @@
 import { createGlobalStyle } from "styled-components";
-import { customBlack, customBlue } from "./styles/colors";
+import {
+  customBlack,
+  customBlue,
+  customLightGrey,
+  customTomato,
+} from "./styles/colors";
 
 export const GlobalStyle = createGlobalStyle`
     html {
         width:100%;
         height:100vh;
-        background-color: ${customBlue};
+        background-color: ${customLightGrey};
     }
     body {
         margin: 0px auto;
@@ -44,13 +49,11 @@ export const GlobalStyle = createGlobalStyle`
             }
         }
 
-        hr {
-            border:2px solid ${customBlack};
-            width:50%;
-            margin:25px auto;
+        a {
+            color: ${customBlue};
 
-              @media screen and (max-width: 1366px) {
-                width: 70%;
+            &:hover {
+                color: ${customTomato};
             }
         }
     }

@@ -44,8 +44,8 @@ export const Button = styled.button`
       transition: none;
 
       &:hover {
-        color: ${customBlack};
         background-color: ${customYellow};
+        color: ${customBlack};
       }
     }
   }
@@ -68,12 +68,6 @@ export const DisabledButton = styled(Button)`
 `;
 
 export const YellowGreenButton = styled(Button)`
-  &.add-funds {
-    animation: 1s ${bounceInDownAnimation};
-    margin: 0px auto 40px auto;
-    width: 180px;
-  }
-
   &.disabled {
     margin: 0px auto 40px auto;
     box-shadow: none;

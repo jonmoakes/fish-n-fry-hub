@@ -1,9 +1,7 @@
 // import { useLocation } from "react-router-dom";
 
-import { selectHamburgerMenuSelectors } from "../../store/hamburger-menu/hamburger-menu.slice";
-import { selectCurrentUserSelectors } from "../../store/user/user.slice";
+import useGetHamburgerMenuSelectors from "../../hooks/selectors/use-get-hamburger-menu-selectors";
 
-import Loader from "../../components/loader/loader.component";
 import NavLogo from "./nav-logo.component";
 import NavHamburger from "./nav-hamburger.component";
 import NavNoUser from "./nav-no-user.component";
@@ -12,17 +10,15 @@ import NavNotAppOwner from "./nav-not-app-owner.component";
 import NavSignOut from "./nav-sign-out.component";
 
 import { Nav, Menu } from "../../styles/div/div.styles";
-import { useSelector } from "react-redux";
 
 const Navigation = () => {
-  const { showHamburgerMenu } = useSelector(selectHamburgerMenuSelectors);
-  const { currentUserIsLoading } = useSelector(selectCurrentUserSelectors);
+  const { showHamburgerMenu } = useGetHamburgerMenuSelectors();
 
   // const location = useLocation();
   // const path = location.pathname;
 
   const isRouteWithHeader = () => {
-    return false;
+    return true;
     // return path !== editChildInfoRoute &&
     //   path !== deleteChildInfoRoute &&
     //   path !== chosenEntryChildDetailsRoute &&
@@ -33,8 +29,6 @@ const Navigation = () => {
 
   return (
     <>
-      {currentUserIsLoading ? <Loader /> : null}
-
       {isRouteWithHeader() ? (
         <Nav>
           <NavLogo />

@@ -1,8 +1,9 @@
 import styled from "styled-components";
-import { customBlack, customBlue } from "../colors";
+import { customBlack, customYellow } from "../colors";
 
-export const BlueH2 = styled.h2`
-  color: ${customBlue};
+export const H2 = styled.h2`
+  color: ${customYellow};
+  text-shadow: 0.5px 0.5px 0.5px ${customBlack};
   text-decoration: underline;
 
   &.no-underline {

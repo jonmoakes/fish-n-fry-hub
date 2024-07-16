@@ -1,16 +1,15 @@
 import { useLocation } from "react-router-dom";
 
-import { selectCurrentUserSelectors } from "../../store/user/user.slice";
+import useGetCurrentUserSelectors from "../../hooks/selectors/use-get-current-user-selectors";
 import useHamburgerHandlerNavigate from "../../hooks/use-hamburger-handler-navigate";
 
 import { NavLink } from "../../styles/p/p.styles";
 import { BorderLink } from "../../styles/span/span.styles";
 
 import { signedOutRoutes } from "./routes";
-import { useSelector } from "react-redux";
 
 const NavNoUser = () => {
-  const { currentUser } = useSelector(selectCurrentUserSelectors);
+  const { currentUser } = useGetCurrentUserSelectors();
   const { hamburgerHandlerNavigate } = useHamburgerHandlerNavigate();
 
   const location = useLocation();

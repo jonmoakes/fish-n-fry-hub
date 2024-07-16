@@ -1,18 +1,16 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-import {
-  selectHamburgerMenuSelectors,
-  toggleHamburgerMenu,
-} from "../../store/hamburger-menu/hamburger-menu.slice";
+import { toggleHamburgerMenu } from "../../store/hamburger-menu/hamburger-menu.slice";
 
 import { HamburgerContainer, Hamburger } from "../../styles/div/div.styles";
 import {
   HamburgerSpan,
   HamburgerSpanCloseMenu,
 } from "../../styles/span/span.styles";
+import useGetHamburgerMenuSelectors from "../../hooks/selectors/use-get-hamburger-menu-selectors";
 
 const NavHamburger = () => {
-  const { showHamburgerMenu } = useSelector(selectHamburgerMenuSelectors);
+  const { showHamburgerMenu } = useGetHamburgerMenuSelectors();
 
   const dispatch = useDispatch();
 

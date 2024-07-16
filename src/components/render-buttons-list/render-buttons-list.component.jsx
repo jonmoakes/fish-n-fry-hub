@@ -2,8 +2,8 @@ import Balancer from "react-wrap-balancer";
 
 import { ColumnDiv } from "../../styles/div/div.styles";
 import { YellowGreenButton } from "../../styles/buttons/buttons.styles";
-import { BlueH2 } from "../../styles/h2/h2.styles";
 import { BlackHr } from "../../styles/hr/hr.styles";
+import { H2 } from "../../styles/h2/h2.styles";
 
 const RenderButtonsList = ({ buttons }) => (
   <>
@@ -13,9 +13,9 @@ const RenderButtonsList = ({ buttons }) => (
       return (
         <ColumnDiv key={id}>
           {heading ? (
-            <BlueH2>
+            <H2>
               <Balancer>{heading}</Balancer>
-            </BlueH2>
+            </H2>
           ) : null}
           <YellowGreenButton onClick={onClick}>{text}</YellowGreenButton>
           <BlackHr />

@@ -2,7 +2,8 @@ import styled from "styled-components";
 import { customBlack, customTomato, customWhite } from "../colors";
 
 export const Text = styled.p`
-  color: ${customBlack};
+  color: ${customWhite};
+  text-shadow: 1px 1px 1px ${customBlack};
 
   &.lowercased {
     text-transform: lowercase;
@@ -14,13 +15,8 @@ export const Text = styled.p`
   }
 `;
 
-export const WhiteText = styled(Text)`
-  color: ${customWhite};
-`;
-
-export const WhiteShadowText = styled(Text)`
-  color: ${customWhite};
-  text-shadow: 1px 1px 1px ${customBlack};
+export const BlackText = styled.p`
+  color: ${customBlack};
 `;
 
 export const RedText = styled(Text)`

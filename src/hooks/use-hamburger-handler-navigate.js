@@ -1,16 +1,14 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate, useLocation } from "react-router-dom";
 
-import {
-  selectHamburgerMenuSelectors,
-  hideHamburgerMenu,
-} from "../store/hamburger-menu/hamburger-menu.slice";
+import { hideHamburgerMenu } from "../store/hamburger-menu/hamburger-menu.slice";
 
 import useResetStore from "./use-reset-store";
 import useIsRouteWithNavWarning from "./use-is-route-with-nav-warning";
+import useGetHamburgerMenuSelectors from "./selectors/use-get-hamburger-menu-selectors";
 
 const useHamburgerHandlerNavigate = () => {
-  const { showHamburgerMenu } = useSelector(selectHamburgerMenuSelectors);
+  const { showHamburgerMenu } = useGetHamburgerMenuSelectors();
   const { isRouteWithNavWarning } = useIsRouteWithNavWarning();
   const { resetStore } = useResetStore();
 

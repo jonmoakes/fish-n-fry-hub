@@ -1,21 +1,19 @@
-import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
-import { selectCurrentUserSelectors } from "../../store/user/user.slice";
+import useGetCurrentUserSelectors from "../../hooks/selectors/use-get-current-user-selectors";
 import useHamburgerHandlerNavigate from "../../hooks/use-hamburger-handler-navigate";
+
+import { appOwnerId } from "../../constants/constants";
 
 import { NavLink } from "../../styles/p/p.styles";
 import { BorderLink } from "../../styles/span/span.styles";
 
 import { ownerSignedInRoutes } from "./routes";
-import { appOwnerId } from "../../constants/constants";
 
 const NavAppOwner = () => {
-  const { currentUser } = useSelector(selectCurrentUserSelectors);
-  const id = currentUser.id;
+  const { currentUser, id } = useGetCurrentUserSelectors();
 
   const { hamburgerHandlerNavigate } = useHamburgerHandlerNavigate();
-
   const location = useLocation();
 
   return (

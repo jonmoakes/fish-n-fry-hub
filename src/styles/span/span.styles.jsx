@@ -7,6 +7,8 @@ import {
   customBlue,
   customLightGreen,
   customYellow,
+  customRed,
+  customWhite,
 } from "../colors";
 
 import eyeIcon from "../../assets/eye.png";
@@ -17,18 +19,18 @@ const zoomInLeftAnimation = keyframes`${zoomInLeft}`;
 export const HamburgerSpan = styled.span`
   height: 6px;
   width: 35px;
-  background-color: ${customBlack};
+  background-color: ${customWhite};
   margin-bottom: 4px;
   border-radius: 5px;
 `;
 
 export const HamburgerSpanCloseMenu = styled(HamburgerSpan)`
-  background-color: ${customBlue};
+  background-color: ${customRed};
 `;
 
 export const BorderLink = styled.span`
-  color: ${customBlack};
-  border: 2px solid ${customBlack};
+  color: ${customWhite};
+  border: 2px solid ${customWhite};
   padding: 5px;
   border-radius: 5px;
 `;

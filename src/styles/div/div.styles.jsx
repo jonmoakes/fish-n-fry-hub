@@ -11,10 +11,11 @@ import {
   customGrey,
   customOrange,
   customWhite,
-  customYellow,
   customLightGrey,
   customTomato,
   customLightPink,
+  backgroundBlue,
+  customLightGreen,
 } from "../colors";
 
 const slideInLeftAnimation = keyframes`${slideInLeft}`;
@@ -24,7 +25,7 @@ const rotateInDownRightAnimation = keyframes`${rotateInDownRight}`;
 
 // Navigation
 export const Nav = styled.div`
-  background-color: ${customYellow};
+  background-color: ${backgroundBlue};
   height: 90px;
   width: 100%;
   display: flex;
@@ -34,13 +35,14 @@ export const Nav = styled.div`
   position: fixed;
   top: 0;
   z-index: 20;
-  border-bottom: 1px solid ${customBlack};
+  border-bottom: 2px solid ${customBlack};
 `;
 
 export const LogoContainer = styled.div`
   width: 80px;
   height: 80px;
   cursor: pointer;
+  margin-top: -2px;
 `;
 
 export const HamburgerContainer = styled.div`
@@ -83,7 +85,7 @@ export const Menu = styled.div.withConfig({
     transition: ${(props) =>
       props.showHamburgerMenu ? "max-height 0.5s linear" : "none"};
     overflow: scroll;
-    background-color: ${customYellow};
+    background-color: ${backgroundBlue};
   }
 `;
 
@@ -104,7 +106,7 @@ export const ParentDiv = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: radial-gradient(circle, ${customWhite}, ${customLightGrey});
+  background-color: ${backgroundBlue};
   margin: 50px auto;
   width: 75%;
   height: auto;
@@ -201,7 +203,7 @@ export const ErrorFallbackImageDiv = styled.div`
 export const ImageDiv = styled.div`
   width: 30%;
   height: 30%;
-  margin: 20px auto 0px auto;
+  margin: 0px auto 50px auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -346,7 +348,7 @@ export const AccordionTitle = styled.div.withConfig({
   justify-content: space-between;
   cursor: pointer;
   background-color: ${({ shouldShowElement }) =>
-    shouldShowElement ? customYellow : customGrey};
+    shouldShowElement ? customLightGreen : customGrey};
   padding: 0.5rem;
   border-bottom: ${({ shouldShowElement }) =>
     shouldShowElement ? `2px solid ${customBlack}` : "none"};
@@ -385,7 +387,7 @@ export const SecondAccordionTitle = styled(AccordionTitle).withConfig({
   shouldForwardProp: (prop) => prop !== "shouldShowSecondElement",
 })`
   background-color: ${({ shouldShowSecondElement }) =>
-    shouldShowSecondElement ? customYellow : customGrey};
+    shouldShowSecondElement ? customLightGreen : customGrey};
   border-bottom: ${({ shouldShowSecondElement }) =>
     shouldShowSecondElement ? `2px solid ${customBlack}` : "none"};
   border-radius: ${({ shouldShowSecondElement }) =>
@@ -419,7 +421,7 @@ export const ThirdAccordionTitle = styled(AccordionTitle).withConfig({
   shouldForwardProp: (prop) => prop !== "shouldShowThirdElement",
 })`
   background-color: ${({ shouldShowThirdElement }) =>
-    shouldShowThirdElement ? customYellow : customGrey};
+    shouldShowThirdElement ? customLightGreen : customGrey};
   border-bottom: ${({ shouldShowThirdElement }) =>
     shouldShowThirdElement ? `2px solid ${customBlack}` : "none"};
   border-radius: ${({ shouldShowThirdElement }) =>
@@ -431,6 +433,11 @@ export const AccordionContent = styled.div`
   background-color: ${customGrey};
   border-radius: 0px 0px 15px 15px;
   animation: 0.5s ${rollInAnimation};
+
+  p {
+    color: ${customBlack};
+    text-shadow: none;
+  }
 `;
 
 export const ColumnDiv = styled.div`

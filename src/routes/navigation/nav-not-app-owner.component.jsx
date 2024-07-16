@@ -1,7 +1,7 @@
-import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
-import { selectCurrentUserSelectors } from "../../store/user/user.slice";
+import useGetCurrentUserSelectors from "../../hooks/selectors/use-get-current-user-selectors";
+
 import { appOwnerId } from "../../constants/constants";
 
 import useIsRouteWithNavWarning from "../../hooks/use-is-route-with-nav-warning";
@@ -20,7 +20,7 @@ import {
 import { loseAllDataMessage } from "../../strings/info/info-strings";
 
 const NavNotAppOwner = () => {
-  const { currentUser } = useSelector(selectCurrentUserSelectors);
+  const { currentUser } = useGetCurrentUserSelectors();
   const { isRouteWithNavWarning } = useIsRouteWithNavWarning();
   const { hamburgerHandlerNavigate } = useHamburgerHandlerNavigate();
   const { confirmForwardToNewRoute } = useConfirmSwal();

@@ -1,4 +1,4 @@
-import { selectCurrentUserSelectors } from "../../store/user/user.slice";
+import useGetCurrentUserSelectors from "../../hooks/selectors/use-get-current-user-selectors";
 // import useSignOutSubmitThunk from "../../hooks/get-actions-and-thunks/current-user-actions-and-thunks/use-sign-out-submit-thunk";
 import useConfirmSwal from "../../hooks/use-confirm-swal";
 import useFireSwal from "../../hooks/use-fire-swal";
@@ -13,10 +13,10 @@ import {
   confirmSignOutMessage,
   yesSignOutMessage,
 } from "../../strings/confirms/confirms-strings";
-import { useSelector } from "react-redux";
 
 const NavSignOut = () => {
-  const { currentUser } = useSelector(selectCurrentUserSelectors);
+  const { currentUser } = useGetCurrentUserSelectors();
+
   // const { signOutSubmitThunk } = useSignOutSubmitThunk();
   const { confirmSwal } = useConfirmSwal();
   const { fireSwal } = useFireSwal();

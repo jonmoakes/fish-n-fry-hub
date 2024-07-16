@@ -10,7 +10,7 @@ export const StyledImage = styled.img`
   height: 442px;
   border: 2px solid ${customBlack};
   border-radius: 15px;
-  margin: 15px auto 40px auto;
+  /* margin: 15px auto 50px auto; */
 
   &.loading {
     filter: blur(10px);
@@ -57,7 +57,7 @@ export const LogoImage = styled.img`
   width: 80px;
   margin-left: 20px;
   border-radius: 5px;
-  border: 1px solid ${customBlack};
+  border: 2px solid ${customBlack};
 
   &.account {
     margin: 0px auto 10px auto;
