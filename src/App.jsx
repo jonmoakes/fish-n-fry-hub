@@ -11,7 +11,7 @@ import useScrollToTop from "./hooks/use-scroll-to-top";
 import PrivateRoutes from "./components/private-routes/private-routes.component";
 import ErrorFallback from "./components/errors/error-fallback.component";
 import Loader from "./components/loader/loader.component";
-import { signUpRoute } from "./strings/routes/routes-strings";
+import { signInRoute, signUpRoute } from "./strings/routes/routes-strings";
 // import FloatingBackButton from "./components/floating-back-button/floating-back-button.component";
 
 const Navigation = lazy(() =>
@@ -19,6 +19,7 @@ const Navigation = lazy(() =>
 );
 const Home = lazy(() => import("./routes/home/home.component"));
 const SignUp = lazy(() => import("./routes/sign-up/sign-up.component"));
+const SignIn = lazy(() => import("./routes/sign-in/sign-in.component"));
 
 const App = () => {
   // const { currentUser, appOwnerId } = useGetCurrentUserSelectors();
@@ -35,6 +36,7 @@ const App = () => {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path={signUpRoute} element={<SignUp />} />
+            <Route path={signInRoute} element={<SignIn />} />
             {/*private routes - if no user, redirect to sign in route */}
             <Route element={<PrivateRoutes />}></Route>
           </Routes>

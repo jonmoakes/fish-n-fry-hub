@@ -19,3 +19,10 @@ export const passwordLengthErrorMessage =
 export const errorSigningOutMessage = (error) => {
   return `<span style="font-size:20px";>sorry, there was an error signing out.<br/><br/>The error received was:<br/>'<span style="color:${customYellow}";>${error}</span>'</span>`;
 };
+export const errorSigningInMessage = (error) => {
+  return `<span style="font-size:20px";>sorry, there was an error trying to sign you in.<br/><br/>The error received was:<br/>'<span style="color:${customYellow}";>${error}</span>'</span>`;
+};
+export const appwriteCredentialsError =
+  "Invalid credentials. Please check the email and password.";
+export const appwritePasswordLengthError =
+  "Invalid `password` param: Password must be between 8 and 256 characters long.";

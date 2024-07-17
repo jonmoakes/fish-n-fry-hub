@@ -1,0 +1,58 @@
+import { Navigate } from "react-router-dom";
+
+import useGetCurrentUserSelectors from "../../hooks/selectors/use-get-current-user-selectors";
+
+import useHandleSignInFormError from "./sign-in-form-hooks/use-handle-sign-in-form-error";
+import useSignInFormFunctions from "./sign-in-form-hooks/use-sign-in-form-functions";
+
+import Loader from "../../components/loader/loader.component";
+import SignInEmail from "./sign-in-email.component";
+import SignInPassword from "./sign-in-password.component";
+import SignInButton from "./sign-in-button.component";
+
+import { Container } from "../../styles/container/container.styles";
+import { ParentDiv } from "../../styles/div/div.styles";
+import { Form } from "../../styles/form/form.styles";
+import { Title } from "../../styles/h1/h1.styles";
+import { StyledLink } from "../../styles/link/link.styles";
+import { Text } from "../../styles/p/p.styles";
+import { BlackHr } from "../../styles/hr/hr.styles";
+
+import { menuRoute, signUpRoute } from "../../strings/routes/routes-strings";
+
+const SignIn = () => {
+  const { currentUser, currentUserIsLoading } = useGetCurrentUserSelectors();
+  useHandleSignInFormError();
+  const { dispatchHandleSignInFormChange } = useSignInFormFunctions();
+
+  return (
+    <Container>
+      {currentUser !== null && currentUser !== undefined && (
+        <Navigate replace to={menuRoute} />
+      )}
+
+      {currentUserIsLoading ? <Loader /> : null}
+
+      <ParentDiv>
+        <Title>sign in</Title>
+        <BlackHr />
+        <Text>
+          don't have an account yet?{" "}
+          <StyledLink className="yellow" to={signUpRoute}>
+            sign up!
+          </StyledLink>
+        </Text>
+      </ParentDiv>
+
+      <ParentDiv>
+        <Form>
+          <SignInEmail {...{ dispatchHandleSignInFormChange }} />
+          <SignInPassword {...{ dispatchHandleSignInFormChange }} />
+          <SignInButton />
+        </Form>
+      </ParentDiv>
+    </Container>
+  );
+};
+
+export default SignIn;

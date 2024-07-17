@@ -5,11 +5,11 @@ import {
   customBlue,
   customBlack,
   customWhite,
-  customYellow,
   customLightGreen,
   customLightGrey,
   customTomato,
   customGrey,
+  customRed,
 } from "../colors";
 
 const bounceInDownAnimation = keyframes`${bounceInDown}`;
@@ -89,7 +89,7 @@ export const StyledInput = styled.input`
   }
 
   &:focus {
-    border: 2px solid ${customTomato};
+    border: 2px solid ${customRed};
     box-shadow: 6px 6px 6px ${customBlack};
   }
 
@@ -198,7 +198,7 @@ export const StyledTextArea = styled.textarea`
   }
 
   &:focus {
-    border: 3px solid ${customTomato};
+    border: 3px solid ${customRed};
     box-shadow: 6px 6px 6px ${customBlack};
   }
 
@@ -340,7 +340,7 @@ export const SearchInput = styled.input`
 
   &:focus {
     box-shadow: 4px 4px 4px black;
-    border-color: ${customTomato};
+    border-color: ${customRed};
   }
 
   /* clears the ‘X’ from Internet Explorer */

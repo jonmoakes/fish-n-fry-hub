@@ -17,7 +17,7 @@ import { Title } from "../../styles/h1/h1.styles";
 import { Text } from "../../styles/p/p.styles";
 import { BlackHr } from "../../styles/hr/hr.styles";
 
-import { signInRoute, accountRoute } from "../../strings/routes/routes-strings";
+import { signInRoute, menuRoute } from "../../strings/routes/routes-strings";
 import SignUpButton from "./sign-up-button.component";
 
 const SignUp = () => {
@@ -27,7 +27,7 @@ const SignUp = () => {
 
   return (
     <Container>
-      {currentUser !== null && <Navigate replace to={accountRoute} />}
+      {currentUser !== null && <Navigate replace to={menuRoute} />}
       {currentUserIsLoading ? <Loader /> : null}
 
       <ParentDiv>

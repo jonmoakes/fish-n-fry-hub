@@ -100,7 +100,7 @@ export const SmallSpan = styled.span`
   color: ${customBlack};
 `;
 
-export const ToggleSignInPassword = styled.span.withConfig({
+export const SignInPasswordEye = styled.span.withConfig({
   shouldForwardProp: (prop) => prop !== "signInPasswordIsVisible",
 })`
   position: absolute;
@@ -124,25 +124,23 @@ export const ToggleSignInPassword = styled.span.withConfig({
   }
 `;
 
-export const SignUpPasswordEye = styled(ToggleSignInPassword).withConfig({
+export const SignUpPasswordEye = styled(SignInPasswordEye).withConfig({
   shouldForwardProp: (prop) => prop !== "signUpPasswordIsVisible",
 })`
   background-image: ${(props) =>
     `url(${props.signUpPasswordIsVisible ? eyeIconHide : eyeIcon})`};
 `;
 
-export const SignUpConfirmPasswordEye = styled(ToggleSignInPassword).withConfig(
-  {
-    shouldForwardProp: (prop) => prop !== "signUpConfirmPasswordIsVisible",
-  }
-)`
+export const SignUpConfirmPasswordEye = styled(SignInPasswordEye).withConfig({
+  shouldForwardProp: (prop) => prop !== "signUpConfirmPasswordIsVisible",
+})`
   background-image: ${(props) =>
     `url(${props.signUpConfirmPasswordIsVisible ? eyeIconHide : eyeIcon})`};
   width: ${(props) =>
     `url(${props.signUpConfirmPasswordIsVisible ? "25px" : "30px"})`};
 `;
 
-export const ToggleResetPassword = styled(ToggleSignInPassword).withConfig({
+export const ToggleResetPassword = styled(SignInPasswordEye).withConfig({
   shouldForwardProp: (prop) => prop !== "resetPasswordIsVisible",
 })`
   background-image: ${(props) =>
@@ -150,7 +148,7 @@ export const ToggleResetPassword = styled(ToggleSignInPassword).withConfig({
 `;
 
 export const ToggleResetPasswordConfirmPassword = styled(
-  ToggleSignInPassword
+  SignInPasswordEye
 ).withConfig({
   shouldForwardProp: (prop) => prop !== "resetPasswordConfirmPasswordIsVisible",
 })`
@@ -162,28 +160,26 @@ export const ToggleResetPasswordConfirmPassword = styled(
     `url(${props.resetPasswordConfirmPasswordIsVisible ? "25px" : "30px"})`};
 `;
 
-export const ToggleUpdateEmailPassword = styled(
-  ToggleSignInPassword
-).withConfig({
+export const ToggleUpdateEmailPassword = styled(SignInPasswordEye).withConfig({
   shouldForwardProp: (prop) => prop !== "updateEmailPasswordIsVisible",
 })`
   background-image: ${(props) =>
     `url(${props.updateEmailPasswordIsVisible ? eyeIconHide : eyeIcon})`};
 `;
 
-export const ToggleUpdatePassword = styled(ToggleSignInPassword).withConfig({
+export const ToggleUpdatePassword = styled(SignInPasswordEye).withConfig({
   shouldForwardProp: (prop) => prop !== "updatePasswordIsVisible",
 })`
   background-image: ${(props) =>
     `url(${props.updatePasswordIsVisible ? eyeIconHide : eyeIcon})`};
 `;
 
-export const ToggleConfirmUpdatePassword = styled(
-  ToggleSignInPassword
-).withConfig({
-  shouldForwardProp: (prop) =>
-    prop !== "updatePasswordConfirmPasswordIsVisible",
-})`
+export const ToggleConfirmUpdatePassword = styled(SignInPasswordEye).withConfig(
+  {
+    shouldForwardProp: (prop) =>
+      prop !== "updatePasswordConfirmPasswordIsVisible",
+  }
+)`
   background-image: ${(props) =>
     `url(${
       props.updatePasswordConfirmPasswordIsVisible ? eyeIconHide : eyeIcon
