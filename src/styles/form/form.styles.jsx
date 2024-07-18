@@ -336,7 +336,7 @@ export const SearchInput = styled.input`
   border: 2px solid ${customBlack};
   padding-left: 20px;
   font-family: inherit;
-  font-size: 20px;
+  font-size: 18px;
 
   &:focus {
     box-shadow: 4px 4px 4px black;

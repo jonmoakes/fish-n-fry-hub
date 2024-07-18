@@ -22,4 +22,6 @@ export const refundsPolicyRoute = "/refunds-policy";
 export const dataProtectionPolicyRoute = "/data-protection-policy";
 export const ownerOrdersRoute = "/orders";
 export const customerOrdersRoute = "/your-orders";
+export const mainMenuRoute = "/menu/*";
 export const menuRoute = "/menu";
+export const chosenCategoryRoute = "/category";

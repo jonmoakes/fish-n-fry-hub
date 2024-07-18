@@ -9,6 +9,7 @@ import {
   customYellow,
   customRed,
   customWhite,
+  customLightYellow,
 } from "../colors";
 
 import eyeIcon from "../../assets/eye.png";
@@ -72,6 +73,11 @@ export const LightGreenSpan = styled.span`
 
 export const BlackSpan = styled.span`
   color: ${customBlack};
+`;
+
+export const WhiteSpan = styled.span`
+  color: ${customWhite};
+  font-size: 20px;
 `;
 
 export const YellowShadowSpan = styled.span`
@@ -250,4 +256,46 @@ export const YellowSpan = styled.span`
 
 export const EmergencyDetailsSpan = styled.span`
   margin-left: 10px;
+`;
+
+export const Name = styled.span`
+  color: ${customWhite};
+  font-weight: bold;
+  font-size: 25px;
+  text-decoration: underline;
+  text-shadow: 1px 1px 1px ${customBlack};
+  margin-bottom: 10px;
+
+  @media screen and (max-width: 450px) {
+    margin-top: -10px;
+    font-size: 20px;
+  }
+`;
+
+export const Description = styled.span`
+  margin: 15px auto 10px auto;
+  color: ${customLightYellow};
+  font-weight: bold;
+  text-shadow: 1px 1px 1px ${customBlack};
+  font-size: 18px;
+
+  @media screen and (max-width: 450px) {
+    font-size: 16px;
+  }
+`;
+
+export const BasePrice = styled.span`
+  margin-top: 15px;
+  color: ${customWhite};
+`;
+
+export const Price = styled.span`
+  color: ${customLightGreen};
+  font-weight: bold;
+  font-size: 25px;
+  text-shadow: 1px 1px 1px ${customBlack};
+
+  @media screen and (max-width: 450px) {
+    width: unset;
+  }
 `;

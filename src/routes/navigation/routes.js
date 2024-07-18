@@ -7,9 +7,15 @@ import {
   allUsersRoute,
   customerOrdersRoute,
   ownerOrdersRoute,
+  menuRoute,
 } from "../../strings/routes/routes-strings";
 
-export const signedInRoutes = [customerOrdersRoute, accountRoute, contactRoute];
+export const signedInRoutes = [
+  menuRoute,
+  customerOrdersRoute,
+  accountRoute,
+  contactRoute,
+];
 
 export const ownerSignedInRoutes = [
   ownerOrdersRoute,

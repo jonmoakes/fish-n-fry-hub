@@ -3,6 +3,7 @@ import { combineReducers } from "@reduxjs/toolkit";
 import { hamburgerMenuReducer } from "./hamburger-menu/hamburger-menu.slice";
 import { signUpFormReducer } from "./sign-up-form/sign-up-form.slice";
 import { signInFormReducer } from "./sign-in-form/sign-in-form.slice";
+import { menuReducer } from "./menu/menu.slice";
 // import { contactFormReducer } from "./contact-form/contact-form.slice";
 import { userReducer } from "./user/user.slice";
 import { passwordIsVisibleReducer } from "./password-is-visible/password-is-visible.slice";
@@ -12,6 +13,7 @@ export const rootReducer = combineReducers({
   hamburgerMenu: hamburgerMenuReducer,
   signUpForm: signUpFormReducer,
   signInForm: signInFormReducer,
+  menu: menuReducer,
   // contactForm: contactFormReducer,
   user: userReducer,
   passwordIsVisible: passwordIsVisibleReducer,

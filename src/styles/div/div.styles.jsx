@@ -120,12 +120,16 @@ export const ParentDiv = styled.div`
     box-shadow: none;
   }
 
+  &.no-result-found {
+    background-color: ${customTomato};
+  }
+
   &.bounce {
-    animation: 2s ${bounceInDownAnimation};
+    animation: 1s ${bounceInDownAnimation};
   }
 
   &.left {
-    animation: 2s ${slideInLeftAnimation};
+    animation: 0.5s ${slideInLeftAnimation};
   }
 
   &.amount {
@@ -539,7 +543,7 @@ export const PaginationTextDiv = styled.div`
   margin-bottom: 20px;
 `;
 
-export const TableSearchDiv = styled.div`
+export const SearchDiv = styled.div`
   width: 50%;
   position: relative;
   margin: 0px auto -30px auto;
@@ -559,7 +563,7 @@ export const TableSearchDiv = styled.div`
 
   @media screen and (max-width: 450px) {
     width: 80%;
-    margin: 0px auto 0px auto;
+    margin: 0px auto 10px auto;
   }
 `;
 
@@ -639,4 +643,30 @@ export const PinkDiv = styled.div`
   padding: 0px 10px;
   border: 1px solid ${customBlack};
   border-radius: 5px;
+`;
+export const ProductItemDiv = styled.div`
+  margin: 0px auto 50px auto;
+  width: 75%;
+  height: auto;
+  background-color: ${backgroundBlue};
+  border: 1px solid ${customBlack};
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  padding: 20px 20px 30px 20px;
+  animation: 0.5s ${slideInLeftAnimation};
+
+  @media screen and (max-width: 1366px) {
+    width: 90%;
+  }
+
+  @media screen and (max-width: 450px) {
+    padding: 40px 10px 30px 10px;
+  }
+
+  @media screen and (max-width: 280px) {
+    padding: 40px 10px 50px 10px;
+  }
 `;

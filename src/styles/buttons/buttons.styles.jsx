@@ -425,3 +425,40 @@ export const ToggleShowPhoneNumberButton = styled(
   background-image: ${(props) =>
     `url(${props.showPhone ? eyeIconHide : eyeIcon})`};
 `;
+
+export const ChooseOptionsButton = styled.button`
+  width: 50%;
+  height: 50px;
+  background-color: ${customTomato};
+  cursor: pointer;
+  border: 1px solid ${customBlack};
+  border-radius: 5px;
+  margin-top: 10px;
+  font-family: inherit;
+  font-weight: bold;
+  color: ${customBlack};
+  font-size: 16px;
+  text-transform: capitalize;
+  outline: none;
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    transform: scale(1.1);
+
+    @media screen and (max-width: 1366px) {
+      transform: none;
+      transition: none;
+    }
+  }
+
+  @media screen and (max-width: 1366px) {
+    width: 60%;
+  }
+  @media screen and (max-width: 850px) {
+    width: 70%;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: 90%;
+  }
+`;
