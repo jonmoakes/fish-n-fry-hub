@@ -4,12 +4,11 @@ import { RedSpan } from "../../styles/span/span.styles";
 
 const RequiredInfoText = () => (
   <>
+    <Text>please note that items marked</Text>
     <Text>
-      please note items marked
-      <br />
       <RedSpan>* required</RedSpan>
-      <br /> must be selected in order to access the next step.
     </Text>
+    <Text> must be selected in order to access the next step.</Text>
     <BlackHr />
     <Text>
       any pricing changes for options selected will be reflected at the bottom

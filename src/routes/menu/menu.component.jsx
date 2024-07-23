@@ -1,29 +1,66 @@
 import { useEffect } from "react";
-import { Route, Routes } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import useGetMenuSelectors from "../../hooks/selectors/use-get-menu-selectors";
 import { fetchMenuDocumentsAsync } from "../../store/menu/menu-thunks";
+import useMenuLogic from "./menu-hooks/use-menu-logic";
 
-import CategorySelection from "../category-selection/category-selection.component";
-import ChosenCategory from "../chosen-category/chosen-category.component";
+import Loader from "../../components/loader/loader.component";
+import ShowFetchErrors from "../../components/errors/show-fetch-errors.component";
+import ItemSearch from "../../components/item-search/item-search.component";
+import CategoryButtons from "./category-buttons.component";
+import ItemsReturnedAfterSearchRequest from "../../components/items-returned-after-search-request/items-returned-after-search-request.component";
+
+import { Container } from "../../styles/container/container.styles";
+import { ParentDiv } from "../../styles/div/div.styles";
+import { Title } from "../../styles/h1/h1.styles";
+
+import { searchTermHasBeenEntered } from "../../functions/search-term-has-been-entered";
 
 const Menu = () => {
-  const { menuDocuments, menuError } = useGetMenuSelectors();
+  const {
+    menuIsLoading,
+    menuError,
+    searchField,
+    handleSearchFieldChange,
+    resetSearchField,
+    itemsReturnedFromSearch,
+  } = useMenuLogic();
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (menuError || (menuDocuments && menuDocuments.length)) return;
+    if (menuError) return;
 
     dispatch(fetchMenuDocumentsAsync());
-  }, [menuError, menuDocuments, dispatch]);
+  }, [menuError, dispatch]);
 
   return (
-    <Routes>
-      <Route index element={<CategorySelection />} />
-      <Route path=":category" element={<ChosenCategory />} />
-    </Routes>
+    <Container>
+      {menuIsLoading ? <Loader /> : null}
+      <ParentDiv>
+        <Title>menu</Title>
+      </ParentDiv>
+
+      {menuError ? (
+        <ShowFetchErrors />
+      ) : (
+        <>
+          <ItemSearch
+            {...{
+              searchField,
+              handleSearchFieldChange,
+              resetSearchField,
+            }}
+          />
+
+          <CategoryButtons {...{ searchField }} />
+
+          {searchTermHasBeenEntered(searchField) ? (
+            <ItemsReturnedAfterSearchRequest {...{ itemsReturnedFromSearch }} />
+          ) : null}
+        </>
+      )}
+    </Container>
   );
 };
 

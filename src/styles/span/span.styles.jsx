@@ -284,11 +284,6 @@ export const Description = styled.span`
   }
 `;
 
-export const BasePrice = styled.span`
-  margin-top: 15px;
-  color: ${customWhite};
-`;
-
 export const Price = styled.span`
   color: ${customLightGreen};
   font-weight: bold;

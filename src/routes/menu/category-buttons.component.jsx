@@ -1,12 +1,11 @@
-import { categories } from "../../constants/constants";
+import useMenuLogic from "./menu-hooks/use-menu-logic";
 
 import { YellowGreenButton } from "../../styles/buttons/buttons.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
 import { Text } from "../../styles/p/p.styles";
-import useCategorySelectionLogic from "./category-selection-logic-hooks/use-category-selection-logic";
 
 const CategoryButtons = ({ searchField }) => {
-  const { navigateToCategory } = useCategorySelectionLogic();
+  const { categories, navigateToCategory } = useMenuLogic();
 
   return (
     <>

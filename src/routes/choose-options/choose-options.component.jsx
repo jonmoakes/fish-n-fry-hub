@@ -6,8 +6,9 @@ import { Container } from "../../styles/container/container.styles";
 import { ParentDiv, ProductItemDiv } from "../../styles/div/div.styles";
 import { Title } from "../../styles/h1/h1.styles";
 import { Text } from "../../styles/p/p.styles";
-import { Name, Price } from "../../styles/span/span.styles";
+import { Name, Price, YellowShadowSpan } from "../../styles/span/span.styles";
 import { BlackHr } from "../../styles/hr/hr.styles";
+import Balancer from "react-wrap-balancer";
 
 const ChooseOptions = () => {
   const { name, price } = useChooseOptionsVariables();
@@ -15,11 +16,14 @@ const ChooseOptions = () => {
   return (
     <Container>
       <ParentDiv>
-        <Title>choose options</Title>
+        <Title>
+          <Balancer>
+            <YellowShadowSpan>{name}</YellowShadowSpan> options
+          </Balancer>
+        </Title>
       </ParentDiv>
       <ParentDiv>
         <RequiredInfoText />
-        <Text>you have selected:</Text>
       </ParentDiv>
 
       <ProductItemDiv>

@@ -1,8 +1,9 @@
-import useChosenCategoryLogic from "./chosen-category-logic-hooks/use-chosen-category-logic";
+import useChosenCategoryLogic from "./category-items-hooks/use-category-items-logic";
 
+import NoProductsFound from "./no-products-found.component";
 import ItemSearch from "../../components/item-search/item-search.component";
 import ItemsReturnedAfterSearchRequest from "../../components/items-returned-after-search-request/items-returned-after-search-request.component";
-import CategoryItems from "./category-items.component";
+import ChosenCategoryItems from "./chosen-category-items.component";
 
 import { Container } from "../../styles/container/container.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
@@ -10,14 +11,15 @@ import { Title } from "../../styles/h1/h1.styles";
 
 import { searchTermHasBeenEntered } from "../../functions/search-term-has-been-entered";
 
-const ChosenCategory = () => {
+const CategoryItems = () => {
   const {
     chosenCategory,
     itemsReturnedFromSearch,
     searchField,
     resetSearchField,
     handleSearchFieldChange,
-    menuDocumentsFromChosenCategory,
+    categoryItems,
+    categoryItemsFound,
   } = useChosenCategoryLogic();
 
   return (
@@ -34,13 +36,15 @@ const ChosenCategory = () => {
         }}
       />
 
-      {searchTermHasBeenEntered(searchField) ? (
+      {!categoryItemsFound ? (
+        <NoProductsFound />
+      ) : searchTermHasBeenEntered(searchField) ? (
         <ItemsReturnedAfterSearchRequest {...{ itemsReturnedFromSearch }} />
       ) : (
-        <CategoryItems {...{ menuDocumentsFromChosenCategory }} />
+        <ChosenCategoryItems {...{ categoryItems }} />
       )}
     </Container>
   );
 };
 
-export default ChosenCategory;
+export default CategoryItems;

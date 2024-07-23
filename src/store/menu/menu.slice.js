@@ -5,16 +5,12 @@ const INITIAL_STATE = {
   menuIsLoading: false,
   menuDocuments: [],
   menuError: null,
-  chosenCategory: "",
 };
 
 export const menuSlice = createSlice({
   name: "menu",
   initialState: INITIAL_STATE,
   reducers: {
-    setChosenCategory(state, action) {
-      state.chosenCategory = action.payload;
-    },
     resetMenuError(state) {
       state.menuError = null;
     },
@@ -43,21 +39,18 @@ export const menuSlice = createSlice({
       (state) => state.menuIsLoading,
       (state) => state.menuDocuments,
       (state) => state.menuError,
-      (state) => state.chosenCategory,
-      (menuIsLoading, menuDocuments, menuError, chosenCategory) => {
+      (menuIsLoading, menuDocuments, menuError) => {
         return {
           menuIsLoading,
           menuDocuments,
           menuError,
-          chosenCategory,
         };
       }
     ),
   },
 });
 
-export const { setChosenCategory, resetMenuError, resetMenuState } =
-  menuSlice.actions;
+export const { resetMenuError, resetMenuState } = menuSlice.actions;
 export const { selectMenuSelectors } = menuSlice.selectors;
 
 export const menuReducer = menuSlice.reducer;
