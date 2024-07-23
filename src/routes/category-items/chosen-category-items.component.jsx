@@ -3,10 +3,8 @@ import ProductItemDetails from "../../components/product-item-details/product-it
 const ChosenCategoryItems = ({ categoryItems }) => (
   <>
     {categoryItems.map((item) => {
-      const { id, name, description, price } = item;
-      return (
-        <ProductItemDetails key={id} {...{ id, name, description, price }} />
-      );
+      const { id } = item;
+      return <ProductItemDetails key={id} {...{ item }} />;
     })}
   </>
 );

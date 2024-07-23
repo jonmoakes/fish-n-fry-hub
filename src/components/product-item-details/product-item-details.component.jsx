@@ -6,11 +6,13 @@ import { ChooseOptionsButton } from "../../styles/buttons/buttons.styles";
 import { ProductItemDiv } from "../../styles/div/div.styles";
 import { Description, Name, Price } from "../../styles/span/span.styles";
 
-const ProductItemDetails = ({ id, name, description, price }) => {
+const ProductItemDetails = ({ item }) => {
   const { chooseAndNavigate } = useProductItemFunctions();
 
+  const { name, description, price } = item;
+
   return (
-    <ProductItemDiv key={id}>
+    <ProductItemDiv>
       <Name>{name}</Name>
       {description ? (
         <Description>
@@ -18,7 +20,7 @@ const ProductItemDetails = ({ id, name, description, price }) => {
         </Description>
       ) : null}
       <Price>£{price.toFixed(2)}</Price>
-      <ChooseOptionsButton onClick={() => chooseAndNavigate(name, price)}>
+      <ChooseOptionsButton onClick={() => chooseAndNavigate(item)}>
         Select & Choose Options
       </ChooseOptionsButton>
     </ProductItemDiv>

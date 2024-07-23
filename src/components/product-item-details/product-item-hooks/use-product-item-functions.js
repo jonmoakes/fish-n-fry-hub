@@ -10,11 +10,8 @@ const useProductItemFunctions = () => {
 
   const dispatch = useDispatch();
 
-  const chooseAndNavigate = (name, price) => {
-    // localStorage.setItem("chosenItemName", name);
-    // localStorage.setItem("chosenItemPrice", price);
-
-    dispatch(setSelectedItem({ name, price }));
+  const chooseAndNavigate = (item) => {
+    dispatch(setSelectedItem(item));
     setTimeout(() => {
       hamburgerHandlerNavigate(chooseOptionsRoute);
     }, 100);
