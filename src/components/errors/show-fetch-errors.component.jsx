@@ -1,5 +1,8 @@
+import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
+
 import useHandleShowError from "./errors-hooks/use-handle-show-error";
+import { resetMenuError } from "../../store/menu/menu.slice";
 
 import { BlackText, Text } from "../../styles/p/p.styles";
 import { BlackSpan } from "../../styles/span/span.styles";
@@ -10,14 +13,26 @@ import { StyledLink } from "../../styles/link/link.styles";
 import {
   contactRoute,
   databaseManagementRoute,
+  menuRoute,
 } from "../../strings/routes/routes-strings";
 
 const ShowFetchErrors = () => {
-  const { showErrorHeading, errorToDisplay, showTailInfoToUser } =
-    useHandleShowError();
+  const { showErrorHeading, errorToDisplay } = useHandleShowError();
 
   const location = useLocation();
+  const dispatch = useDispatch();
   const path = location.pathname;
+
+  const reload = () => {
+    if (path === menuRoute) {
+      dispatch(resetMenuError());
+      setTimeout(() => {
+        window.location.reload();
+      }, 200);
+    } else {
+      window.location.reload();
+    }
+  };
 
   return (
     <>
@@ -50,7 +65,7 @@ const ShowFetchErrors = () => {
           </Text>
           <Text>we apologise for the inconvenience!</Text>
 
-          <Button onClick={() => window.location.reload()}>reload</Button>
+          <Button onClick={reload}>reload</Button>
         </ParentDiv>
       ) : null}
     </>

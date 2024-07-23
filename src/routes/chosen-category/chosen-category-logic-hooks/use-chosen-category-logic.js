@@ -7,23 +7,12 @@ const useChosenCategoryLogic = () => {
   const { searchField, resetSearchField, handleSearchFieldChange } =
     useSetSearchField();
 
-  const menuItemsDoNotExist = !menuDocumentsFromChosenCategory && true;
-
-  const menuItemsExist =
-    menuDocumentsFromChosenCategory &&
-    menuDocumentsFromChosenCategory.length &&
-    true;
-
-  const itemsReturnedFromSearch = menuItemsExist
-    ? menuDocumentsFromChosenCategory.filter((doc) =>
-        doc.name.toLowerCase().includes(searchField.toLowerCase())
-      )
-    : null;
+  const itemsReturnedFromSearch = menuDocumentsFromChosenCategory.filter(
+    (doc) => doc.name.toLowerCase().includes(searchField.toLowerCase())
+  );
 
   return {
     chosenCategory,
-    menuItemsDoNotExist,
-    menuItemsExist,
     searchField,
     resetSearchField,
     handleSearchFieldChange,

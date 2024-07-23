@@ -15,6 +15,7 @@ import {
   mainMenuRoute,
   signInRoute,
   signUpRoute,
+  chooseOptionsRoute,
 } from "./strings/routes/routes-strings";
 // import FloatingBackButton from "./components/floating-back-button/floating-back-button.component";
 
@@ -25,6 +26,9 @@ const Home = lazy(() => import("./routes/home/home.component"));
 const SignUp = lazy(() => import("./routes/sign-up/sign-up.component"));
 const SignIn = lazy(() => import("./routes/sign-in/sign-in.component"));
 const Menu = lazy(() => import("./routes/menu/menu.component"));
+const ChooseOptions = lazy(() =>
+  import("./routes/choose-options/choose-options.component")
+);
 
 const App = () => {
   // const { currentUser, appOwnerId } = useGetCurrentUserSelectors();
@@ -43,6 +47,7 @@ const App = () => {
             <Route path={signUpRoute} element={<SignUp />} />
             <Route path={signInRoute} element={<SignIn />} />
             <Route path={mainMenuRoute} element={<Menu />} />
+            <Route path={chooseOptionsRoute} element={<ChooseOptions />} />
             <Route element={<PrivateRoutes />}></Route>
           </Routes>
         </Suspense>

@@ -15,6 +15,9 @@ export const menuSlice = createSlice({
     setChosenCategory(state, action) {
       state.chosenCategory = action.payload;
     },
+    resetMenuError(state) {
+      state.menuError = null;
+    },
     resetMenuState: () => {
       return INITIAL_STATE;
     },
@@ -53,7 +56,8 @@ export const menuSlice = createSlice({
   },
 });
 
-export const { setChosenCategory, resetMenuState } = menuSlice.actions;
+export const { setChosenCategory, resetMenuError, resetMenuState } =
+  menuSlice.actions;
 export const { selectMenuSelectors } = menuSlice.selectors;
 
 export const menuReducer = menuSlice.reducer;

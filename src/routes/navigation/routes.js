@@ -25,6 +25,7 @@ export const ownerSignedInRoutes = [
 ];
 
 export const signedOutRoutes = [
+  menuRoute,
   signInRoute,
   signUpRoute,
   aboutRoute,

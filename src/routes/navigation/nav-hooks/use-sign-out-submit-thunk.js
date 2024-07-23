@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
 
 import useFireSwal from "../../../hooks/use-fire-swal";
-import useResetAllStoreOnSignOut from "../../../hooks/use-reset-all-store-on-sign-out";
+import useResetAllStoreOnSignOut from "./use-reset-all-store-on-sign-out";
 import useHamburgerHandlerNavigate from "../../../hooks/use-hamburger-handler-navigate";
 
 import { signOutAsync } from "../../../store/user/user.thunks";

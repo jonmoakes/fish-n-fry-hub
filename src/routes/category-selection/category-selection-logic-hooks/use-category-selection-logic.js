@@ -14,22 +14,19 @@ const useCategorySelectionLogic = () => {
   const { hamburgerHandlerNavigate } = useHamburgerHandlerNavigate();
 
   const location = useLocation();
+  const path = location.pathname;
   const dispatch = useDispatch();
 
   const navigateToCategory = (category) => {
     dispatch(setChosenCategory(category));
     setTimeout(() => {
-      hamburgerHandlerNavigate(`${location.pathname}/${category}`);
+      hamburgerHandlerNavigate(`${path}/${category}`);
     }, 100);
   };
 
-  const menuItemsExist = menuDocuments && menuDocuments.length && true;
-
-  const itemsReturnedFromSearch = menuItemsExist
-    ? menuDocuments.filter((doc) =>
-        doc.name.toLowerCase().includes(searchField.toLowerCase())
-      )
-    : null;
+  const itemsReturnedFromSearch = menuDocuments.filter((doc) =>
+    doc.name.toLowerCase().includes(searchField.toLowerCase())
+  );
 
   return {
     menuError,
