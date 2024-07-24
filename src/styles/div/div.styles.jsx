@@ -657,9 +657,11 @@ export const ProductItemDiv = styled.div`
   position: relative;
   padding: 20px 20px 30px 20px;
   animation: 0.5s ${slideInLeftAnimation};
+  box-shadow: 6px 6px 15px ${customBlack};
 
   @media screen and (max-width: 1366px) {
     width: 90%;
+    box-shadow: none;
   }
 
   @media screen and (max-width: 450px) {
@@ -669,4 +671,19 @@ export const ProductItemDiv = styled.div`
   @media screen and (max-width: 280px) {
     padding: 40px 10px 50px 10px;
   }
+`;
+
+export const Section = styled.div`
+  height: auto;
+  width: 100%;
+`;
+
+export const TypeSection = styled(Section)`
+  padding-bottom: 10px;
+`;
+
+export const RequiredDiv = styled.div`
+  margin: 0px auto 20px auto;
+  width: auto;
+  height: auto;
 `;

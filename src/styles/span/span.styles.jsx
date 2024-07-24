@@ -77,6 +77,7 @@ export const BlackSpan = styled.span`
 
 export const WhiteSpan = styled.span`
   color: ${customWhite};
+  text-shadow: 1px 1px 1px ${customBlack};
   font-size: 20px;
 `;
 
@@ -293,4 +294,12 @@ export const Price = styled.span`
   @media screen and (max-width: 450px) {
     width: unset;
   }
+`;
+
+export const RequiredSpan = styled.span`
+  color: ${customTomato};
+  background-color: ${customBlack};
+  padding: 5px;
+  border-radius: 5px;
+  text-transform: capitalize;
 `;

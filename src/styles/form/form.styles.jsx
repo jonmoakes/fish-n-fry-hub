@@ -22,6 +22,11 @@ export const Form = styled.form`
   background-color: ${customGrey};
   border: 2px solid ${customBlack};
   border-radius: 5px;
+  box-shadow: 6px 6px 15px ${customBlack};
+
+  &.no-margin-top {
+    margin: 0px auto 20px auto;
+  }
 
   &.below-accordion {
     margin: 20px auto 70px auto;
@@ -45,6 +50,7 @@ export const Form = styled.form`
 
   @media screen and (max-width: 1366px) {
     width: 90%;
+    box-shadow: none;
   }
 
   @media screen and (max-width: 450px) {
@@ -302,6 +308,13 @@ export const Label = styled.label`
   float: left;
   padding-left: 20px;
 
+  &.no-padding {
+    margin-top: 10px;
+    float: unset;
+    padding-left: 0px;
+    text-shadow: none;
+  }
+
   @media screen and (max-width: 1000px) {
     padding-left: 15px;
   }
@@ -448,7 +461,7 @@ export const StyledCheckbox = styled.input`
 export const OptionsForm = styled.form`
   width: 50%;
   height: auto;
-  background-color: ${customBlue};
+  background-color: ${customGrey};
   margin: 20px auto;
   border-radius: 5px;
   display: flex;
@@ -457,10 +470,12 @@ export const OptionsForm = styled.form`
   padding: 20px 0px 20px 0px;
   animation: 0.5s ${bounceInDownAnimation};
   border: 2px solid ${customBlack};
+  box-shadow: 6px 6px 15px ${customBlack};
 
   @media screen and (max-width: 1366px) {
     width: 70%;
     padding: 10px 0px 20px 0px;
+    box-shadow: none;
   }
 
   @media screen and (max-width: 850px) {

@@ -11,6 +11,7 @@ const useProductItemFunctions = () => {
   const dispatch = useDispatch();
 
   const chooseAndNavigate = (item) => {
+    item = { ...item, quantity: 1 };
     dispatch(setSelectedItem(item));
     setTimeout(() => {
       hamburgerHandlerNavigate(chooseOptionsRoute);

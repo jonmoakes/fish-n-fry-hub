@@ -59,3 +59,10 @@ export const ErrorImageText = styled.p`
 export const PaginationText = styled.p`
   color: ${customBlack};
 `;
+
+export const AdditionalPrice = styled.p`
+  font-size: 16px;
+  color: ${customBlack};
+  text-shadow: none;
+  margin-top: -15px;
+`;

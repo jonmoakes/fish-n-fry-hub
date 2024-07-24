@@ -9,21 +9,23 @@ import { Description, Name, Price } from "../../styles/span/span.styles";
 const ProductItemDetails = ({ item }) => {
   const { chooseAndNavigate } = useProductItemFunctions();
 
-  const { name, description, price } = item;
+  const { name, description, price } = item ?? {};
 
   return (
-    <ProductItemDiv>
-      <Name>{name}</Name>
-      {description ? (
-        <Description>
-          <Balancer>{description}</Balancer>
-        </Description>
-      ) : null}
-      <Price>£{price.toFixed(2)}</Price>
-      <ChooseOptionsButton onClick={() => chooseAndNavigate(item)}>
-        Select & Choose Options
-      </ChooseOptionsButton>
-    </ProductItemDiv>
+    <>
+      <ProductItemDiv>
+        <Name>{name}</Name>
+        {description ? (
+          <Description>
+            <Balancer>{description}</Balancer>
+          </Description>
+        ) : null}
+        <Price>£{(price / 100).toFixed(2)}</Price>
+        <ChooseOptionsButton onClick={() => chooseAndNavigate(item)}>
+          Select & Choose Options
+        </ChooseOptionsButton>
+      </ProductItemDiv>
+    </>
   );
 };
 

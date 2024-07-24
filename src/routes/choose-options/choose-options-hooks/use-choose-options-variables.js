@@ -1,9 +1,61 @@
 import useGetChooseOptionsSelectors from "../../../hooks/selectors/use-get-choose-options-selectors";
 
 const useChooseOptionsVariables = () => {
-  const { name, price } = useGetChooseOptionsSelectors();
+  const {
+    selectedItem,
+    categoryItems,
+    optionsPricesIsLoading,
+    optionsPrices,
+    optionsPricesError,
+    name,
+    price,
+    quantity,
+    hasOptions,
+    hasSizeOption,
+    sizeOptionDoublePrice,
+    sizeOptionTriplePrice,
+    chosenSize,
+    hasCheeseSliceOption,
+    cheeseSliceChoice,
+    hasGratedCheeseOption,
+    gratedCheeseChoice,
+    hasDonerMeatOption,
+    donerMeatChoice,
+    hasSaladOption,
+    saladChoice,
+    hasSaucesOption,
+    saucesChoice,
+    donerMeatPrice,
+    gratedCheesePrice,
+  } = useGetChooseOptionsSelectors();
 
-  return { name, price };
+  return {
+    selectedItem,
+    categoryItems,
+    optionsPricesIsLoading,
+    optionsPrices,
+    optionsPricesError,
+    name,
+    price,
+    quantity,
+    hasOptions,
+    hasSizeOption,
+    sizeOptionDoublePrice,
+    sizeOptionTriplePrice,
+    chosenSize,
+    hasCheeseSliceOption,
+    cheeseSliceChoice,
+    hasGratedCheeseOption,
+    gratedCheeseChoice,
+    gratedCheesePrice,
+    hasDonerMeatOption,
+    donerMeatPrice,
+    donerMeatChoice,
+    hasSaladOption,
+    saladChoice,
+    hasSaucesOption,
+    saucesChoice,
+  };
 };
 
 export default useChooseOptionsVariables;

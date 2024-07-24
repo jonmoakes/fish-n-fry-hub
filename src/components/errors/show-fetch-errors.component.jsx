@@ -11,10 +11,12 @@ import { Button } from "../../styles/buttons/buttons.styles";
 import { StyledLink } from "../../styles/link/link.styles";
 
 import {
+  chooseOptionsRoute,
   contactRoute,
   databaseManagementRoute,
   menuRoute,
 } from "../../strings/routes/routes-strings";
+import { resetOptionsPricesError } from "../../store/choose-options/choose-options.slice";
 
 const ShowFetchErrors = () => {
   const { showErrorHeading, errorToDisplay } = useHandleShowError();
@@ -23,12 +25,19 @@ const ShowFetchErrors = () => {
   const dispatch = useDispatch();
   const path = location.pathname;
 
+  const reloadAfterTimeOut = () => {
+    setTimeout(() => {
+      window.location.reload();
+    }, 200);
+  };
+
   const reload = () => {
     if (path === menuRoute) {
       dispatch(resetMenuError());
-      setTimeout(() => {
-        window.location.reload();
-      }, 200);
+      reloadAfterTimeOut();
+    } else if (path === chooseOptionsRoute) {
+      dispatch(resetOptionsPricesError());
+      reloadAfterTimeOut();
     } else {
       window.location.reload();
     }

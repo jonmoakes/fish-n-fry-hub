@@ -1,3 +1,3 @@
 export const searchTermHasBeenEntered = (searchField) => {
-  return searchField.length && true;
+  return searchField.length ? true : false;
 };

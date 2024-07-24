@@ -3,7 +3,7 @@ import useChosenCategoryLogic from "./category-items-hooks/use-category-items-lo
 import NoProductsFound from "./no-products-found.component";
 import ItemSearch from "../../components/item-search/item-search.component";
 import ItemsReturnedAfterSearchRequest from "../../components/items-returned-after-search-request/items-returned-after-search-request.component";
-import ChosenCategoryItems from "./chosen-category-items.component";
+import ProductItemDetails from "../../components/product-item-details/product-item-details.component";
 
 import { Container } from "../../styles/container/container.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
@@ -41,7 +41,12 @@ const CategoryItems = () => {
       ) : searchTermHasBeenEntered(searchField) ? (
         <ItemsReturnedAfterSearchRequest {...{ itemsReturnedFromSearch }} />
       ) : (
-        <ChosenCategoryItems {...{ categoryItems }} />
+        <>
+          {categoryItems.map((item) => {
+            const { id } = item;
+            return <ProductItemDetails key={id} {...{ item }} />;
+          })}
+        </>
       )}
     </Container>
   );

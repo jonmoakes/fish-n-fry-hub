@@ -22,4 +22,5 @@ export const BlackH2 = styled.h2`
 
 export const WhiteH2 = styled.h2`
   color: ${customWhite};
+  text-shadow: 1px 1px 1px ${customBlack};
 `;
