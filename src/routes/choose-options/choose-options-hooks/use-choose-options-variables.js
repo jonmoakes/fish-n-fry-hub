@@ -14,7 +14,7 @@ const useChooseOptionsVariables = () => {
     hasSizeOption,
     sizeOptionDoublePrice,
     sizeOptionTriplePrice,
-    chosenSize,
+    sizeChoice,
     hasCheeseSliceOption,
     cheeseSliceChoice,
     hasGratedCheeseOption,
@@ -24,9 +24,15 @@ const useChooseOptionsVariables = () => {
     hasSaladOption,
     saladChoice,
     hasSaucesOption,
-    saucesChoice,
+    saucesChosen,
     donerMeatPrice,
     gratedCheesePrice,
+    hasSaltAndVinegarOption,
+    saltAndVinegarChoice,
+    hasChooseCanOption,
+    chooseCanChoice,
+    canDocuments,
+    canDocumentsError,
   } = useGetChooseOptionsSelectors();
 
   return {
@@ -42,7 +48,7 @@ const useChooseOptionsVariables = () => {
     hasSizeOption,
     sizeOptionDoublePrice,
     sizeOptionTriplePrice,
-    chosenSize,
+    sizeChoice,
     hasCheeseSliceOption,
     cheeseSliceChoice,
     hasGratedCheeseOption,
@@ -54,7 +60,13 @@ const useChooseOptionsVariables = () => {
     hasSaladOption,
     saladChoice,
     hasSaucesOption,
-    saucesChoice,
+    saucesChosen,
+    hasSaltAndVinegarOption,
+    saltAndVinegarChoice,
+    hasChooseCanOption,
+    chooseCanChoice,
+    canDocuments,
+    canDocumentsError,
   };
 };
 

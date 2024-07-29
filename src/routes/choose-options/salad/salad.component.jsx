@@ -7,20 +7,20 @@ import { H2 } from "../../../styles/h2/h2.styles";
 import { ParentDiv, RadioDiv } from "../../../styles/div/div.styles";
 import { OptionsForm, StyledCheckbox } from "../../../styles/form/form.styles";
 
-const CheeseSlice = () => {
-  const { hasCheeseSliceOption } = useChooseOptionsVariables();
+const Salad = () => {
+  const { hasSaladOption } = useChooseOptionsVariables();
   const { handleSingleChoiceCheckboxChange } = useChooseOptionsFunctions();
 
   return (
     <>
-      {hasCheeseSliceOption ? (
+      {hasSaladOption ? (
         <ParentDiv>
           <H2>
-            <Balancer>add a cheese slice?</Balancer>
+            <Balancer>add salad?</Balancer>
           </H2>
           <OptionsForm onChange={handleSingleChoiceCheckboxChange}>
             <RadioDiv>
-              <StyledCheckbox type="checkbox" name="cheeseSliceChoice" />
+              <StyledCheckbox type="checkbox" name="saladChoice" />
             </RadioDiv>
           </OptionsForm>
         </ParentDiv>
@@ -29,4 +29,4 @@ const CheeseSlice = () => {
   );
 };
 
-export default CheeseSlice;
+export default Salad;

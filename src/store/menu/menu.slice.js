@@ -39,6 +39,7 @@ export const menuSlice = createSlice({
       (state) => state.menuIsLoading,
       (state) => state.menuDocuments,
       (state) => state.menuError,
+
       (menuIsLoading, menuDocuments, menuError) => {
         return {
           menuIsLoading,

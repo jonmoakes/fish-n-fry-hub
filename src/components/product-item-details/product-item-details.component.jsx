@@ -14,7 +14,9 @@ const ProductItemDetails = ({ item }) => {
   return (
     <>
       <ProductItemDiv>
-        <Name>{name}</Name>
+        <Name>
+          <Balancer>{name}</Balancer>
+        </Name>
         {description ? (
           <Description>
             <Balancer>{description}</Balancer>

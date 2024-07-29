@@ -18,7 +18,7 @@ import { H2 } from "../../../styles/h2/h2.styles";
 const ChooseSize = () => {
   const { sizeOptionDoublePrice, sizeOptionTriplePrice } =
     useChooseOptionsVariables();
-  const { handleSizeChange } = useChooseOptionsFunctions();
+  const { handleRadioChange } = useChooseOptionsFunctions();
 
   return (
     <ParentDiv>
@@ -30,9 +30,9 @@ const ChooseSize = () => {
 
       <Form className="no-margin-top">
         <RadioDiv>
-          <SingleSize {...{ handleSizeChange }} />
-          <DoubleSize {...{ sizeOptionDoublePrice, handleSizeChange }} />
-          <TripleSize {...{ sizeOptionTriplePrice, handleSizeChange }} />
+          <SingleSize {...{ handleRadioChange }} />
+          <DoubleSize {...{ sizeOptionDoublePrice, handleRadioChange }} />
+          <TripleSize {...{ sizeOptionTriplePrice, handleRadioChange }} />
         </RadioDiv>
       </Form>
     </ParentDiv>

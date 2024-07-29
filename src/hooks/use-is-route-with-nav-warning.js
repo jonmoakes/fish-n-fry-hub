@@ -1,18 +1,13 @@
-// import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
+import { chooseOptionsRoute } from "../strings/routes/routes-strings";
 
 const useIsRouteWithNavWarning = () => {
-  // const location = useLocation();
-  // const path = location.pathname;
+  const location = useLocation();
+  const path = location.pathname;
 
   const isRouteWithNavWarning = () => {
-    return false;
-    // return path === bookSessionRoute ||
-    //   path === bookRecurringSessionsRoute ||
-    //   path === addFundsRoute ||
-    //   path === addChildInfoRoute ||
-    //   path === cancelBookingRoute
-    //   ? true
-    //   : false;
+    return path === chooseOptionsRoute ? true : false;
   };
 
   return { isRouteWithNavWarning };

@@ -7,7 +7,9 @@ import { Name, Price } from "../../styles/span/span.styles";
 
 const ChooseOptionsItemBasicInfo = ({ name, price }) => (
   <ProductItemDiv>
-    <Name>{name}</Name>
+    <Name>
+      <Balancer>{name}</Balancer>
+    </Name>
     <BlackHr />
     <Text>
       <Balancer>price without options:</Balancer>

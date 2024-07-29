@@ -25,3 +25,4 @@ export const customerOrdersRoute = "/your-orders";
 export const menuRoute = "/menu";
 export const categoryItemsRoute = "/category-items";
 export const chooseOptionsRoute = "/choose-option";
+export const uploadMenuItemsRoute = "/upload-menu-items";

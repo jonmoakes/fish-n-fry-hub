@@ -3,11 +3,14 @@ import useGetMenuSelectors from "../../../hooks/selectors/use-get-menu-selectors
 
 const useHandleShowError = () => {
   const { menuError } = useGetMenuSelectors();
-  const { optionsPricesError } = useGetChooseOptionsSelectors();
+  const { optionsPricesError, canDocumentsError } =
+    useGetChooseOptionsSelectors();
 
   const showErrorHeading = () => {
     if (menuError) return "failed to fetch menu data.";
     if (optionsPricesError) return "failed to fetch options prices";
+    if (canDocumentsError)
+      return "failed to fetch our list of drinks to go with your order";
     // add more if needed with if statement for each
   };
 
@@ -15,6 +18,7 @@ const useHandleShowError = () => {
     const errors = [
       menuError,
       optionsPricesError,
+      canDocumentsError,
       // add more separated by comma
     ];
 

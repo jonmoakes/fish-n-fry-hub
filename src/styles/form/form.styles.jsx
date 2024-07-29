@@ -10,6 +10,8 @@ import {
   customTomato,
   customGrey,
   customRed,
+  customGreen,
+  customYellow,
 } from "../colors";
 
 const bounceInDownAnimation = keyframes`${bounceInDown}`;
@@ -427,34 +429,33 @@ export const StyledCheckbox = styled.input`
   /* Not removed via appearance */
   margin: 10px auto 0px auto;
   font-family: inherit;
-  background-color: lightgrey;
-  width: 1.5rem;
-  height: 1.5rem;
+
+  width: 1.9rem;
+  height: 1.9rem;
   border: 2px solid black;
   border-radius: 0.15em;
   transform: translateY(-0.075em);
   display: grid;
   place-content: center;
 
+  &.multiple {
+    margin: 10px auto 15px auto;
+  }
+
   &::before {
     content: "";
-    width: 0.9rem;
-    height: 0.9rem;
+    width: 1.3rem;
+    height: 1.3rem;
     clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
     transform: scale(0);
     transform-origin: bottom left;
     transition: 120ms transform ease-in-out;
-    box-shadow: inset 1em 1em var(black);
     /* Windows High Contrast Mode */
-    background-color: black;
+    background-color: ${customRed};
   }
 
   &:checked::before {
     transform: scale(1);
-  }
-
-  &:focus {
-    outline: max(2px, 0.15em) solid black;
   }
 `;
 

@@ -4,8 +4,10 @@ import { ErrorBoundary } from "react-error-boundary";
 import { GlobalStyle } from "./global-styles";
 import "./App.css";
 
-// import useGetCurrentUserSelectors from "./hooks/selectors/use-get-current-user-selectors";
+import useGetCurrentUserSelectors from "./hooks/selectors/use-get-current-user-selectors";
 import useGetUserOnLoadThunkUseEffect from "./hooks/use-get-user-on-load-thunk-use-effect";
+
+import { appOwnerId } from "./constants/constants";
 
 import useScrollToTop from "./hooks/use-scroll-to-top";
 import PrivateRoutes from "./components/private-routes/private-routes.component";
@@ -17,6 +19,7 @@ import {
   signUpRoute,
   chooseOptionsRoute,
   categoryItemsRoute,
+  uploadMenuItemsRoute,
 } from "./strings/routes/routes-strings";
 // import FloatingBackButton from "./components/floating-back-button/floating-back-button.component";
 
@@ -33,9 +36,12 @@ const CategoryItems = lazy(() =>
 const ChooseOptions = lazy(() =>
   import("./routes/choose-options/choose-options.component")
 );
+const UploadMenuItems = lazy(() =>
+  import("./routes/upload-menu-items/upload-menu-items.component")
+);
 
 const App = () => {
-  // const { currentUser, appOwnerId } = useGetCurrentUserSelectors();
+  const { currentUser } = useGetCurrentUserSelectors();
   useGetUserOnLoadThunkUseEffect();
   useScrollToTop();
 
@@ -53,7 +59,16 @@ const App = () => {
             <Route path={menuRoute} element={<Menu />} />
             <Route path={categoryItemsRoute} element={<CategoryItems />} />
             <Route path={chooseOptionsRoute} element={<ChooseOptions />} />
-            <Route element={<PrivateRoutes />}></Route>
+            <Route element={<PrivateRoutes />}>
+              <Route
+                path={uploadMenuItemsRoute}
+                element={
+                  currentUser && currentUser.id === appOwnerId ? (
+                    <UploadMenuItems />
+                  ) : null
+                }
+              />
+            </Route>
           </Routes>
         </Suspense>
       </ErrorBoundary>

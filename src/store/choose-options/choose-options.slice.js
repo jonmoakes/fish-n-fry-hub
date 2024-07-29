@@ -1,5 +1,8 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { fetchOptionsPricesDocumentsAsync } from "./choose-options-thunks";
+import {
+  fetchOptionsPricesDocumentsAsync,
+  getCansDocumentsAsync,
+} from "./choose-options-thunks";
 
 const INITIAL_STATE = {
   categoryItems: [],
@@ -7,6 +10,8 @@ const INITIAL_STATE = {
   optionsPricesIsLoading: false,
   optionsPrices: {},
   optionsPricesError: null,
+  canDocuments: [],
+  canDocumentsError: null,
 };
 
 export const chooseOptionsSlice = createSlice({
@@ -34,6 +39,9 @@ export const chooseOptionsSlice = createSlice({
     resetOptionsPricesError(state) {
       state.optionsPricesError = null;
     },
+    resetCanDocumentsError(state) {
+      state.canDocumentsError = null;
+    },
     resetChooseOptionsState: () => {
       return INITIAL_STATE;
     },
@@ -52,6 +60,19 @@ export const chooseOptionsSlice = createSlice({
         state.optionsPricesIsLoading = false;
         state.optionsPrices = {};
         state.optionsPricesError = action.payload;
+      })
+      .addCase(getCansDocumentsAsync.pending, (state) => {
+        state.menuIsLoading = true;
+      })
+      .addCase(getCansDocumentsAsync.fulfilled, (state, action) => {
+        state.menuIsLoading = false;
+        state.canDocuments = action.payload;
+        state.canDocumentsError = null;
+      })
+      .addCase(getCansDocumentsAsync.rejected, (state, action) => {
+        state.menuIsLoading = false;
+        state.canDocuments = [];
+        state.canDocumentsError = action.payload;
       });
   },
   selectors: {
@@ -61,12 +82,16 @@ export const chooseOptionsSlice = createSlice({
       (state) => state.optionsPricesIsLoading,
       (state) => state.optionsPrices,
       (state) => state.optionsPricesError,
+      (state) => state.canDocuments,
+      (state) => state.canDocumentsError,
       (
         selectedItem,
         categoryItems,
         optionsPricesIsLoading,
         optionsPrices,
-        optionsPricesError
+        optionsPricesError,
+        canDocuments,
+        canDocumentsError
       ) => {
         return {
           selectedItem,
@@ -74,6 +99,8 @@ export const chooseOptionsSlice = createSlice({
           optionsPricesIsLoading,
           optionsPrices,
           optionsPricesError,
+          canDocuments,
+          canDocumentsError,
         };
       }
     ),
@@ -87,6 +114,7 @@ export const {
   updateSelectedItem,
   resetSelectedItem,
   resetOptionsPricesError,
+  resetCanDocumentsError,
   resetChooseOptionsState,
   setPricesOfOptionsSelected,
 } = chooseOptionsSlice.actions;

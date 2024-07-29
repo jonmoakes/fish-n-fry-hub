@@ -6,9 +6,10 @@ export const optionsPricesCollectionId = import.meta.env
 export const optionsPricesDocumentId = import.meta.env
   .VITE_OPTIONS_PRICES_DOCUMENT_ID;
 export const burgersCollectionId = import.meta.env.VITE_BURGERS_COLLECTION_ID;
+export const chickenCollectionId = import.meta.env.VITE_CHICKEN_COLLECTION_ID;
 export const drinksCollectionId = import.meta.env.VITE_DRINKS_COLLECTIONS_ID;
 
-export const categories = ["burgers", "drinks"];
+export const categories = ["burgers", "chicken", "drinks"];
 
 export const standardRateLimit = 500;
 export const highRateLimit = 1000;

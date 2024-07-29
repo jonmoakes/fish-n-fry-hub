@@ -5,10 +5,15 @@ import {
   standardRateLimit,
   databaseId,
   burgersCollectionId,
+  chickenCollectionId,
   drinksCollectionId,
 } from "../../constants/constants";
 
-const collections = [burgersCollectionId, drinksCollectionId];
+const collections = [
+  burgersCollectionId,
+  chickenCollectionId,
+  drinksCollectionId,
+];
 
 export const fetchMenuDocumentsAsync = createAsyncThunk(
   "fetchMenuDocuments",

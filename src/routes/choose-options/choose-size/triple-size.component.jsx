@@ -2,7 +2,7 @@ import { Label } from "../../../styles/form/form.styles";
 import { BlackHr } from "../../../styles/hr/hr.styles";
 import { BlackSpan } from "../../../styles/span/span.styles";
 
-const TripleSize = ({ sizeOptionTriplePrice, handleSizeChange }) => (
+const TripleSize = ({ sizeOptionTriplePrice, handleRadioChange }) => (
   <>
     {sizeOptionTriplePrice ? (
       <>
@@ -15,9 +15,9 @@ const TripleSize = ({ sizeOptionTriplePrice, handleSizeChange }) => (
 
         <input
           type="radio"
-          name="chosenSize"
+          name="sizeChoice"
           value="triple"
-          onChange={handleSizeChange}
+          onChange={handleRadioChange}
         />
 
         <BlackHr />

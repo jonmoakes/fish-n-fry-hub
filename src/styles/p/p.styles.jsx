@@ -1,5 +1,11 @@
 import styled from "styled-components";
-import { customBlack, customTomato, customWhite } from "../colors";
+import {
+  customBlack,
+  customRed,
+  customTomato,
+  customWhite,
+  customYellow,
+} from "../colors";
 
 export const Text = styled.p`
   color: ${customWhite};
@@ -65,4 +71,9 @@ export const AdditionalPrice = styled.p`
   color: ${customBlack};
   text-shadow: none;
   margin-top: -15px;
+`;
+
+export const OptionsLabel = styled.p`
+  color: ${customBlack};
+  margin-top: 5px;
 `;

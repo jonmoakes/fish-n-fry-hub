@@ -7,7 +7,7 @@ const useChooseOptionsFunctions = () => {
   const {
     price,
     quantity,
-    chosenSize,
+    sizeChoice,
     sizeOptionDoublePrice,
     sizeOptionTriplePrice,
     gratedCheeseChoice,
@@ -15,9 +15,10 @@ const useChooseOptionsFunctions = () => {
     donerMeatChoice,
     donerMeatPrice,
   } = useChooseOptionsVariables();
+
   const dispatch = useDispatch();
 
-  const handleSizeChange = (event) => {
+  const handleRadioChange = (event) => {
     const { value, name } = event.target;
     dispatch(updateSelectedItem({ [name]: value }));
   };
@@ -32,8 +33,8 @@ const useChooseOptionsFunctions = () => {
     }
   };
 
-  const chosenSizePrice = () => {
-    switch (chosenSize) {
+  const sizeChoicePrice = () => {
+    switch (sizeChoice) {
       case "single":
         return price;
       case "double":
@@ -69,12 +70,16 @@ const useChooseOptionsFunctions = () => {
 
   const calculatePrice = () => {
     return (
-      (chosenSizePrice() + chosenGratedCheesePrice() + chosenDonerMeatPrice()) *
+      (sizeChoicePrice() + chosenGratedCheesePrice() + chosenDonerMeatPrice()) *
       Number(quantity)
     );
   };
 
-  return { handleSizeChange, handleSingleChoiceCheckboxChange, calculatePrice };
+  return {
+    handleRadioChange,
+    handleSingleChoiceCheckboxChange,
+    calculatePrice,
+  };
 };
 
 export default useChooseOptionsFunctions;

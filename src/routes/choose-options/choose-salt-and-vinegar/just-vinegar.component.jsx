@@ -1,16 +1,14 @@
 import { Label } from "../../../styles/form/form.styles";
 import { BlackHr } from "../../../styles/hr/hr.styles";
 
-const SingleSize = ({ handleRadioChange }) => (
+const JustVinegar = ({ handleRadioChange }) => (
   <>
-    <BlackHr />
-
-    <Label className="no-padding">single </Label>
+    <Label className="no-padding">just vinegar</Label>
 
     <input
       type="radio"
-      name="sizeChoice"
-      value="single"
+      name="saltAndVinegarChoice"
+      value="just vinegar"
       onChange={handleRadioChange}
     />
 
@@ -18,4 +16,4 @@ const SingleSize = ({ handleRadioChange }) => (
   </>
 );
 
-export default SingleSize;
+export default JustVinegar;
