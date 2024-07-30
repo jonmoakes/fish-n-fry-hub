@@ -1,7 +1,7 @@
 // example
 export const chickenItems = [
   {
-    id: "7",
+    id: crypto.randomUUID(),
     name: "roast chicken breast",
     price: 330,
     description: "",

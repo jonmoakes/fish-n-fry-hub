@@ -1,14 +1,19 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 
-import { updateSelectedItem } from "../../../store/choose-options/choose-options.slice";
+import { updateSelectedItem } from "../../../../store/choose-options/choose-options.slice";
 
-import useChooseOptionsVariables from "./use-choose-options-variables";
+import useChooseOptionsVariables from "../../choose-options-hooks/use-choose-options-variables";
 
-import { saucesCheckboxes } from "../multiple-sauces/sauces-checkboxes";
+import { saucesList } from "../sauces-list";
 
 const useChooseSaucesFunctions = () => {
-  const { selectedItem, saucesChosen } = useChooseOptionsVariables();
+  const {
+    selectedItem,
+    saucesChosen,
+    numberOfSaucesAvailable,
+    hasSaucesOption,
+  } = useChooseOptionsVariables();
   const [noSauceChecked, setNoSauceChecked] = useState(false);
 
   const dispatch = useDispatch();
@@ -22,7 +27,7 @@ const useChooseSaucesFunctions = () => {
       // If noSauce is checked, reset all other checkboxes to false
       if (checked) {
         const updatedSauces = { noSauce: true };
-        saucesCheckboxes.forEach((checkbox) => {
+        saucesList.forEach((checkbox) => {
           if (checkbox.name !== "noSauce") {
             updatedSauces[checkbox.name] = false;
           }
@@ -40,9 +45,11 @@ const useChooseSaucesFunctions = () => {
     dispatch(updateSelectedItem({ saucesChosen: updatedSauces }));
   };
 
-  const saucesCheckboxesToRender = noSauceChecked
-    ? saucesCheckboxes.filter((checkbox) => checkbox.name === "noSauce")
-    : saucesCheckboxes;
+  const saucesToRender = noSauceChecked
+    ? saucesList.filter((checkbox) => checkbox.name === "noSauce")
+    : numberOfSaucesAvailable === 1
+    ? saucesList.filter((checkbox) => checkbox.name !== "noSauce")
+    : saucesList;
 
   const numberOfCheckboxesChosen = () => {
     if (!saucesChosen) return 0;
@@ -50,11 +57,27 @@ const useChooseSaucesFunctions = () => {
     return Object.values(saucesChosen).filter((item) => item === true).length;
   };
 
+  // converts eg garlicMayo to garlic mayo
+  const formatSauceName = (sauceName) => {
+    return sauceName.replace(
+      /([a-z])([A-Z])/g,
+      (match, p1, p2) => `${p1} ${p2.toLowerCase()}`
+    );
+  };
+
+  const showSauceCheckboxes =
+    hasSaucesOption && numberOfSaucesAvailable !== 1 ? true : false;
+  const showSauceRadio =
+    hasSaucesOption && numberOfSaucesAvailable === 1 ? true : false;
+
   return {
     handleSaucesChange,
-    saucesCheckboxesToRender,
+    saucesToRender,
     numberOfCheckboxesChosen,
     noSauceChecked,
+    formatSauceName,
+    showSauceCheckboxes,
+    showSauceRadio,
   };
 };
 

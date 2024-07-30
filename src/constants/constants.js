@@ -9,9 +9,16 @@ export const burgersCollectionId = import.meta.env.VITE_BURGERS_COLLECTION_ID;
 export const chickenCollectionId = import.meta.env.VITE_CHICKEN_COLLECTION_ID;
 export const chickenCurryCollectionId = import.meta.env
   .VITE_CHICKEN_CURRY_COLLECTION_ID;
+export const chipsCollectionId = import.meta.env.VITE_CHIPS_COLLECTION_ID;
 export const drinksCollectionId = import.meta.env.VITE_DRINKS_COLLECTIONS_ID;
 
-export const categories = ["burgers", "chicken", "chicken curry", "drinks"];
+export const categories = [
+  "burgers",
+  "chicken",
+  "chicken curry",
+  "chips",
+  "drinks",
+];
 
 export const standardRateLimit = 500;
 export const highRateLimit = 1000;

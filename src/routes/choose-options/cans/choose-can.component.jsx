@@ -36,9 +36,9 @@ const ChooseCan = () => {
 
           <Form className="no-margin-top">
             {canDocuments.map((canDocument) => {
-              const { id, name } = canDocument;
+              const { $id, name } = canDocument;
               return (
-                <RadioDiv key={id}>
+                <RadioDiv key={$id}>
                   <Label className="no-padding">
                     {removeTextAndParentheses(name)}
                   </Label>
@@ -55,12 +55,6 @@ const ChooseCan = () => {
               );
             })}
           </Form>
-
-          {/* <Form className="no-margin-top">
-            <RadioDiv>
-              
-            </RadioDiv>
-          </Form> */}
         </ParentDiv>
       ) : null}
     </>

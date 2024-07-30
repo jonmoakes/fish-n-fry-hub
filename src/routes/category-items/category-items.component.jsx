@@ -43,8 +43,8 @@ const CategoryItems = () => {
       ) : (
         <>
           {categoryItems.map((item) => {
-            const { id } = item;
-            return <ProductItemDetails key={id} {...{ item }} />;
+            const { $id } = item;
+            return <ProductItemDetails key={$id} {...{ item }} />;
           })}
         </>
       )}

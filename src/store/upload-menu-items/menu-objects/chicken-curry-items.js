@@ -1,7 +1,7 @@
 // exmaple
 export const chickenCurryItems = [
   {
-    id: "25",
+    id: crypto.randomUUID(),
     name: "chicken curry with chips",
     description: "",
     price: 300,

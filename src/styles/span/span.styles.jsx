@@ -84,6 +84,10 @@ export const WhiteSpan = styled.span`
 export const YellowShadowSpan = styled.span`
   color: ${customYellow};
   text-shadow: 1px 1px 1px ${customBlack};
+
+  &.small {
+    font-size: 16px;
+  }
 `;
 
 export const BlackSpanHover = styled(BlackSpan)`
@@ -94,6 +98,10 @@ export const BlackSpanHover = styled(BlackSpan)`
 
 export const BlueSpan = styled.span`
   color: ${customBlue};
+
+  &.margin {
+    margin: 10px auto;
+  }
 
   &.clickable {
     &:hover {
@@ -265,6 +273,10 @@ export const Name = styled.span`
   font-size: 25px;
   text-shadow: 1px 1px 1px ${customBlack};
   margin-bottom: 10px;
+
+  &.yellow {
+    color: ${customYellow};
+  }
 
   @media screen and (max-width: 450px) {
     margin-top: -10px;

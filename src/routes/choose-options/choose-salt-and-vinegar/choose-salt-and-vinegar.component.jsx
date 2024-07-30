@@ -26,7 +26,7 @@ const ChooseSaltAndVinegar = () => {
       {hasSaltAndVinegarOption ? (
         <ParentDiv>
           <H2>
-            <Balancer>choose salt & vinegar:</Balancer>
+            <Balancer>salt & vinegar?</Balancer>
           </H2>
 
           <RequiredDiv>

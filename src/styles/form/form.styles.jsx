@@ -2,16 +2,12 @@ import styled, { keyframes } from "styled-components";
 import { bounceInDown, slideInRight } from "react-animations";
 
 import {
-  customBlue,
   customBlack,
   customWhite,
-  customLightGreen,
   customLightGrey,
   customTomato,
   customGrey,
   customRed,
-  customGreen,
-  customYellow,
 } from "../colors";
 
 const bounceInDownAnimation = keyframes`${bounceInDown}`;
@@ -27,7 +23,7 @@ export const Form = styled.form`
   box-shadow: 6px 6px 15px ${customBlack};
 
   &.no-margin-top {
-    margin: 0px auto 20px auto;
+    margin: 0px auto 50px auto;
   }
 
   &.below-accordion {
@@ -35,19 +31,15 @@ export const Form = styled.form`
   }
 
   input {
-    accent-color: ${customLightGreen};
-
-    &.red {
-      accent-color: ${customTomato};
-    }
+    accent-color: ${customRed};
   }
 
   input[type="radio"] {
     display: flex;
     margin: 10px auto;
     justify-content: center;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
   }
 
   @media screen and (max-width: 1366px) {
@@ -305,8 +297,7 @@ export const PaginationSelect = styled.select`
 
 export const Label = styled.label`
   font-size: 18px;
-  color: ${customBlue};
-  text-shadow: 0.5px 0.5px 0.5px ${customBlack};
+  color: ${customBlack};
   float: left;
   padding-left: 20px;
 
@@ -463,7 +454,7 @@ export const OptionsForm = styled.form`
   width: 50%;
   height: auto;
   background-color: ${customGrey};
-  margin: 20px auto;
+  margin: 20px auto 40px auto;
   border-radius: 5px;
   display: flex;
   flex-direction: column;

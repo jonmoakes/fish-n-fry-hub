@@ -1,6 +1,6 @@
 import { Label } from "../../../styles/form/form.styles";
 import { BlackHr } from "../../../styles/hr/hr.styles";
-import { BlackSpan } from "../../../styles/span/span.styles";
+import { BlueSpan } from "../../../styles/span/span.styles";
 
 const TripleSize = ({ sizeOptionTriplePrice, handleRadioChange }) => (
   <>
@@ -8,10 +8,10 @@ const TripleSize = ({ sizeOptionTriplePrice, handleRadioChange }) => (
       <>
         <Label className="no-padding">
           triple <br />
-          <BlackSpan>
-            ( + £{(sizeOptionTriplePrice / 100).toFixed(2)} )
-          </BlackSpan>
         </Label>
+        <BlueSpan className="margin">
+          ( + £{(sizeOptionTriplePrice / 100).toFixed(2)} )
+        </BlueSpan>
 
         <input
           type="radio"

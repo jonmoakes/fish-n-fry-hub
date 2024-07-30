@@ -14,7 +14,8 @@ import GratedCheese from "./grated-cheese/grated-cheese.component";
 import DonerMeat from "./doner-meat/doner-meat.component";
 import ChooseSaltAndVinegar from "./choose-salt-and-vinegar/choose-salt-and-vinegar.component";
 import Salad from "./salad/salad.component";
-import MultipleSauces from "./multiple-sauces/multiple-sauces.component";
+import Sauces from "./sauces/sauces.component";
+import Condiments from "./condiments/condiments.component";
 import ChooseCan from "./cans/choose-can.component";
 import Quantity from "./quantity/quantity.component";
 import TotalPrice from "./total-price/total-price.component";
@@ -57,7 +58,8 @@ const ChooseOptions = () => {
           {!hasSizeOption || (hasSizeOption && sizeChoice) ? (
             <>
               <ChooseSaltAndVinegar />
-              <MultipleSauces />
+              <Sauces />
+              <Condiments />
               <ChooseCan />
               <CheeseSlice />
               <GratedCheese />

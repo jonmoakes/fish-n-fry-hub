@@ -1,7 +1,7 @@
 // example
 export const burgerItems = [
   {
-    id: "0",
+    id: crypto.randomUUID(),
     name: "beef burger",
     price: 290,
     description: "",
