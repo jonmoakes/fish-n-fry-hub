@@ -11,7 +11,7 @@ export const uploadMenuItemsSlice = createSlice({
   initialState: INITIAL_STATE,
   reducers: {
     resetUploadMenuItemsError(state) {
-      state.menuError = null;
+      state.uploadMenuItemsError = null;
     },
     resetUploadMenuItemsState: () => {
       return INITIAL_STATE;

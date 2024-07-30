@@ -1,21 +1,25 @@
 import { Label } from "../../../styles/form/form.styles";
 import { BlackHr } from "../../../styles/hr/hr.styles";
 
-const SingleSize = ({ handleRadioChange }) => (
-  <>
-    <BlackHr />
+const SingleSize = ({ sizeOptionLargePrice, handleRadioChange }) => {
+  const choice = !sizeOptionLargePrice ? "single" : "small";
 
-    <Label className="no-padding">single </Label>
+  return (
+    <>
+      <BlackHr />
 
-    <input
-      type="radio"
-      name="sizeChoice"
-      value="single"
-      onChange={handleRadioChange}
-    />
+      <Label className="no-padding">{choice}</Label>
 
-    <BlackHr />
-  </>
-);
+      <input
+        type="radio"
+        name="sizeChoice"
+        value={choice}
+        onChange={handleRadioChange}
+      />
+
+      <BlackHr />
+    </>
+  );
+};
 
 export default SingleSize;

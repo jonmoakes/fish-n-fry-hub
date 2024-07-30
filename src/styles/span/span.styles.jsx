@@ -263,7 +263,6 @@ export const Name = styled.span`
   color: ${customWhite};
   font-weight: bold;
   font-size: 25px;
-  text-decoration: underline;
   text-shadow: 1px 1px 1px ${customBlack};
   margin-bottom: 10px;
 

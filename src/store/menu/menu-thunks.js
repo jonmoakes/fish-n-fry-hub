@@ -6,12 +6,14 @@ import {
   databaseId,
   burgersCollectionId,
   chickenCollectionId,
+  chickenCurryCollectionId,
   drinksCollectionId,
 } from "../../constants/constants";
 
 const collections = [
   burgersCollectionId,
   chickenCollectionId,
+  chickenCurryCollectionId,
   drinksCollectionId,
 ];
 

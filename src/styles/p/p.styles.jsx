@@ -1,11 +1,5 @@
 import styled from "styled-components";
-import {
-  customBlack,
-  customRed,
-  customTomato,
-  customWhite,
-  customYellow,
-} from "../colors";
+import { customBlack, customTomato, customWhite } from "../colors";
 
 export const Text = styled.p`
   color: ${customWhite};
