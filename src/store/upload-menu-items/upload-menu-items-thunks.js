@@ -1,8 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { manageDatabaseDocument } from "../../utils/appwrite/appwrite-functions";
 
-import { databaseId, extrasCollectionId } from "../../constants/constants";
-import { extrasItems } from "./menu-objects/extras-items";
+import { databaseId, fishCollectionId } from "../../constants/constants";
+import { fishItems } from "./menu-objects/fish-items";
 import { ID } from "appwrite";
 
 export const uploadMenuItemsToDatabaseAsync = createAsyncThunk(
@@ -11,14 +11,14 @@ export const uploadMenuItemsToDatabaseAsync = createAsyncThunk(
     try {
       const items = [];
       // make sure to import correct menu items
-      let menuItems = extrasItems;
+      let menuItems = fishItems;
 
       // make sure to import correct collectionId
       for (const menuItem of menuItems) {
         const result = await manageDatabaseDocument(
           "create",
           databaseId,
-          extrasCollectionId,
+          fishCollectionId,
           ID.unique(),
           menuItem
         );
