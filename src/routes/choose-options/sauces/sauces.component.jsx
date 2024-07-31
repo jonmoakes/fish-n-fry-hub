@@ -1,7 +1,6 @@
-import { Fragment } from "react";
-
 import useChooseOptionsVariables from "../choose-options-hooks/use-choose-options-variables";
 import useChooseSaucesFunctions from "./sauces-hooks/use-choose-sauces-functions";
+import useChooseOptionsFunctions from "../choose-options-hooks/use-choose-options-functions";
 
 import SaucesTitleAndRequiredInfo from "./sauces-title-and-required-info.component";
 import ChooseSaucesInfo from "./choose-sauces-info.component";
@@ -16,7 +15,6 @@ import {
 } from "../../../styles/form/form.styles";
 import { OptionsLabel } from "../../../styles/p/p.styles";
 import { BlackHr } from "../../../styles/hr/hr.styles";
-import useChooseOptionsFunctions from "../choose-options-hooks/use-choose-options-functions";
 
 const Sauces = () => {
   const { numberOfSaucesAvailable } = useChooseOptionsVariables();
@@ -25,7 +23,6 @@ const Sauces = () => {
     saucesToRender,
     numberOfCheckboxesChosen,
     noSauceChecked,
-    formatSauceName,
     showSauceCheckboxes,
     showSauceRadio,
   } = useChooseSaucesFunctions();
@@ -40,20 +37,23 @@ const Sauces = () => {
           <ChooseSaucesInfo {...{ numberOfCheckboxesChosen, noSauceChecked }} />
 
           <OptionsForm onChange={handleSaucesChange}>
-            {saucesToRender.map((checkbox) => (
-              <RadioDiv key={checkbox.id}>
-                <OptionsLabel>{formatSauceName(checkbox.name)}</OptionsLabel>
-                <StyledCheckbox
-                  className="multiple"
-                  type="checkbox"
-                  id={checkbox.name}
-                  name={checkbox.name}
-                  checked={checkbox.checked}
-                />
+            {saucesToRender.map((sauce) => {
+              const { $id, name } = sauce;
 
-                <BlackHr />
-              </RadioDiv>
-            ))}
+              return (
+                <RadioDiv key={$id}>
+                  <OptionsLabel>{name}</OptionsLabel>
+                  <StyledCheckbox
+                    className="multiple"
+                    type="checkbox"
+                    id={name}
+                    name={name}
+                  />
+
+                  <BlackHr />
+                </RadioDiv>
+              );
+            })}
           </OptionsForm>
 
           <MaximumSaucesError {...{ numberOfCheckboxesChosen }} />
@@ -63,11 +63,11 @@ const Sauces = () => {
           <SaucesTitleAndRequiredInfo {...{ numberOfSaucesAvailable }} />
 
           <Form className="no-margin-top">
-            {saucesToRender.map((sauces) => {
-              const { name } = sauces;
+            {saucesToRender.map((sauce) => {
+              const { $id, name } = sauce;
               return (
-                <RadioDiv key={sauces.id}>
-                  <Label className="no-padding">{formatSauceName(name)}</Label>
+                <RadioDiv key={$id}>
+                  <Label className="no-padding">{name}</Label>
                   <input
                     type="radio"
                     name="sauceChosen"

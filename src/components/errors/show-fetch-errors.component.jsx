@@ -16,7 +16,7 @@ import {
   databaseManagementRoute,
   menuRoute,
 } from "../../strings/routes/routes-strings";
-import { resetOptionsPricesError } from "../../store/choose-options/choose-options.slice";
+import { resetChooseOptionsFetchErrors } from "../../store/choose-options/choose-options.slice";
 
 const ShowFetchErrors = () => {
   const { showErrorHeading, errorToDisplay } = useHandleShowError();
@@ -36,7 +36,7 @@ const ShowFetchErrors = () => {
       dispatch(resetMenuError());
       reloadAfterTimeOut();
     } else if (path === chooseOptionsRoute) {
-      dispatch(resetOptionsPricesError());
+      dispatch(resetChooseOptionsFetchErrors());
       reloadAfterTimeOut();
     } else {
       window.location.reload();

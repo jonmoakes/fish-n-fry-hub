@@ -1,7 +1,10 @@
 import { Navigate } from "react-router-dom";
 
 import useChooseOptionsVariables from "./choose-options-hooks/use-choose-options-variables";
-import useFetchOptionsPricesThunkUseEffect from "./choose-options-hooks/use-fetch-options-prices-thunk-use-effect";
+import useFetchSaucesListThunkUseEffect from "./choose-options-hooks/use-fetch-sauces-list-thunk-use-effect";
+import useFetchCansListThunkUseEffect from "./choose-options-hooks/use-fetch-cans-list-thunk-use-effect";
+import useFetchGratedCheesePriceThunkUseEffect from "./choose-options-hooks/use-fetch-grated-cheese-price-thunk-use-effect";
+import useFetchDonerMeatPriceThunkUseEffect from "./choose-options-hooks/use-fetch-doner-meat-price-thunk-use-effect";
 import useConfirmReloadPageUseEffect from "./choose-options-hooks/use-confirm-reload-page-use-effect";
 
 import Loader from "../../components/loader/loader.component";
@@ -29,15 +32,20 @@ const ChooseOptions = () => {
   const {
     selectedItem,
     optionsPricesIsLoading,
-    optionsPricesError,
+    gratedCheesePriceError,
+    donerMeatPriceError,
+    saucesDocumentsError,
+    canDocumentsError,
     name,
     price,
     hasSizeOption,
     sizeChoice,
-    canDocumentsError,
   } = useChooseOptionsVariables();
 
-  useFetchOptionsPricesThunkUseEffect();
+  useFetchGratedCheesePriceThunkUseEffect();
+  useFetchDonerMeatPriceThunkUseEffect();
+  useFetchSaucesListThunkUseEffect();
+  useFetchCansListThunkUseEffect();
   useConfirmReloadPageUseEffect();
 
   return (
@@ -46,7 +54,10 @@ const ChooseOptions = () => {
 
       {optionsPricesIsLoading ? <Loader /> : null}
 
-      {optionsPricesError || canDocumentsError ? (
+      {gratedCheesePriceError ||
+      donerMeatPriceError ||
+      saucesDocumentsError ||
+      canDocumentsError ? (
         <ShowFetchErrors />
       ) : (
         <>

@@ -546,7 +546,7 @@ export const PaginationTextDiv = styled.div`
 export const SearchDiv = styled.div`
   width: 50%;
   position: relative;
-  margin: 0px auto -30px auto;
+  margin: 20px auto -30px auto;
   animation: 0.5s ${slideInLeftAnimation};
 
   &.no-checkbox {
@@ -563,7 +563,7 @@ export const SearchDiv = styled.div`
 
   @media screen and (max-width: 450px) {
     width: 80%;
-    margin: 0px auto 10px auto;
+    margin: 20px auto 10px auto;
   }
 `;
 

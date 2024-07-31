@@ -12,14 +12,21 @@ export const chickenCurryCollectionId = import.meta.env
 export const chipsCollectionId = import.meta.env.VITE_CHIPS_COLLECTION_ID;
 export const extrasCollectionId = import.meta.env.VITE_EXTRAS_COLLECTION_ID;
 export const fishCollectionId = import.meta.env.VITE_FISH_COLLECTION_ID;
+export const jacketPotatoCollectionId = import.meta.env
+  .VITE_JACKET_POTATO_COLLECTION_ID;
 export const drinksCollectionId = import.meta.env.VITE_DRINKS_COLLECTIONS_ID;
+export const saucesCollectionId = import.meta.env.VITE_SAUCES_COLLECTION_ID;
+export const donerKebabsCollectionId = import.meta.env
+  .VITE_DONER_KEBABS_COLLECTION_ID;
 
 export const categories = [
   "burgers",
   "chicken",
-  "chicken curry",
   "chips",
   "fish",
+  "doner kebabs",
+  "jacket potato",
+  "chicken curry",
   "extras",
   "drinks",
 ];

@@ -1,17 +1,23 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 import {
-  fetchOptionsPricesDocumentsAsync,
-  getCansDocumentsAsync,
+  fetchGratedCheesePriceAsync,
+  fetchDonerMeatPriceAsync,
+  fetchSaucesDocumentsAsync,
+  fetchCansDocumentsAsync,
 } from "./choose-options-thunks";
 
 const INITIAL_STATE = {
   categoryItems: [],
   selectedItem: {},
   optionsPricesIsLoading: false,
-  optionsPrices: {},
-  optionsPricesError: null,
+  gratedCheesePrice: null,
+  gratedCheesePriceError: null,
+  donerMeatPrice: null,
+  donerMeatPriceError: null,
   canDocuments: [],
   canDocumentsError: null,
+  saucesDocuments: [],
+  saucesDocumentsError: null,
 };
 
 export const chooseOptionsSlice = createSlice({
@@ -36,10 +42,10 @@ export const chooseOptionsSlice = createSlice({
     resetSelectedItem(state) {
       state.selectedItem = {};
     },
-    resetOptionsPricesError(state) {
-      state.optionsPricesError = null;
-    },
-    resetCanDocumentsError(state) {
+    resetChooseOptionsFetchErrors(state) {
+      state.gratedCheesePriceError = null;
+      state.donerMeatPriceError = null;
+      state.saucesDocumentsError = null;
       state.canDocumentsError = null;
     },
     resetChooseOptionsState: () => {
@@ -48,31 +54,57 @@ export const chooseOptionsSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchOptionsPricesDocumentsAsync.pending, (state) => {
+      .addCase(fetchGratedCheesePriceAsync.pending, (state) => {
         state.optionsPricesIsLoading = true;
       })
-      .addCase(fetchOptionsPricesDocumentsAsync.fulfilled, (state, action) => {
+      .addCase(fetchGratedCheesePriceAsync.fulfilled, (state, action) => {
         state.optionsPricesIsLoading = false;
-        state.optionsPrices = action.payload;
-        state.optionsPricesError = null;
+        state.gratedCheesePrice = action.payload;
+        state.gratedCheesePriceError = null;
       })
-      .addCase(fetchOptionsPricesDocumentsAsync.rejected, (state, action) => {
+      .addCase(fetchGratedCheesePriceAsync.rejected, (state, action) => {
         state.optionsPricesIsLoading = false;
-        state.optionsPrices = {};
-        state.optionsPricesError = action.payload;
+        state.gratedCheesePrice = null;
+        state.gratedCheesePriceError = action.payload;
       })
-      .addCase(getCansDocumentsAsync.pending, (state) => {
+      .addCase(fetchDonerMeatPriceAsync.pending, (state) => {
+        state.optionsPricesIsLoading = true;
+      })
+      .addCase(fetchDonerMeatPriceAsync.fulfilled, (state, action) => {
+        state.optionsPricesIsLoading = false;
+        state.donerMeatPrice = action.payload;
+        state.donerMeatPriceError = null;
+      })
+      .addCase(fetchDonerMeatPriceAsync.rejected, (state, action) => {
+        state.optionsPricesIsLoading = false;
+        state.donerMeatPrice = null;
+        state.donerMeatPriceError = action.payload;
+      })
+      .addCase(fetchCansDocumentsAsync.pending, (state) => {
         state.menuIsLoading = true;
       })
-      .addCase(getCansDocumentsAsync.fulfilled, (state, action) => {
+      .addCase(fetchCansDocumentsAsync.fulfilled, (state, action) => {
         state.menuIsLoading = false;
         state.canDocuments = action.payload;
         state.canDocumentsError = null;
       })
-      .addCase(getCansDocumentsAsync.rejected, (state, action) => {
+      .addCase(fetchCansDocumentsAsync.rejected, (state, action) => {
         state.menuIsLoading = false;
         state.canDocuments = [];
         state.canDocumentsError = action.payload;
+      })
+      .addCase(fetchSaucesDocumentsAsync.pending, (state) => {
+        state.menuIsLoading = true;
+      })
+      .addCase(fetchSaucesDocumentsAsync.fulfilled, (state, action) => {
+        state.menuIsLoading = false;
+        state.saucesDocuments = action.payload;
+        state.saucesDocumentsError = null;
+      })
+      .addCase(fetchSaucesDocumentsAsync.rejected, (state, action) => {
+        state.menuIsLoading = false;
+        state.saucesDocuments = [];
+        state.saucesDocumentsError = action.payload;
       });
   },
   selectors: {
@@ -80,27 +112,39 @@ export const chooseOptionsSlice = createSlice({
       (state) => state.selectedItem,
       (state) => state.categoryItems,
       (state) => state.optionsPricesIsLoading,
-      (state) => state.optionsPrices,
-      (state) => state.optionsPricesError,
+      (state) => state.gratedCheesePrice,
+      (state) => state.gratedCheesePriceError,
+      (state) => state.donerMeatPrice,
+      (state) => state.donerMeatPriceError,
       (state) => state.canDocuments,
       (state) => state.canDocumentsError,
+      (state) => state.saucesDocuments,
+      (state) => state.saucesDocumentsError,
       (
         selectedItem,
         categoryItems,
         optionsPricesIsLoading,
-        optionsPrices,
-        optionsPricesError,
+        gratedCheesePrice,
+        gratedCheesePriceError,
+        donerMeatPrice,
+        donerMeatPriceError,
         canDocuments,
-        canDocumentsError
+        canDocumentsError,
+        saucesDocuments,
+        saucesDocumentsError
       ) => {
         return {
           selectedItem,
           categoryItems,
           optionsPricesIsLoading,
-          optionsPrices,
-          optionsPricesError,
+          gratedCheesePrice,
+          gratedCheesePriceError,
+          donerMeatPrice,
+          donerMeatPriceError,
           canDocuments,
           canDocumentsError,
+          saucesDocuments,
+          saucesDocumentsError,
         };
       }
     ),
@@ -113,10 +157,8 @@ export const {
   setSelectedItem,
   updateSelectedItem,
   resetSelectedItem,
-  resetOptionsPricesError,
-  resetCanDocumentsError,
+  resetChooseOptionsFetchErrors,
   resetChooseOptionsState,
-  setPricesOfOptionsSelected,
 } = chooseOptionsSlice.actions;
 export const { selectChooseOptionsSelectors } = chooseOptionsSlice.selectors;
 

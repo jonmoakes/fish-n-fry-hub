@@ -11,6 +11,8 @@ import {
   extrasCollectionId,
   drinksCollectionId,
   fishCollectionId,
+  jacketPotatoCollectionId,
+  donerKebabsCollectionId,
 } from "../../constants/constants";
 
 const collections = [
@@ -19,6 +21,8 @@ const collections = [
   chickenCurryCollectionId,
   chipsCollectionId,
   fishCollectionId,
+  jacketPotatoCollectionId,
+  donerKebabsCollectionId,
   extrasCollectionId,
   drinksCollectionId,
 ];

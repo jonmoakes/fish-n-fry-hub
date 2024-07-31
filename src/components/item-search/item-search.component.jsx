@@ -10,11 +10,7 @@ const ItemSearch = ({
 }) => {
   return (
     <ParentDiv>
-      {!searchField.length ? (
-        <Text>
-          <Balancer>search for products by typing in a query below:</Balancer>
-        </Text>
-      ) : (
+      {!searchField.length ? null : (
         <Text>
           <Balancer>tap the red 'x' button to clear the search field</Balancer>
         </Text>
