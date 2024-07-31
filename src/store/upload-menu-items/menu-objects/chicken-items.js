@@ -5,7 +5,6 @@ export const chickenItems = [
     name: "roast chicken breast",
     price: 330,
     description: "",
-    hasOptions: false,
     hasSaltAndVinegarOption: false,
     hasSaladOption: false,
     hasSaucesOption: false,

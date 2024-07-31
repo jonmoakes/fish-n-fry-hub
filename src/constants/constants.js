@@ -10,6 +10,7 @@ export const chickenCollectionId = import.meta.env.VITE_CHICKEN_COLLECTION_ID;
 export const chickenCurryCollectionId = import.meta.env
   .VITE_CHICKEN_CURRY_COLLECTION_ID;
 export const chipsCollectionId = import.meta.env.VITE_CHIPS_COLLECTION_ID;
+export const extrasCollectionId = import.meta.env.VITE_EXTRAS_COLLECTION_ID;
 export const drinksCollectionId = import.meta.env.VITE_DRINKS_COLLECTIONS_ID;
 
 export const categories = [
@@ -17,6 +18,7 @@ export const categories = [
   "chicken",
   "chicken curry",
   "chips",
+  "extras",
   "drinks",
 ];
 

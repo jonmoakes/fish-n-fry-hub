@@ -8,6 +8,7 @@ import {
   chickenCollectionId,
   chickenCurryCollectionId,
   chipsCollectionId,
+  extrasCollectionId,
   drinksCollectionId,
 } from "../../constants/constants";
 
@@ -16,6 +17,7 @@ const collections = [
   chickenCollectionId,
   chickenCurryCollectionId,
   chipsCollectionId,
+  extrasCollectionId,
   drinksCollectionId,
 ];
 

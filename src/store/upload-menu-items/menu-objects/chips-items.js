@@ -6,7 +6,6 @@ export const chipsItems = [
     price: 170,
     description: "",
     category: "chips",
-    hasOptions: true,
     hasSaltAndVinegarOption: true,
     hasSaucesOption: false,
     numberOfSaucesAvailable: null,

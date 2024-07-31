@@ -9,13 +9,18 @@ import {
 import useChooseOptionsVariables from "./use-choose-options-variables";
 
 const useFetchOptionsPricesThunkUseEffect = () => {
-  const { optionsPricesError, hasOptions, hasChooseCanOption } =
-    useChooseOptionsVariables();
+  const {
+    optionsPricesError,
+    hasGratedCheeseOption,
+    hasDonerMeatOption,
+    hasChooseCanOption,
+  } = useChooseOptionsVariables();
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (optionsPricesError || !hasOptions) return;
+    if (optionsPricesError || (!hasGratedCheeseOption && !hasDonerMeatOption))
+      return;
 
     dispatch(fetchOptionsPricesDocumentsAsync()).then((resultAction) => {
       if (
@@ -25,7 +30,13 @@ const useFetchOptionsPricesThunkUseEffect = () => {
         dispatch(getCansDocumentsAsync());
       }
     });
-  }, [optionsPricesError, dispatch, hasOptions, hasChooseCanOption]);
+  }, [
+    optionsPricesError,
+    dispatch,
+    hasDonerMeatOption,
+    hasGratedCheeseOption,
+    hasChooseCanOption,
+  ]);
 };
 
 export default useFetchOptionsPricesThunkUseEffect;

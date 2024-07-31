@@ -10,6 +10,7 @@ const useChooseOptionsFunctions = () => {
     sizeChoice,
     sizeOptionDoublePrice,
     sizeOptionTriplePrice,
+    sizeOptionMediumPrice,
     sizeOptionLargePrice,
     gratedCheeseChoice,
     gratedCheesePrice,
@@ -42,6 +43,8 @@ const useChooseOptionsFunctions = () => {
         return price + sizeOptionDoublePrice;
       case "triple":
         return price + sizeOptionTriplePrice;
+      case "medium":
+        return price + sizeOptionMediumPrice;
       case "large":
         return price + sizeOptionLargePrice;
       default:

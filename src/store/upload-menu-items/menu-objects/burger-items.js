@@ -6,7 +6,6 @@ export const burgerItems = [
     price: 290,
     description: "",
     category: "burgers",
-    hasOptions: true,
     hasCheeseSliceOption: true,
     hasDonerMeatOption: true,
     hasGratedCheeseOption: true,
