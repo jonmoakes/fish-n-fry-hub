@@ -2,9 +2,12 @@ import Balancer from "react-wrap-balancer";
 
 import { WhiteSpan } from "../../../styles/span/span.styles";
 
-const ChooseSaucesInfo = ({ numberOfCheckboxesChosen, noSauceChecked }) => (
+const ChooseSaucesInfo = ({
+  numberOfSaucesCheckboxesChosen,
+  noSauceChecked,
+}) => (
   <>
-    {numberOfCheckboxesChosen() <= 3 && !noSauceChecked ? (
+    {numberOfSaucesCheckboxesChosen() <= 3 && !noSauceChecked ? (
       <WhiteSpan>
         <Balancer>( choose up to 3 )</Balancer>
       </WhiteSpan>

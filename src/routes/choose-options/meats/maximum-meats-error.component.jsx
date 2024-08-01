@@ -1,7 +1,10 @@
 import { Text } from "../../../styles/p/p.styles";
 import { YellowSpan } from "../../../styles/span/span.styles";
 
-const MaximumMeatsError = ({ numberOfMeatsCheckboxesChosen }) => (
+const MaximumMeatsError = ({
+  numberOfMeatsCheckboxesChosen,
+  numberOfMeatsAvailable,
+}) => (
   <>
     {numberOfMeatsCheckboxesChosen() > 2 ? (
       <Text>

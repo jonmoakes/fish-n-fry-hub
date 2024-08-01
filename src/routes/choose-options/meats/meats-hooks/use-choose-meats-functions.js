@@ -5,8 +5,13 @@ import { updateSelectedItem } from "../../../../store/choose-options/choose-opti
 import useChooseOptionsVariables from "../../choose-options-hooks/use-choose-options-variables";
 
 const useChooseMeatsFunctions = () => {
-  const { selectedItem, meatsChosen, numberOfMeatsAvailable, hasMeatsOption } =
-    useChooseOptionsVariables();
+  const {
+    selectedItem,
+    meatsChosen,
+    numberOfMeatsAvailable,
+    hasMeatsOption,
+    meatsDocuments,
+  } = useChooseOptionsVariables();
 
   const dispatch = useDispatch();
 
@@ -31,11 +36,21 @@ const useChooseMeatsFunctions = () => {
   const showMeatsRadio =
     hasMeatsOption && numberOfMeatsAvailable === 1 ? true : false;
 
+  const meatsToRender = !meatsDocuments
+    ? []
+    : meatsDocuments &&
+      meatsDocuments.length &&
+      selectedItem &&
+      selectedItem.name.includes("chicken")
+    ? meatsDocuments.filter((item) => item.name !== "doner")
+    : meatsDocuments;
+
   return {
     handleMeatsChange,
     numberOfMeatsCheckboxesChosen,
     showMeatsCheckboxes,
     showMeatsRadio,
+    meatsToRender,
   };
 };
 

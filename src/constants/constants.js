@@ -23,6 +23,10 @@ export const chickenKebabsCollectionId = import.meta.env
   .VITE_CHICKEN_KEBABS_COLLECTION_ID;
 export const mixedMeatKebabsCollectionId = import.meta.env
   .VITE_MIXED_MEAT_KEBABS_COLLECTION_ID;
+export const piesCollectionId = import.meta.env.VITE_PIES_COLLECTION_ID;
+export const savouriesCollectionId = import.meta.env
+  .VITE_SAVOURIES_COLLECTION_ID;
+export const specialsCollectionId = import.meta.env.VITE_SPECIALS_COLLECTION_ID;
 
 export const categories = [
   "burgers",
@@ -34,6 +38,9 @@ export const categories = [
   "mixed meats kebabs",
   "jacket potato",
   "chicken curry",
+  "pies",
+  "savouries",
+  "specials",
   "extras",
   "drinks",
 ];

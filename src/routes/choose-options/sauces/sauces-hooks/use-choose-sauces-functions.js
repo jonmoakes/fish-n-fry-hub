@@ -52,7 +52,7 @@ const useChooseSaucesFunctions = () => {
     ? saucesDocuments.filter((checkbox) => checkbox.name !== "no sauce")
     : saucesDocuments;
 
-  const numberOfCheckboxesChosen = () => {
+  const numberOfSaucesCheckboxesChosen = () => {
     if (!saucesChosen) return 0;
 
     return Object.values(saucesChosen).filter((item) => item === true).length;
@@ -66,7 +66,7 @@ const useChooseSaucesFunctions = () => {
   return {
     handleSaucesChange,
     saucesToRender,
-    numberOfCheckboxesChosen,
+    numberOfSaucesCheckboxesChosen,
     noSauceChecked,
     showSauceCheckboxes,
     showSauceRadio,

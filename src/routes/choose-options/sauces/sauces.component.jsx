@@ -21,7 +21,7 @@ const Sauces = () => {
   const {
     handleSaucesChange,
     saucesToRender,
-    numberOfCheckboxesChosen,
+    numberOfSaucesCheckboxesChosen,
     noSauceChecked,
     showSauceCheckboxes,
     showSauceRadio,
@@ -34,7 +34,9 @@ const Sauces = () => {
         <ParentDiv>
           <SaucesTitleAndRequiredInfo {...{ numberOfSaucesAvailable }} />
 
-          <ChooseSaucesInfo {...{ numberOfCheckboxesChosen, noSauceChecked }} />
+          <ChooseSaucesInfo
+            {...{ numberOfSaucesCheckboxesChosen, noSauceChecked }}
+          />
 
           <OptionsForm onChange={handleSaucesChange}>
             {saucesToRender.map((sauce) => {
@@ -56,7 +58,7 @@ const Sauces = () => {
             })}
           </OptionsForm>
 
-          <MaximumSaucesError {...{ numberOfCheckboxesChosen }} />
+          <MaximumSaucesError {...{ numberOfSaucesCheckboxesChosen }} />
         </ParentDiv>
       ) : showSauceRadio ? (
         <ParentDiv>

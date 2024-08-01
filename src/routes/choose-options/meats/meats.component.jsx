@@ -16,13 +16,13 @@ import { OptionsLabel } from "../../../styles/p/p.styles";
 import { BlackHr } from "../../../styles/hr/hr.styles";
 
 const Meats = () => {
-  const { numberOfMeatsAvailable, meatsDocuments } =
-    useChooseOptionsVariables();
+  const { numberOfMeatsAvailable } = useChooseOptionsVariables();
   const {
     handleMeatsChange,
     numberOfMeatsCheckboxesChosen,
     showMeatsCheckboxes,
     showMeatsRadio,
+    meatsToRender,
   } = useChooseMeatsFunctions();
   const { handleRadioChange } = useChooseOptionsFunctions();
 
@@ -33,7 +33,7 @@ const Meats = () => {
           <MeatsTitleAndRequiredInfo {...{ numberOfMeatsAvailable }} />
 
           <OptionsForm onChange={handleMeatsChange}>
-            {meatsDocuments.map((meat) => {
+            {meatsToRender.map((meat) => {
               const { $id, name } = meat;
 
               return (
@@ -59,14 +59,14 @@ const Meats = () => {
           <MeatsTitleAndRequiredInfo {...{ numberOfMeatsAvailable }} />
 
           <Form className="no-margin-top">
-            {meatsDocuments.map((sauce) => {
-              const { $id, name } = sauce;
+            {meatsToRender.map((meat) => {
+              const { $id, name } = meat;
               return (
                 <RadioDiv key={$id}>
                   <Label className="no-padding">{name}</Label>
                   <input
                     type="radio"
-                    name="meatChosen"
+                    name="meatsChosen"
                     value={name}
                     onChange={handleRadioChange}
                   />

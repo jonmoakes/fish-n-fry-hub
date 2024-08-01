@@ -16,6 +16,8 @@ const useGetChooseOptionsSelectors = () => {
     saucesDocumentsError,
     meatsDocuments,
     meatsDocumentsError,
+    piesDocuments,
+    piesDocumentsError,
   } = useSelector(selectChooseOptionsSelectors);
 
   const {
@@ -49,6 +51,8 @@ const useGetChooseOptionsSelectors = () => {
     saltAndVinegarChoice,
     hasChooseCanOption,
     chooseCanChoice,
+    hasChoosePieOption,
+    pieChoice,
   } = selectedItem ?? {};
 
   return {
@@ -65,6 +69,8 @@ const useGetChooseOptionsSelectors = () => {
     saucesDocumentsError,
     meatsDocuments,
     meatsDocumentsError,
+    piesDocuments,
+    piesDocumentsError,
     name,
     price,
     quantity,
@@ -95,6 +101,8 @@ const useGetChooseOptionsSelectors = () => {
     saltAndVinegarChoice,
     hasChooseCanOption,
     chooseCanChoice,
+    hasChoosePieOption,
+    pieChoice,
   };
 };
 

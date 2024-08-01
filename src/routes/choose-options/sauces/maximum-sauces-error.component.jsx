@@ -1,9 +1,9 @@
 import { Text } from "../../../styles/p/p.styles";
 import { YellowSpan } from "../../../styles/span/span.styles";
 
-const MaximumSaucesError = ({ numberOfCheckboxesChosen }) => (
+const MaximumSaucesError = ({ numberOfSaucesCheckboxesChosen }) => (
   <>
-    {numberOfCheckboxesChosen() > 3 ? (
+    {numberOfSaucesCheckboxesChosen() > 3 ? (
       <Text>
         <YellowSpan>please select a maximum of 3 sauces</YellowSpan>
       </Text>
