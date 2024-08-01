@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import { YellowGreenButton } from "../../styles/buttons/buttons.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
 import { BlackHr } from "../../styles/hr/hr.styles";
@@ -13,15 +14,12 @@ const CategoryButtons = ({ searchField, categories, navigateToCategory }) => (
 
         <BlackHr />
         {categories.map((category) => (
-          <>
-            <YellowGreenButton
-              key={category}
-              onClick={() => navigateToCategory(category)}
-            >
+          <Fragment key={category}>
+            <YellowGreenButton onClick={() => navigateToCategory(category)}>
               {category}
             </YellowGreenButton>
             <BlackHr />
-          </>
+          </Fragment>
         ))}
       </ParentDiv>
     ) : null}

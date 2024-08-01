@@ -4,10 +4,12 @@ import { H2 } from "../../../styles/h2/h2.styles";
 import { RequiredDiv } from "../../../styles/div/div.styles";
 import { RequiredSpan } from "../../../styles/span/span.styles";
 
-const KebabTitleAndRequiredInfo = () => (
+const SaucesTitleAndRequiredInfo = ({ numberOfMeatsAvailable }) => (
   <>
     <H2>
-      <Balancer>choose kebab type</Balancer>
+      <Balancer>
+        choose {numberOfMeatsAvailable === 1 ? "a meat" : "2 meats"}:
+      </Balancer>
     </H2>
     <RequiredDiv>
       <RequiredSpan>required</RequiredSpan>
@@ -15,4 +17,4 @@ const KebabTitleAndRequiredInfo = () => (
   </>
 );
 
-export default KebabTitleAndRequiredInfo;
+export default SaucesTitleAndRequiredInfo;

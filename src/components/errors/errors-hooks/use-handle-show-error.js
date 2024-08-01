@@ -8,6 +8,7 @@ const useHandleShowError = () => {
     donerMeatPriceError,
     saucesDocumentsError,
     canDocumentsError,
+    meatsDocumentsError,
   } = useGetChooseOptionsSelectors();
 
   const showErrorHeading = () => {
@@ -15,6 +16,7 @@ const useHandleShowError = () => {
     if (gratedCheesePriceError || donerMeatPriceError)
       return "failed to fetch options prices.";
     if (saucesDocumentsError) return "failed to fetch our list of sauces.";
+    if (meatsDocumentsError) return "failed to fetch our list of meats.";
     if (canDocumentsError)
       return "failed to fetch our list of drinks to go with your order.";
     // add more if needed with if statement for each
@@ -26,6 +28,7 @@ const useHandleShowError = () => {
       gratedCheesePriceError,
       donerMeatPriceError,
       saucesDocumentsError,
+      meatsDocumentsError,
       canDocumentsError,
       // add more separated by comma
     ];

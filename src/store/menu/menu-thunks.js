@@ -13,6 +13,8 @@ import {
   fishCollectionId,
   jacketPotatoCollectionId,
   donerKebabsCollectionId,
+  chickenKebabsCollectionId,
+  mixedMeatKebabsCollectionId,
 } from "../../constants/constants";
 
 const collections = [
@@ -23,6 +25,8 @@ const collections = [
   fishCollectionId,
   jacketPotatoCollectionId,
   donerKebabsCollectionId,
+  chickenKebabsCollectionId,
+  mixedMeatKebabsCollectionId,
   extrasCollectionId,
   drinksCollectionId,
 ];

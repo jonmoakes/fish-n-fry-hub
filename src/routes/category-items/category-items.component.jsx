@@ -28,13 +28,15 @@ const CategoryItems = () => {
         <Title>{chosenCategory}</Title>
       </ParentDiv>
 
-      <ItemSearch
-        {...{
-          searchField,
-          handleSearchFieldChange,
-          resetSearchField,
-        }}
-      />
+      {categoryItemsFound ? (
+        <ItemSearch
+          {...{
+            searchField,
+            handleSearchFieldChange,
+            resetSearchField,
+          }}
+        />
+      ) : null}
 
       {!categoryItemsFound ? (
         <NoProductsFound />

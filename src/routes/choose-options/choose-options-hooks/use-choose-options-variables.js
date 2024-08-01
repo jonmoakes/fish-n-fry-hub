@@ -29,6 +29,9 @@ const useChooseOptionsVariables = () => {
     hasSaucesOption,
     numberOfSaucesAvailable,
     saucesChosen,
+    hasMeatsOption,
+    numberOfMeatsAvailable,
+    meatsChosen,
     hasCondimentsOption,
     numberOfCondimentsAvailable,
     condimentsChosen,
@@ -40,6 +43,8 @@ const useChooseOptionsVariables = () => {
     canDocumentsError,
     saucesDocuments,
     saucesDocumentsError,
+    meatsDocuments,
+    meatsDocumentsError,
   } = useGetChooseOptionsSelectors();
 
   return {
@@ -68,6 +73,9 @@ const useChooseOptionsVariables = () => {
     hasSaladOption,
     saladChoice,
     hasSaucesOption,
+    hasMeatsOption,
+    numberOfMeatsAvailable,
+    meatsChosen,
     numberOfSaucesAvailable,
     saucesChosen,
     hasCondimentsOption,
@@ -81,6 +89,8 @@ const useChooseOptionsVariables = () => {
     canDocumentsError,
     saucesDocuments,
     saucesDocumentsError,
+    meatsDocuments,
+    meatsDocumentsError,
   };
 };
 

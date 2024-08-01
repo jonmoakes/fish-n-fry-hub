@@ -5,6 +5,7 @@ import useFetchSaucesListThunkUseEffect from "./choose-options-hooks/use-fetch-s
 import useFetchCansListThunkUseEffect from "./choose-options-hooks/use-fetch-cans-list-thunk-use-effect";
 import useFetchGratedCheesePriceThunkUseEffect from "./choose-options-hooks/use-fetch-grated-cheese-price-thunk-use-effect";
 import useFetchDonerMeatPriceThunkUseEffect from "./choose-options-hooks/use-fetch-doner-meat-price-thunk-use-effect";
+import useFetchMeatsListThunkUseEffect from "./choose-options-hooks/use-fetch-meats-list-thunk-use-effect";
 import useConfirmReloadPageUseEffect from "./choose-options-hooks/use-confirm-reload-page-use-effect";
 
 import Loader from "../../components/loader/loader.component";
@@ -18,6 +19,7 @@ import DonerMeat from "./doner-meat/doner-meat.component";
 import ChooseSaltAndVinegar from "./choose-salt-and-vinegar/choose-salt-and-vinegar.component";
 import Salad from "./salad/salad.component";
 import Sauces from "./sauces/sauces.component";
+import Meats from "./meats/meats.component";
 import Condiments from "./condiments/condiments.component";
 import ChooseCan from "./cans/choose-can.component";
 import Quantity from "./quantity/quantity.component";
@@ -46,6 +48,7 @@ const ChooseOptions = () => {
   useFetchDonerMeatPriceThunkUseEffect();
   useFetchSaucesListThunkUseEffect();
   useFetchCansListThunkUseEffect();
+  useFetchMeatsListThunkUseEffect();
   useConfirmReloadPageUseEffect();
 
   return (
@@ -70,6 +73,7 @@ const ChooseOptions = () => {
             <>
               <ChooseSaltAndVinegar />
               <Sauces />
+              <Meats />
               <Condiments />
               <ChooseCan />
               <CheeseSlice />

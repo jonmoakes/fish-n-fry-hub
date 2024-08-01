@@ -14,6 +14,8 @@ const useGetChooseOptionsSelectors = () => {
     canDocumentsError,
     saucesDocuments,
     saucesDocumentsError,
+    meatsDocuments,
+    meatsDocumentsError,
   } = useSelector(selectChooseOptionsSelectors);
 
   const {
@@ -37,6 +39,9 @@ const useGetChooseOptionsSelectors = () => {
     hasSaucesOption,
     numberOfSaucesAvailable,
     saucesChosen,
+    hasMeatsOption,
+    numberOfMeatsAvailable,
+    meatsChosen,
     hasCondimentsOption,
     numberOfCondimentsAvailable,
     condimentsChosen,
@@ -54,6 +59,12 @@ const useGetChooseOptionsSelectors = () => {
     gratedCheesePriceError,
     donerMeatPrice,
     donerMeatPriceError,
+    canDocuments,
+    canDocumentsError,
+    saucesDocuments,
+    saucesDocumentsError,
+    meatsDocuments,
+    meatsDocumentsError,
     name,
     price,
     quantity,
@@ -74,6 +85,9 @@ const useGetChooseOptionsSelectors = () => {
     hasSaucesOption,
     numberOfSaucesAvailable,
     saucesChosen,
+    hasMeatsOption,
+    numberOfMeatsAvailable,
+    meatsChosen,
     hasCondimentsOption,
     numberOfCondimentsAvailable,
     condimentsChosen,
@@ -81,10 +95,6 @@ const useGetChooseOptionsSelectors = () => {
     saltAndVinegarChoice,
     hasChooseCanOption,
     chooseCanChoice,
-    canDocuments,
-    canDocumentsError,
-    saucesDocuments,
-    saucesDocumentsError,
   };
 };
 

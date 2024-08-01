@@ -11,6 +11,7 @@ import {
   optionsPricesCollectionId,
   optionsPricesDocumentId,
   saucesCollectionId,
+  meatsCollectionId,
   smallRateLimit,
 } from "../../constants/constants";
 
@@ -65,6 +66,34 @@ export const fetchSaucesDocumentsAsync = createAsyncThunk(
       );
 
       const { documents } = saucesDocuments;
+
+      if (!documents.length) {
+        return [];
+      }
+
+      const transformedDocuments = documents.map(({ $id, name }) => ({
+        $id,
+        name,
+      }));
+
+      return transformedDocuments;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchMeatsDocumentsAsync = createAsyncThunk(
+  "fetchMeatsDocuments",
+  async (_, thunkAPI) => {
+    try {
+      const meatsDocuments = await listDocumentsInACollection(
+        databaseId,
+        meatsCollectionId,
+        smallRateLimit
+      );
+
+      const { documents } = meatsDocuments;
 
       if (!documents.length) {
         return [];
