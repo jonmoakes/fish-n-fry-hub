@@ -27,6 +27,8 @@ export const piesCollectionId = import.meta.env.VITE_PIES_COLLECTION_ID;
 export const savouriesCollectionId = import.meta.env
   .VITE_SAVOURIES_COLLECTION_ID;
 export const specialsCollectionId = import.meta.env.VITE_SPECIALS_COLLECTION_ID;
+export const condimentsCollectionId = import.meta.env
+  .VITE_CONDIMENTS_COLLECTION_ID;
 
 export const categories = [
   "burgers",

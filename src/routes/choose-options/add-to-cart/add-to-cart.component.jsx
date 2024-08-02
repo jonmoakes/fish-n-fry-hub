@@ -9,7 +9,7 @@ import NeedToSignIn from "./need-to-sign-in.component";
 const AddToCart = () => {
   const { currentUser } = useGetCurrentUserSelectors();
   const { requiredChecksPassed } = useCombinedRequiredCheck();
-  console.log(requiredChecksPassed);
+
   return (
     <>
       <ParentDiv>

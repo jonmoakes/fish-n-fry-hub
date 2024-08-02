@@ -5,7 +5,7 @@ import useChooseOptionsFunctions from "../choose-options-hooks/use-choose-option
 
 import {
   ParentDiv,
-  RadioDiv,
+  InnerFormDiv,
   RequiredDiv,
 } from "../../../styles/div/div.styles";
 import { Form, Label } from "../../../styles/form/form.styles";
@@ -33,7 +33,7 @@ const ChoosePie = () => {
             {piesDocuments.map((pie) => {
               const { $id, name } = pie;
               return (
-                <RadioDiv key={$id}>
+                <InnerFormDiv key={$id}>
                   <>
                     <Label className="no-padding">{name}</Label>
 
@@ -46,7 +46,7 @@ const ChoosePie = () => {
 
                     <BlackHr />
                   </>
-                </RadioDiv>
+                </InnerFormDiv>
               );
             })}
           </Form>

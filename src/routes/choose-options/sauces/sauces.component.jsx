@@ -6,7 +6,7 @@ import SaucesTitleAndRequiredInfo from "./sauces-title-and-required-info.compone
 import ChooseSaucesInfo from "./choose-sauces-info.component";
 import MaximumSaucesError from "./maximum-sauces-error.component";
 
-import { ParentDiv, RadioDiv } from "../../../styles/div/div.styles";
+import { ParentDiv, InnerFormDiv } from "../../../styles/div/div.styles";
 import {
   Form,
   Label,
@@ -35,30 +35,38 @@ const Sauces = () => {
           <SaucesTitleAndRequiredInfo {...{ numberOfSaucesAvailable }} />
 
           <ChooseSaucesInfo
-            {...{ numberOfSaucesCheckboxesChosen, noSauceChecked }}
+            {...{
+              numberOfSaucesAvailable,
+              numberOfSaucesCheckboxesChosen,
+              noSauceChecked,
+            }}
           />
 
           <OptionsForm onChange={handleSaucesChange}>
-            {saucesToRender.map((sauce) => {
-              const { $id, name } = sauce;
+            <>
+              {saucesToRender.map((sauce) => {
+                const { $id, name } = sauce;
 
-              return (
-                <RadioDiv key={$id}>
-                  <OptionsLabel>{name}</OptionsLabel>
-                  <StyledCheckbox
-                    className="multiple"
-                    type="checkbox"
-                    id={name}
-                    name={name}
-                  />
+                return (
+                  <InnerFormDiv key={$id}>
+                    <OptionsLabel>{name}</OptionsLabel>
+                    <StyledCheckbox
+                      className="multiple"
+                      type="checkbox"
+                      id={name}
+                      name={name}
+                    />
 
-                  <BlackHr />
-                </RadioDiv>
-              );
-            })}
+                    <BlackHr />
+                  </InnerFormDiv>
+                );
+              })}
+            </>
           </OptionsForm>
 
-          <MaximumSaucesError {...{ numberOfSaucesCheckboxesChosen }} />
+          <MaximumSaucesError
+            {...{ numberOfSaucesAvailable, numberOfSaucesCheckboxesChosen }}
+          />
         </ParentDiv>
       ) : showSauceRadio ? (
         <ParentDiv>
@@ -68,7 +76,7 @@ const Sauces = () => {
             {saucesToRender.map((sauce) => {
               const { $id, name } = sauce;
               return (
-                <RadioDiv key={$id}>
+                <InnerFormDiv key={$id}>
                   <Label className="no-padding">{name}</Label>
                   <input
                     type="radio"
@@ -78,7 +86,7 @@ const Sauces = () => {
                   />
 
                   <BlackHr />
-                </RadioDiv>
+                </InnerFormDiv>
               );
             })}
           </Form>

@@ -6,6 +6,7 @@ import useFetchCansListThunkUseEffect from "./choose-options-hooks/use-fetch-can
 import useFetchGratedCheesePriceThunkUseEffect from "./choose-options-hooks/use-fetch-grated-cheese-price-thunk-use-effect";
 import useFetchDonerMeatPriceThunkUseEffect from "./choose-options-hooks/use-fetch-doner-meat-price-thunk-use-effect";
 import useFetchMeatsListThunkUseEffect from "./choose-options-hooks/use-fetch-meats-list-thunk-use-effect";
+import useFetchCondimentsListThunkUseEffect from "./choose-options-hooks/use-fetch-condiments-list-thunk-use-effect";
 import useFetchPiesListThunkUseEffect from "./choose-options-hooks/use-fetch-pies-list-thunk-use-effect";
 import useConfirmReloadPageUseEffect from "./choose-options-hooks/use-confirm-reload-page-use-effect";
 
@@ -49,6 +50,7 @@ const ChooseOptions = () => {
   useFetchSaucesListThunkUseEffect();
   useFetchCansListThunkUseEffect();
   useFetchMeatsListThunkUseEffect();
+  useFetchCondimentsListThunkUseEffect();
   useFetchPiesListThunkUseEffect();
   useConfirmReloadPageUseEffect();
 

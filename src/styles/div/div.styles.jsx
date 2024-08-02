@@ -469,7 +469,7 @@ export const TableEditsButtonDiv = styled.div`
   }
 `;
 
-export const RadioDiv = styled.div`
+export const InnerFormDiv = styled.div`
   width: 90%;
   display: flex;
   margin: 0 auto;

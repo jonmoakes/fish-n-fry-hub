@@ -5,7 +5,7 @@ import useChooseOptionsFunctions from "../choose-options-hooks/use-choose-option
 import MeatsTitleAndRequiredInfo from "./meats-title-and-required-info.component";
 import MaximumMeatsError from "./maximum-meats-error.component";
 
-import { ParentDiv, RadioDiv } from "../../../styles/div/div.styles";
+import { ParentDiv, InnerFormDiv } from "../../../styles/div/div.styles";
 import {
   Form,
   Label,
@@ -37,7 +37,7 @@ const Meats = () => {
               const { $id, name } = meat;
 
               return (
-                <RadioDiv key={$id}>
+                <InnerFormDiv key={$id}>
                   <OptionsLabel>{name}</OptionsLabel>
                   <StyledCheckbox
                     className="multiple"
@@ -47,12 +47,14 @@ const Meats = () => {
                   />
 
                   <BlackHr />
-                </RadioDiv>
+                </InnerFormDiv>
               );
             })}
           </OptionsForm>
 
-          <MaximumMeatsError {...{ numberOfMeatsCheckboxesChosen }} />
+          <MaximumMeatsError
+            {...{ numberOfMeatsAvailable, numberOfMeatsCheckboxesChosen }}
+          />
         </ParentDiv>
       ) : showMeatsRadio ? (
         <ParentDiv>
@@ -62,7 +64,7 @@ const Meats = () => {
             {meatsToRender.map((meat) => {
               const { $id, name } = meat;
               return (
-                <RadioDiv key={$id}>
+                <InnerFormDiv key={$id}>
                   <Label className="no-padding">{name}</Label>
                   <input
                     type="radio"
@@ -72,7 +74,7 @@ const Meats = () => {
                   />
 
                   <BlackHr />
-                </RadioDiv>
+                </InnerFormDiv>
               );
             })}
           </Form>

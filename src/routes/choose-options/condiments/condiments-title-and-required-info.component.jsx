@@ -9,7 +9,10 @@ const CondimentsTitleAndRequiredInfo = ({ numberOfCondimentsAvailable }) => (
     <H2>
       <Balancer>
         choose{" "}
-        {numberOfCondimentsAvailable === 1 ? "a condiment" : "2 condiments"}:
+        {numberOfCondimentsAvailable === 1
+          ? "a condiment"
+          : `${numberOfCondimentsAvailable} condiments`}
+        :
       </Balancer>
     </H2>
     <RequiredDiv>

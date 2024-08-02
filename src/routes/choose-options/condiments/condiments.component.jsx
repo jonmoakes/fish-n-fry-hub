@@ -6,7 +6,7 @@ import useChooseCondimentsFunctions from "./condiments-hooks/use-choose-condimen
 import CondimentsTitleAndRequiredInfo from "./condiments-title-and-required-info.component";
 import MaximumCondimentsError from "./maximum-condiments-error.component";
 
-import { ParentDiv, RadioDiv } from "../../../styles/div/div.styles";
+import { ParentDiv, InnerFormDiv } from "../../../styles/div/div.styles";
 import {
   Form,
   Label,
@@ -17,10 +17,9 @@ import { OptionsLabel } from "../../../styles/p/p.styles";
 import { BlackHr } from "../../../styles/hr/hr.styles";
 import useChooseOptionsFunctions from "../choose-options-hooks/use-choose-options-functions";
 
-import { condimentsList } from "./condiments-list";
-
 const Condiments = () => {
-  const { numberOfCondimentsAvailable } = useChooseOptionsVariables();
+  const { numberOfCondimentsAvailable, condimentsDocuments } =
+    useChooseOptionsVariables();
   const {
     numberOfCondimentsCheckboxesChosen,
     showCondimentsCheckboxes,
@@ -38,22 +37,25 @@ const Condiments = () => {
           />
 
           <OptionsForm onChange={handleCondimentsChange}>
-            <RadioDiv>
-              {condimentsList.map((checkbox) => (
-                <Fragment key={checkbox.id}>
-                  <OptionsLabel>{checkbox.name}</OptionsLabel>
-                  <StyledCheckbox
-                    className="multiple"
-                    type="checkbox"
-                    id={checkbox.name}
-                    name={checkbox.name}
-                    checked={checkbox.checked}
-                  />
+            <>
+              {condimentsDocuments.map((condiment) => {
+                const { $id, name } = condiment;
 
-                  <BlackHr />
-                </Fragment>
-              ))}
-            </RadioDiv>
+                return (
+                  <InnerFormDiv key={$id}>
+                    <OptionsLabel>{name}</OptionsLabel>
+                    <StyledCheckbox
+                      className="multiple"
+                      type="checkbox"
+                      id={name}
+                      name={name}
+                    />
+
+                    <BlackHr />
+                  </InnerFormDiv>
+                );
+              })}
+            </>
           </OptionsForm>
 
           <MaximumCondimentsError
@@ -70,10 +72,10 @@ const Condiments = () => {
           />
 
           <Form className="no-margin-top">
-            {condimentsList.map((condiments) => {
-              const { id, name } = condiments;
+            {condimentsDocuments.map((condiments) => {
+              const { $id, name } = condiments;
               return (
-                <RadioDiv key={id}>
+                <InnerFormDiv key={$id}>
                   <Label className="no-padding">{name}</Label>
                   <input
                     type="radio"
@@ -83,7 +85,7 @@ const Condiments = () => {
                   />
 
                   <BlackHr />
-                </RadioDiv>
+                </InnerFormDiv>
               );
             })}
           </Form>

@@ -8,7 +8,11 @@ const SaucesTitleAndRequiredInfo = ({ numberOfMeatsAvailable }) => (
   <>
     <H2>
       <Balancer>
-        choose {numberOfMeatsAvailable === 1 ? "a meat" : "2 meats"}:
+        choose{" "}
+        {numberOfMeatsAvailable === 1
+          ? "a meat"
+          : `${numberOfMeatsAvailable} meats`}
+        :
       </Balancer>
     </H2>
     <RequiredDiv>

@@ -1,12 +1,15 @@
-import { Text } from "../../../styles/p/p.styles";
-import { YellowSpan } from "../../../styles/span/span.styles";
+import { RequiredError } from "../../../styles/p/p.styles";
 
-const MaximumSaucesError = ({ numberOfSaucesCheckboxesChosen }) => (
+const MaximumSaucesError = ({
+  numberOfSaucesAvailable,
+  numberOfSaucesCheckboxesChosen,
+}) => (
   <>
-    {numberOfSaucesCheckboxesChosen() > 3 ? (
-      <Text>
-        <YellowSpan>please select a maximum of 3 sauces</YellowSpan>
-      </Text>
+    {numberOfSaucesAvailable !== null &&
+    numberOfSaucesCheckboxesChosen() > numberOfSaucesAvailable ? (
+      <RequiredError>
+        please select a maximum of {numberOfSaucesAvailable} condiments
+      </RequiredError>
     ) : null}
   </>
 );

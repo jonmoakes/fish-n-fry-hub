@@ -10,6 +10,7 @@ const useHandleShowError = () => {
     canDocumentsError,
     meatsDocumentsError,
     piesDocumentsError,
+    condimentsDocumentsError,
   } = useGetChooseOptionsSelectors();
 
   const showErrorHeading = () => {
@@ -21,6 +22,8 @@ const useHandleShowError = () => {
     if (piesDocumentsError) return "failed to fetch our list of pies.";
     if (canDocumentsError)
       return "failed to fetch our list of drinks to go with your order.";
+    if (condimentsDocumentsError)
+      return "failed to fetch our list of  condiments";
     // add more if needed with if statement for each
   };
 
@@ -33,6 +36,7 @@ const useHandleShowError = () => {
       meatsDocumentsError,
       canDocumentsError,
       piesDocumentsError,
+      condimentsDocumentsError,
       // add more separated by comma
     ];
 

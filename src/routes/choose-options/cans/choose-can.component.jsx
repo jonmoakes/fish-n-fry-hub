@@ -5,7 +5,7 @@ import useChooseOptionsFunctions from "../choose-options-hooks/use-choose-option
 
 import {
   ParentDiv,
-  RadioDiv,
+  InnerFormDiv,
   RequiredDiv,
 } from "../../../styles/div/div.styles";
 import { Form, Label } from "../../../styles/form/form.styles";
@@ -38,7 +38,7 @@ const ChooseCan = () => {
             {canDocuments.map((canDocument) => {
               const { $id, name } = canDocument;
               return (
-                <RadioDiv key={$id}>
+                <InnerFormDiv key={$id}>
                   <Label className="no-padding">
                     {removeTextAndParentheses(name)}
                   </Label>
@@ -51,7 +51,7 @@ const ChooseCan = () => {
                   />
 
                   <BlackHr />
-                </RadioDiv>
+                </InnerFormDiv>
               );
             })}
           </Form>

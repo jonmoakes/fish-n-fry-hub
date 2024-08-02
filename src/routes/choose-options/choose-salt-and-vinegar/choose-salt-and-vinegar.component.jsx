@@ -10,7 +10,7 @@ import NoSaltOrVinegar from "./no-salt-or-vinegar.component";
 
 import {
   ParentDiv,
-  RadioDiv,
+  InnerFormDiv,
   RequiredDiv,
 } from "../../../styles/div/div.styles";
 import { Form } from "../../../styles/form/form.styles";
@@ -34,12 +34,12 @@ const ChooseSaltAndVinegar = () => {
           </RequiredDiv>
 
           <Form className="no-margin-top">
-            <RadioDiv>
+            <InnerFormDiv>
               <BothSaltAndVinegar {...{ handleRadioChange }} />
               <JustSalt {...{ handleRadioChange }} />
               <JustVinegar {...{ handleRadioChange }} />
               <NoSaltOrVinegar {...{ handleRadioChange }} />
-            </RadioDiv>
+            </InnerFormDiv>
           </Form>
         </ParentDiv>
       ) : null}

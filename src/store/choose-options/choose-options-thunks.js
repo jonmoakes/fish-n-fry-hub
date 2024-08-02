@@ -1,34 +1,23 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import {
-  listDocumentsByQueryOrSearch,
-  listDocumentsInACollection,
-  manageDatabaseDocument,
-} from "../../utils/appwrite/appwrite-functions";
 
 import {
-  databaseId,
+  fetchOptionPrice,
+  getRetrievedDocuments,
+} from "./choose-options-actions";
+
+import {
   drinksCollectionId,
-  optionsPricesCollectionId,
-  optionsPricesDocumentId,
   saucesCollectionId,
   meatsCollectionId,
   piesCollectionId,
-  smallRateLimit,
+  condimentsCollectionId,
 } from "../../constants/constants";
 
 export const fetchGratedCheesePriceAsync = createAsyncThunk(
   "fetchGratedCheesePrice",
   async (_, thunkAPI) => {
     try {
-      const getOptionsPrices = await manageDatabaseDocument(
-        "get",
-        databaseId,
-        optionsPricesCollectionId,
-        optionsPricesDocumentId
-      );
-
-      const { gratedCheesePrice } = getOptionsPrices;
-
+      const gratedCheesePrice = await fetchOptionPrice("gratedCheesePrice");
       return gratedCheesePrice;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -40,15 +29,7 @@ export const fetchDonerMeatPriceAsync = createAsyncThunk(
   "fetchDonerMeatPrice",
   async (_, thunkAPI) => {
     try {
-      const getOptionsPrices = await manageDatabaseDocument(
-        "get",
-        databaseId,
-        optionsPricesCollectionId,
-        optionsPricesDocumentId
-      );
-
-      const { donerMeatPrice } = getOptionsPrices;
-
+      const donerMeatPrice = await fetchOptionPrice("donerMeatPrice");
       return donerMeatPrice;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -56,28 +37,19 @@ export const fetchDonerMeatPriceAsync = createAsyncThunk(
   }
 );
 
+// the 3 arguments passed to getRetrievedDocuments refer to the search values in all the below thunks.
+//They are passed for clarity even when not needed.
 export const fetchSaucesDocumentsAsync = createAsyncThunk(
   "fetchSaucesDocuments",
   async (_, thunkAPI) => {
     try {
-      const saucesDocuments = await listDocumentsInACollection(
-        databaseId,
-        saucesCollectionId,
-        smallRateLimit
+      const documents = await getRetrievedDocuments(
+        false,
+        null,
+        null,
+        saucesCollectionId
       );
-
-      const { documents } = saucesDocuments;
-
-      if (!documents.length) {
-        return [];
-      }
-
-      const transformedDocuments = documents.map(({ $id, name }) => ({
-        $id,
-        name,
-      }));
-
-      return transformedDocuments;
+      return documents;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -88,52 +60,12 @@ export const fetchMeatsDocumentsAsync = createAsyncThunk(
   "fetchMeatsDocuments",
   async (_, thunkAPI) => {
     try {
-      const meatsDocuments = await listDocumentsInACollection(
-        databaseId,
-        meatsCollectionId,
-        smallRateLimit
+      const documents = await getRetrievedDocuments(
+        false,
+        null,
+        null,
+        meatsCollectionId
       );
-
-      const { documents } = meatsDocuments;
-
-      if (!documents.length) {
-        return [];
-      }
-
-      const transformedDocuments = documents.map(({ $id, name }) => ({
-        $id,
-        name,
-      }));
-
-      return transformedDocuments;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-export const fetchCansDocumentsAsync = createAsyncThunk(
-  "fetchCansDocuments",
-  async (_, thunkAPI) => {
-    try {
-      const searchIndex = "name";
-      const searchValue = "( can )";
-
-      const canDocuments = await listDocumentsByQueryOrSearch(
-        databaseId,
-        drinksCollectionId,
-        searchIndex,
-        searchValue,
-        true,
-        null
-      );
-
-      const { documents } = canDocuments;
-
-      if (!documents.length) {
-        return [];
-      }
-
       return documents;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -145,24 +77,47 @@ export const fetchPiesDocumentsAsync = createAsyncThunk(
   "fetchPiesDocuments",
   async (_, thunkAPI) => {
     try {
-      const piesDocuments = await listDocumentsInACollection(
-        databaseId,
-        piesCollectionId,
-        smallRateLimit
+      const documents = await getRetrievedDocuments(
+        false,
+        null,
+        null,
+        piesCollectionId
       );
+      return documents;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
-      const { documents } = piesDocuments;
+export const fetchCondimentsDocumentsAsync = createAsyncThunk(
+  "fetchCondimentsDocuments",
+  async (_, thunkAPI) => {
+    try {
+      const documents = await getRetrievedDocuments(
+        false,
+        null,
+        null,
+        condimentsCollectionId
+      );
+      return documents;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
-      if (!documents.length) {
-        return [];
-      }
-
-      const transformedDocuments = documents.map(({ $id, name }) => ({
-        $id,
-        name,
-      }));
-
-      return transformedDocuments;
+export const fetchCansDocumentsAsync = createAsyncThunk(
+  "fetchCansDocuments",
+  async (_, thunkAPI) => {
+    try {
+      const documents = await getRetrievedDocuments(
+        true,
+        "name",
+        "( can )",
+        drinksCollectionId
+      );
+      return documents;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

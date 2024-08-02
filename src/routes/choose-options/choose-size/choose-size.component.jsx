@@ -9,7 +9,7 @@ import TripleSize from "./triple-size.component";
 
 import {
   ParentDiv,
-  RadioDiv,
+  InnerFormDiv,
   RequiredDiv,
 } from "../../../styles/div/div.styles";
 import { Form } from "../../../styles/form/form.styles";
@@ -37,13 +37,13 @@ const ChooseSize = () => {
           </RequiredDiv>
 
           <Form className="no-margin-top">
-            <RadioDiv>
+            <InnerFormDiv>
               <SingleSize {...{ sizeOptionLargePrice, handleRadioChange }} />
               <MediumSize {...{ sizeOptionMediumPrice, handleRadioChange }} />
               <LargeSize {...{ sizeOptionLargePrice, handleRadioChange }} />
               <DoubleSize {...{ sizeOptionDoublePrice, handleRadioChange }} />
               <TripleSize {...{ sizeOptionTriplePrice, handleRadioChange }} />
-            </RadioDiv>
+            </InnerFormDiv>
           </Form>
         </ParentDiv>
       ) : null}

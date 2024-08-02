@@ -6,6 +6,7 @@ import {
   fetchCansDocumentsAsync,
   fetchMeatsDocumentsAsync,
   fetchPiesDocumentsAsync,
+  fetchCondimentsDocumentsAsync,
 } from "./choose-options-thunks";
 
 const INITIAL_STATE = {
@@ -24,6 +25,8 @@ const INITIAL_STATE = {
   meatsDocumentsError: null,
   piesDocuments: [],
   piesDocumentsError: null,
+  condimentsDocuments: [],
+  condimentsDocumentsError: null,
 };
 
 export const chooseOptionsSlice = createSlice({
@@ -55,6 +58,7 @@ export const chooseOptionsSlice = createSlice({
       state.canDocumentsError = null;
       state.meatsDocumentsError = null;
       state.piesDocumentsError = null;
+      state.condimentsDocumentsError = null;
     },
     resetChooseOptionsState: () => {
       return INITIAL_STATE;
@@ -139,6 +143,19 @@ export const chooseOptionsSlice = createSlice({
         state.menuIsLoading = false;
         state.piesDocuments = [];
         state.piesDocumentsError = action.payload;
+      })
+      .addCase(fetchCondimentsDocumentsAsync.pending, (state) => {
+        state.menuIsLoading = true;
+      })
+      .addCase(fetchCondimentsDocumentsAsync.fulfilled, (state, action) => {
+        state.menuIsLoading = false;
+        state.condimentsDocuments = action.payload;
+        state.condimentsDocumentsError = null;
+      })
+      .addCase(fetchCondimentsDocumentsAsync.rejected, (state, action) => {
+        state.menuIsLoading = false;
+        state.condimentsDocuments = [];
+        state.condimentsDocumentsError = action.payload;
       });
   },
   selectors: {
@@ -158,6 +175,8 @@ export const chooseOptionsSlice = createSlice({
       (state) => state.meatsDocumentsError,
       (state) => state.piesDocuments,
       (state) => state.piesDocumentsError,
+      (state) => state.condimentsDocuments,
+      (state) => state.condimentsDocumentsError,
       (
         selectedItem,
         categoryItems,
@@ -173,7 +192,9 @@ export const chooseOptionsSlice = createSlice({
         meatsDocuments,
         meatsDocumentsError,
         piesDocuments,
-        piesDocumentsError
+        piesDocumentsError,
+        condimentsDocuments,
+        condimentsDocumentsError
       ) => {
         return {
           selectedItem,
@@ -191,6 +212,8 @@ export const chooseOptionsSlice = createSlice({
           meatsDocumentsError,
           piesDocuments,
           piesDocumentsError,
+          condimentsDocuments,
+          condimentsDocumentsError,
         };
       }
     ),

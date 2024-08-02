@@ -1,3 +1,4 @@
+import useChooseOptionsVariables from "../../choose-options-hooks/use-choose-options-variables";
 import useCanCheck from "./use-can-check";
 import useCondimentsCheck from "./use-condiments-check";
 import useMeatsCheck from "./use-meats-check";
@@ -14,8 +15,7 @@ const useCombinedRequiredCheck = () => {
   const { saltAndVinegarCheckCorrect } = useSaltAndVinegarCheck();
   const { saucesSelectionCorrect } = useSaucesCheck();
   const { sizeCheckCorrect } = useSizeCheck();
-
-  //   console.log(saucesSelectionCorrect);
+  const { quantityIsValid } = useChooseOptionsVariables();
 
   const requiredChecksPassed =
     canCheckCorrect &&
@@ -25,11 +25,12 @@ const useCombinedRequiredCheck = () => {
     saltAndVinegarCheckCorrect &&
     saucesSelectionCorrect &&
     sizeCheckCorrect &&
-    saucesSelectionCorrect
+    saucesSelectionCorrect &&
+    quantityIsValid
       ? true
       : false;
 
-  return { requiredChecksPassed };
+  return { requiredChecksPassed, quantityIsValid };
 };
 
 export default useCombinedRequiredCheck;

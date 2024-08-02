@@ -18,6 +18,8 @@ const useGetChooseOptionsSelectors = () => {
     meatsDocumentsError,
     piesDocuments,
     piesDocumentsError,
+    condimentsDocuments,
+    condimentsDocumentsError,
   } = useSelector(selectChooseOptionsSelectors);
 
   const {
@@ -74,6 +76,8 @@ const useGetChooseOptionsSelectors = () => {
     meatsDocumentsError,
     piesDocuments,
     piesDocumentsError,
+    condimentsDocuments,
+    condimentsDocumentsError,
     name,
     price,
     quantity,

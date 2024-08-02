@@ -1,16 +1,15 @@
-import { Text } from "../../../styles/p/p.styles";
-import { YellowSpan } from "../../../styles/span/span.styles";
+import { RequiredError } from "../../../styles/p/p.styles";
 
 const MaximumCondimentsError = ({
   numberOfCondimentsAvailable,
   numberOfCondimentsCheckboxesChosen,
 }) => (
   <>
-    {numberOfCondimentsAvailable === 2 &&
-    numberOfCondimentsCheckboxesChosen() > 2 ? (
-      <Text>
-        <YellowSpan>please select a maximum 2 condiments</YellowSpan>
-      </Text>
+    {numberOfCondimentsAvailable !== null &&
+    numberOfCondimentsCheckboxesChosen() > numberOfCondimentsAvailable ? (
+      <RequiredError>
+        please select a maximum of {numberOfCondimentsAvailable} condiments
+      </RequiredError>
     ) : null}
   </>
 );
