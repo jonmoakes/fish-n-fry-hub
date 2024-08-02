@@ -18,6 +18,7 @@ import { H2 } from "../../../styles/h2/h2.styles";
 
 const ChooseSize = () => {
   const {
+    hasSizeOption,
     sizeOptionMediumPrice,
     sizeOptionLargePrice,
     sizeOptionDoublePrice,
@@ -26,23 +27,27 @@ const ChooseSize = () => {
   const { handleRadioChange } = useChooseOptionsFunctions();
 
   return (
-    <ParentDiv>
-      <H2>choose size:</H2>
+    <>
+      {hasSizeOption ? (
+        <ParentDiv>
+          <H2>choose size:</H2>
 
-      <RequiredDiv>
-        <RequiredSpan>required</RequiredSpan>
-      </RequiredDiv>
+          <RequiredDiv>
+            <RequiredSpan>required</RequiredSpan>
+          </RequiredDiv>
 
-      <Form className="no-margin-top">
-        <RadioDiv>
-          <SingleSize {...{ sizeOptionLargePrice, handleRadioChange }} />
-          <MediumSize {...{ sizeOptionMediumPrice, handleRadioChange }} />
-          <LargeSize {...{ sizeOptionLargePrice, handleRadioChange }} />
-          <DoubleSize {...{ sizeOptionDoublePrice, handleRadioChange }} />
-          <TripleSize {...{ sizeOptionTriplePrice, handleRadioChange }} />
-        </RadioDiv>
-      </Form>
-    </ParentDiv>
+          <Form className="no-margin-top">
+            <RadioDiv>
+              <SingleSize {...{ sizeOptionLargePrice, handleRadioChange }} />
+              <MediumSize {...{ sizeOptionMediumPrice, handleRadioChange }} />
+              <LargeSize {...{ sizeOptionLargePrice, handleRadioChange }} />
+              <DoubleSize {...{ sizeOptionDoublePrice, handleRadioChange }} />
+              <TripleSize {...{ sizeOptionTriplePrice, handleRadioChange }} />
+            </RadioDiv>
+          </Form>
+        </ParentDiv>
+      ) : null}
+    </>
   );
 };
 

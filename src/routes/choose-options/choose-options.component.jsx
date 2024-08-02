@@ -42,8 +42,6 @@ const ChooseOptions = () => {
     canDocumentsError,
     name,
     price,
-    hasSizeOption,
-    sizeChoice,
   } = useChooseOptionsVariables();
 
   useFetchGratedCheesePriceThunkUseEffect();
@@ -70,25 +68,20 @@ const ChooseOptions = () => {
           <ChooseOptionsTitleAndRequiredInfo />
           <ChooseOptionsItemBasicInfo {...{ name, price }} />
 
-          {hasSizeOption ? <ChooseSize /> : null}
-
-          {!hasSizeOption || (hasSizeOption && sizeChoice) ? (
-            <>
-              <ChooseSaltAndVinegar />
-              <Sauces />
-              <Meats />
-              <Condiments />
-              <ChooseCan />
-              <CheeseSlice />
-              <GratedCheese />
-              <DonerMeat />
-              <Salad />
-              <ChoosePie />
-              <Quantity />
-              <TotalPrice />
-              <AddToCart />
-            </>
-          ) : null}
+          <ChooseSize />
+          <ChooseSaltAndVinegar />
+          <Sauces />
+          <Meats />
+          <Condiments />
+          <ChooseCan />
+          <CheeseSlice />
+          <GratedCheese />
+          <DonerMeat />
+          <Salad />
+          <ChoosePie />
+          <Quantity />
+          <TotalPrice />
+          <AddToCart />
         </>
       )}
     </Container>

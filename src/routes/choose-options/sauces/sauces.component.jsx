@@ -72,7 +72,7 @@ const Sauces = () => {
                   <Label className="no-padding">{name}</Label>
                   <input
                     type="radio"
-                    name="sauceChosen"
+                    name="singleSauceChosen"
                     value={name}
                     onChange={handleRadioChange}
                   />

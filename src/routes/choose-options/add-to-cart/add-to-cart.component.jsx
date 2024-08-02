@@ -2,42 +2,28 @@ import useGetCurrentUserSelectors from "../../../hooks/selectors/use-get-current
 import { YellowGreenButton } from "../../../styles/buttons/buttons.styles";
 import { ParentDiv } from "../../../styles/div/div.styles";
 import { Text } from "../../../styles/p/p.styles";
-import { StyledLink } from "../../../styles/link/link.styles";
-import { BlackHr } from "../../../styles/hr/hr.styles";
 
-import {
-  signInRoute,
-  signUpRoute,
-} from "../../../strings/routes/routes-strings";
+import useCombinedRequiredCheck from "./add-to-cart-hooks/use-combined-required-check";
+import NeedToSignIn from "./need-to-sign-in.component";
 
 const AddToCart = () => {
   const { currentUser } = useGetCurrentUserSelectors();
+  const { requiredChecksPassed } = useCombinedRequiredCheck();
+  console.log(requiredChecksPassed);
   return (
     <>
       <ParentDiv>
-        {currentUser ? (
+        {currentUser && requiredChecksPassed ? (
           <YellowGreenButton onClick={() => console.log("add item now")}>
             add to cart
           </YellowGreenButton>
-        ) : (
+        ) : !currentUser ? (
+          <NeedToSignIn />
+        ) : currentUser && !requiredChecksPassed ? (
           <>
-            <Text>
-              please{" "}
-              <StyledLink className="yellow" to={signInRoute}>
-                sign in
-              </StyledLink>{" "}
-              in order to add items to your cart.
-            </Text>
-            <BlackHr />
-            <Text>
-              don't have an account?{" "}
-              <StyledLink className="yellow" to={signUpRoute}>
-                sign up
-              </StyledLink>
-              !
-            </Text>
+            <Text>the form has errors</Text>
           </>
-        )}
+        ) : null}
       </ParentDiv>
     </>
   );
