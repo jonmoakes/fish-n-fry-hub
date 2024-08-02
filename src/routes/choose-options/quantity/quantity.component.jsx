@@ -42,9 +42,9 @@ const Quantity = () => {
         </InnerFormDiv>
       </OptionsForm>
 
-      {quantity < "1" ? (
+      {Number(quantity) < 1 ? (
         <RequiredError>quantity must be at least 1</RequiredError>
-      ) : quantity > "10" ? (
+      ) : Number(quantity) > 10 ? (
         <RequiredError>quantity can't be more than 10</RequiredError>
       ) : Number.isNaN(quantity) ? (
         <RequiredError>

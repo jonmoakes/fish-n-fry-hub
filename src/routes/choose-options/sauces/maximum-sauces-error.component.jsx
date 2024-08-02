@@ -8,7 +8,7 @@ const MaximumSaucesError = ({
     {numberOfSaucesAvailable !== null &&
     numberOfSaucesCheckboxesChosen() > numberOfSaucesAvailable ? (
       <RequiredError>
-        please select a maximum of {numberOfSaucesAvailable} condiments
+        please select a maximum of {numberOfSaucesAvailable} sauces
       </RequiredError>
     ) : null}
   </>
