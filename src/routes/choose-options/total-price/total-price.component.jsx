@@ -1,4 +1,4 @@
-import useChooseOptionsVariables from "../choose-options-hooks/use-choose-options-variables";
+import useCombinedRequiredCheck from "../add-to-cart/add-to-cart-hooks/use-combined-required-check";
 import useCalculateTotalPrice from "../add-to-cart/add-to-cart-hooks/use-calculate-total-price";
 
 import { ParentDiv } from "../../../styles/div/div.styles";
@@ -8,12 +8,12 @@ import Balancer from "react-wrap-balancer";
 import { YellowShadowSpan } from "../../../styles/span/span.styles";
 
 const TotalPrice = () => {
-  const { quantityIsValid } = useChooseOptionsVariables();
+  const { requiredChecksPassed } = useCombinedRequiredCheck();
   const { totalPriceWithOptionsAndQuantity } = useCalculateTotalPrice();
 
   return (
     <>
-      {quantityIsValid ? (
+      {requiredChecksPassed ? (
         <ParentDiv>
           <WhiteH2>
             <Balancer>

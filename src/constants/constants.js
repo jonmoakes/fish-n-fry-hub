@@ -29,6 +29,8 @@ export const savouriesCollectionId = import.meta.env
 export const specialsCollectionId = import.meta.env.VITE_SPECIALS_COLLECTION_ID;
 export const condimentsCollectionId = import.meta.env
   .VITE_CONDIMENTS_COLLECTION_ID;
+export const cartItemsCollectionId = import.meta.env
+  .VITE_CART_ITEMS_COLLECTION_ID;
 
 export const categories = [
   "burgers",

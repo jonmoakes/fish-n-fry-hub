@@ -3,7 +3,6 @@ import useChooseMeatsFunctions from "./meats-hooks/use-choose-meats-functions";
 import useChooseOptionsFunctions from "../choose-options-hooks/use-choose-options-functions";
 
 import MeatsTitleAndRequiredInfo from "./meats-title-and-required-info.component";
-import MaximumMeatsError from "./maximum-meats-error.component";
 
 import { ParentDiv, InnerFormDiv } from "../../../styles/div/div.styles";
 import {
@@ -19,12 +18,11 @@ const Meats = () => {
   const { numberOfMeatsAvailable } = useChooseOptionsVariables();
   const {
     handleMeatsChange,
-    numberOfMeatsCheckboxesChosen,
     showMeatsCheckboxes,
     showMeatsRadio,
     meatsToRender,
   } = useChooseMeatsFunctions();
-  const { handleRadioChange } = useChooseOptionsFunctions();
+  const { handleOptionChange } = useChooseOptionsFunctions();
 
   return (
     <>
@@ -51,10 +49,6 @@ const Meats = () => {
               );
             })}
           </OptionsForm>
-
-          <MaximumMeatsError
-            {...{ numberOfMeatsAvailable, numberOfMeatsCheckboxesChosen }}
-          />
         </ParentDiv>
       ) : showMeatsRadio ? (
         <ParentDiv>
@@ -68,9 +62,9 @@ const Meats = () => {
                   <Label className="no-padding">{name}</Label>
                   <input
                     type="radio"
-                    name="  singleMeatChosen"
+                    name="singleMeatChosen"
                     value={name}
-                    onChange={handleRadioChange}
+                    onChange={handleOptionChange}
                   />
 
                   <BlackHr />

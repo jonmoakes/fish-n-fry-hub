@@ -1,7 +1,7 @@
 import { Label } from "../../../styles/form/form.styles";
 import { BlackHr } from "../../../styles/hr/hr.styles";
 
-const SingleSize = ({ sizeOptionLargePrice, handleRadioChange }) => {
+const SingleSize = ({ sizeOptionLargePrice, handleOptionChange }) => {
   const choice = !sizeOptionLargePrice ? "single" : "small";
 
   return (
@@ -14,7 +14,7 @@ const SingleSize = ({ sizeOptionLargePrice, handleRadioChange }) => {
         type="radio"
         name="sizeChoice"
         value={choice}
-        onChange={handleRadioChange}
+        onChange={handleOptionChange}
       />
 
       <BlackHr />

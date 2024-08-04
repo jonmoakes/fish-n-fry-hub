@@ -1,7 +1,7 @@
 import { Label } from "../../../styles/form/form.styles";
 import { BlackHr } from "../../../styles/hr/hr.styles";
 
-const BothSaltAndVinegar = ({ handleRadioChange }) => (
+const BothSaltAndVinegar = ({ handleOptionChange }) => (
   <>
     <BlackHr />
 
@@ -11,7 +11,7 @@ const BothSaltAndVinegar = ({ handleRadioChange }) => (
       type="radio"
       name="saltAndVinegarChoice"
       value="both"
-      onChange={handleRadioChange}
+      onChange={handleOptionChange}
     />
 
     <BlackHr />

@@ -1,9 +1,9 @@
 import Balancer from "react-wrap-balancer";
 
-import { ProductItemDiv } from "../../styles/div/div.styles";
-import { BlackHr, HrWithMargin } from "../../styles/hr/hr.styles";
-import { Text } from "../../styles/p/p.styles";
-import { Name, Price } from "../../styles/span/span.styles";
+import { ProductItemDiv } from "../../../styles/div/div.styles";
+import { BlackHr, HrWithMargin } from "../../../styles/hr/hr.styles";
+import { Text } from "../../../styles/p/p.styles";
+import { Name, Price } from "../../../styles/span/span.styles";
 
 const ChooseOptionsItemBasicInfo = ({ name, price }) => (
   <ProductItemDiv>

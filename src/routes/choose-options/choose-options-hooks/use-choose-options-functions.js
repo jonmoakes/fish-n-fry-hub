@@ -5,7 +5,7 @@ import { updateSelectedItem } from "../../../store/choose-options/choose-options
 const useChooseOptionsFunctions = () => {
   const dispatch = useDispatch();
 
-  const handleRadioChange = (event) => {
+  const handleOptionChange = (event) => {
     const { value, name } = event.target;
     dispatch(updateSelectedItem({ [name]: value }));
   };
@@ -21,7 +21,7 @@ const useChooseOptionsFunctions = () => {
   };
 
   return {
-    handleRadioChange,
+    handleOptionChange,
     handleSingleChoiceCheckboxChange,
   };
 };

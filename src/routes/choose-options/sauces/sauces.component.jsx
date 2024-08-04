@@ -4,7 +4,6 @@ import useChooseOptionsFunctions from "../choose-options-hooks/use-choose-option
 
 import SaucesTitleAndRequiredInfo from "./sauces-title-and-required-info.component";
 import ChooseSaucesInfo from "./choose-sauces-info.component";
-import MaximumSaucesError from "./maximum-sauces-error.component";
 
 import { ParentDiv, InnerFormDiv } from "../../../styles/div/div.styles";
 import {
@@ -26,7 +25,7 @@ const Sauces = () => {
     showSauceCheckboxes,
     showSauceRadio,
   } = useChooseSaucesFunctions();
-  const { handleRadioChange } = useChooseOptionsFunctions();
+  const { handleOptionChange } = useChooseOptionsFunctions();
 
   return (
     <>
@@ -63,10 +62,6 @@ const Sauces = () => {
               })}
             </>
           </OptionsForm>
-
-          <MaximumSaucesError
-            {...{ numberOfSaucesAvailable, numberOfSaucesCheckboxesChosen }}
-          />
         </ParentDiv>
       ) : showSauceRadio ? (
         <ParentDiv>
@@ -82,7 +77,7 @@ const Sauces = () => {
                     type="radio"
                     name="singleSauceChosen"
                     value={name}
-                    onChange={handleRadioChange}
+                    onChange={handleOptionChange}
                   />
 
                   <BlackHr />

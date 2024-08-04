@@ -1,14 +1,14 @@
 import Balancer from "react-wrap-balancer";
-import useShouldShowElement from "../../hooks/use-should-show-element";
-import { YellowGreenButton } from "../../styles/buttons/buttons.styles";
+import useShouldShowElement from "../../../hooks/use-should-show-element";
+import { YellowGreenButton } from "../../../styles/buttons/buttons.styles";
 import {
   Accordion,
   AccordionContent,
   AccordionTitle,
-} from "../../styles/div/div.styles";
-import { BlackHr } from "../../styles/hr/hr.styles";
-import { Text } from "../../styles/p/p.styles";
-import { RedSpan } from "../../styles/span/span.styles";
+} from "../../../styles/div/div.styles";
+import { BlackHr } from "../../../styles/hr/hr.styles";
+import { Text } from "../../../styles/p/p.styles";
+import { RedSpan } from "../../../styles/span/span.styles";
 
 const RequiredInfoText = () => {
   const { shouldShowElement, toggleShouldShowElement, hideShownElement } =

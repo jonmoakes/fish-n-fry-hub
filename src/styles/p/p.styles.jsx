@@ -79,7 +79,7 @@ export const OptionsLabel = styled.p`
 `;
 
 export const RequiredError = styled.p`
-  margin-top: -20px;
+  /* margin-top: -20px; */
   color: ${customTomato};
   text-shadow: 1px 1px 1px ${customBlack};
   background-color: ${customBlack};

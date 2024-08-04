@@ -19,7 +19,7 @@ import { H2 } from "../../../styles/h2/h2.styles";
 
 const ChooseSaltAndVinegar = () => {
   const { hasSaltAndVinegarOption } = useChooseOptionsVariables();
-  const { handleRadioChange } = useChooseOptionsFunctions();
+  const { handleOptionChange } = useChooseOptionsFunctions();
 
   return (
     <>
@@ -35,10 +35,10 @@ const ChooseSaltAndVinegar = () => {
 
           <Form className="no-margin-top">
             <InnerFormDiv>
-              <BothSaltAndVinegar {...{ handleRadioChange }} />
-              <JustSalt {...{ handleRadioChange }} />
-              <JustVinegar {...{ handleRadioChange }} />
-              <NoSaltOrVinegar {...{ handleRadioChange }} />
+              <BothSaltAndVinegar {...{ handleOptionChange }} />
+              <JustSalt {...{ handleOptionChange }} />
+              <JustVinegar {...{ handleOptionChange }} />
+              <NoSaltOrVinegar {...{ handleOptionChange }} />
             </InnerFormDiv>
           </Form>
         </ParentDiv>

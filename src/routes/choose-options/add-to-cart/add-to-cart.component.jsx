@@ -1,30 +1,37 @@
 import useGetCurrentUserSelectors from "../../../hooks/selectors/use-get-current-user-selectors";
+import useCombinedRequiredCheck from "./add-to-cart-hooks/use-combined-required-check";
+
+import NeedToSignIn from "./need-to-sign-in.component";
+import ShowOptionsFormErrors from "./show-options-form-errors/show-options-form-errors.component";
+
 import { YellowGreenButton } from "../../../styles/buttons/buttons.styles";
 import { ParentDiv } from "../../../styles/div/div.styles";
-import { Text } from "../../../styles/p/p.styles";
-
-import useCombinedRequiredCheck from "./add-to-cart-hooks/use-combined-required-check";
-import NeedToSignIn from "./need-to-sign-in.component";
+import useConfirmAddCartItemToDb from "./add-to-cart-hooks/use-confirm-add-cart-item-to-db";
+import useAddCartItemToDbResult from "./add-to-cart-hooks/use-add-cart-item-to-db-result";
 
 const AddToCart = () => {
   const { currentUser } = useGetCurrentUserSelectors();
   const { requiredChecksPassed } = useCombinedRequiredCheck();
+  const { confirmAddCartItemToDb } = useConfirmAddCartItemToDb();
+  useAddCartItemToDbResult();
 
   return (
     <>
-      <ParentDiv>
-        {currentUser && requiredChecksPassed ? (
-          <YellowGreenButton onClick={() => console.log("add item now")}>
+      {currentUser && requiredChecksPassed ? (
+        <ParentDiv>
+          <YellowGreenButton onClick={confirmAddCartItemToDb}>
             add to cart
           </YellowGreenButton>
-        ) : !currentUser ? (
-          <NeedToSignIn />
-        ) : currentUser && !requiredChecksPassed ? (
-          <>
-            <Text>the form has errors</Text>
-          </>
-        ) : null}
-      </ParentDiv>
+        </ParentDiv>
+      ) : !currentUser ? (
+        <NeedToSignIn />
+      ) : currentUser && !requiredChecksPassed ? (
+        <>
+          <ParentDiv>
+            <ShowOptionsFormErrors />
+          </ParentDiv>
+        </>
+      ) : null}
     </>
   );
 };

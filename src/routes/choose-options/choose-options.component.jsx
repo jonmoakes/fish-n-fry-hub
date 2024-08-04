@@ -12,8 +12,8 @@ import useConfirmReloadPageUseEffect from "./choose-options-hooks/use-confirm-re
 
 import Loader from "../../components/loader/loader.component";
 import ShowFetchErrors from "../../components/errors/show-fetch-errors.component";
-import ChooseOptionsTitleAndRequiredInfo from "./choose-options-title-and-required-info.component";
-import ChooseOptionsItemBasicInfo from "./choose-options-item-basic-info.component";
+import ChooseOptionsTitleAndRequiredInfo from "./info/choose-options-title-and-required-info.component";
+import ChooseOptionsItemBasicInfo from "./info/choose-options-item-basic-info.component";
 import ChooseSize from "./choose-size/choose-size.component";
 import CheeseSlice from "./cheese-slice/cheese-slice.component";
 import GratedCheese from "./grated-cheese/grated-cheese.component";
@@ -25,6 +25,7 @@ import Meats from "./meats/meats.component";
 import Condiments from "./condiments/condiments.component";
 import ChooseCan from "./cans/choose-can.component";
 import ChoosePie from "./choose-pie/choose-pie.component";
+import SpecialInstructions from "./special-instructions/special-instructions.component";
 import Quantity from "./quantity/quantity.component";
 import TotalPrice from "./total-price/total-price.component";
 import AddToCart from "./add-to-cart/add-to-cart.component";
@@ -43,6 +44,7 @@ const ChooseOptions = () => {
     canDocumentsError,
     name,
     price,
+    cartItemsIsLoading,
   } = useChooseOptionsVariables();
 
   useFetchGratedCheesePriceThunkUseEffect();
@@ -58,7 +60,7 @@ const ChooseOptions = () => {
     <Container>
       {!Object.keys(selectedItem).length && <Navigate replace to={menuRoute} />}
 
-      {optionsPricesIsLoading ? <Loader /> : null}
+      {optionsPricesIsLoading || cartItemsIsLoading ? <Loader /> : null}
 
       {gratedCheesePriceError ||
       donerMeatPriceError ||
@@ -81,6 +83,7 @@ const ChooseOptions = () => {
           <DonerMeat />
           <Salad />
           <ChoosePie />
+          <SpecialInstructions />
           <Quantity />
           <TotalPrice />
           <AddToCart />

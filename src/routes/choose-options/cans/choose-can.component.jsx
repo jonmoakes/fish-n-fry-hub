@@ -15,7 +15,7 @@ import { BlackHr } from "../../../styles/hr/hr.styles";
 
 const ChooseCan = () => {
   const { hasChooseCanOption, canDocuments } = useChooseOptionsVariables();
-  const { handleRadioChange } = useChooseOptionsFunctions();
+  const { handleOptionChange } = useChooseOptionsFunctions();
 
   const removeTextAndParentheses = (str) => {
     // Use a regular expression to find and remove text within parentheses
@@ -47,7 +47,7 @@ const ChooseCan = () => {
                     type="radio"
                     name="canChoice"
                     value={name}
-                    onChange={handleRadioChange}
+                    onChange={handleOptionChange}
                   />
 
                   <BlackHr />

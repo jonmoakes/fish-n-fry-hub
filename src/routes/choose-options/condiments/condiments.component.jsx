@@ -1,10 +1,7 @@
-import { Fragment } from "react";
-
 import useChooseOptionsVariables from "../choose-options-hooks/use-choose-options-variables";
 import useChooseCondimentsFunctions from "./condiments-hooks/use-choose-condiments-functions";
 
 import CondimentsTitleAndRequiredInfo from "./condiments-title-and-required-info.component";
-import MaximumCondimentsError from "./maximum-condiments-error.component";
 
 import { ParentDiv, InnerFormDiv } from "../../../styles/div/div.styles";
 import {
@@ -21,12 +18,11 @@ const Condiments = () => {
   const { numberOfCondimentsAvailable, condimentsDocuments } =
     useChooseOptionsVariables();
   const {
-    numberOfCondimentsCheckboxesChosen,
     showCondimentsCheckboxes,
     showCondimentsRadio,
     handleCondimentsChange,
   } = useChooseCondimentsFunctions();
-  const { handleRadioChange } = useChooseOptionsFunctions();
+  const { handleOptionChange } = useChooseOptionsFunctions();
 
   return (
     <>
@@ -57,13 +53,6 @@ const Condiments = () => {
               })}
             </>
           </OptionsForm>
-
-          <MaximumCondimentsError
-            {...{
-              numberOfCondimentsAvailable,
-              numberOfCondimentsCheckboxesChosen,
-            }}
-          />
         </ParentDiv>
       ) : showCondimentsRadio ? (
         <ParentDiv>
@@ -81,7 +70,7 @@ const Condiments = () => {
                     type="radio"
                     name="singleCondimentChosen"
                     value={name}
-                    onChange={handleRadioChange}
+                    onChange={handleOptionChange}
                   />
 
                   <BlackHr />

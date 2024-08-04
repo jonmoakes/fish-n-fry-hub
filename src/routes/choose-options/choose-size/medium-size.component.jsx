@@ -2,7 +2,7 @@ import { Label } from "../../../styles/form/form.styles";
 import { BlackHr } from "../../../styles/hr/hr.styles";
 import { BlueSpan } from "../../../styles/span/span.styles";
 
-const MediumSize = ({ sizeOptionMediumPrice, handleRadioChange }) => {
+const MediumSize = ({ sizeOptionMediumPrice, handleOptionChange }) => {
   return (
     <>
       {sizeOptionMediumPrice ? (
@@ -17,7 +17,7 @@ const MediumSize = ({ sizeOptionMediumPrice, handleRadioChange }) => {
             type="radio"
             name="sizeChoice"
             value="medium"
-            onChange={handleRadioChange}
+            onChange={handleOptionChange}
           />
           <BlackHr />
         </>

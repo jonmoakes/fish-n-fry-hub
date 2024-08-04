@@ -25,12 +25,21 @@ const useCombinedRequiredCheck = () => {
     saltAndVinegarCheckCorrect &&
     saucesSelectionCorrect &&
     sizeCheckCorrect &&
-    saucesSelectionCorrect &&
     quantityIsValid
       ? true
       : false;
 
-  return { requiredChecksPassed, quantityIsValid };
+  return {
+    requiredChecksPassed,
+    quantityIsValid,
+    canCheckCorrect,
+    condimentsSelectionCorrect,
+    meatsSelectionCorrect,
+    pieCheckCorrect,
+    saltAndVinegarCheckCorrect,
+    saucesSelectionCorrect,
+    sizeCheckCorrect,
+  };
 };
 
 export default useCombinedRequiredCheck;

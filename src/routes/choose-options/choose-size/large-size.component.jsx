@@ -2,7 +2,7 @@ import { Label } from "../../../styles/form/form.styles";
 import { BlackHr } from "../../../styles/hr/hr.styles";
 import { BlueSpan } from "../../../styles/span/span.styles";
 
-const LargeSize = ({ sizeOptionLargePrice, handleRadioChange }) => {
+const LargeSize = ({ sizeOptionLargePrice, handleOptionChange }) => {
   return (
     <>
       {sizeOptionLargePrice ? (
@@ -17,7 +17,7 @@ const LargeSize = ({ sizeOptionLargePrice, handleRadioChange }) => {
             type="radio"
             name="sizeChoice"
             value="large"
-            onChange={handleRadioChange}
+            onChange={handleOptionChange}
           />
           <BlackHr />
         </>

@@ -15,7 +15,7 @@ import { BlackHr } from "../../../styles/hr/hr.styles";
 
 const ChoosePie = () => {
   const { hasChoosePieOption, piesDocuments } = useChooseOptionsVariables();
-  const { handleRadioChange } = useChooseOptionsFunctions();
+  const { handleOptionChange } = useChooseOptionsFunctions();
 
   return (
     <>
@@ -41,7 +41,7 @@ const ChoosePie = () => {
                       type="radio"
                       name="pieChoice"
                       value={name}
-                      onChange={handleRadioChange}
+                      onChange={handleOptionChange}
                     />
 
                     <BlackHr />

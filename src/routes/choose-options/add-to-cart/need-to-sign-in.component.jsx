@@ -2,13 +2,14 @@ import { BlackHr } from "../../../styles/hr/hr.styles";
 import { StyledLink } from "../../../styles/link/link.styles";
 import { Text } from "../../../styles/p/p.styles";
 
+import { ParentDiv } from "../../../styles/div/div.styles";
 import {
   signInRoute,
   signUpRoute,
 } from "../../../strings/routes/routes-strings";
 
 const NeedToSignIn = () => (
-  <>
+  <ParentDiv>
     <Text>
       please{" "}
       <StyledLink className="yellow" to={signInRoute}>
@@ -24,7 +25,7 @@ const NeedToSignIn = () => (
       </StyledLink>
       !
     </Text>
-  </>
+  </ParentDiv>
 );
 
 export default NeedToSignIn;

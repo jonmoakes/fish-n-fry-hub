@@ -1,3 +1,4 @@
+import useGetCartItemsSelectors from "../../../hooks/selectors/use-get-cart-items-selectors";
 import useGetChooseOptionsSelectors from "../../../hooks/selectors/use-get-choose-options-selectors";
 
 const useChooseOptionsVariables = () => {
@@ -51,10 +52,12 @@ const useChooseOptionsVariables = () => {
     hasSaltAndVinegarOption,
     saltAndVinegarChoice,
     hasChooseCanOption,
-    chooseCanChoice,
+    canChoice,
     hasChoosePieOption,
     pieChoice,
   } = useGetChooseOptionsSelectors();
+  const { cartItemsIsLoading, addCartItemResult, cartItemsError } =
+    useGetCartItemsSelectors();
 
   const quantityIsValid = quantity >= 1 && quantity <= 10 ? true : false;
 
@@ -108,10 +111,13 @@ const useChooseOptionsVariables = () => {
     hasSaltAndVinegarOption,
     saltAndVinegarChoice,
     hasChooseCanOption,
-    chooseCanChoice,
+    canChoice,
     hasChoosePieOption,
     pieChoice,
     quantityIsValid,
+    cartItemsIsLoading,
+    addCartItemResult,
+    cartItemsError,
   };
 };
 

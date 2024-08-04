@@ -55,7 +55,7 @@ const useGetChooseOptionsSelectors = () => {
     hasSaltAndVinegarOption,
     saltAndVinegarChoice,
     hasChooseCanOption,
-    chooseCanChoice,
+    canChoice,
     hasChoosePieOption,
     pieChoice,
   } = selectedItem ?? {};
@@ -110,7 +110,7 @@ const useGetChooseOptionsSelectors = () => {
     hasSaltAndVinegarOption,
     saltAndVinegarChoice,
     hasChooseCanOption,
-    chooseCanChoice,
+    canChoice,
     hasChoosePieOption,
     pieChoice,
   };

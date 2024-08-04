@@ -24,7 +24,7 @@ const ChooseSize = () => {
     sizeOptionDoublePrice,
     sizeOptionTriplePrice,
   } = useChooseOptionsVariables();
-  const { handleRadioChange } = useChooseOptionsFunctions();
+  const { handleOptionChange } = useChooseOptionsFunctions();
 
   return (
     <>
@@ -38,11 +38,11 @@ const ChooseSize = () => {
 
           <Form className="no-margin-top">
             <InnerFormDiv>
-              <SingleSize {...{ sizeOptionLargePrice, handleRadioChange }} />
-              <MediumSize {...{ sizeOptionMediumPrice, handleRadioChange }} />
-              <LargeSize {...{ sizeOptionLargePrice, handleRadioChange }} />
-              <DoubleSize {...{ sizeOptionDoublePrice, handleRadioChange }} />
-              <TripleSize {...{ sizeOptionTriplePrice, handleRadioChange }} />
+              <SingleSize {...{ sizeOptionLargePrice, handleOptionChange }} />
+              <MediumSize {...{ sizeOptionMediumPrice, handleOptionChange }} />
+              <LargeSize {...{ sizeOptionLargePrice, handleOptionChange }} />
+              <DoubleSize {...{ sizeOptionDoublePrice, handleOptionChange }} />
+              <TripleSize {...{ sizeOptionTriplePrice, handleOptionChange }} />
             </InnerFormDiv>
           </Form>
         </ParentDiv>

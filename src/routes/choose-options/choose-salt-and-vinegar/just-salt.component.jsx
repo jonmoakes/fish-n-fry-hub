@@ -1,7 +1,7 @@
 import { Label } from "../../../styles/form/form.styles";
 import { BlackHr } from "../../../styles/hr/hr.styles";
 
-const JustSalt = ({ handleRadioChange }) => (
+const JustSalt = ({ handleOptionChange }) => (
   <>
     <Label className="no-padding">just salt</Label>
 
@@ -9,7 +9,7 @@ const JustSalt = ({ handleRadioChange }) => (
       type="radio"
       name="saltAndVinegarChoice"
       value="just salt"
-      onChange={handleRadioChange}
+      onChange={handleOptionChange}
     />
 
     <BlackHr />

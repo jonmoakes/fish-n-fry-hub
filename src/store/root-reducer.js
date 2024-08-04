@@ -10,6 +10,7 @@ import { userReducer } from "./user/user.slice";
 import { passwordIsVisibleReducer } from "./password-is-visible/password-is-visible.slice";
 // import { updateEmailReducer } from "./update-email/update-email.slice";
 import { uploadMenuItemsReducer } from "./upload-menu-items/upload-menu-items.slice";
+import { cartReducer } from "./cart/cart.slice";
 
 export const rootReducer = combineReducers({
   hamburgerMenu: hamburgerMenuReducer,
@@ -22,4 +23,5 @@ export const rootReducer = combineReducers({
   passwordIsVisible: passwordIsVisibleReducer,
   // updateEmail: updateEmailReducer,
   uploadMenuItems: uploadMenuItemsReducer,
+  cart: cartReducer,
 });
