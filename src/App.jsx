@@ -21,6 +21,7 @@ import {
   categoryItemsRoute,
   uploadMenuItemsRoute,
 } from "./strings/routes/routes-strings";
+import useCartItemsListener from "./hooks/use-cart-items-listener";
 // import FloatingBackButton from "./components/floating-back-button/floating-back-button.component";
 
 const Navigation = lazy(() =>
@@ -43,6 +44,7 @@ const UploadMenuItems = lazy(() =>
 const App = () => {
   const { currentUser } = useGetCurrentUserSelectors();
   useGetUserOnLoadThunkUseEffect();
+  useCartItemsListener();
   useScrollToTop();
 
   return (

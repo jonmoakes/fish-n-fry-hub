@@ -10,9 +10,11 @@ import ItemsReturnedAfterSearchRequest from "../../components/items-returned-aft
 import { Container } from "../../styles/container/container.styles";
 
 import { searchTermHasBeenEntered } from "../../functions/search-term-has-been-entered";
+import useFetchCartItemsThunkUseEffect from "./menu-hooks/use-fetch-cart-tems-thunk-use-effect";
 
 const Menu = () => {
   useFetchMenuDocumentsThunkUseEffect();
+  useFetchCartItemsThunkUseEffect();
 
   const {
     menuIsLoading,
@@ -23,13 +25,15 @@ const Menu = () => {
     itemsReturnedFromSearch,
     categories,
     navigateToCategory,
+    cartItemsIsLoading,
+    cartItemsError,
   } = useMenuLogic();
 
   return (
     <Container>
-      <MenuTitleAndLoader {...{ menuIsLoading }} />
+      <MenuTitleAndLoader {...{ menuIsLoading, cartItemsIsLoading }} />
 
-      {menuError ? (
+      {menuError || cartItemsError ? (
         <ShowFetchErrors />
       ) : (
         <>

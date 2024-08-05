@@ -1,8 +1,10 @@
+import useGetCartItemsSelectors from "../../../hooks/selectors/use-get-cart-items-selectors";
 import useGetChooseOptionsSelectors from "../../../hooks/selectors/use-get-choose-options-selectors";
 import useGetMenuSelectors from "../../../hooks/selectors/use-get-menu-selectors";
 
 const useHandleShowError = () => {
   const { menuError } = useGetMenuSelectors();
+  const { cartItemsError } = useGetCartItemsSelectors();
   const {
     gratedCheesePriceError,
     donerMeatPriceError,
@@ -15,6 +17,8 @@ const useHandleShowError = () => {
 
   const showErrorHeading = () => {
     if (menuError) return "failed to fetch menu data.";
+    if (cartItemsError)
+      return "failed to fetch your cart items.  Note: This check is necessary to determine if you have any items in your cart.";
     if (gratedCheesePriceError || donerMeatPriceError)
       return "failed to fetch options prices.";
     if (saucesDocumentsError) return "failed to fetch our list of sauces.";
@@ -30,6 +34,7 @@ const useHandleShowError = () => {
   const errorToDisplay = () => {
     const errors = [
       menuError,
+      cartItemsError,
       gratedCheesePriceError,
       donerMeatPriceError,
       saucesDocumentsError,
@@ -43,7 +48,7 @@ const useHandleShowError = () => {
     return errors.find((error) => error !== null);
   };
 
-  return { showErrorHeading, errorToDisplay };
+  return { showErrorHeading, errorToDisplay, menuError, cartItemsError };
 };
 
 export default useHandleShowError;

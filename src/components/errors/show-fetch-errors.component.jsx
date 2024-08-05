@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 
 import useHandleShowError from "./errors-hooks/use-handle-show-error";
 import { resetMenuError } from "../../store/menu/menu.slice";
+import { resetChooseOptionsFetchErrors } from "../../store/choose-options/choose-options.slice";
+import { resetCartItemsError } from "../../store/cart/cart.slice";
 
 import { BlackText, Text } from "../../styles/p/p.styles";
 import { BlackSpan } from "../../styles/span/span.styles";
@@ -16,10 +18,10 @@ import {
   databaseManagementRoute,
   menuRoute,
 } from "../../strings/routes/routes-strings";
-import { resetChooseOptionsFetchErrors } from "../../store/choose-options/choose-options.slice";
 
 const ShowFetchErrors = () => {
-  const { showErrorHeading, errorToDisplay } = useHandleShowError();
+  const { showErrorHeading, errorToDisplay, menuError, cartItemsError } =
+    useHandleShowError();
 
   const location = useLocation();
   const dispatch = useDispatch();
@@ -33,8 +35,15 @@ const ShowFetchErrors = () => {
 
   const reload = () => {
     if (path === menuRoute) {
-      dispatch(resetMenuError());
-      reloadAfterTimeOut();
+      if (menuError) {
+        dispatch(resetMenuError());
+        reloadAfterTimeOut();
+      } else if (cartItemsError) {
+        dispatch(resetCartItemsError);
+        reloadAfterTimeOut();
+      } else {
+        reloadAfterTimeOut();
+      }
     } else if (path === chooseOptionsRoute) {
       dispatch(resetChooseOptionsFetchErrors());
       reloadAfterTimeOut();

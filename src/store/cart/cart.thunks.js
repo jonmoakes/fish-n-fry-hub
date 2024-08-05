@@ -28,8 +28,8 @@ export const addCartItemToDatabaseAsync = createAsyncThunk(
   }
 );
 
-export const getUserCartItemsAsync = createAsyncThunk(
-  "getUserCartItems",
+export const fetchUserCartItemsAsync = createAsyncThunk(
+  "fetchUserCartItems",
   async ({ id }, thunkAPI) => {
     try {
       const queryIndex = "userId";

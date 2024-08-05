@@ -1,7 +1,7 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 import {
   addCartItemToDatabaseAsync,
-  getUserCartItemsAsync,
+  fetchUserCartItemsAsync,
 } from "./cart.thunks";
 
 const INITIAL_STATE = {
@@ -43,15 +43,15 @@ export const cartSlice = createSlice({
         state.addCartItemResult = "rejected";
         state.cartItemsError = action.payload;
       })
-      .addCase(getUserCartItemsAsync.pending, (state) => {
+      .addCase(fetchUserCartItemsAsync.pending, (state) => {
         state.cartItemsIsLoading = true;
       })
-      .addCase(getUserCartItemsAsync.fulfilled, (state, action) => {
+      .addCase(fetchUserCartItemsAsync.fulfilled, (state, action) => {
         state.cartItemsIsLoading = false;
         state.cartItems = action.payload;
         state.cartItemsError = null;
       })
-      .addCase(getUserCartItemsAsync.rejected, (state, action) => {
+      .addCase(fetchUserCartItemsAsync.rejected, (state, action) => {
         state.cartItemsIsLoading = false;
         state.cartItems = null;
         state.cartItemsError = action.payload;

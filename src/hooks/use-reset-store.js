@@ -3,14 +3,12 @@ import { useDispatch } from "react-redux";
 
 import { resetSignInFormState } from "../store/sign-in-form/sign-in-form.slice";
 import { resetSignUpFormState } from "../store/sign-up-form/sign-up-form.slice";
-import { resetMenuState } from "../store/menu/menu.slice";
 import { resetChooseOptionsState } from "../store/choose-options/choose-options.slice";
 import { resetUploadMenuItemsState } from "../store/upload-menu-items/upload-menu-items.slice";
 
 import {
   signInRoute,
   signUpRoute,
-  menuRoute,
   chooseOptionsRoute,
   uploadMenuItemsRoute,
 } from "../strings/routes/routes-strings";
@@ -27,9 +25,6 @@ const useResetStore = () => {
         break;
       case signUpRoute:
         dispatch(resetSignUpFormState());
-        break;
-      case menuRoute:
-        dispatch(resetMenuState());
         break;
       case chooseOptionsRoute:
         dispatch(resetChooseOptionsState());
