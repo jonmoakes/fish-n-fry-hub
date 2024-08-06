@@ -64,7 +64,7 @@ export const StyledInput = styled.input`
   font-size: 18px;
   font-family: inherit;
   outline: none;
-  background: radial-gradient(circle, ${customWhite}, ${customLightGrey});
+  background-color: ${customWhite};
   appearance: none;
   color: ${customBlack};
 
@@ -190,7 +190,7 @@ export const StyledTextArea = styled.textarea`
   font-family: inherit;
   outline: none;
   text-transform: capitalize;
-  background: radial-gradient(circle, ${customWhite}, ${customLightGrey});
+  background-color: ${customWhite};
   color: ${customBlack};
 
   &.small-bottom-margin {
@@ -416,7 +416,7 @@ export const StyledCheckbox = styled.input`
   /* Remove most all native input styles */
   appearance: none;
   /* For iOS < 15 */
-  background-color: transparent;
+  background-color: ${customWhite};
   /* Not removed via appearance */
   margin: 10px auto 0px auto;
   font-family: inherit;

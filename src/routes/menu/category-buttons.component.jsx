@@ -8,9 +8,7 @@ const CategoryButtons = ({ searchField, categories, navigateToCategory }) => (
   <>
     {!searchField.length ? (
       <ParentDiv>
-        <Text>
-          or view each product in a category by tapping a category button below:
-        </Text>
+        <Text>or view each product in a category:</Text>
 
         <BlackHr />
         {categories.map((category) => (

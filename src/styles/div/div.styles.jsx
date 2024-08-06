@@ -561,9 +561,13 @@ export const SearchDiv = styled.div`
     width: 70%;
   }
 
-  @media screen and (max-width: 450px) {
+  @media screen and (max-width: 850px) {
     width: 80%;
-    margin: 20px auto 10px auto;
+    margin: 20px auto;
+  }
+
+  @media screen and (max-width: 450px) {
+    margin: 10px auto;
   }
 `;
 

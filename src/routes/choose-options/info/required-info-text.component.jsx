@@ -5,10 +5,11 @@ import {
   Accordion,
   AccordionContent,
   AccordionTitle,
+  RequiredDiv,
 } from "../../../styles/div/div.styles";
 import { BlackHr } from "../../../styles/hr/hr.styles";
 import { Text } from "../../../styles/p/p.styles";
-import { RedSpan } from "../../../styles/span/span.styles";
+import { RequiredSpan } from "../../../styles/span/span.styles";
 
 const RequiredInfoText = () => {
   const { shouldShowElement, toggleShouldShowElement, hideShownElement } =
@@ -26,25 +27,17 @@ const RequiredInfoText = () => {
 
         {shouldShowElement ? (
           <AccordionContent>
+            <BlackHr />
+            <Text>please note that items marked</Text>
             <Text>
+              <RequiredDiv>
+                <RequiredSpan>required</RequiredSpan>
+              </RequiredDiv>{" "}
               <Balancer>
-                please note that items marked <RedSpan>*</RedSpan> must be
-                selected in order to access the next step.
+                must be selected in order to show the add to cart button.
               </Balancer>
             </Text>
             <BlackHr />
-            <Text>
-              <Balancer>
-                for multiple choice options ( for example when choosing sauces )
-                tick whichever boxes that you require.
-              </Balancer>
-            </Text>
-            <Text>
-              <Balancer>
-                when choosing a single option ( when choosing a size for example
-                ), tap the appropriate box to choose it.
-              </Balancer>
-            </Text>
             <Text>
               <Balancer>
                 the final price of the item

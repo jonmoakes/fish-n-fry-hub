@@ -20,7 +20,6 @@ const useCartItemsListener = () => {
       `databases.${databaseId}.collections.${cartItemsCollectionId}.documents`,
 
       (response) => {
-        console.log(response.payload);
         const documentChanged = response.payload;
 
         if (response.events.some((event) => event.includes(".delete"))) {

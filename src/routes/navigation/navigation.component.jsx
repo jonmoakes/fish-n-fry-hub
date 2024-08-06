@@ -1,12 +1,10 @@
-// import { useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import useGetHamburgerMenuSelectors from "../../hooks/selectors/use-get-hamburger-menu-selectors";
 
 import NavLogo from "./nav-logo.component";
 import NavHamburger from "./nav-hamburger.component";
-import NavNoUser from "./nav-no-user.component";
-import NavAppOwner from "./nav-app-owner.component";
-import NavNotAppOwner from "./nav-not-app-owner.component";
+import NavigationLinks from "./navigation-links.component";
 import NavSignOut from "./nav-sign-out.component";
 
 import { Nav, Menu } from "../../styles/div/div.styles";
@@ -14,8 +12,8 @@ import { Nav, Menu } from "../../styles/div/div.styles";
 const Navigation = () => {
   const { showHamburgerMenu } = useGetHamburgerMenuSelectors();
 
-  // const location = useLocation();
-  // const path = location.pathname;
+  const location = useLocation();
+  const path = location.pathname;
 
   const isRouteWithHeader = () => {
     return true;
@@ -34,11 +32,8 @@ const Navigation = () => {
           <NavLogo />
           <>
             <NavHamburger />
-
             <Menu {...{ showHamburgerMenu }}>
-              <NavNoUser />
-              <NavAppOwner />
-              <NavNotAppOwner />
+              <NavigationLinks {...{ path }} />
               <NavSignOut />
             </Menu>
           </>

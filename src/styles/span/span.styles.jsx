@@ -46,6 +46,21 @@ export const BorderLink = styled.span`
   }
 `;
 
+export const CheckoutLink = styled(BorderLink)`
+  color: ${customYellow};
+  border: 2px solid ${customYellow};
+
+  &:hover {
+    color: ${customYellow};
+    border: 2px solid ${customYellow};
+
+    @media screen and (max-width: 1366px) {
+      color: ${customYellow};
+      border: 2px solid ${customYellow};
+    }
+  }
+`;
+
 export const RedSpan = styled.span`
   color: ${customTomato};
 

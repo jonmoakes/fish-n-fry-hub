@@ -6,7 +6,12 @@ import { menuRoute } from "../../strings/routes/routes-strings";
 
 const NoProductsFound = () => (
   <ParentDiv>
-    <Text>we couldn't find any products.</Text>
+    <Text>we couldn't find any products..</Text>
+    <Text>have you recently reloaded the page?</Text>
+    <Text>
+      if so, please avoid reloading the page when on our category items to
+      prevent loss of data.
+    </Text>
     <Text>
       tap{" "}
       <StyledLink className="yellow" to={menuRoute}>
