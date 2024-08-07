@@ -63,6 +63,8 @@ export const fetchUserCartItemsAsync = createAsyncThunk(
         }) => rest
       );
 
+      console.log(processedCartItems);
+
       // Return the array of processed objects
       return processedCartItems;
     } catch (error) {

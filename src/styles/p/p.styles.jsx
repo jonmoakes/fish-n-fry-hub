@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import {
   customBlack,
-  customRed,
   customTomato,
   customWhite,
   customYellow,
@@ -23,6 +22,10 @@ export const Text = styled.p`
 
 export const BlackText = styled.p`
   color: ${customBlack};
+`;
+
+export const YellowText = styled.p`
+  color: ${customYellow};
 `;
 
 export const RedText = styled(Text)`

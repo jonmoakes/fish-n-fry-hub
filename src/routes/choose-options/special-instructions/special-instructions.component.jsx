@@ -13,7 +13,7 @@ const SpecialInstructions = () => {
       <StyledTextArea
         onChange={handleOptionChange}
         type="text"
-        name="specialInstuctions"
+        name="specialInstructions"
         placeholder="Tell Us Any Requirements Here"
       />
     </ParentDiv>

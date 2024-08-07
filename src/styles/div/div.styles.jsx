@@ -691,3 +691,97 @@ export const RequiredDiv = styled.div`
   width: auto;
   height: auto;
 `;
+
+export const CheckoutPageDiv = styled.div`
+  width: 85%;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto 0px auto;
+  padding-bottom: 200px;
+
+  @media screen and (max-width: 850px) {
+    width: 95%;
+  }
+`;
+export const CheckoutPageHeaderDiv = styled.div`
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: ${customBlack};
+  border: 2px solid ${customBlack};
+  border-radius: 5px;
+  margin-bottom: 40px;
+`;
+
+export const HeaderNameDiv = styled.div`
+  width: 30%;
+`;
+
+export const HeaderQuantityDiv = styled.div`
+  width: 23.3%;
+`;
+
+export const HeaderPriceDiv = styled.div`
+  width: 23.3%;
+`;
+
+export const HeaderClearItemDiv = styled.div`
+  width: 23.3%;
+`;
+
+export const TotalPriceDiv = styled.div`
+  background-color: ${customBlack};
+  border: 2px solid whitesmoke;
+  box-shadow: 6px 6px 6px ${customBlack};
+  padding: 5px 20px 20px 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+
+  @media screen and (max-width: 1366px) {
+    box-shadow: none;
+  }
+
+  @media screen and (max-width: 450px) {
+    font-size: 30px;
+    padding: 0px 20px 25px 20px;
+    margin-bottom: 0px;
+  }
+`;
+
+export const ClearCartDiv = styled.div`
+  margin-top: 30px;
+  margin-bottom: -20px;
+`;
+
+export const CheckoutItemContainer = styled.div`
+  width: 100%;
+  display: flex;
+  min-height: 100px;
+  border: 2px solid ${customBlack};
+  box-shadow: 6px 6px 15px ${customBlack};
+  padding: 25px 0 10px 0px;
+  align-items: center;
+  background-color: ${backgroundBlue};
+  border-radius: 5px;
+  margin-bottom: 50px;
+
+  @media screen and (max-width: 1366px) {
+    box-shadow: none;
+    margin-bottom: 25px;
+  }
+`;
+
+export const ArrowContainer = styled.div`
+  width: 23.3%;
+  color: ${customWhite};
+  font-size: calc(1rem + 0.25vw);
+`;
+
+export const CheckoutOptionsInfoDiv = styled.div`
+  margin-bottom: 5px;
+`;

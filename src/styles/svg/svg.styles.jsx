@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 import LoaderSVG from "../../assets/loader.svg?react";
 import StripeSVG from "../../assets/stripe-logo.svg?react";
+import AddArrowSVG from "../../assets/add-arrow.svg?react";
+import MinusArrowSVG from "../../assets/minus-arrow.svg?react";
+import { customBlack } from "../colors";
 
 export const StripeLogo = styled(StripeSVG)`
   width: 300px;
@@ -30,4 +33,12 @@ export const LoaderIcon = styled(LoaderSVG)`
   transform: translate(-50%, -50%);
   height: 30%;
   width: 30%;
+`;
+
+export const AddArrow = styled(AddArrowSVG)`
+  cursor: pointer;
+`;
+
+export const MinusArrow = styled(MinusArrowSVG)`
+  cursor: pointer;
 `;

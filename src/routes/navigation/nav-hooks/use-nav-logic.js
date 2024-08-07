@@ -34,7 +34,7 @@ const useNavLogic = () => {
 
   const routesWithFilteredCheckoutRoute = (routes) => {
     return routes.filter((route) => {
-      if (route === checkoutRoute && !cartItems && !cartItems.length) {
+      if (route === checkoutRoute && cartItems && !cartItems.length) {
         return false;
       }
       return true;

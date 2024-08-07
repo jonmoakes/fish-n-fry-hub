@@ -13,14 +13,11 @@ import { RequiredSpan } from "../../../styles/span/span.styles";
 import { H2 } from "../../../styles/h2/h2.styles";
 import { BlackHr } from "../../../styles/hr/hr.styles";
 
+import { replacePartOfString } from "../../../functions/replace-part-of-string";
+
 const ChooseCan = () => {
   const { hasChooseCanOption, canDocuments } = useChooseOptionsVariables();
   const { handleOptionChange } = useChooseOptionsFunctions();
-
-  const removeTextAndParentheses = (str) => {
-    // Use a regular expression to find and remove text within parentheses
-    return str.replace(/\s*\(.*?\)\s*/g, "").trim();
-  };
 
   return (
     <>
@@ -37,10 +34,11 @@ const ChooseCan = () => {
           <Form className="no-margin-top">
             {canDocuments.map((canDocument) => {
               const { $id, name } = canDocument;
+
               return (
                 <InnerFormDiv key={$id}>
                   <Label className="no-padding">
-                    {removeTextAndParentheses(name)}
+                    {replacePartOfString(name, "( can )", "")}
                   </Label>
 
                   <input

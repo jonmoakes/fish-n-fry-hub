@@ -10,6 +10,7 @@ import {
   customRed,
   customWhite,
   customLightYellow,
+  customSalmon,
 } from "../colors";
 
 import eyeIcon from "../../assets/eye.png";
@@ -93,7 +94,19 @@ export const BlackSpan = styled.span`
 export const WhiteSpan = styled.span`
   color: ${customWhite};
   text-shadow: 1px 1px 1px ${customBlack};
-  font-size: 20px;
+
+  &.checkout {
+    font-size: calc(1rem);
+    text-shadow: 0.5px 0.5px 0.5px ${customBlack};
+
+    @media screen and (max-width: 450px) {
+      font-size: calc(0.8rem);
+    }
+  }
+
+  &.multiple-choice {
+    white-space: pre-line;
+  }
 `;
 
 export const YellowShadowSpan = styled.span`
@@ -122,6 +135,20 @@ export const BlueSpan = styled.span`
     &:hover {
       cursor: pointer;
     }
+  }
+`;
+
+export const YellowSpan = styled.span`
+  color: ${customYellow};
+`;
+
+export const SalmonSpan = styled.span`
+  color: ${customSalmon};
+  text-shadow: 1px 1px 1px ${customBlack};
+  font-size: calc(1rem);
+
+  @media screen and (max-width: 450px) {
+    font-size: calc(0.8rem);
   }
 `;
 
@@ -274,10 +301,6 @@ export const UntransformedSpan = styled.span`
   color: ${customTomato};
 `;
 
-export const YellowSpan = styled.span`
-  color: ${customYellow};
-`;
-
 export const EmergencyDetailsSpan = styled.span`
   margin-left: 10px;
 `;
@@ -328,4 +351,37 @@ export const RequiredSpan = styled.span`
   padding: 5px;
   border-radius: 5px;
   text-transform: capitalize;
+`;
+
+export const CheckoutHeadingSpan = styled.span`
+  font-size: calc(1rem);
+  color: ${customWhite};
+`;
+
+export const CheckoutItemText = styled.span`
+  width: 30%;
+  color: ${customYellow};
+  text-shadow: 0.5px 0.5px 0.5px ${customBlack};
+  font-size: calc(1rem);
+
+  &.width {
+    width: 23.3%;
+  }
+
+  &.large {
+    font-size: calc(1.5rem);
+    @media screen and (max-width: 450px) {
+      font-size: calc(1.3rem);
+    }
+  }
+`;
+
+export const Value = styled(CheckoutItemText)`
+  width: 23.3%;
+  margin: 0px 5px;
+  font-size: calc(1.5rem);
+
+  @media screen and (max-width: 450px) {
+    font-size: calc(1.3rem);
+  }
 `;
