@@ -36,9 +36,11 @@ const CheckoutItem = ({ cartItems }) => {
             ) : (
               <NetworkError />
             )}
+
             <CheckoutItemText className="width large ">
               £{(priceWithOptionsAndQuantity / 100).toFixed(2)}
             </CheckoutItemText>
+
             <CheckoutItemText style={{ color: "red" }} className="width">
               X
             </CheckoutItemText>

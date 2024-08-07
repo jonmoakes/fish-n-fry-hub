@@ -148,6 +148,14 @@ export const ParentDiv = styled.div`
     }
   }
 
+  &.grand-total {
+    margin: 0px auto;
+
+    @media screen and (max-width: 950px) {
+      margin: -10px auto 0px auto;
+    }
+  }
+
   &.clear-week {
     margin: 0px auto 30px auto;
   }
@@ -699,7 +707,7 @@ export const CheckoutPageDiv = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 20px auto 0px auto;
-  padding-bottom: 200px;
+  padding-bottom: 20px;
 
   @media screen and (max-width: 850px) {
     width: 95%;
@@ -768,11 +776,10 @@ export const CheckoutItemContainer = styled.div`
   align-items: center;
   background-color: ${backgroundBlue};
   border-radius: 5px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 
   @media screen and (max-width: 1366px) {
     box-shadow: none;
-    margin-bottom: 25px;
   }
 `;
 

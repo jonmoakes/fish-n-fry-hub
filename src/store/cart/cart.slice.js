@@ -64,11 +64,17 @@ export const cartSlice = createSlice({
       (state) => state.addCartItemResult,
       (state) => state.cartItemsError,
       (cartItemsIsLoading, cartItems, addCartItemResult, cartItemsError) => {
+        const grandTotal = cartItems.reduce((accumulator, item) => {
+          const cartItemObject = JSON.parse(item.cartItem);
+          return accumulator + cartItemObject.priceWithOptionsAndQuantity;
+        }, 0);
+
         return {
           cartItemsIsLoading,
           cartItems,
           addCartItemResult,
           cartItemsError,
+          grandTotal,
         };
       }
     ),
