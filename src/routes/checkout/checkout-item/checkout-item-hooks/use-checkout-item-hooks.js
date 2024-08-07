@@ -10,22 +10,22 @@ const useCheckoutItemHooks = (cartItemObject) => {
     hasSaladOption,
   } = cartItemObject ?? {};
 
-  const hasAnyAddOnOption =
-    cheeseSliceChoice || donerMeatChoice || gratedCheeseChoice || saladChoice
-      ? true
-      : false;
+  const hasAnyAddOnOptionBeenChosen =
+    (cheeseSliceChoice ||
+      donerMeatChoice ||
+      gratedCheeseChoice ||
+      saladChoice) &&
+    true;
 
   const hasAnyAddOnOptionButNoneChosen =
-    hasCheeseSliceOption ||
-    hasDonerMeatOption ||
-    hasGratedCheeseOption ||
-    (hasSaladOption &&
-      !cheeseSliceChoice &&
-      !donerMeatChoice &&
-      gratedCheeseChoice &&
-      !saladChoice)
-      ? true
-      : false;
+    (hasCheeseSliceOption ||
+      hasDonerMeatOption ||
+      hasGratedCheeseOption ||
+      hasSaladOption) &&
+    !cheeseSliceChoice &&
+    !donerMeatChoice &&
+    !gratedCheeseChoice &&
+    !saladChoice;
 
   const multipleChoiceSelection = (optionObject) => {
     const safeObj = optionObject ?? {};
@@ -34,7 +34,7 @@ const useCheckoutItemHooks = (cartItemObject) => {
   };
 
   return {
-    hasAnyAddOnOption,
+    hasAnyAddOnOptionBeenChosen,
     hasAnyAddOnOptionButNoneChosen,
     multipleChoiceSelection,
   };

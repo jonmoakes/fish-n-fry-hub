@@ -16,14 +16,16 @@ const ProductAddOns = ({ cartItemObject }) => {
     saladChoice,
   } = cartItemObject;
 
-  const { hasAnyAddOnOption, hasAnyAddOnOptionButNoneChosen } =
+  const { hasAnyAddOnOptionBeenChosen, hasAnyAddOnOptionButNoneChosen } =
     useCheckoutItemHooks(cartItemObject);
 
   return (
     <>
-      <AddOnsTitle {...{ hasAnyAddOnOption, hasAnyAddOnOptionButNoneChosen }} />
+      <AddOnsTitle
+        {...{ hasAnyAddOnOptionBeenChosen, hasAnyAddOnOptionButNoneChosen }}
+      />
 
-      {hasAnyAddOnOption ? (
+      {hasAnyAddOnOptionBeenChosen ? (
         <>
           <AddOnsCheeseSlice {...{ cheeseSliceChoice }} />
           <AddOnsDonerMeat {...{ donerMeatChoice }} />

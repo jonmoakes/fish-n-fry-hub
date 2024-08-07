@@ -1,9 +1,12 @@
 import { CheckoutOptionsInfoDiv } from "../../../../../../styles/div/div.styles";
 import { SalmonSpan } from "../../../../../../styles/span/span.styles";
 
-const AddOnsTitle = ({ hasAnyAddOnOption, hasAnyAddOnOptionButNoneChosen }) => (
+const AddOnsTitle = ({
+  hasAnyAddOnOptionBeenChosen,
+  hasAnyAddOnOptionButNoneChosen,
+}) => (
   <>
-    {hasAnyAddOnOption || hasAnyAddOnOptionButNoneChosen ? (
+    {hasAnyAddOnOptionBeenChosen || hasAnyAddOnOptionButNoneChosen ? (
       <CheckoutOptionsInfoDiv>
         <SalmonSpan>add ons:</SalmonSpan>
       </CheckoutOptionsInfoDiv>

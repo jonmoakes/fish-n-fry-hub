@@ -1,9 +1,9 @@
 export const replacePartOfString = (
   variableName,
-  pieceToReplace,
+  partOfStringToReplace,
   dataToReplaceWith
 ) => {
-  return variableName && variableName.includes(pieceToReplace)
-    ? variableName.replace(pieceToReplace, dataToReplaceWith)
+  return variableName && variableName.includes(partOfStringToReplace)
+    ? variableName.replace(partOfStringToReplace, dataToReplaceWith)
     : variableName;
 };
