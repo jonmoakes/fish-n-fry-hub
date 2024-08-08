@@ -1,4 +1,4 @@
-const useCheckoutItemHooks = (cartItemObject) => {
+const useCheckoutItemLogic = (cartItemObject) => {
   const {
     cheeseSliceChoice,
     donerMeatChoice,
@@ -8,6 +8,12 @@ const useCheckoutItemHooks = (cartItemObject) => {
     hasDonerMeatOption,
     hasGratedCheeseOption,
     hasSaladOption,
+    hasSizeOption,
+    hasSaucesOption,
+    hasSaltAndVinegarOption,
+    hasCondimentsOption,
+    hasChoosePieOption,
+    hasChooseCanOption,
   } = cartItemObject ?? {};
 
   const hasAnyAddOnOptionBeenChosen =
@@ -33,11 +39,25 @@ const useCheckoutItemHooks = (cartItemObject) => {
     return choicesChosen.join(`,\n`);
   };
 
+  const hasAnyOption =
+    (hasSizeOption ||
+      hasCheeseSliceOption ||
+      hasDonerMeatOption ||
+      hasGratedCheeseOption ||
+      hasSaladOption ||
+      hasSaucesOption ||
+      hasSaltAndVinegarOption ||
+      hasCondimentsOption ||
+      hasChoosePieOption ||
+      hasChooseCanOption) &&
+    true;
+
   return {
     hasAnyAddOnOptionBeenChosen,
     hasAnyAddOnOptionButNoneChosen,
     multipleChoiceSelection,
+    hasAnyOption,
   };
 };
 
-export default useCheckoutItemHooks;
+export default useCheckoutItemLogic;

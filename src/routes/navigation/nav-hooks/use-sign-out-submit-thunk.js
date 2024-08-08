@@ -7,7 +7,7 @@ import useHamburgerHandlerNavigate from "../../../hooks/use-hamburger-handler-na
 import { signOutAsync } from "../../../store/user/user.thunks";
 
 import { successMessage } from "../../../strings/successes/sucesses-strings";
-import { errorSigningOutMessage } from "../../../strings/errors/errors-strings";
+import { errorReceivedMessage } from "../../../strings/errors/errors-strings";
 import { signInRoute } from "../../../strings/routes/routes-strings";
 
 const useSignOutSubmitThunk = () => {
@@ -29,7 +29,10 @@ const useSignOutSubmitThunk = () => {
           const error = resultAction.payload;
           fireSwal(
             "error",
-            errorSigningOutMessage(error),
+            errorReceivedMessage(
+              "sorry, there was an error signing out.",
+              error
+            ),
             "",
             0,
             true,

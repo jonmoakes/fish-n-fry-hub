@@ -702,7 +702,6 @@ export const RequiredDiv = styled.div`
 
 export const CheckoutPageDiv = styled.div`
   width: 85%;
-  min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;

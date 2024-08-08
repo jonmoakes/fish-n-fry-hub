@@ -6,10 +6,10 @@ import useSignInFormFunctions from "./use-sign-in-form-functions";
 
 import {
   appwriteNoUserError,
-  errorSigningInMessage,
   appwriteCredentialsError,
   passwordLengthErrorMessage,
   appwritePasswordLengthError,
+  errorReceivedMessage,
 } from "../../../strings/errors/errors-strings";
 
 const useHandleSignInFormError = () => {
@@ -34,7 +34,10 @@ const useHandleSignInFormError = () => {
 
     fireSwal(
       "error",
-      errorSigningInMessage(errorDetails),
+      errorReceivedMessage(
+        "sorry, there was an error trying to sign you in.",
+        errorDetails
+      ),
       "",
       0,
       true,

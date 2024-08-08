@@ -80,6 +80,10 @@ export const YellowGreenButton = styled(Button)`
     background-color: ${customLightGreen};
   }
 
+  &.place-order {
+    animation: 1s ${bounceInDownAnimation};
+  }
+
   &:hover {
     background-color: ${customLightGreen};
     color: ${customBlack};

@@ -1,44 +1,34 @@
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-// import useConfirmSwal from "../../../hooks/use-confirm-swal";
-// import useFireSwal from "../../../hooks/use-fire-swal";
-
-// import { increaseItemQuantity } from "../../../store/cart/cart.action";
-// import { selectCartItems } from "../../../store/cart/cart.selector";
+import useConfirmSwal from "../../../hooks/use-confirm-swal";
+import { updateCartItemQuantityAsync } from "../../../store/cart/cart.thunks";
 
 import { AddArrow } from "../../../styles/svg/svg.styles";
 
-// import {
-//   successMessage,
-//   confirmIncreaseQuantityMessage,
-//   yesMessage,
-// } from "../../../strings/strings";
+import { confirmIncreaseQuantityMessage } from "../../../strings/confirms/confirms-strings";
 
-const IncreaseQuantity = ({ cartItemObject }) => {
-  // const { fireSwal } = useFireSwal();
-  // const { confirmSwal } = useConfirmSwal();
+const IncreaseQuantity = ({ $id }) => {
+  const dispatch = useDispatch();
+  const { confirmSwal } = useConfirmSwal();
 
-  // const cartItems = useSelector(selectCartItems);
-  // const dispatch = useDispatch();
+  const increaseQuantity = () => {
+    const operation = "add";
+    dispatch(updateCartItemQuantityAsync({ $id, operation }));
+  };
 
-  // const confirmResult = () => {
-  //   dispatch(increaseItemQuantity(cartItems, cartItem));
-  //   fireSwal("success", successMessage, "", 1000, false, true);
-  // };
-
-  // const confirmIncreaseQuantity = () => {
-  //   confirmSwal(
-  //     confirmIncreaseQuantityMessage,
-  //     "",
-  //     yesMessage,
-  //     confirmResult,
-  //     null
-  //   );
-  // };
+  const confirmIncreaseQuantity = () => {
+    confirmSwal(
+      confirmIncreaseQuantityMessage,
+      "",
+      "yes",
+      increaseQuantity,
+      null
+    );
+  };
 
   return (
     <>
-      <AddArrow onClick={() => console.log("increase")}>&#10095;</AddArrow>
+      <AddArrow onClick={confirmIncreaseQuantity}>&#10095;</AddArrow>
     </>
   );
 };

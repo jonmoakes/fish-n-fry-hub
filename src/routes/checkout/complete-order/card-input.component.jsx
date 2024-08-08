@@ -37,8 +37,8 @@ const CardInput = () => {
 
             <Text>
               <Balancer>
-                if this is correct, please enter your card details and then
-                press the 'place order' button when it appears.
+                please enter your card details and then press the 'place order'
+                button when it appears.
               </Balancer>
             </Text>
             <CardInputDiv>

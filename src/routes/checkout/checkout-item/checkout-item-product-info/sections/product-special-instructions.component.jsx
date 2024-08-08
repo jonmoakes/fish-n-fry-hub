@@ -10,7 +10,7 @@ const ProductSpecialInstructions = ({ cartItemObject }) => {
       {specialInstructions ? (
         <>
           <CheckoutOptionsInfoDiv>
-            <SalmonSpan>Special Instructions :</SalmonSpan>
+            <SalmonSpan>Special Instructions:</SalmonSpan>
           </CheckoutOptionsInfoDiv>
           <WhiteSpan className="checkout">{specialInstructions}</WhiteSpan>
           <BlackHr />

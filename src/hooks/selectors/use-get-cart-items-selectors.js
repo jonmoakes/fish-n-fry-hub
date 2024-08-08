@@ -7,6 +7,10 @@ const useGetCartItemsSelectors = () => {
     cartItems,
     addCartItemResult,
     cartItemsError,
+    updateCartItemQuantityResult,
+    updateCartItemQuantityError,
+    removeCartItemResult,
+    removeCartItemError,
     grandTotal,
   } = useSelector(selectCartSelectors);
 
@@ -15,6 +19,10 @@ const useGetCartItemsSelectors = () => {
     cartItems,
     addCartItemResult,
     cartItemsError,
+    updateCartItemQuantityResult,
+    updateCartItemQuantityError,
+    removeCartItemResult,
+    removeCartItemError,
     grandTotal,
   };
 };

@@ -1,44 +1,34 @@
-// import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
-// import useConfirmSwal from "../../../hooks/use-confirm-swal";
-// import useFireSwal from "../../../hooks/use-fire-swal";
-
-// import { decreaseItemQuantity } from "../../../store/cart/cart.action";
-// import { selectCartItems } from "../../../store/cart/cart.selector";
+import useConfirmSwal from "../../../hooks/use-confirm-swal";
+import { updateCartItemQuantityAsync } from "../../../store/cart/cart.thunks";
 
 import { MinusArrow } from "../../../styles/svg/svg.styles";
 
-// import {
-//   successMessage,
-//   confirmDecreaseQuantityMessage,
-//   yesMessage,
-// } from "../../../strings/strings";
+import { confirmDecreaseQuantityMessage } from "../../../strings/confirms/confirms-strings";
 
-const DecreaseQuantity = ({ cartItemObject }) => {
-  // const { fireSwal } = useFireSwal();
-  // const { confirmSwal } = useConfirmSwal();
+const DecreaseQuantity = ({ $id }) => {
+  const dispatch = useDispatch();
+  const { confirmSwal } = useConfirmSwal();
 
-  // const cartItems = useSelector(selectCartItems);
-  // const dispatch = useDispatch();
+  const decreaseQuantity = () => {
+    const operation = "deduct";
+    dispatch(updateCartItemQuantityAsync({ $id, operation }));
+  };
 
-  // const confirmResult = () => {
-  //   dispatch(decreaseItemQuantity(cartItems, cartItem));
-  //   fireSwal("success", successMessage, "", 1000, false, true);
-  // };
-
-  // const confirmDecreaseQuantity = () => {
-  //   confirmSwal(
-  //     confirmDecreaseQuantityMessage,
-  //     "",
-  //     yesMessage,
-  //     confirmResult,
-  //     null
-  //   );
-  // };
+  const confirmDecreaseQuantity = () => {
+    confirmSwal(
+      confirmDecreaseQuantityMessage,
+      "",
+      "yes",
+      decreaseQuantity,
+      null
+    );
+  };
 
   return (
     <>
-      <MinusArrow onClick={() => console.log("decrease")}>&#10095;</MinusArrow>
+      <MinusArrow onClick={confirmDecreaseQuantity}>&#10095;</MinusArrow>
     </>
   );
 };

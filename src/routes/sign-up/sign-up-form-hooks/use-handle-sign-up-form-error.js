@@ -6,7 +6,7 @@ import useFireSwal from "../../../hooks/use-fire-swal";
 
 import {
   appwriteNoUserError,
-  errorSigningUpMessage,
+  errorReceivedMessage,
 } from "../../../strings/errors/errors-strings";
 
 const useHandleSignUpFormError = () => {
@@ -19,7 +19,10 @@ const useHandleSignUpFormError = () => {
 
     fireSwal(
       "error",
-      errorSigningUpMessage(currentUserError),
+      errorReceivedMessage(
+        "sorry, there was an error creating your account.",
+        currentUserError
+      ),
       "",
       0,
       true,

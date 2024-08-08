@@ -10,7 +10,10 @@ const PlaceOrderButton = () => {
   return (
     <>
       {shouldShowPaymentButton() ? (
-        <YellowGreenButton onClick={getClientSecretThunk}>
+        <YellowGreenButton
+          className="place-order"
+          onClick={getClientSecretThunk}
+        >
           place order
         </YellowGreenButton>
       ) : null}

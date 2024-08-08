@@ -1,4 +1,4 @@
-import useCheckoutItemHooks from "../../checkout-item-hooks/use-checkout-item-hooks";
+import useCheckoutItemLogic from "../../checkout-item-hooks/use-checkout-item-logic";
 
 import { CheckoutOptionsInfoDiv } from "../../../../../styles/div/div.styles";
 import { BlackHr } from "../../../../../styles/hr/hr.styles";
@@ -12,7 +12,8 @@ const ProductCondiments = ({ cartItemObject }) => {
     singleCondimentChosen,
   } = cartItemObject;
 
-  const { multipleChoiceSelection } = useCheckoutItemHooks();
+  // don't need to pass cartItemObject here as the function in the hook doesn't rely on it.
+  const { multipleChoiceSelection } = useCheckoutItemLogic();
 
   return (
     <>

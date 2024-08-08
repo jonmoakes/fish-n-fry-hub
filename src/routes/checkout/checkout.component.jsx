@@ -1,6 +1,8 @@
 import useGetCartItemsSelectors from "../../hooks/selectors/use-get-cart-items-selectors";
 import useGetCurrentUserSelectors from "../../hooks/selectors/use-get-current-user-selectors";
+import useUpdateCartItemQuantityResultUseEffect from "./checkout-item/checkout-item-hooks/use-update-cart-item-quantity-result-use-effect";
 
+import Loader from "../../components/loader/loader.component";
 import CheckoutTitleAndIntro from "./checkout-title-and-intro.component";
 import CheckoutNoUser from "./checkout-no-user.component";
 import NoCartItemsFound from "./no-cart-items-found.component";
@@ -9,18 +11,24 @@ import GrandTotal from "./grand-total.component";
 import CompleteOrder from "./complete-order/complete-order.component";
 
 import { Container } from "../../styles/container/container.styles";
+import useRemoveCartItemResultUseEffect from "./checkout-item/checkout-item-hooks/use-remove-cart-item-result-use-effect";
 
 const Checkout = () => {
   const { currentUser } = useGetCurrentUserSelectors();
-  const { cartItems, grandTotal } = useGetCartItemsSelectors();
+  const { cartItems, grandTotal, cartItemsIsLoading } =
+    useGetCartItemsSelectors();
+
+  useUpdateCartItemQuantityResultUseEffect();
+  useRemoveCartItemResultUseEffect();
 
   return (
     <Container>
-      <CheckoutTitleAndIntro />
+      {cartItemsIsLoading ? <Loader /> : null}
+      <CheckoutTitleAndIntro {...{ currentUser, cartItems }} />
       <CheckoutNoUser {...{ currentUser }} />
-      <NoCartItemsFound {...{ cartItems }} />
+      <NoCartItemsFound {...{ currentUser, cartItems }} />
       <CheckoutCartItemsInfo {...{ currentUser, cartItems }} />
-      <GrandTotal {...{ grandTotal }} />
+      <GrandTotal {...{ currentUser, cartItems, grandTotal }} />
       <CompleteOrder />
     </Container>
   );

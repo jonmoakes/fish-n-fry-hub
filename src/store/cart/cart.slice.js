@@ -2,6 +2,8 @@ import { createSelector, createSlice } from "@reduxjs/toolkit";
 import {
   addCartItemToDatabaseAsync,
   fetchUserCartItemsAsync,
+  updateCartItemQuantityAsync,
+  removeCartItemAsync,
 } from "./cart.thunks";
 
 const INITIAL_STATE = {
@@ -9,6 +11,10 @@ const INITIAL_STATE = {
   cartItems: [],
   addCartItemResult: "",
   cartItemsError: null,
+  updateCartItemQuantityResult: "",
+  updateCartItemQuantityError: null,
+  removeCartItemResult: "",
+  removeCartItemError: null,
 };
 
 export const cartSlice = createSlice({
@@ -23,6 +29,18 @@ export const cartSlice = createSlice({
     },
     resetCartItemsError(state) {
       state.cartItemsError = null;
+    },
+    resetUpdateCartItemQuantityResult(state) {
+      state.updateCartItemQuantityResult = "";
+    },
+    resetUpdateCartItemQuantityError(state) {
+      state.updateCartItemQuantityError = null;
+    },
+    resetRemoveCartItemResult(state) {
+      state.removeCartItemResult = "";
+    },
+    resetRemoveCartItemError(state) {
+      state.removeCartItemError = null;
     },
     resetCartState: () => {
       return INITIAL_STATE;
@@ -55,6 +73,32 @@ export const cartSlice = createSlice({
         state.cartItemsIsLoading = false;
         state.cartItems = null;
         state.cartItemsError = action.payload;
+      })
+      .addCase(updateCartItemQuantityAsync.pending, (state) => {
+        state.cartItemsIsLoading = true;
+      })
+      .addCase(updateCartItemQuantityAsync.fulfilled, (state) => {
+        state.cartItemsIsLoading = false;
+        state.updateCartItemQuantityResult = "fulfilled";
+        state.updateCartItemQuantityError = null;
+      })
+      .addCase(updateCartItemQuantityAsync.rejected, (state, action) => {
+        state.cartItemsIsLoading = false;
+        state.updateCartItemQuantityResult = "rejected";
+        state.updateCartItemQuantityError = action.payload;
+      })
+      .addCase(removeCartItemAsync.pending, (state) => {
+        state.cartItemsIsLoading = true;
+      })
+      .addCase(removeCartItemAsync.fulfilled, (state) => {
+        state.cartItemsIsLoading = false;
+        state.removeCartItemResult = "fulfilled";
+        state.removeCartItemError = null;
+      })
+      .addCase(removeCartItemAsync.rejected, (state, action) => {
+        state.cartItemsIsLoading = false;
+        state.removeCartItemResult = "rejected";
+        state.removeCartItemError = action.payload;
       });
   },
   selectors: {
@@ -63,7 +107,21 @@ export const cartSlice = createSlice({
       (state) => state.cartItems,
       (state) => state.addCartItemResult,
       (state) => state.cartItemsError,
-      (cartItemsIsLoading, cartItems, addCartItemResult, cartItemsError) => {
+      (state) => state.updateCartItemQuantityResult,
+      (state) => state.updateCartItemQuantityError,
+      (state) => state.removeCartItemResult,
+      (state) => state.removeCartItemError,
+
+      (
+        cartItemsIsLoading,
+        cartItems,
+        addCartItemResult,
+        cartItemsError,
+        updateCartItemQuantityResult,
+        updateCartItemQuantityError,
+        removeCartItemResult,
+        removeCartItemError
+      ) => {
         const grandTotal = cartItems.reduce((accumulator, item) => {
           const cartItemObject = JSON.parse(item.cartItem);
           return accumulator + cartItemObject.priceWithOptionsAndQuantity;
@@ -74,6 +132,10 @@ export const cartSlice = createSlice({
           cartItems,
           addCartItemResult,
           cartItemsError,
+          updateCartItemQuantityResult,
+          updateCartItemQuantityError,
+          removeCartItemResult,
+          removeCartItemError,
           grandTotal,
         };
       }
@@ -84,6 +146,10 @@ export const cartSlice = createSlice({
 export const {
   setCartItems,
   resetAddCartItemResult,
+  resetUpdateCartItemQuantityResult,
+  resetUpdateCartItemQuantityError,
+  resetRemoveCartItemResult,
+  resetRemoveCartItemError,
   resetCartItemsError,
   resetCartState,
 } = cartSlice.actions;

@@ -11,6 +11,7 @@ import {
   ArrowContainer,
 } from "../../../styles/div/div.styles";
 import { CheckoutItemText, Value } from "../../../styles/span/span.styles";
+import ClearCartItem from "./clear-cart-item.component";
 
 const CheckoutItem = ({ cartItems }) => {
   const { isOnline } = useIsOnline();
@@ -29,9 +30,9 @@ const CheckoutItem = ({ cartItems }) => {
 
             {isOnline ? (
               <ArrowContainer>
-                <DecreaseQuantity {...{ cartItemObject }} />
+                <DecreaseQuantity {...{ $id }} />
                 <Value>{quantity}</Value>
-                <IncreaseQuantity {...{ cartItemObject }} />
+                <IncreaseQuantity {...{ $id }} />
               </ArrowContainer>
             ) : (
               <NetworkError />
@@ -41,15 +42,7 @@ const CheckoutItem = ({ cartItems }) => {
               £{(priceWithOptionsAndQuantity / 100).toFixed(2)}
             </CheckoutItemText>
 
-            <CheckoutItemText style={{ color: "red" }} className="width">
-              X
-            </CheckoutItemText>
-            {/* {isOnline ? (
-            
-        <ClearCartItem {...{ cartItem }} />
-      ) : (
-        <NetworkErrorText>network error..</NetworkErrorText>
-      )}  */}
+            {isOnline ? <ClearCartItem {...{ $id }} /> : <NetworkError />}
           </CheckoutItemContainer>
         );
       })}

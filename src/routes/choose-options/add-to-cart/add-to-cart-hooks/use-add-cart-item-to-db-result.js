@@ -9,7 +9,7 @@ import {
 import useFireSwal from "../../../../hooks/use-fire-swal";
 import useHamburgerHandlerNavigate from "../../../../hooks/use-hamburger-handler-navigate";
 
-import { errorAddingCartItemMessage } from "../../../../strings/errors/errors-strings";
+import { errorReceivedMessage } from "../../../../strings/errors/errors-strings";
 import { cartItemAddedMessage } from "../../../../strings/successes/sucesses-strings";
 import { menuRoute } from "../../../../strings/routes/routes-strings";
 
@@ -37,7 +37,10 @@ const useAddCartItemToDbResult = () => {
     } else if (addCartItemResult === "rejected") {
       fireSwal(
         "error",
-        errorAddingCartItemMessage(cartItemsError),
+        errorReceivedMessage(
+          "sorry, there was an error adding the cart item.",
+          cartItemsError
+        ),
         "",
         0,
         true,

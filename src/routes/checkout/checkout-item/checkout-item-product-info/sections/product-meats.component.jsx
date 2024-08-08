@@ -1,4 +1,4 @@
-import useCheckoutItemHooks from "../../checkout-item-hooks/use-checkout-item-hooks";
+import useCheckoutItemLogic from "../../checkout-item-hooks/use-checkout-item-logic";
 
 import { CheckoutOptionsInfoDiv } from "../../../../../styles/div/div.styles";
 import { BlackHr } from "../../../../../styles/hr/hr.styles";
@@ -12,7 +12,7 @@ const ProductMeats = ({ cartItemObject }) => {
     singleMeatChosen,
   } = cartItemObject;
 
-  const { multipleChoiceSelection } = useCheckoutItemHooks();
+  const { multipleChoiceSelection } = useCheckoutItemLogic();
 
   return (
     <>

@@ -100,7 +100,7 @@ export const WhiteSpan = styled.span`
     text-shadow: 0.5px 0.5px 0.5px ${customBlack};
 
     @media screen and (max-width: 450px) {
-      font-size: calc(0.8rem);
+      font-size: calc(0.9rem);
     }
   }
 
@@ -148,7 +148,7 @@ export const SalmonSpan = styled.span`
   font-size: calc(1rem);
 
   @media screen and (max-width: 450px) {
-    font-size: calc(0.8rem);
+    font-size: calc(0.9rem);
   }
 `;
 
@@ -380,6 +380,18 @@ export const Value = styled(CheckoutItemText)`
   width: 23.3%;
   margin: 0px 5px;
   font-size: calc(1.5rem);
+
+  @media screen and (max-width: 450px) {
+    font-size: calc(1.3rem);
+  }
+`;
+
+export const RemoveItemSpan = styled.span`
+  width: 23.3%;
+  cursor: pointer;
+  color: ${customTomato};
+  text-shadow: 1px 1px 1px ${customBlack};
+  font-size: calc(1.7rem);
 
   @media screen and (max-width: 450px) {
     font-size: calc(1.3rem);
