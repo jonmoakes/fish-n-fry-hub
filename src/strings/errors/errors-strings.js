@@ -29,3 +29,5 @@ export const appwritePasswordLengthError =
 export const errorAddingCartItemMessage = (error) => {
   return `<span style="font-size:20px";>sorry, there was an error adding the cart item.<br/><br/>The error received was:<br/>'<span style="color:${customYellow}";>${error}</span>'<br/><br/><span style="font-size:20px";>please try again or contact us if the error persists.</span>`;
 };
+export const formNotCompleteWarning =
+  "the pay button will show when the form is complete";

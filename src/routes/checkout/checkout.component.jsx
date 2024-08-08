@@ -6,6 +6,7 @@ import CheckoutNoUser from "./checkout-no-user.component";
 import NoCartItemsFound from "./no-cart-items-found.component";
 import CheckoutCartItemsInfo from "./checkout-cart-items-info.component";
 import GrandTotal from "./grand-total.component";
+import CompleteOrder from "./complete-order/complete-order.component";
 
 import { Container } from "../../styles/container/container.styles";
 
@@ -20,6 +21,7 @@ const Checkout = () => {
       <NoCartItemsFound {...{ cartItems }} />
       <CheckoutCartItemsInfo {...{ currentUser, cartItems }} />
       <GrandTotal {...{ grandTotal }} />
+      <CompleteOrder />
     </Container>
   );
 };

@@ -1,6 +1,7 @@
 import useGetCartItemsSelectors from "../../../hooks/selectors/use-get-cart-items-selectors";
 import useGetChooseOptionsSelectors from "../../../hooks/selectors/use-get-choose-options-selectors";
 import useGetMenuSelectors from "../../../hooks/selectors/use-get-menu-selectors";
+import useGetHandlePaymentSelectors from "../../../hooks/selectors/use-get-handle-payment-selectors";
 
 const useHandleShowError = () => {
   const { menuError } = useGetMenuSelectors();
@@ -14,6 +15,7 @@ const useHandleShowError = () => {
     piesDocumentsError,
     condimentsDocumentsError,
   } = useGetChooseOptionsSelectors();
+  const { handlePaymentError } = useGetHandlePaymentSelectors();
 
   const showErrorHeading = () => {
     if (menuError) return "failed to fetch menu data.";
@@ -28,7 +30,7 @@ const useHandleShowError = () => {
       return "failed to fetch our list of drinks to go with your order.";
     if (condimentsDocumentsError)
       return "failed to fetch our list of  condiments";
-    // add more if needed with if statement for each
+    if (handlePaymentError) return "failed to contact payment processor.";
   };
 
   const errorToDisplay = () => {
@@ -42,7 +44,7 @@ const useHandleShowError = () => {
       canDocumentsError,
       piesDocumentsError,
       condimentsDocumentsError,
-      // add more separated by comma
+      handlePaymentError,
     ];
 
     return errors.find((error) => error !== null);

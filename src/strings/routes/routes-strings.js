@@ -27,3 +27,4 @@ export const categoryItemsRoute = "/category-items";
 export const chooseOptionsRoute = "/choose-option";
 export const uploadMenuItemsRoute = "/database-manangement/upload-menu-items";
 export const checkoutRoute = "/checkout";
+export const paymentResultRoute = "/payment-result";

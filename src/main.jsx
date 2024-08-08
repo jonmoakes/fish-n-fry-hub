@@ -4,17 +4,21 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
 import { StyleSheetManager } from "styled-components";
+import { Elements } from "@stripe/react-stripe-js";
+import "regenerator-runtime";
 import App from "./App";
 import "./index.css";
 
-import "regenerator-runtime";
+import { stripePromise } from "./constants/constants";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <StyleSheetManager shouldForwardProp={(prop) => prop !== "theme"}>
-          <App />
+          <Elements stripe={stripePromise}>
+            <App />
+          </Elements>
         </StyleSheetManager>
       </BrowserRouter>
     </Provider>

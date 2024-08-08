@@ -265,7 +265,7 @@ export const ErrorDiv = styled.div`
 
 export const WarningDiv = styled(ErrorDiv)`
   width: 50%;
-  margin: 30px auto 50px auto;
+  margin: 0px auto 0px auto;
   background-color: ${customOrange};
   box-shadow: 12px 12px 12px ${customBlack};
   padding: 0px 10px;
@@ -791,4 +791,8 @@ export const ArrowContainer = styled.div`
 
 export const CheckoutOptionsInfoDiv = styled.div`
   margin-bottom: 5px;
+`;
+
+export const CompleteOrderDiv = styled.div`
+  margin-top: 50px;
 `;
