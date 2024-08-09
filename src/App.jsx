@@ -21,6 +21,7 @@ import {
   categoryItemsRoute,
   uploadMenuItemsRoute,
   checkoutRoute,
+  paymentResultRoute,
 } from "./strings/routes/routes-strings";
 import useCartItemsListener from "./hooks/use-cart-items-listener";
 // import FloatingBackButton from "./components/floating-back-button/floating-back-button.component";
@@ -42,6 +43,9 @@ const UploadMenuItems = lazy(() =>
   import("./routes/upload-menu-items/upload-menu-items.component")
 );
 const Checkout = lazy(() => import("./routes/checkout/checkout.component"));
+const PaymentResult = lazy(() =>
+  import("./routes/payment-result/payment-result.component")
+);
 
 const App = () => {
   const { currentUser } = useGetCurrentUserSelectors();
@@ -73,6 +77,7 @@ const App = () => {
                 }
               />
               <Route path={checkoutRoute} element={<Checkout />} />
+              <Route path={paymentResultRoute} element={<PaymentResult />} />
             </Route>
           </Routes>
         </Suspense>

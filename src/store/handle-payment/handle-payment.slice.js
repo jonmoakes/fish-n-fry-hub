@@ -20,6 +20,9 @@ const handlePaymentSlice = createSlice({
     resetClientSecret(state) {
       state.client_secret = "";
     },
+    resetHandlePaymentError(state) {
+      state.handlePaymentError = null;
+    },
     resetPreResultHandlePaymentState(state) {
       state.handlePaymentIsLoading = false;
       state.client_secret = "";
@@ -97,6 +100,7 @@ const handlePaymentSlice = createSlice({
 
 export const {
   resetClientSecret,
+  resetHandlePaymentError,
   resetPreResultHandlePaymentState,
   resetAllHandlePaymentState,
 } = handlePaymentSlice.actions;

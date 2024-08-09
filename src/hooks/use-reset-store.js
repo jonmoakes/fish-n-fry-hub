@@ -11,7 +11,10 @@ import {
   signUpRoute,
   chooseOptionsRoute,
   uploadMenuItemsRoute,
+  paymentResultRoute,
 } from "../strings/routes/routes-strings";
+import { resetCardInputResultState } from "../store/card-input-result/card-input-result.slice";
+import { resetAllHandlePaymentState } from "../store/handle-payment/handle-payment.slice";
 
 const useResetStore = () => {
   const location = useLocation();
@@ -31,6 +34,10 @@ const useResetStore = () => {
         break;
       case uploadMenuItemsRoute:
         dispatch(resetUploadMenuItemsState());
+        break;
+      case paymentResultRoute:
+        dispatch(resetCardInputResultState());
+        dispatch(resetAllHandlePaymentState());
         break;
       default:
         return;
