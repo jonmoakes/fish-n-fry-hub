@@ -19,9 +19,9 @@ const ShowMeatsError = () => {
       ) : null}
 
       {numberOfMeatsAvailable > 1 &&
-      numberOfMeatsCheckboxesChosen() > numberOfMeatsAvailable ? (
+      numberOfMeatsCheckboxesChosen() !== numberOfMeatsAvailable ? (
         <RequiredError>
-          please select a maximum of {numberOfMeatsAvailable} meats
+          please select {numberOfMeatsAvailable} meats
         </RequiredError>
       ) : null}
     </>
