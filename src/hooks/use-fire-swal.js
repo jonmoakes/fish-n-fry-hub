@@ -11,7 +11,9 @@ const useFireSwal = () => {
     title,
     text,
     timer,
-    showConfirmButton,
+    confirmButtonText,
+    showCancelButton,
+    cancelButtonText,
     allowOutsideClick
   ) => {
     return await swal
@@ -20,12 +22,16 @@ const useFireSwal = () => {
         title,
         text,
         timer,
-        showConfirmButton,
+        showConfirmButton: !timer ? true : false,
+        confirmButtonText: confirmButtonText ? confirmButtonText : "ok",
+        showCancelButton,
+        cancelButtonText: cancelButtonText ? cancelButtonText : "cancel",
         allowOutsideClick,
         confirmButtonColor: "#3085d6",
         background: "black",
         backdrop: `rgba(37,94,168, 0.8)`,
         customClass: "confirm",
+        reverseButtons: true,
       })
       .then((result) => {
         return result.isConfirmed;

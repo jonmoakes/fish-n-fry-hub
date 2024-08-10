@@ -22,6 +22,7 @@ const ClearCartItem = ({ $id }) => {
       confirmClearCartItemMessage,
       "",
       removeCartItemButtonText,
+      "",
       confirmResult,
       null
     );

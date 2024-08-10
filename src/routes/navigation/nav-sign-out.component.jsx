@@ -26,11 +26,17 @@ const NavSignOut = () => {
   };
 
   const confirmSignOut = () => {
-    confirmSwal(confirmSignOutMessage, "", yesSignOutMessage, confirmResult);
+    confirmSwal(
+      confirmSignOutMessage,
+      "",
+      yesSignOutMessage,
+      "",
+      confirmResult
+    );
   };
 
   const showNetworkErrorSwal = () => {
-    fireSwal("error", noNetworkMessage, "", 0, true, false);
+    fireSwal("error", noNetworkMessage, "", 0, "", false, "", false);
   };
 
   return (

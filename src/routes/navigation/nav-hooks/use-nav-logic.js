@@ -59,6 +59,7 @@ const useNavLogic = () => {
           confirmSureMessage,
           loseAllDataMessage,
           imSureMessage,
+          "",
           route
         );
   };

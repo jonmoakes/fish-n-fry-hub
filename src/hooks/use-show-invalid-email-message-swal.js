@@ -5,7 +5,16 @@ const useShowInvalidEmailMessageSwal = () => {
   const { fireSwal } = useFireSwal();
 
   const showInvalidEmailMessageSwal = () => {
-    fireSwal("error", invalidEmailErrorMessage, "", 0, true, false);
+    fireSwal(
+      "error",
+      invalidEmailErrorMessage,
+      "",
+      false,
+      "",
+      false,
+      "",
+      false
+    );
   };
 
   return { showInvalidEmailMessageSwal };

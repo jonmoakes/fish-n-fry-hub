@@ -21,7 +21,7 @@ const useUpdateCartItemQuantityResultUseEffect = () => {
     if (!updateCartItemQuantityResult && !updateCartItemQuantityError) return;
 
     if (updateCartItemQuantityResult === "fulfilled") {
-      fireSwal("success", "success", "", 1000, false, true);
+      fireSwal("success", "success", "", 1000, "", false, "", true);
       setTimeout(() => {
         dispatch(resetUpdateCartItemQuantityResult());
       }, 200);
@@ -34,7 +34,9 @@ const useUpdateCartItemQuantityResultUseEffect = () => {
         ),
         "",
         0,
-        true,
+        "",
+        false,
+        "",
         false
       ).then((isConfirmed) => {
         if (isConfirmed) {

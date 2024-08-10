@@ -25,7 +25,9 @@ const useHandleSignUpFormError = () => {
       ),
       "",
       0,
-      true,
+      "",
+      false,
+      "",
       false
     ).then((isConfirmed) => {
       if (isConfirmed) {

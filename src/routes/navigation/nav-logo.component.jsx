@@ -29,6 +29,7 @@ const NavLogo = () => {
         confirmSureMessage,
         loseAllDataMessage,
         imSureMessage,
+        "stay here",
         route
       );
     } else {

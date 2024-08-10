@@ -24,16 +24,23 @@ const useAddCartItemToDbResult = () => {
     if (!cartItemsError && !addCartItemResult) return;
 
     if (addCartItemResult === "fulfilled") {
-      fireSwal("success", cartItemAddedMessage, "", 0, true, false).then(
-        (isConfirmed) => {
-          if (isConfirmed) {
-            dispatch(resetAddCartItemResult());
-            setTimeout(() => {
-              hamburgerHandlerNavigate(menuRoute);
-            }, 100);
-          }
+      fireSwal(
+        "success",
+        cartItemAddedMessage,
+        "",
+        0,
+        "",
+        false,
+        "",
+        false
+      ).then((isConfirmed) => {
+        if (isConfirmed) {
+          dispatch(resetAddCartItemResult());
+          setTimeout(() => {
+            hamburgerHandlerNavigate(menuRoute);
+          }, 100);
         }
-      );
+      });
     } else if (addCartItemResult === "rejected") {
       fireSwal(
         "error",
@@ -42,8 +49,10 @@ const useAddCartItemToDbResult = () => {
           cartItemsError
         ),
         "",
-        0,
-        true,
+        false,
+        "",
+        false,
+        "",
         false
       ).then((isConfirmed) => {
         if (isConfirmed) {

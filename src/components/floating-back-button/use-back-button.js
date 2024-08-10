@@ -21,6 +21,7 @@
 //       areYouSureMessage,
 //       loseAllDataMessage,
 //       imSureMessage,
+//       "",
 //       confirmResult
 //     );
 //   };

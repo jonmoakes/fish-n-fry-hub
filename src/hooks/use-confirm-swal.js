@@ -19,6 +19,7 @@ const useConfirmSwal = () => {
     title,
     textHtml,
     buttonText,
+    cancelButtonText,
     confirmResult,
     cancelResult
   ) => {
@@ -33,6 +34,7 @@ const useConfirmSwal = () => {
         confirmButtonColor: customBlue,
         cancelButtonColor: customTomato,
         confirmButtonText: buttonText,
+        cancelButtonText: cancelButtonText ? cancelButtonText : "cancel",
         customClass: "confirm",
         allowOutsideClick: false,
         allowEscapeKey: false,
@@ -47,7 +49,13 @@ const useConfirmSwal = () => {
       });
   };
 
-  const confirmForwardToNewRoute = (title, text, buttonText, route) => {
+  const confirmForwardToNewRoute = (
+    title,
+    text,
+    buttonText,
+    cancelButtonText,
+    route
+  ) => {
     swal
       .fire({
         title,
@@ -59,6 +67,7 @@ const useConfirmSwal = () => {
         confirmButtonColor: customBlue,
         cancelButtonColor: customTomato,
         confirmButtonText: buttonText,
+        cancelButtonText: cancelButtonText ? cancelButtonText : "cancel",
         customClass: "confirm",
         allowOutsideClick: false,
         allowEscapeKey: false,

@@ -9,6 +9,9 @@ import useGetCurrentUserSelectors from "../../../hooks/selectors/use-get-current
 import useFireSwal from "../../../hooks/use-fire-swal";
 import useSendEmailConfirmation from "./use-send-email-confirmation";
 
+import { menuRoute } from "../../../strings/routes/routes-strings";
+import { resetCartState } from "../../../store/cart/cart.slice";
+
 const useGetPaymentResultStatus = () => {
   const { paymentResultObject } = useGetHandlePaymentSelectors();
   const { name, email } = useGetCurrentUserSelectors();
@@ -28,20 +31,30 @@ const useGetPaymentResultStatus = () => {
     sendEmailConfirmation(name, email);
   }, [name, email, sendEmailConfirmation]);
 
+  const cancelResult = useCallback(() => {
+    dispatch(resetCartState());
+    hamburgerHandlerNavigate(menuRoute);
+  }, [hamburgerHandlerNavigate, dispatch]);
+
   useEffect(() => {
     if (!Object.keys(paymentResultObject).length) return;
 
     if (paymentResultStatus === "succeeded") {
+      // upload to database first - depending on result of that, fire appropriate swal info here
       fireSwal(
         "success",
         "order placed!",
-        "tap 'ok',  send an email confirmation of your order.",
+        "do you wish to be sent a confirmation email?",
         0,
+        "yes",
         true,
+        "no",
         false
       ).then((isConfirmed) => {
         if (isConfirmed) {
           confirmResult();
+        } else {
+          cancelResult();
         }
       });
     } else {
@@ -54,6 +67,7 @@ const useGetPaymentResultStatus = () => {
     hamburgerHandlerNavigate,
     dispatch,
     confirmResult,
+    cancelResult,
     fireSwal,
   ]);
 };

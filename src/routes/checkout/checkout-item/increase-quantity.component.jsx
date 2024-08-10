@@ -21,6 +21,7 @@ const IncreaseQuantity = ({ $id }) => {
       confirmIncreaseQuantityMessage,
       "",
       "yes",
+      "",
       increaseQuantity,
       null
     );

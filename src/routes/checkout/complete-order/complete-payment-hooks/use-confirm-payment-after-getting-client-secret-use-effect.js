@@ -4,8 +4,6 @@ import { useStripe, useElements } from "@stripe/react-stripe-js";
 
 import useGetCardInputResultSelectors from "../../../../hooks/selectors/use-get-card-input-result-selectors";
 import useGetHandlePaymentSelectors from "../../../../hooks/selectors/use-get-handle-payment-selectors";
-import { resetCardInputResultState } from "../../../../store/card-input-result/card-input-result.slice";
-import { resetAllHandlePaymentState } from "../../../../store/handle-payment/handle-payment.slice";
 import useGetPaymentResultObjectThunk from "./use-get-payment-result-object-thunk";
 import useConfirmSwal from "../../../../hooks/use-confirm-swal";
 
@@ -41,14 +39,14 @@ const useConfirmPaymentAfterGettingClientSecretUseEffect = () => {
     };
 
     const cancelResult = () => {
-      dispatch(resetAllHandlePaymentState());
-      dispatch(resetCardInputResultState());
+      window.location.reload();
     };
 
     confirmSwal(
       "complete your order?",
       "",
       "yes, place order",
+      "",
       confirmResult,
       cancelResult
     );

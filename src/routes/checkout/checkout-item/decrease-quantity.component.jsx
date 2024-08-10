@@ -21,6 +21,7 @@ const DecreaseQuantity = ({ $id }) => {
       confirmDecreaseQuantityMessage,
       "",
       "yes",
+      "",
       decreaseQuantity,
       null
     );

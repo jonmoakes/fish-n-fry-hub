@@ -33,7 +33,9 @@ const UploadMenuItems = () => {
       "error uploading menu items",
       uploadMenuItemsError,
       0,
-      true,
+      "",
+      false,
+      "",
       false
     ).then((isConfirmed) => {
       if (isConfirmed) {

@@ -1,6 +1,7 @@
 import useGetCartItemsSelectors from "../../hooks/selectors/use-get-cart-items-selectors";
 import useGetCurrentUserSelectors from "../../hooks/selectors/use-get-current-user-selectors";
 import useUpdateCartItemQuantityResultUseEffect from "./checkout-item/checkout-item-hooks/use-update-cart-item-quantity-result-use-effect";
+import useRemoveCartItemResultUseEffect from "./checkout-item/checkout-item-hooks/use-remove-cart-item-result-use-effect";
 
 import Loader from "../../components/loader/loader.component";
 import CheckoutTitleAndIntro from "./checkout-title-and-intro.component";
@@ -11,7 +12,6 @@ import GrandTotal from "./grand-total.component";
 import CompleteOrder from "./complete-order/complete-order.component";
 
 import { Container } from "../../styles/container/container.styles";
-import useRemoveCartItemResultUseEffect from "./checkout-item/checkout-item-hooks/use-remove-cart-item-result-use-effect";
 
 const Checkout = () => {
   const { currentUser } = useGetCurrentUserSelectors();

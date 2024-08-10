@@ -9,6 +9,7 @@
   color: whitesmoke;
   font-weight: bold;
   text-transform: capitalize;
+  font-size: calc(1.3rem);
 }
 
 .confirm .swal2-question {

@@ -22,7 +22,7 @@ const useSignOutSubmitThunk = () => {
     dispatch(signOutAsync()).then((resultAction) => {
       if (signOutAsync.fulfilled.match(resultAction)) {
         hamburgerHandlerNavigate(signInRoute);
-        fireSwal("success", successMessage, "", 2000, false, true);
+        fireSwal("success", successMessage, "", 2000, "", false, "", true);
         resetAllStoreOnSignOut();
       } else if (signOutAsync.rejected.match(resultAction)) {
         if (resultAction.error.message === "Rejected") {
@@ -35,7 +35,9 @@ const useSignOutSubmitThunk = () => {
             ),
             "",
             0,
-            true,
+            "",
+            false,
+            "",
             false
           ).then((isConfirmed) => {
             if (isConfirmed) {

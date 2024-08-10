@@ -19,11 +19,20 @@ const useHandleSignInFormSubmit = () => {
 
   const handleSignInFormSubmit = () => {
     if (!email || !password) {
-      fireSwal("error", missingFieldsMessage, "", 0, true, false);
+      fireSwal("error", missingFieldsMessage, "", 0, "", false, "", false);
     } else if (!validateEmail(email)) {
       showInvalidEmailMessageSwal();
     } else if (password.includes(" ")) {
-      fireSwal("error", passwordCantContainSpaceMessage, "", 0, true, false);
+      fireSwal(
+        "error",
+        passwordCantContainSpaceMessage,
+        "",
+        0,
+        "",
+        false,
+        "",
+        false
+      );
     } else {
       signInThunk();
     }

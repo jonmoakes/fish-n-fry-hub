@@ -21,6 +21,7 @@ const useConfirmAddCartItemToDb = () => {
       "add this item to your cart?",
       "",
       "yes, add it!",
+      "",
       confirmResult
     );
   };

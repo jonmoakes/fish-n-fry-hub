@@ -29,22 +29,40 @@ const useHandleSignUpFormSubmit = () => {
   };
 
   const confirmSignUp = () => {
-    confirmSwal(confirmSignUpMessage, "", yesSignUpMessage, () =>
+    confirmSwal(confirmSignUpMessage, "", yesSignUpMessage, "", () =>
       confirmResult()
     );
   };
 
   const handleSignUpFormSubmit = () => {
     if (!name || !email || !password || !confirmPassword) {
-      fireSwal("error", missingFieldsMessage, "", 0, true, false);
+      fireSwal("error", missingFieldsMessage, "", 0, "", false, "", false);
     } else if (!validateEmail(email)) {
       showInvalidEmailMessageSwal();
     } else if (password.length < 8) {
-      fireSwal("error", passwordLengthErrorMessage, "", 0, true, false);
+      fireSwal(
+        "error",
+        passwordLengthErrorMessage,
+        "",
+        0,
+        "",
+        false,
+        "",
+        false
+      );
     } else if (password !== confirmPassword) {
-      fireSwal("error", passwordsDontMatchMessage, "", 0, true, false);
+      fireSwal("error", passwordsDontMatchMessage, "", 0, "", false, "", false);
     } else if (password.includes(" ")) {
-      fireSwal("error", passwordCantContainSpaceMessage, "", 0, true, false);
+      fireSwal(
+        "error",
+        passwordCantContainSpaceMessage,
+        "",
+        0,
+        "",
+        false,
+        "",
+        false
+      );
     } else {
       confirmSignUp();
     }

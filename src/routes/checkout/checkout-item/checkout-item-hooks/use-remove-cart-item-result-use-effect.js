@@ -21,10 +21,8 @@ const useRemoveCartItemResultUseEffect = () => {
     if (!removeCartItemResult && !removeCartItemError) return;
 
     if (removeCartItemResult === "fulfilled") {
-      fireSwal("success", "success", "", 1000, false, true);
-      setTimeout(() => {
-        dispatch(resetRemoveCartItemResult());
-      }, 200);
+      fireSwal("success", "item removed!", "", 1000, "", false, "", false);
+      dispatch(resetRemoveCartItemResult());
     } else if (removeCartItemResult === "rejected") {
       fireSwal(
         "error",
@@ -34,7 +32,9 @@ const useRemoveCartItemResultUseEffect = () => {
         ),
         "",
         0,
-        true,
+        "",
+        false,
+        "",
         false
       ).then((isConfirmed) => {
         if (isConfirmed) {
