@@ -596,7 +596,7 @@ export const NoSearchResultDiv = styled.div`
   width: 50%;
   height: auto;
   margin: 30px auto;
-  background-color: ${customWhite};
+  background-color: ${customGrey};
   padding: 20px;
   border-radius: 15px;
   animation: 0.5s ${bounceInDownAnimation};
@@ -642,6 +642,10 @@ export const InLineDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  &.order {
+    white-space: "pre-wrap";
+  }
 `;
 
 export const EmergencyDetailsDiv = styled.div`
@@ -794,4 +798,28 @@ export const CheckoutOptionsInfoDiv = styled.div`
 
 export const CompleteOrderDiv = styled.div`
   margin-top: 50px;
+`;
+
+export const TableSearchDiv = styled.div`
+  width: 50%;
+  position: relative;
+  margin: 0px auto -30px auto;
+  animation: 0.5s ${slideInLeftAnimation};
+
+  &.no-checkbox {
+    margin: 0px auto 0px auto;
+
+    @media screen and (max-width: 450px) {
+      margin: 0px auto 40px auto;
+    }
+  }
+
+  @media screen and (max-width: 1366px) {
+    width: 70%;
+  }
+
+  @media screen and (max-width: 450px) {
+    width: 80%;
+    margin: 0px auto 0px auto;
+  }
 `;

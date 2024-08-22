@@ -397,3 +397,12 @@ export const RemoveItemSpan = styled.span`
     font-size: calc(1.3rem);
   }
 `;
+
+export const ClearButtonExampleSpan = styled.span`
+  background-color: ${customTomato};
+  color: ${customBlack};
+  padding: 5px 10px;
+  border: 1px solid ${customBlack};
+  border-radius: 5px;
+  text-transform: lowercase;
+`;

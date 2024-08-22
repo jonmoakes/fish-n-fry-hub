@@ -5,24 +5,28 @@ const useGetCartItemsSelectors = () => {
   const {
     cartItemsIsLoading,
     cartItems,
+    fetchCartItemsResult,
+    fetchCartItemsError,
     addCartItemResult,
-    cartItemsError,
-    updateCartItemQuantityResult,
-    updateCartItemQuantityError,
+    addCartItemsError,
     removeCartItemResult,
     removeCartItemError,
+    updateCartItemQuantityResult,
+    updateCartItemQuantityError,
     grandTotal,
   } = useSelector(selectCartSelectors);
 
   return {
     cartItemsIsLoading,
     cartItems,
+    fetchCartItemsResult,
+    fetchCartItemsError,
     addCartItemResult,
-    cartItemsError,
-    updateCartItemQuantityResult,
-    updateCartItemQuantityError,
+    addCartItemsError,
     removeCartItemResult,
     removeCartItemError,
+    updateCartItemQuantityResult,
+    updateCartItemQuantityError,
     grandTotal,
   };
 };

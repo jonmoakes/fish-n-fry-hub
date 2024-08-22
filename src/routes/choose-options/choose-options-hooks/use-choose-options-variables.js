@@ -56,7 +56,7 @@ const useChooseOptionsVariables = () => {
     hasChoosePieOption,
     pieChoice,
   } = useGetChooseOptionsSelectors();
-  const { cartItemsIsLoading, addCartItemResult, cartItemsError } =
+  const { cartItemsIsLoading, addCartItemResult, addCartItemsError } =
     useGetCartItemsSelectors();
 
   const quantityIsValid = quantity >= 1 && quantity <= 10 ? true : false;
@@ -117,7 +117,7 @@ const useChooseOptionsVariables = () => {
     quantityIsValid,
     cartItemsIsLoading,
     addCartItemResult,
-    cartItemsError,
+    addCartItemsError,
   };
 };
 

@@ -26,3 +26,5 @@ export const formNotCompleteWarning =
 export const errorReceivedMessage = (errorInfo, error) => {
   return `<span style="font-size:20px";>${errorInfo}<br/><br/>The error received was:<br/>'<span style="color:${customYellow}";>${error}</span>'<br/><br/><span style="font-size:20px";>please try again or contact us if the error persists.</span>`;
 };
+
+export const errorUploadingOrderToDbMessage = `<span style="font-size:20px";>your payment was taken but there was an error uploading the order to the database.<br/><br/>please tap the 'send email' button below which will email the app owner with the details of your order.<br/><br/>They will then respond asap to confirm your order details. We apologoise for the inconvenience.</span>`;

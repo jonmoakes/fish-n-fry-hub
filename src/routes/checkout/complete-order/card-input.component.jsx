@@ -12,7 +12,7 @@ import StripeLogo from "./stripe-logo.component";
 
 import { CardInputDiv, ParentDiv } from "../../../styles/div/div.styles";
 import { Text } from "../../../styles/p/p.styles";
-import { RedSpan } from "../../../styles/span/span.styles";
+import { YellowSpan } from "../../../styles/span/span.styles";
 import { options } from "./card-input-styles/card-input-styles";
 import Balancer from "react-wrap-balancer";
 
@@ -31,8 +31,9 @@ const CardInput = () => {
           <CardInputErrors />
           <ParentDiv>
             <Text>
-              you will be charged{" "}
-              <RedSpan>£{(grandTotal / 100).toFixed(2)}</RedSpan>
+              your card will be charged
+              <br />
+              <YellowSpan>£{(grandTotal / 100).toFixed(2)}</YellowSpan>
             </Text>
 
             <Text>

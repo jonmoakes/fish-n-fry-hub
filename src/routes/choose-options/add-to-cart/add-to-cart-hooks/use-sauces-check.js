@@ -20,7 +20,7 @@ const useSaucesCheck = () => {
         (hasSingleSauceOption && singleSauceChosen) ||
         (hasMultipleSaucesOption &&
           numberOfSaucesChosen >= 1 &&
-          numberOfSaucesChosen <= 3)
+          numberOfSaucesChosen <= numberOfSaucesAvailable)
       ) {
         return true;
       } else {

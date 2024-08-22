@@ -20,7 +20,7 @@ export const privacyPolicyRoute = "/privacy-policy";
 export const securityPolicyRoute = "/security-policy";
 export const refundsPolicyRoute = "/refunds-policy";
 export const dataProtectionPolicyRoute = "/data-protection-policy";
-export const ownerOrdersRoute = "/orders";
+export const ordersOwnerRoute = "/orders";
 export const customerOrdersRoute = "/your-orders";
 export const menuRoute = "/menu";
 export const categoryItemsRoute = "/category-items";
@@ -28,3 +28,6 @@ export const chooseOptionsRoute = "/choose-option";
 export const uploadMenuItemsRoute = "/database-manangement/upload-menu-items";
 export const checkoutRoute = "/checkout";
 export const paymentResultRoute = "/payment-result";
+export const uploadOrderResultRoute = "/upload-order-result";
+export const uploadOrderDeleteCartItemsRoute =
+  "/upload-order-delete-cart-items";

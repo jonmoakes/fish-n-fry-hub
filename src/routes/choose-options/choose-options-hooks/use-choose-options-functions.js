@@ -1,8 +1,18 @@
 import { useDispatch } from "react-redux";
 
 import { updateSelectedItem } from "../../../store/choose-options/choose-options.slice";
+import useChooseOptionsVariables from "./use-choose-options-variables";
 
 const useChooseOptionsFunctions = () => {
+  const {
+    gratedCheesePriceError,
+    donerMeatPriceError,
+    saucesDocumentsError,
+    condimentsDocumentsError,
+    meatsDocumentsError,
+    piesDocumentsError,
+    canDocumentsError,
+  } = useChooseOptionsVariables();
   const dispatch = useDispatch();
 
   const handleOptionChange = (event) => {
@@ -20,9 +30,22 @@ const useChooseOptionsFunctions = () => {
     }
   };
 
+  const hasFetchOptionsError = () => {
+    return gratedCheesePriceError ||
+      donerMeatPriceError ||
+      saucesDocumentsError ||
+      condimentsDocumentsError ||
+      meatsDocumentsError ||
+      piesDocumentsError ||
+      canDocumentsError
+      ? true
+      : false;
+  };
+
   return {
     handleOptionChange,
     handleSingleChoiceCheckboxChange,
+    hasFetchOptionsError,
   };
 };
 

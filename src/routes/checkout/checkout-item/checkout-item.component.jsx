@@ -4,14 +4,13 @@ import useIsOnline from "../../../hooks/use-is-online";
 import CheckoutItemProductInfo from "./checkout-item-product-info/checkout-item-product-info.component";
 import IncreaseQuantity from "./increase-quantity.component";
 import DecreaseQuantity from "./decrease-quantity.component";
-// import ClearCartItem from "./clear-cart-item.component";
+import ClearCartItem from "./clear-cart-item.component";
 
 import {
   CheckoutItemContainer,
   ArrowContainer,
 } from "../../../styles/div/div.styles";
 import { CheckoutItemText, Value } from "../../../styles/span/span.styles";
-import ClearCartItem from "./clear-cart-item.component";
 
 const CheckoutItem = ({ cartItems }) => {
   const { isOnline } = useIsOnline();

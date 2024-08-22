@@ -5,6 +5,7 @@ import { resetSignUpFormState } from "../../../store/sign-up-form/sign-up-form.s
 import { resetChooseOptionsState } from "../../../store/choose-options/choose-options.slice";
 import { resetUploadMenuItemsState } from "../../../store/upload-menu-items/upload-menu-items.slice";
 import { resetCartState } from "../../../store/cart/cart.slice";
+import { resetOrdersOwnerState } from "../../../store/orders-owner/orders-owner-slice";
 
 const useResetAllStoreOnSignOut = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,7 @@ const useResetAllStoreOnSignOut = () => {
     dispatch(resetChooseOptionsState());
     dispatch(resetUploadMenuItemsState());
     dispatch(resetCartState());
+    dispatch(resetOrdersOwnerState());
     localStorage.clear();
   };
 

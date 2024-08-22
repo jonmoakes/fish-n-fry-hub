@@ -6,7 +6,7 @@ import {
   aboutRoute,
   allUsersRoute,
   customerOrdersRoute,
-  ownerOrdersRoute,
+  ordersOwnerRoute,
   menuRoute,
   checkoutRoute,
 } from "../../strings/routes/routes-strings";
@@ -20,7 +20,7 @@ export const signedInRoutes = [
 ];
 
 export const ownerSignedInRoutes = [
-  ownerOrdersRoute,
+  ordersOwnerRoute,
   allUsersRoute,
   menuRoute,
   accountRoute,

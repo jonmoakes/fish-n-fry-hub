@@ -33,12 +33,6 @@ const useCheckoutItemLogic = (cartItemObject) => {
     !gratedCheeseChoice &&
     !saladChoice;
 
-  const multipleChoiceSelection = (optionObject) => {
-    const safeObj = optionObject ?? {};
-    const choicesChosen = Object.keys(safeObj).filter((key) => safeObj[key]);
-    return choicesChosen.join(`,\n`);
-  };
-
   const hasAnyOption =
     (hasSizeOption ||
       hasCheeseSliceOption ||
@@ -55,7 +49,6 @@ const useCheckoutItemLogic = (cartItemObject) => {
   return {
     hasAnyAddOnOptionBeenChosen,
     hasAnyAddOnOptionButNoneChosen,
-    multipleChoiceSelection,
     hasAnyOption,
   };
 };

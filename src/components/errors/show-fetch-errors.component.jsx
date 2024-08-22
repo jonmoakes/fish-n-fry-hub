@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import useHandleShowError from "./errors-hooks/use-handle-show-error";
 import { resetMenuError } from "../../store/menu/menu.slice";
 import { resetChooseOptionsFetchErrors } from "../../store/choose-options/choose-options.slice";
-import { resetCartItemsError } from "../../store/cart/cart.slice";
+import { resetFetchCartItemsError } from "../../store/cart/cart.slice";
 
 import { BlackText, Text } from "../../styles/p/p.styles";
 import { BlackSpan } from "../../styles/span/span.styles";
@@ -20,7 +20,7 @@ import {
 } from "../../strings/routes/routes-strings";
 
 const ShowFetchErrors = () => {
-  const { showErrorHeading, errorToDisplay, menuError, cartItemsError } =
+  const { showErrorHeading, errorToDisplay, menuError, fetchCartItemsError } =
     useHandleShowError();
 
   const location = useLocation();
@@ -38,8 +38,8 @@ const ShowFetchErrors = () => {
       if (menuError) {
         dispatch(resetMenuError());
         reloadAfterTimeOut();
-      } else if (cartItemsError) {
-        dispatch(resetCartItemsError);
+      } else if (fetchCartItemsError) {
+        dispatch(resetFetchCartItemsError);
         reloadAfterTimeOut();
       } else {
         reloadAfterTimeOut();

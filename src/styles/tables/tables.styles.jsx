@@ -24,8 +24,7 @@ export const TableWithStyle = styled.table`
   width: 100%;
 
   th {
-    font-size: 16px;
-    background-color: ${customBlack};
+    font-size: calc(1rem + 0.25vw);
     padding: 20px 5px;
     border: 2px solid ${customBlack};
     width: auto;
@@ -36,9 +35,11 @@ export const TableWithStyle = styled.table`
 
   tr {
     background-color: ${customGrey};
+    color: ${customBlack};
     animation: 0.5s ${fadeInRightAnimation};
     &:nth-child(even) {
       background-color: ${customLightGreen};
+      color: ${customBlack};
       animation: 0.5s ${fadeInLeftAnimation};
     }
   }
@@ -47,13 +48,6 @@ export const TableWithStyle = styled.table`
     border: 3px solid ${customBlack};
     padding: 20px 10px;
     width: auto;
-    @media screen and (max-width: 600px) {
-      font-size: 14px;
-    }
-
-    @media screen and (max-width: 320px) {
-      font-size: 12px;
-    }
   }
 
   @media screen and (max-width: 1366px) {

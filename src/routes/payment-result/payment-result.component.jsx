@@ -8,8 +8,8 @@ import { Title } from "../../styles/h1/h1.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
 
 const PaymentResult = () => {
-  useGetPaymentResultStatus();
   const { handlePaymentIsLoading } = useGetHandlePaymentSelectors();
+  useGetPaymentResultStatus();
 
   return (
     <Container>

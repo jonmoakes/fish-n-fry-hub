@@ -1,10 +1,10 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 
 import useChooseOptionsVariables from "../../choose-options-hooks/use-choose-options-variables";
 import {
   resetAddCartItemResult,
-  resetCartItemsError,
+  resetAddCartItemsError,
 } from "../../../../store/cart/cart.slice";
 import useFireSwal from "../../../../hooks/use-fire-swal";
 import useHamburgerHandlerNavigate from "../../../../hooks/use-hamburger-handler-navigate";
@@ -14,16 +14,19 @@ import { cartItemAddedMessage } from "../../../../strings/successes/sucesses-str
 import { menuRoute } from "../../../../strings/routes/routes-strings";
 
 const useAddCartItemToDbResult = () => {
-  const { addCartItemResult, cartItemsError } = useChooseOptionsVariables();
+  const { addCartItemResult, addCartItemsError } = useChooseOptionsVariables();
 
   const dispatch = useDispatch();
   const { fireSwal } = useFireSwal();
   const { hamburgerHandlerNavigate } = useHamburgerHandlerNavigate();
 
+  const swalShown = useRef(false);
+
   useEffect(() => {
-    if (!cartItemsError && !addCartItemResult) return;
+    if ((!addCartItemResult && !addCartItemsError) || swalShown.current) return;
 
     if (addCartItemResult === "fulfilled") {
+      swalShown.current = true;
       fireSwal(
         "success",
         cartItemAddedMessage,
@@ -46,7 +49,7 @@ const useAddCartItemToDbResult = () => {
         "error",
         errorReceivedMessage(
           "sorry, there was an error adding the cart item.",
-          cartItemsError
+          addCartItemsError
         ),
         "",
         false,
@@ -57,16 +60,17 @@ const useAddCartItemToDbResult = () => {
       ).then((isConfirmed) => {
         if (isConfirmed) {
           dispatch(resetAddCartItemResult());
-          dispatch(resetCartItemsError());
+          dispatch(resetAddCartItemsError());
         }
       });
     }
   }, [
     addCartItemResult,
-    cartItemsError,
+    addCartItemsError,
     dispatch,
     fireSwal,
     hamburgerHandlerNavigate,
+    swalShown,
   ]);
 };
 

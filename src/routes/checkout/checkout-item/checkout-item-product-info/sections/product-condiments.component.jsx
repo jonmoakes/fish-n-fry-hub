@@ -1,8 +1,8 @@
-import useCheckoutItemLogic from "../../checkout-item-hooks/use-checkout-item-logic";
-
 import { CheckoutOptionsInfoDiv } from "../../../../../styles/div/div.styles";
 import { BlackHr } from "../../../../../styles/hr/hr.styles";
 import { SalmonSpan, WhiteSpan } from "../../../../../styles/span/span.styles";
+
+import { getMultipleChoiceSelectionString } from "../../../../../functions/get-multiple-choice-selection-string";
 
 const ProductCondiments = ({ cartItemObject }) => {
   const {
@@ -11,9 +11,6 @@ const ProductCondiments = ({ cartItemObject }) => {
     condimentsChosen,
     singleCondimentChosen,
   } = cartItemObject;
-
-  // don't need to pass cartItemObject here as the function in the hook doesn't rely on it.
-  const { multipleChoiceSelection } = useCheckoutItemLogic();
 
   return (
     <>
@@ -25,7 +22,7 @@ const ProductCondiments = ({ cartItemObject }) => {
                 <SalmonSpan>condiments chosen:</SalmonSpan>
               </CheckoutOptionsInfoDiv>
               <WhiteSpan className="checkout multiple-choice">
-                {multipleChoiceSelection(condimentsChosen)}
+                {getMultipleChoiceSelectionString(condimentsChosen)}
               </WhiteSpan>
             </>
           ) : (

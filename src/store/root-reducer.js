@@ -11,6 +11,8 @@ import { uploadMenuItemsReducer } from "./upload-menu-items/upload-menu-items.sl
 import { cartReducer } from "./cart/cart.slice";
 import { handlePaymentReducer } from "./handle-payment/handle-payment.slice";
 import { cardInputResultReducer } from "./card-input-result/card-input-result.slice";
+import { databaseManagementReducer } from "./database-management/database-management.slice";
+import { ordersOwnerReducer } from "./orders-owner/orders-owner-slice";
 
 export const rootReducer = combineReducers({
   hamburgerMenu: hamburgerMenuReducer,
@@ -24,4 +26,6 @@ export const rootReducer = combineReducers({
   cart: cartReducer,
   handlePayment: handlePaymentReducer,
   cardInputResult: cardInputResultReducer,
+  databaseManagement: databaseManagementReducer,
+  ordersOwner: ordersOwnerReducer,
 });

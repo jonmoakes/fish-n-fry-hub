@@ -6,36 +6,7 @@ import {
 } from "../../utils/appwrite/appwrite-functions";
 import { ID } from "appwrite";
 
-const removeCartItem = async ($id) => {
-  await manageDatabaseDocument(
-    "delete",
-    databaseId,
-    cartItemsCollectionId,
-    $id
-  );
-};
-
-export const addCartItemToDatabaseAsync = createAsyncThunk(
-  "addCartItemToDatabase",
-  async ({ id, cartItem }, thunkAPI) => {
-    try {
-      const cartItemToAdd = {
-        userId: id,
-        cartItem,
-      };
-
-      await manageDatabaseDocument(
-        "create",
-        databaseId,
-        cartItemsCollectionId,
-        ID.unique(),
-        cartItemToAdd
-      );
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
+import { removeCartItem } from "./cart-actions";
 
 export const fetchUserCartItemsAsync = createAsyncThunk(
   "fetchUserCartItems",
@@ -74,6 +45,39 @@ export const fetchUserCartItemsAsync = createAsyncThunk(
 
       // Return the array of processed objects
       return processedCartItems;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const addCartItemToDatabaseAsync = createAsyncThunk(
+  "addCartItemToDatabase",
+  async ({ id, cartItem }, thunkAPI) => {
+    try {
+      const cartItemToAdd = {
+        userId: id,
+        cartItem,
+      };
+
+      await manageDatabaseDocument(
+        "create",
+        databaseId,
+        cartItemsCollectionId,
+        ID.unique(),
+        cartItemToAdd
+      );
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const removeCartItemAsync = createAsyncThunk(
+  "removeCartItem",
+  async ({ $id }, thunkAPI) => {
+    try {
+      removeCartItem($id);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -134,17 +138,6 @@ export const updateCartItemQuantityAsync = createAsyncThunk(
         $id,
         { cartItem: updatedCartItemJson }
       );
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-export const removeCartItemAsync = createAsyncThunk(
-  "removeCartItem",
-  async ({ $id }, thunkAPI) => {
-    try {
-      removeCartItem($id);
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

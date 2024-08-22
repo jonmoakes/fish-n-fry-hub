@@ -12,9 +12,15 @@ import {
   chooseOptionsRoute,
   uploadMenuItemsRoute,
   paymentResultRoute,
+  ordersOwnerRoute,
+  uploadOrderDeleteCartItemsRoute,
 } from "../strings/routes/routes-strings";
 import { resetCardInputResultState } from "../store/card-input-result/card-input-result.slice";
 import { resetAllHandlePaymentState } from "../store/handle-payment/handle-payment.slice";
+import { resetOrdersOwnerState } from "../store/orders-owner/orders-owner-slice";
+import { resetCartState } from "../store/cart/cart.slice";
+import { resetDatabaseManagementState } from "../store/database-management/database-management.slice";
+// import { resetCartState } from "../store/cart/cart.slice";
 
 const useResetStore = () => {
   const location = useLocation();
@@ -38,6 +44,13 @@ const useResetStore = () => {
       case paymentResultRoute:
         dispatch(resetCardInputResultState());
         dispatch(resetAllHandlePaymentState());
+        break;
+      case uploadOrderDeleteCartItemsRoute:
+        dispatch(resetCartState());
+        dispatch(resetDatabaseManagementState());
+        break;
+      case ordersOwnerRoute:
+        dispatch(resetOrdersOwnerState());
         break;
       default:
         return;

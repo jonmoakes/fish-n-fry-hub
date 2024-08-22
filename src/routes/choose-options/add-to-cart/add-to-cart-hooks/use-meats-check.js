@@ -19,8 +19,7 @@ const useMeatsCheck = () => {
       if (
         (hasSingleMeatOption && singleMeatChosen) ||
         (hasMultipleMeatsOption &&
-          numberOfMeatsChosen >= 1 &&
-          numberOfMeatsChosen <= 2)
+          numberOfMeatsChosen === numberOfMeatsAvailable)
       ) {
         return true;
       } else {

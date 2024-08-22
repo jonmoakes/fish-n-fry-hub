@@ -5,6 +5,7 @@ import { GlobalStyle } from "./global-styles";
 import "./App.css";
 
 import useGetCurrentUserSelectors from "./hooks/selectors/use-get-current-user-selectors";
+import useCartItemsListener from "./hooks/use-cart-items-listener";
 import useGetUserOnLoadThunkUseEffect from "./hooks/use-get-user-on-load-thunk-use-effect";
 
 import { appOwnerId } from "./constants/constants";
@@ -22,9 +23,10 @@ import {
   uploadMenuItemsRoute,
   checkoutRoute,
   paymentResultRoute,
+  ordersOwnerRoute,
+  uploadOrderResultRoute,
+  uploadOrderDeleteCartItemsRoute,
 } from "./strings/routes/routes-strings";
-import useCartItemsListener from "./hooks/use-cart-items-listener";
-// import FloatingBackButton from "./components/floating-back-button/floating-back-button.component";
 
 const Navigation = lazy(() =>
   import("./routes/navigation/navigation.component")
@@ -45,6 +47,17 @@ const UploadMenuItems = lazy(() =>
 const Checkout = lazy(() => import("./routes/checkout/checkout.component"));
 const PaymentResult = lazy(() =>
   import("./routes/payment-result/payment-result.component")
+);
+const UploadOrderResult = lazy(() =>
+  import("./routes/upload-order-result/upload-order-result.component")
+);
+const UploadOrderDeleteCartItems = lazy(() =>
+  import(
+    "./routes/upload-order-delete-cart-items/upload-order-delete-cart-items.component"
+  )
+);
+const OrdersOwner = lazy(() =>
+  import("./routes/orders-owner/orders-owner.component")
 );
 
 const App = () => {
@@ -77,7 +90,27 @@ const App = () => {
                 }
               />
               <Route path={checkoutRoute} element={<Checkout />} />
+
               <Route path={paymentResultRoute} element={<PaymentResult />} />
+
+              <Route
+                path={uploadOrderResultRoute}
+                element={<UploadOrderResult />}
+              />
+
+              <Route
+                path={uploadOrderDeleteCartItemsRoute}
+                element={<UploadOrderDeleteCartItems />}
+              />
+
+              <Route
+                path={ordersOwnerRoute}
+                element={
+                  currentUser && currentUser.id === appOwnerId ? (
+                    <OrdersOwner />
+                  ) : null
+                }
+              />
             </Route>
           </Routes>
         </Suspense>

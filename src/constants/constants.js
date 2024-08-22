@@ -37,6 +37,7 @@ export const condimentsCollectionId = import.meta.env
   .VITE_CONDIMENTS_COLLECTION_ID;
 export const cartItemsCollectionId = import.meta.env
   .VITE_CART_ITEMS_COLLECTION_ID;
+export const ordersCollectionId = import.meta.env.VITE_ORDERS_COLLECTION_ID;
 
 export const categories = [
   "burgers",
@@ -59,3 +60,5 @@ export const standardRateLimit = 500;
 export const highRateLimit = 1000;
 export const defaultRateLimit = 25;
 export const smallRateLimit = 250;
+
+export const defaultTableSize = 10;

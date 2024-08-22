@@ -1,6 +1,4 @@
-import { Navigate } from "react-router-dom";
-
-import useChooseOptionsVariables from "./choose-options-hooks/use-choose-options-variables";
+import useChooseOptionsFunctions from "./choose-options-hooks/use-choose-options-functions";
 import useFetchSaucesListThunkUseEffect from "./choose-options-hooks/use-fetch-sauces-list-thunk-use-effect";
 import useFetchCansListThunkUseEffect from "./choose-options-hooks/use-fetch-cans-list-thunk-use-effect";
 import useFetchGratedCheesePriceThunkUseEffect from "./choose-options-hooks/use-fetch-grated-cheese-price-thunk-use-effect";
@@ -10,7 +8,7 @@ import useFetchCondimentsListThunkUseEffect from "./choose-options-hooks/use-fet
 import useFetchPiesListThunkUseEffect from "./choose-options-hooks/use-fetch-pies-list-thunk-use-effect";
 import useConfirmReloadPageUseEffect from "./choose-options-hooks/use-confirm-reload-page-use-effect";
 
-import Loader from "../../components/loader/loader.component";
+import ChooseOptionsRedirectAndLoader from "./choose-options-redirect-and-loader.component";
 import ShowFetchErrors from "../../components/errors/show-fetch-errors.component";
 import ChooseOptionsTitleAndRequiredInfo from "./info/choose-options-title-and-required-info.component";
 import ChooseOptionsItemBasicInfo from "./info/choose-options-item-basic-info.component";
@@ -32,20 +30,8 @@ import AddToCart from "./add-to-cart/add-to-cart.component";
 
 import { Container } from "../../styles/container/container.styles";
 
-import { menuRoute } from "../../strings/routes/routes-strings";
-
 const ChooseOptions = () => {
-  const {
-    selectedItem,
-    optionsPricesIsLoading,
-    gratedCheesePriceError,
-    donerMeatPriceError,
-    saucesDocumentsError,
-    canDocumentsError,
-    name,
-    price,
-    cartItemsIsLoading,
-  } = useChooseOptionsVariables();
+  const { hasFetchOptionsError } = useChooseOptionsFunctions();
 
   useFetchGratedCheesePriceThunkUseEffect();
   useFetchDonerMeatPriceThunkUseEffect();
@@ -58,20 +44,14 @@ const ChooseOptions = () => {
 
   return (
     <Container>
-      {!Object.keys(selectedItem).length && <Navigate replace to={menuRoute} />}
+      <ChooseOptionsRedirectAndLoader />
 
-      {optionsPricesIsLoading || cartItemsIsLoading ? <Loader /> : null}
-
-      {gratedCheesePriceError ||
-      donerMeatPriceError ||
-      saucesDocumentsError ||
-      canDocumentsError ? (
+      {hasFetchOptionsError() ? (
         <ShowFetchErrors />
       ) : (
         <>
           <ChooseOptionsTitleAndRequiredInfo />
-          <ChooseOptionsItemBasicInfo {...{ name, price }} />
-
+          <ChooseOptionsItemBasicInfo />
           <ChooseSize />
           <ChooseSaltAndVinegar />
           <Sauces />

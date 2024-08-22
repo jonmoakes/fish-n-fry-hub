@@ -14,7 +14,8 @@ import useGetCartItemsSelectors from "../../../hooks/selectors/use-get-cart-item
 const useMenuLogic = () => {
   const { menuIsLoading, menuError, menuDocuments } = useGetMenuSelectors();
   const { currentUser } = useGetCurrentUserSelectors();
-  const { cartItemsIsLoading, cartItemsError } = useGetCartItemsSelectors();
+  const { cartItemsIsLoading, fetchCartItemsError } =
+    useGetCartItemsSelectors();
   const { searchField, handleSearchFieldChange, resetSearchField } =
     useSetSearchField();
   const { hamburgerHandlerNavigate } = useHamburgerHandlerNavigate();
@@ -59,7 +60,7 @@ const useMenuLogic = () => {
 
   //cart
   const noCurrentUserOrCartItemsFetchedOrCartFetchError =
-    !currentUser || cartItemsHaveBeenFetched === "true" || cartItemsError
+    !currentUser || cartItemsHaveBeenFetched === "true" || fetchCartItemsError
       ? true
       : false;
 
@@ -78,7 +79,6 @@ const useMenuLogic = () => {
     isCurrentUserAndMenuHasNotBeenFetched,
     noCurrentUserOrCartItemsFetchedOrCartFetchError,
     cartItemsIsLoading,
-    cartItemsError,
     noUserAndHasMenuDocs,
   };
 };
