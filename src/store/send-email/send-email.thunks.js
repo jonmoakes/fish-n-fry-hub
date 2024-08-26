@@ -9,7 +9,8 @@ export const sendEmailOrderConfirmationAsync = createAsyncThunk(
     try {
       const orderDetails = formattedStringOfOrderForEmail;
 
-      console.log(email, name, orderDetails);
+      // need to formated order details here.
+      // console.log(orderDetails);
 
       const response = await axios.post(
         SEND_EMAIL_ORDER_CONFIRMATION_ENDPOINT,

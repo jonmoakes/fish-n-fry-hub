@@ -42,7 +42,8 @@ const UploadOrderSendEmailConfirmation = () => {
         fireSwal("success", "email sent!", "", 0, "", false, "", false).then(
           (isConfirmed) => {
             if (isConfirmed) {
-              hamburgerHandlerNavigate(uploadOrderDeleteCartItemsRoute);
+              console.log("done");
+              // hamburgerHandlerNavigate(uploadOrderDeleteCartItemsRoute);
             }
           }
         );
