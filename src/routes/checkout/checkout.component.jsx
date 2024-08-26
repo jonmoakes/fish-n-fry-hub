@@ -2,6 +2,7 @@ import useGetCartItemsSelectors from "../../hooks/selectors/use-get-cart-items-s
 import useGetCurrentUserSelectors from "../../hooks/selectors/use-get-current-user-selectors";
 import useUpdateCartItemQuantityResultUseEffect from "./checkout-item/checkout-item-hooks/use-update-cart-item-quantity-result-use-effect";
 import useRemoveCartItemResultUseEffect from "./checkout-item/checkout-item-hooks/use-remove-cart-item-result-use-effect";
+import useSetEmailStringUseEffect from "./complete-order/complete-payment-hooks/use-set-email-string-use-effect";
 
 import Loader from "../../components/loader/loader.component";
 import CheckoutTitleAndIntro from "./checkout-title-and-intro.component";
@@ -20,6 +21,7 @@ const Checkout = () => {
 
   useUpdateCartItemQuantityResultUseEffect();
   useRemoveCartItemResultUseEffect();
+  useSetEmailStringUseEffect();
 
   return (
     <Container>

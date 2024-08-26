@@ -8,6 +8,7 @@ const useGetDatabaseManagementSelectors = () => {
     addOrderError,
     deleteUserCartItemsResult,
     deleteUserCartItemsError,
+    formattedStringOfOrderForEmail,
   } = useSelector(selectDatabaseManagementSelectors);
 
   return {
@@ -16,6 +17,7 @@ const useGetDatabaseManagementSelectors = () => {
     addOrderError,
     deleteUserCartItemsResult,
     deleteUserCartItemsError,
+    formattedStringOfOrderForEmail,
   };
 };
 

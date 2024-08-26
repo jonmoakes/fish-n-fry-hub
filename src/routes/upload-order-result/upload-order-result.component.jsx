@@ -1,21 +1,24 @@
 import Balancer from "react-wrap-balancer";
 
-import useAddOrderToDatabaseErrorSwalUseEffect from "./upload-order-result-hooks/use-add-order-to-database-error-swal-use-effect";
+import useGetDatabaseManagementSelectors from "../../hooks/selectors/use-get-database-management-selectors";
+import useAddOrderToDatabaseResultSwalUseEffect from "./upload-order-result-hooks/use-add-order-to-database-result-swal-use-effect";
 import useUploadOrderThunkUseEffect from "./upload-order-result-hooks/use-add-order-to-database-thunk-use-effect";
 
-import UploadOrderRedirectAndLoader from "./upload-order-redirect-and-loader.component";
+import Loader from "../../components/loader/loader.component";
 
 import { Container } from "../../styles/container/container.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
 import { Title } from "../../styles/h1/h1.styles";
 
 const UploadOrderResult = () => {
+  const { databaseManagementIsLoading } = useGetDatabaseManagementSelectors();
+
   useUploadOrderThunkUseEffect();
-  useAddOrderToDatabaseErrorSwalUseEffect();
+  useAddOrderToDatabaseResultSwalUseEffect();
 
   return (
     <Container>
-      <UploadOrderRedirectAndLoader />
+      {databaseManagementIsLoading ? <Loader /> : null}
       <ParentDiv>
         <Title>
           <Balancer>uploading order to database...</Balancer>

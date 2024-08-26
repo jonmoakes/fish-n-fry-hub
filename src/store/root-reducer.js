@@ -13,6 +13,7 @@ import { handlePaymentReducer } from "./handle-payment/handle-payment.slice";
 import { cardInputResultReducer } from "./card-input-result/card-input-result.slice";
 import { databaseManagementReducer } from "./database-management/database-management.slice";
 import { ordersOwnerReducer } from "./orders-owner/orders-owner-slice";
+import { sendEmailReducer } from "./send-email/send-email.slice";
 
 export const rootReducer = combineReducers({
   hamburgerMenu: hamburgerMenuReducer,
@@ -28,4 +29,5 @@ export const rootReducer = combineReducers({
   cardInputResult: cardInputResultReducer,
   databaseManagement: databaseManagementReducer,
   ordersOwner: ordersOwnerReducer,
+  sendEmail: sendEmailReducer,
 });

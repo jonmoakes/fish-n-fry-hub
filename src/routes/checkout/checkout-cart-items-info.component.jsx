@@ -32,6 +32,7 @@ const CheckoutCartItemsInfo = ({ currentUser, cartItems }) => (
               <CheckoutHeadingSpan>&#128465;</CheckoutHeadingSpan>
             </HeaderClearItemDiv>
           </CheckoutPageHeaderDiv>
+
           <CheckoutItem {...{ cartItems }} />
         </CheckoutPageDiv>
       </>

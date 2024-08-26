@@ -4,7 +4,6 @@ import LoaderSVG from "../../assets/loader.svg?react";
 import StripeSVG from "../../assets/stripe-logo.svg?react";
 import AddArrowSVG from "../../assets/add-arrow.svg?react";
 import MinusArrowSVG from "../../assets/minus-arrow.svg?react";
-import { customBlack } from "../colors";
 
 export const StripeLogo = styled(StripeSVG)`
   width: 300px;

@@ -9,6 +9,12 @@ import NavSignOut from "./nav-sign-out.component";
 
 import { Nav, Menu } from "../../styles/div/div.styles";
 
+import {
+  uploadOrderDeleteCartItemsRoute,
+  uploadOrderResultRoute,
+  uploadOrderSendEmailConfirmationRoute,
+} from "../../strings/routes/routes-strings";
+
 const Navigation = () => {
   const { showHamburgerMenu } = useGetHamburgerMenuSelectors();
 
@@ -16,13 +22,11 @@ const Navigation = () => {
   const path = location.pathname;
 
   const isRouteWithHeader = () => {
-    return true;
-    // return path !== editChildInfoRoute &&
-    //   path !== deleteChildInfoRoute &&
-    //   path !== chosenEntryChildDetailsRoute &&
-    //   path !== cancelBookingRoute
-    //   ? true
-    //   : false;
+    return path !== uploadOrderResultRoute &&
+      path !== uploadOrderSendEmailConfirmationRoute &&
+      path !== uploadOrderDeleteCartItemsRoute
+      ? true
+      : false;
   };
 
   return (

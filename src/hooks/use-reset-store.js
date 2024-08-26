@@ -20,6 +20,7 @@ import { resetAllHandlePaymentState } from "../store/handle-payment/handle-payme
 import { resetOrdersOwnerState } from "../store/orders-owner/orders-owner-slice";
 import { resetCartState } from "../store/cart/cart.slice";
 import { resetDatabaseManagementState } from "../store/database-management/database-management.slice";
+import { resetSendEmailState } from "../store/send-email/send-email.slice";
 // import { resetCartState } from "../store/cart/cart.slice";
 
 const useResetStore = () => {
@@ -48,6 +49,7 @@ const useResetStore = () => {
       case uploadOrderDeleteCartItemsRoute:
         dispatch(resetCartState());
         dispatch(resetDatabaseManagementState());
+        dispatch(resetSendEmailState());
         break;
       case ordersOwnerRoute:
         dispatch(resetOrdersOwnerState());

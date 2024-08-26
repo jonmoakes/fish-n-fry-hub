@@ -29,5 +29,5 @@ export const uploadMenuItemsRoute = "/database-manangement/upload-menu-items";
 export const checkoutRoute = "/checkout";
 export const paymentResultRoute = "/payment-result";
 export const uploadOrderResultRoute = "/upload-order-result";
-export const uploadOrderDeleteCartItemsRoute =
-  "/upload-order-delete-cart-items";
+export const uploadOrderSendEmailConfirmationRoute = "/send-email-confirmation";
+export const uploadOrderDeleteCartItemsRoute = "/delete-cart-items";

@@ -26,6 +26,7 @@ import {
   ordersOwnerRoute,
   uploadOrderResultRoute,
   uploadOrderDeleteCartItemsRoute,
+  uploadOrderSendEmailConfirmationRoute,
 } from "./strings/routes/routes-strings";
 
 const Navigation = lazy(() =>
@@ -50,6 +51,11 @@ const PaymentResult = lazy(() =>
 );
 const UploadOrderResult = lazy(() =>
   import("./routes/upload-order-result/upload-order-result.component")
+);
+const UploadOrderSendEmailConfirmation = lazy(() =>
+  import(
+    "./routes/upload-order-send-email-confirmation/upload-order-send-email-confirmation.component"
+  )
 );
 const UploadOrderDeleteCartItems = lazy(() =>
   import(
@@ -96,6 +102,11 @@ const App = () => {
               <Route
                 path={uploadOrderResultRoute}
                 element={<UploadOrderResult />}
+              />
+
+              <Route
+                path={uploadOrderSendEmailConfirmationRoute}
+                element={<UploadOrderSendEmailConfirmation />}
               />
 
               <Route

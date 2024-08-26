@@ -10,6 +10,7 @@ const INITIAL_STATE = {
   addOrderError: null,
   deleteUserCartItemsResult: "",
   deleteUserCartItemsError: null,
+  formattedStringOfOrderForEmail: "",
 };
 
 export const databaseManagementSlice = createSlice({
@@ -27,6 +28,9 @@ export const databaseManagementSlice = createSlice({
     },
     resetDeleteUserCartItemsError(state) {
       state.deleteUserCartItemsError = null;
+    },
+    setFormattedStringOfOrderForEmail(state, action) {
+      state.formattedStringOfOrderForEmail = action.payload;
     },
     resetDatabaseManagementState: () => {
       return INITIAL_STATE;
@@ -68,12 +72,14 @@ export const databaseManagementSlice = createSlice({
       (state) => state.addOrderError,
       (state) => state.deleteUserCartItemsResult,
       (state) => state.deleteUserCartItemsError,
+      (state) => state.formattedStringOfOrderForEmail,
       (
         databaseManagementIsLoading,
         addOrderResult,
         addOrderError,
         deleteUserCartItemsResult,
-        deleteUserCartItemsError
+        deleteUserCartItemsError,
+        formattedStringOfOrderForEmail
       ) => {
         return {
           databaseManagementIsLoading,
@@ -81,6 +87,7 @@ export const databaseManagementSlice = createSlice({
           addOrderError,
           deleteUserCartItemsResult,
           deleteUserCartItemsError,
+          formattedStringOfOrderForEmail,
         };
       }
     ),
@@ -92,6 +99,7 @@ export const {
   resetAddOrderError,
   resetDeleteUserCartItemsResult,
   resetDeleteUserCartItemsError,
+  setFormattedStringOfOrderForEmail,
   resetDatabaseManagementState,
 } = databaseManagementSlice.actions;
 export const { selectDatabaseManagementSelectors } =
