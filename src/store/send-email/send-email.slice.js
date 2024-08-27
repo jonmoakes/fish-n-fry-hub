@@ -1,5 +1,8 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { sendEmailOrderConfirmationAsync } from "./send-email.thunks";
+import {
+  sendEmailOrderConfirmationAsync,
+  sendEmailOrderNotAddedToDatabaseAsync,
+} from "./send-email.thunks";
 
 const INITIAL_STATE = {
   sendEmailIsLoading: false,
@@ -48,6 +51,7 @@ export const sendEmailSlice = createSlice({
   },
   extraReducers: (builder) => {
     handleAsyncAction(builder, sendEmailOrderConfirmationAsync);
+    handleAsyncAction(builder, sendEmailOrderNotAddedToDatabaseAsync);
   },
 });
 
