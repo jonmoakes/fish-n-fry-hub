@@ -13,7 +13,6 @@ import GrandTotal from "./grand-total.component";
 import CompleteOrder from "./complete-order/complete-order.component";
 
 import { Container } from "../../styles/container/container.styles";
-import { ParentDiv } from "../../styles/div/div.styles";
 
 const Checkout = () => {
   const { currentUser } = useGetCurrentUserSelectors();
@@ -33,7 +32,6 @@ const Checkout = () => {
       <CheckoutCartItemsInfo {...{ currentUser, cartItems }} />
       <GrandTotal {...{ currentUser, cartItems, grandTotal }} />
       <CompleteOrder />
-      <ParentDiv></ParentDiv>
     </Container>
   );
 };

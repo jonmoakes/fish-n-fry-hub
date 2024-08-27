@@ -14,10 +14,6 @@ const ShowMeatsError = () => {
         <RequiredError>please choose your meat</RequiredError>
       ) : null}
 
-      {numberOfMeatsAvailable > 1 && !numberOfMeatsCheckboxesChosen() ? (
-        <RequiredError>please choose your meats</RequiredError>
-      ) : null}
-
       {numberOfMeatsAvailable > 1 &&
       numberOfMeatsCheckboxesChosen() !== numberOfMeatsAvailable ? (
         <RequiredError>

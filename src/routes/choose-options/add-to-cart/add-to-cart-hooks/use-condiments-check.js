@@ -22,8 +22,7 @@ const useCondimentsCheck = () => {
       if (
         (hasSingleCondimentOption && singleCondimentChosen) ||
         (hasMultipleCondimentsOption &&
-          numberOfCondimentsChosen >= 1 &&
-          numberOfCondimentsChosen <= 2)
+          numberOfCondimentsChosen === numberOfCondimentsAvailable)
       ) {
         return true;
       } else {

@@ -19,7 +19,12 @@ const useSetEmailStringUseEffect = () => {
     const formattedStringOfOrderForEmail = parsedCartItems.map((item) =>
       formatOrderString(item)
     );
-    dispatch(setFormattedStringOfOrderForEmail(formattedStringOfOrderForEmail));
+
+    dispatch(
+      setFormattedStringOfOrderForEmail(
+        formattedStringOfOrderForEmail.join("\n")
+      )
+    );
   }, [cartItems, dispatch]);
 };
 

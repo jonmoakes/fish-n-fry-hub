@@ -93,7 +93,7 @@ export const formatOrderString = (cartItem) => {
   itemString += formatSimpleOption(
     hasSaltAndVinegarOption,
     saltAndVinegarChoice,
-    "Salt & Vinegar?"
+    "Salt & Vinegar"
   );
 
   if (hasChooseCanOption) {
@@ -111,12 +111,11 @@ export const formatOrderString = (cartItem) => {
   );
 
   itemString += `
-    Quantity:\n${quantity}\n--------------------\n\n
-    Total Price:\n£${(priceWithOptionsAndQuantity / 100).toFixed(
-      2
-    )}\n--------------------\n\n
-    ____________________________
-
+Quantity:\n${quantity}\n--------------------\n\n
+Total Price:\n£${(priceWithOptionsAndQuantity / 100).toFixed(
+    2
+  )}\n--------------------\n\n
+____________________________
     `;
 
   return itemString;

@@ -15,14 +15,9 @@ const ShowCondimentsError = () => {
       ) : null}
 
       {numberOfCondimentsAvailable > 1 &&
-      !numberOfCondimentsCheckboxesChosen() ? (
-        <RequiredError>please choose your condiments</RequiredError>
-      ) : null}
-
-      {numberOfCondimentsAvailable > 1 &&
-      numberOfCondimentsCheckboxesChosen() > numberOfCondimentsAvailable ? (
+      numberOfCondimentsCheckboxesChosen() !== numberOfCondimentsAvailable ? (
         <RequiredError>
-          please select a maximum of {numberOfCondimentsAvailable} condiments
+          please select {numberOfCondimentsAvailable} condiments
         </RequiredError>
       ) : null}
     </>

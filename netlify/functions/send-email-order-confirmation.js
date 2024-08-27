@@ -4,7 +4,7 @@ const client = new postmark.ServerClient(process.env.VITE_POSTMARK_API_KEY);
 export const handler = async (event) => {
   const { email, name, orderDetails } = JSON.parse(event.body);
   // can only send to self in test mode.
-  console.log("hi ", email, orderDetails);
+  console.log(email);
 
   try {
     await client.sendEmailWithTemplate({
