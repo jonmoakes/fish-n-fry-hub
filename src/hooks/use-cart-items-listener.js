@@ -22,6 +22,11 @@ const useCartItemsListener = () => {
       (response) => {
         const documentChanged = response.payload;
 
+        const { $id, userId, cartItem } = documentChanged;
+
+        // Create a new object with just the required properties
+        const newCartItem = { $id, userId, cartItem };
+
         if (response.events.some((event) => event.includes(".delete"))) {
           const deletedEntryId = documentChanged.$id;
 
@@ -40,13 +45,13 @@ const useCartItemsListener = () => {
             // entry must exist, so update that entry.
             const updatedCartItems = cartItems.map((cartItem, index) =>
               index === existingEntryIndex
-                ? { ...cartItem, ...documentChanged }
+                ? { ...cartItem, ...newCartItem }
                 : cartItem
             );
             dispatch(setCartItems(updatedCartItems));
           } else {
             // entry does not exist so add new entry to the bookedSessionsArray
-            const updatedCartItems = [...cartItems, documentChanged];
+            const updatedCartItems = [...cartItems, newCartItem];
             dispatch(setCartItems(updatedCartItems));
           }
         }

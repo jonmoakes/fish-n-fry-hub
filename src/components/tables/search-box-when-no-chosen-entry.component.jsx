@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { useAsyncDebounce } from "react-table";
-import { useLocation } from "react-router-dom";
 
 import Loader from "../loader/loader.component";
 import NoSearchResult from "./no-search-result.component";
@@ -21,9 +20,6 @@ const SearchBoxWhenNoChosenEntry = ({
   setValue,
 }) => {
   const [isSearching, setIsSearching] = useState(false);
-
-  const location = useLocation();
-  const path = location.pathname;
 
   const onChange = useAsyncDebounce((value) => {
     setGlobalFilter(value || undefined);

@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 
+import useGetCartItemsSelectors from "../../../hooks/selectors/use-get-cart-items-selectors";
 import useGetDatabaseManagementSelectors from "../../../hooks/selectors/use-get-database-management-selectors";
 import useGetCurrentUserSelectors from "../../../hooks/selectors/use-get-current-user-selectors";
 import { sendEmailOrderNotAddedToDatabaseAsync } from "../../../store/send-email/send-email.thunks";
+
 import useErrorEmailingOrderToAppOwnerSwal from "./use-error-emailing-order-to-app-owner-swal";
 import useEmailSentToAppOwnerAfterUploadOrderErrorSwal from "./use-email-sent-to-app-owner-after-upload-order-error-swal";
 import useFireSwal from "../../../hooks/use-fire-swal";
@@ -16,8 +18,7 @@ import { errorUploadingOrderToDbMessage } from "../../../strings/errors/errors-s
 const useAddOrderToDatabaseResultSwalUseEffect = () => {
   const { addOrderResult, addOrderError } = useGetDatabaseManagementSelectors();
   const { name, email } = useGetCurrentUserSelectors();
-  const { formattedStringOfOrderForEmail } =
-    useGetDatabaseManagementSelectors();
+  const { cartItems } = useGetCartItemsSelectors();
 
   const { emailSentToAppOwnerAfterUploadOrderErrorSwal } =
     useEmailSentToAppOwnerAfterUploadOrderErrorSwal();
@@ -28,13 +29,15 @@ const useAddOrderToDatabaseResultSwalUseEffect = () => {
   const { confirmSwal } = useConfirmSwal();
   const { hamburgerHandlerNavigate } = useHamburgerHandlerNavigate();
   const dispatch = useDispatch();
+  const swalShown = useRef(false);
 
   useEffect(() => {
-    if (!addOrderResult && !addOrderError) return;
+    if ((!addOrderResult && !addOrderError) || swalShown.current) return;
 
     if (addOrderResult === "fulfilled") {
       hamburgerHandlerNavigate(uploadOrderSendEmailConfirmationRoute);
     } else if (addOrderResult === "rejected") {
+      swalShown.current = true;
       fireSwal(
         "error",
         errorUploadingOrderToDbMessage,
@@ -48,9 +51,9 @@ const useAddOrderToDatabaseResultSwalUseEffect = () => {
         if (isConfirmed) {
           dispatch(
             sendEmailOrderNotAddedToDatabaseAsync({
+              cartItems,
               name,
               email,
-              formattedStringOfOrderForEmail,
             })
           ).then((resultAction) => {
             if (
@@ -77,9 +80,9 @@ const useAddOrderToDatabaseResultSwalUseEffect = () => {
     dispatch,
     name,
     email,
-    formattedStringOfOrderForEmail,
     errorEmailingOrderToAppOwnerSwal,
     emailSentToAppOwnerAfterUploadOrderErrorSwal,
+    cartItems,
   ]);
 };
 
