@@ -10,6 +10,9 @@ import {
   customTomato,
   customWhite,
   customYellow,
+  facebookBlue,
+  googleOrange,
+  googleRed,
 } from "../colors";
 import eyeIcon from "../../assets/eye.png";
 import eyeIconHide from "../../assets/hide-eye.png";
@@ -82,6 +85,29 @@ export const YellowGreenButton = styled(Button)`
 
   &.place-order {
     animation: 1s ${bounceInDownAnimation};
+  }
+
+  &.google {
+    background-color: ${googleOrange};
+
+    &:hover {
+      background-color: ${googleRed};
+    }
+  }
+
+  &.facebook {
+    background-color: ${facebookBlue};
+    color: ${customWhite};
+
+    &:hover {
+      background-color: ${customWhite};
+      color: ${customBlack};
+
+      @media screen and (max-width: 1366px) {
+        background-color: ${facebookBlue};
+        color: ${customWhite};
+      }
+    }
   }
 
   &:hover {

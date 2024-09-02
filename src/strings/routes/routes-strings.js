@@ -31,3 +31,7 @@ export const paymentResultRoute = "/payment-result";
 export const uploadOrderResultRoute = "/upload-order-result";
 export const uploadOrderSendEmailConfirmationRoute = "/send-email-confirmation";
 export const uploadOrderDeleteCartItemsRoute = "/delete-cart-items";
+export const localhostSocialLoginResultRoute =
+  "http://localhost:8888/social-login-result";
+export const socialLoginResultRoute = "/social-login-result";
+export const signInMagicUrlRoute = "/sign-in-magic-url";

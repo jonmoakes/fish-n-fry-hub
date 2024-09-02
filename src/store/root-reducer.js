@@ -14,6 +14,7 @@ import { cardInputResultReducer } from "./card-input-result/card-input-result.sl
 import { databaseManagementReducer } from "./database-management/database-management.slice";
 import { ordersOwnerReducer } from "./orders-owner/orders-owner-slice";
 import { sendEmailReducer } from "./send-email/send-email.slice";
+import { shouldShowElementReducer } from "./should-show-element/should-show-element.slice";
 
 export const rootReducer = combineReducers({
   hamburgerMenu: hamburgerMenuReducer,
@@ -30,4 +31,5 @@ export const rootReducer = combineReducers({
   databaseManagement: databaseManagementReducer,
   ordersOwner: ordersOwnerReducer,
   sendEmail: sendEmailReducer,
+  shouldShowElement: shouldShowElementReducer,
 });

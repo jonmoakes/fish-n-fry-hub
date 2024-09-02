@@ -133,10 +133,12 @@ export const cartSlice = createSlice({
         updateCartItemQuantityResult,
         updateCartItemQuantityError
       ) => {
-        const grandTotal = cartItems.reduce((accumulator, item) => {
-          const cartItemObject = JSON.parse(item.cartItem);
-          return accumulator + cartItemObject.priceWithOptionsAndQuantity;
-        }, 0);
+        const grandTotal = cartItems
+          ? cartItems.reduce((accumulator, item) => {
+              const cartItemObject = JSON.parse(item.cartItem);
+              return accumulator + cartItemObject.priceWithOptionsAndQuantity;
+            }, 0)
+          : 0;
 
         return {
           cartItemsIsLoading,

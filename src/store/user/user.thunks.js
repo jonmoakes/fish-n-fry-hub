@@ -17,10 +17,16 @@ export const getUserOnLoadAsync = createAsyncThunk(
       if (!user || !session) return;
 
       const retrievedUser = await getRetrievedUserFromDocument();
+
+      console.log(retrievedUser);
+      const createdUser = await createDocumentAndSetUser();
+
       if (retrievedUser) {
         return retrievedUser;
-      } else {
-        return "no user found";
+      } else if (createdUser) {
+        return createdUser;
+      } else if (!retrievedUser && !createdUser) {
+        return null;
       }
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
