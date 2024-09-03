@@ -48,12 +48,12 @@ const useSignInFormFunctions = () => {
       const redirectUrl =
         import.meta.env.MODE === "development"
           ? "http://localhost:8888/menu"
-          : `https://fishnfry-hub.netlify.app/${menuRoute}`;
+          : `https://fishnfry-hub.netlify.app${menuRoute}`;
 
       const fallbackUrl =
         import.meta.env.MODE === "development"
           ? "http://localhost:8888/sign-in"
-          : `https://fishnfry-hub.netlify.app/${signInRoute}`;
+          : `https://fishnfry-hub.netlify.app${signInRoute}`;
 
       account.createOAuth2Session(provider, redirectUrl, fallbackUrl);
     } catch (error) {
