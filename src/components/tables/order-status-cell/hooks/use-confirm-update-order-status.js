@@ -32,7 +32,7 @@ const useConfirmUpdateOrderStatus = (row) => {
 
     const currentHour = currentDate.getHours();
 
-    const withinEarlyOpeningTime = currentHour >= 11 && currentHour <= 14;
+    const withinEarlyOpeningTime = currentHour >= 11 && currentHour <= 13;
     const withinLateOpeningTime = currentHour >= 16 && currentHour <= 21;
 
     return withinEarlyOpeningTime || withinLateOpeningTime;
