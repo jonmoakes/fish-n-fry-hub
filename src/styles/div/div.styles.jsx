@@ -823,3 +823,10 @@ export const TableSearchDiv = styled.div`
     margin: 0px auto 0px auto;
   }
 `;
+
+export const OrderStatusDiv = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;

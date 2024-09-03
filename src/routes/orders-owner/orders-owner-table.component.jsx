@@ -18,11 +18,17 @@ import NetworkError from "../../components/errors/network-error.component";
 import TablePagination from "../../components/tables/table-pagination.component";
 import SearchBoxWhenNoChosenEntry from "../../components/tables/search-box-when-no-chosen-entry.component";
 import OrdersOwnerRenderTable from "./orders-owner-render-table.component";
+import ErrorUpdatingOrderStatus from "./error-updating-order-status.component";
 
 const OrdersOwnerTable = () => {
   useOrdersOwnerListener();
-  const { data, columns, initialState, ordersOwnerError } =
-    useOrdersOwnerLogic();
+  const {
+    data,
+    columns,
+    initialState,
+    ordersOwnerError,
+    updateOrderStatusError,
+  } = useOrdersOwnerLogic();
   const { isOnline } = useIsOnline();
 
   const {
@@ -68,6 +74,8 @@ const OrdersOwnerTable = () => {
         <NetworkError />
       ) : ordersOwnerError ? (
         <ShowFetchErrors />
+      ) : updateOrderStatusError ? (
+        <ErrorUpdatingOrderStatus />
       ) : (
         <>
           <NoBookingDataFound {...{ data }} />

@@ -1,6 +1,10 @@
 import { useMemo } from "react";
-
+import { useDispatch } from "react-redux";
 import useGetOrdersOwnerSelectors from "../../../hooks/selectors/use-get-orders-owner-selectors";
+import {
+  resetUpdateOrderStatusError,
+  resetUpdateOrderStatusResult,
+} from "../../../store/orders-owner/orders-owner-slice";
 
 import { ORDERS_OWNER_TABLE_COLUMNS } from "../orders-table-columns";
 
@@ -12,7 +16,9 @@ const useOrdersOwnerLogic = () => {
     ordersOwnerIsLoading,
     ordersOwnerError,
     sortedOrdersOwner,
+    updateOrderStatusError,
   } = useGetOrdersOwnerSelectors();
+  const dispatch = useDispatch();
 
   const ordersOwnerPageSizeFromLocalStorage = localStorage.getItem(
     "ordersOwnerChosenTablePageSize"
@@ -42,6 +48,11 @@ const useOrdersOwnerLogic = () => {
     return !data.length ? true : false;
   };
 
+  const resetOrderStatusResultAndError = () => {
+    dispatch(resetUpdateOrderStatusResult());
+    dispatch(resetUpdateOrderStatusError());
+  };
+
   return {
     data,
     columns,
@@ -49,6 +60,8 @@ const useOrdersOwnerLogic = () => {
     noOrdersMadeYet,
     noDataFound,
     ordersOwnerError,
+    updateOrderStatusError,
+    resetOrderStatusResultAndError,
   };
 };
 

@@ -492,3 +492,14 @@ export const ChooseOptionsButton = styled.button`
     width: 90%;
   }
 `;
+
+export const UpdateOrderStatusButton = styled.button`
+  font-family: inherit;
+  outline: none;
+  cursor: pointer;
+  border: 1px solid ${customBlack};
+  border-radius: 2px;
+  margin-top: 20px;
+  padding: 5px;
+  text-transform: capitalize;
+`;

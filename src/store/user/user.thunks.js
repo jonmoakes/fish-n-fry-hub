@@ -18,7 +18,6 @@ export const getUserOnLoadAsync = createAsyncThunk(
 
       const retrievedUser = await getRetrievedUserFromDocument();
 
-      console.log(retrievedUser);
       const createdUser = await createDocumentAndSetUser();
 
       if (retrievedUser) {

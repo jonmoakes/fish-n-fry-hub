@@ -28,6 +28,7 @@ const useOrdersOwnerListener = () => {
           customerEmail,
           customerName,
           order: orderString,
+          orderStatus,
           $createdAt: createdAt,
         } = response.payload;
 
@@ -46,6 +47,7 @@ const useOrdersOwnerListener = () => {
           orderId,
           grandTotal: `£${(grandTotal / 100).toFixed(2)}`,
           order: formattedOrder,
+          orderStatus,
         };
 
         // Check if the event is a deletion

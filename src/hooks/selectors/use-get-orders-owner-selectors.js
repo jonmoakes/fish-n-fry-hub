@@ -7,6 +7,8 @@ const useGetOrdersOwnerSelectors = () => {
     ordersOwner,
     ordersOwnerError,
     sortedOrdersOwner,
+    updateOrderStatusResult,
+    updateOrderStatusError,
   } = useSelector(selectOrdersOwnerSelectors);
 
   return {
@@ -14,6 +16,8 @@ const useGetOrdersOwnerSelectors = () => {
     ordersOwner,
     ordersOwnerError,
     sortedOrdersOwner,
+    updateOrderStatusResult,
+    updateOrderStatusError,
   };
 };
 

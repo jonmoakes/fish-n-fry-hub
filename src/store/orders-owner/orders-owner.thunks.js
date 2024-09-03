@@ -4,7 +4,10 @@ import {
   highRateLimit,
   ordersCollectionId,
 } from "../../constants/constants";
-import { listDocumentsInACollection } from "../../utils/appwrite/appwrite-functions";
+import {
+  listDocumentsInACollection,
+  manageDatabaseDocument,
+} from "../../utils/appwrite/appwrite-functions";
 import { formatOrderString } from "../../functions/format-order-string/fomat-order-string";
 import { getParsedOrderItems } from "../../functions/get-parsed-order-items";
 import { getGrandTotalOfOrder } from "../../functions/get-grand-total-of-order";
@@ -34,12 +37,33 @@ export const fetchOrdersOwnerAllOrdersAsync = createAsyncThunk(
           customerEmail: order.customerEmail,
           createdAt: order.$createdAt,
           orderId: order.$id,
+          orderStatus: order.orderStatus,
           grandTotal: `£${(grandTotal / 100).toFixed(2)}`,
           order: orderItems.map((ord) => formatOrderString(ord.cartItem)),
         };
       });
 
       return orders;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateOrderStatusAsync = createAsyncThunk(
+  " updateOrderStatus",
+  async ({ attributeToUpdate, newOrderStatus, documentId }, thunkAPI) => {
+    try {
+      const dataToUpdate = {
+        [attributeToUpdate]: newOrderStatus,
+      };
+      await manageDatabaseDocument(
+        "update",
+        databaseId,
+        ordersCollectionId,
+        documentId,
+        dataToUpdate
+      );
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

@@ -406,3 +406,15 @@ export const ClearButtonExampleSpan = styled.span`
   border-radius: 5px;
   text-transform: lowercase;
 `;
+
+export const OrderStatusSpan = styled.span`
+  color: ${customTomato};
+  background-color: ${customBlack};
+  padding: 5px;
+  border-radius: 5px;
+  text-transform: capitalize;
+
+  &.completed {
+    color: ${customYellow};
+  }
+`;

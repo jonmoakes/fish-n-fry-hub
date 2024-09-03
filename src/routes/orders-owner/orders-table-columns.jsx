@@ -1,6 +1,7 @@
 import OrderCell from "./order-cell.component";
 import OrderCreatedAtCell from "../../components/tables/order-created-at-cell.component";
 import EmailCell from "../../components/tables/email-cell.component";
+import OrderStatusCell from "../../components/tables/order-status-cell/order-status-cell.component";
 
 export const ORDERS_OWNER_TABLE_COLUMNS = [
   {
@@ -8,6 +9,13 @@ export const ORDERS_OWNER_TABLE_COLUMNS = [
     accessor: "order",
     Cell: ({ value }) => {
       return <OrderCell {...{ value }} />;
+    },
+  },
+  {
+    Header: "order status",
+    accessor: "orderStatus",
+    Cell: ({ row, value }) => {
+      return <OrderStatusCell {...{ row, value }} />;
     },
   },
   {

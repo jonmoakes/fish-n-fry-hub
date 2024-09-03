@@ -1,10 +1,15 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { fetchOrdersOwnerAllOrdersAsync } from "./orders-owner.thunks";
+import {
+  fetchOrdersOwnerAllOrdersAsync,
+  updateOrderStatusAsync,
+} from "./orders-owner.thunks";
 
 const INITIAL_STATE = {
   ordersOwnerIsLoading: false,
   ordersOwner: [],
   ordersOwnerError: null,
+  updateOrderStatusResult: "",
+  updateOrderStatusError: null,
 };
 
 export const ordersOwnerSlice = createSlice({
@@ -16,6 +21,12 @@ export const ordersOwnerSlice = createSlice({
     },
     resetOrdersOwnerError(state) {
       state.ordersOwnerError = null;
+    },
+    resetUpdateOrderStatusResult(state) {
+      state.updateOrderStatusResult = "";
+    },
+    resetUpdateOrderStatusError(state) {
+      state.updateOrderStatusError = null;
     },
     resetOrdersOwnerState: () => {
       return INITIAL_STATE;
@@ -35,6 +46,19 @@ export const ordersOwnerSlice = createSlice({
         state.ordersOwnerIsLoading = false;
         state.ordersOwner = [];
         state.ordersOwnerError = action.payload;
+      })
+      .addCase(updateOrderStatusAsync.pending, (state) => {
+        state.ordersOwnerIsLoading = true;
+      })
+      .addCase(updateOrderStatusAsync.fulfilled, (state) => {
+        state.ordersOwnerIsLoading = false;
+        state.updateOrderStatusResult = "fulfilled";
+        state.updateOrderStatusError = null;
+      })
+      .addCase(updateOrderStatusAsync.rejected, (state, action) => {
+        state.ordersOwnerIsLoading = false;
+        state.updateOrderStatusResult = "rejected";
+        state.updateOrderStatusError = action.payload;
       });
   },
   selectors: {
@@ -42,8 +66,15 @@ export const ordersOwnerSlice = createSlice({
       (state) => state.ordersOwnerIsLoading,
       (state) => state.ordersOwner,
       (state) => state.ordersOwnerError,
-
-      (ordersOwnerIsLoading, ordersOwner, ordersOwnerError) => {
+      (state) => state.updateOrderStatusResult,
+      (state) => state.updateOrderStatusError,
+      (
+        ordersOwnerIsLoading,
+        ordersOwner,
+        ordersOwnerError,
+        updateOrderStatusResult,
+        updateOrderStatusError
+      ) => {
         const formattedOrdersOwner = ordersOwner.map((order) => {
           return {
             ...order,
@@ -65,14 +96,21 @@ export const ordersOwnerSlice = createSlice({
           ordersOwner,
           ordersOwnerError,
           sortedOrdersOwner,
+          updateOrderStatusResult,
+          updateOrderStatusError,
         };
       }
     ),
   },
 });
 
-export const { setOrdersOwner, resetOrdersOwnerError, resetOrdersOwnerState } =
-  ordersOwnerSlice.actions;
+export const {
+  setOrdersOwner,
+  resetOrdersOwnerError,
+  resetUpdateOrderStatusResult,
+  resetUpdateOrderStatusError,
+  resetOrdersOwnerState,
+} = ordersOwnerSlice.actions;
 export const { selectOrdersOwnerSelectors } = ordersOwnerSlice.selectors;
 
 export const ordersOwnerReducer = ordersOwnerSlice.reducer;
