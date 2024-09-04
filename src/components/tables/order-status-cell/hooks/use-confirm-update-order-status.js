@@ -12,13 +12,15 @@ const useConfirmUpdateOrderStatus = (row) => {
 
   const orderStatus = row.original.orderStatus;
   const documentId = row.original.orderId;
-  const date = row.original.createdAtAsDateObjectForSorting;
+  // Use createdAt and convert it to a Date object for comparison.
+  const date = new Date(row.original.createdAt);
 
   const showUpdateOrderStatusButton = () => {
-    if (!date) {
-      console.error("no date provided");
+    if (isNaN(date.getTime())) {
+      console.error("Invalid date provided");
       return false;
     }
+
     const currentDate = new Date();
 
     const isSameDay =
@@ -32,6 +34,7 @@ const useConfirmUpdateOrderStatus = (row) => {
 
     const currentHour = currentDate.getHours();
 
+    // Check if the current time is within the opening hours
     const withinEarlyOpeningTime = currentHour >= 11 && currentHour <= 13;
     const withinLateOpeningTime = currentHour >= 16 && currentHour <= 21;
 

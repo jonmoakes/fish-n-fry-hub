@@ -15,7 +15,7 @@ const useOrdersOwnerLogic = () => {
     ordersOwner,
     ordersOwnerIsLoading,
     ordersOwnerError,
-    sortedOrdersOwner,
+    formattedOrdersOwner,
     updateOrderStatusError,
   } = useGetOrdersOwnerSelectors();
   const dispatch = useDispatch();
@@ -25,13 +25,13 @@ const useOrdersOwnerLogic = () => {
   );
 
   const data = useMemo(
-    () => (sortedOrdersOwner !== undefined ? sortedOrdersOwner : []),
-    [sortedOrdersOwner]
+    () => (formattedOrdersOwner !== undefined ? formattedOrdersOwner : []),
+    [formattedOrdersOwner]
   );
   const columns = useMemo(() => ORDERS_OWNER_TABLE_COLUMNS, []);
   const initialState = useMemo(
     () => ({
-      sortBy: [{ id: "createdAtAsDateObjectForSorting", desc: true }],
+      sortBy: [],
       pageSize: ordersOwnerPageSizeFromLocalStorage
         ? Number(ordersOwnerPageSizeFromLocalStorage)
         : defaultTableSize,

@@ -1,5 +1,6 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 import {
+  fetchOrdersOwnerFromCurrentDayAsync,
   fetchOrdersOwnerAllOrdersAsync,
   updateOrderStatusAsync,
 } from "./orders-owner.thunks";
@@ -34,6 +35,25 @@ export const ordersOwnerSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
+      .addCase(fetchOrdersOwnerFromCurrentDayAsync.pending, (state) => {
+        state.ordersOwnerIsLoading = true;
+      })
+      .addCase(
+        fetchOrdersOwnerFromCurrentDayAsync.fulfilled,
+        (state, action) => {
+          state.ordersOwnerIsLoading = false;
+          state.ordersOwner = action.payload;
+          state.ordersOwnerError = null;
+        }
+      )
+      .addCase(
+        fetchOrdersOwnerFromCurrentDayAsync.rejected,
+        (state, action) => {
+          state.ordersOwnerIsLoading = false;
+          state.ordersOwner = [];
+          state.ordersOwnerError = action.payload;
+        }
+      )
       .addCase(fetchOrdersOwnerAllOrdersAsync.pending, (state) => {
         state.ordersOwnerIsLoading = true;
       })
@@ -78,24 +98,15 @@ export const ordersOwnerSlice = createSlice({
         const formattedOrdersOwner = ordersOwner.map((order) => {
           return {
             ...order,
-            createdAtAsDateObjectForSorting: new Date(order.createdAt),
+            createdAtAsDateObjectForSearching: new Date(order.createdAt),
           };
         });
-
-        const sortedOrdersOwner = formattedOrdersOwner.sort(
-          (orderA, orderB) => {
-            const dateA = new Date(orderA.dateAsDateObjectForSorting);
-            const dateB = new Date(orderB.dateAsDateObjectForSorting);
-
-            return dateA - dateB;
-          }
-        );
 
         return {
           ordersOwnerIsLoading,
           ordersOwner,
           ordersOwnerError,
-          sortedOrdersOwner,
+          formattedOrdersOwner,
           updateOrderStatusResult,
           updateOrderStatusError,
         };

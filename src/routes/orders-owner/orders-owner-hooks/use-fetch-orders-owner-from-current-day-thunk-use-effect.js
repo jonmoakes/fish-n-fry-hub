@@ -2,9 +2,9 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import useGetCurrentUserSelectors from "../../../hooks/selectors/use-get-current-user-selectors";
-import { fetchOrdersOwnerAllOrdersAsync } from "../../../store/orders-owner/orders-owner.thunks";
+import { fetchOrdersOwnerFromCurrentDayAsync } from "../../../store/orders-owner/orders-owner.thunks";
 
-const useFetchOrdersOwnerAllOrdersThunkUseEffect = () => {
+const useFetchOrdersOwnerFromCurrentDayThunkUseEffect = () => {
   const { currentUser } = useGetCurrentUserSelectors();
 
   const dispatch = useDispatch();
@@ -12,8 +12,8 @@ const useFetchOrdersOwnerAllOrdersThunkUseEffect = () => {
   useEffect(() => {
     if (!currentUser) return;
 
-    dispatch(fetchOrdersOwnerAllOrdersAsync());
+    dispatch(fetchOrdersOwnerFromCurrentDayAsync());
   }, [dispatch, currentUser]);
 };
 
-export default useFetchOrdersOwnerAllOrdersThunkUseEffect;
+export default useFetchOrdersOwnerFromCurrentDayThunkUseEffect;

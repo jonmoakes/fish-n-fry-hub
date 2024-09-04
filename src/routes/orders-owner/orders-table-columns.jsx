@@ -14,13 +14,13 @@ export const ORDERS_OWNER_TABLE_COLUMNS = [
   {
     Header: "order status",
     accessor: "orderStatus",
-    Cell: ({ row, value }) => {
-      return <OrderStatusCell {...{ row, value }} />;
+    Cell: ({ row }) => {
+      return <OrderStatusCell {...{ row }} />;
     },
   },
   {
     Header: "date / time placed",
-    accessor: "createdAtAsDateObjectForSorting",
+    accessor: "createdAtAsDateObjectForSearching",
     Cell: ({ value }) => {
       return <OrderCreatedAtCell {...{ value }} />;
     },
