@@ -29,14 +29,11 @@ const Menu = () => {
     navigateToCategory,
     cartItemsIsLoading,
     cartItemsError,
-    hasNewMenuItems,
   } = useMenuLogic();
 
   return (
     <Container>
-      <MenuTitleAndLoader
-        {...{ menuIsLoading, cartItemsIsLoading, hasNewMenuItems }}
-      />
+      <MenuTitleAndLoader {...{ menuIsLoading, cartItemsIsLoading }} />
 
       {menuError || cartItemsError ? (
         <ShowFetchErrors />
