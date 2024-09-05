@@ -1,7 +1,6 @@
 import useMenuLogic from "./menu-hooks/use-menu-logic";
 import useFetchMenuDocumentsThunkUseEffect from "./menu-hooks/use-fetch-menu-documents-thunk-use-effect";
 import useFetchCartItemsThunkUseEffect from "./menu-hooks/use-fetch-cart-tems-thunk-use-effect";
-import useCheckForNewMenuItemsThunkUseEffect from "./menu-hooks/use-check-for-new-menu-items-thunk-use-effect";
 
 import MenuTitleAndLoader from "./menu-title-and-loader.component";
 import ShowFetchErrors from "../../components/errors/show-fetch-errors.component";
@@ -16,7 +15,6 @@ import { searchTermHasBeenEntered } from "../../functions/search-term-has-been-e
 const Menu = () => {
   useFetchMenuDocumentsThunkUseEffect();
   useFetchCartItemsThunkUseEffect();
-  useCheckForNewMenuItemsThunkUseEffect();
 
   const {
     menuIsLoading,
