@@ -64,6 +64,8 @@ const useMenuLogic = () => {
       ? true
       : false;
 
+  const sortedCategories = categories.sort();
+
   return {
     menuIsLoading,
     menuError,
@@ -72,7 +74,7 @@ const useMenuLogic = () => {
     resetSearchField,
     navigateToCategory,
     itemsReturnedFromSearch,
-    categories,
+    sortedCategories,
     menuDocuments,
     hasMenuErrorOrMenuHasBeenFetched,
     noUserAndNoMenuDocs,

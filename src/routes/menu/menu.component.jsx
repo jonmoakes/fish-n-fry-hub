@@ -23,7 +23,7 @@ const Menu = () => {
     handleSearchFieldChange,
     resetSearchField,
     itemsReturnedFromSearch,
-    categories,
+    sortedCategories,
     navigateToCategory,
     cartItemsIsLoading,
     cartItemsError,
@@ -46,7 +46,7 @@ const Menu = () => {
           />
 
           <CategoryButtons
-            {...{ searchField, categories, navigateToCategory }}
+            {...{ searchField, sortedCategories, navigateToCategory }}
           />
 
           {searchTermHasBeenEntered(searchField) ? (

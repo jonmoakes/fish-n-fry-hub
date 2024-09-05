@@ -4,14 +4,18 @@ import { ParentDiv } from "../../styles/div/div.styles";
 import { BlackHr } from "../../styles/hr/hr.styles";
 import { Text } from "../../styles/p/p.styles";
 
-const CategoryButtons = ({ searchField, categories, navigateToCategory }) => (
+const CategoryButtons = ({
+  searchField,
+  sortedCategories,
+  navigateToCategory,
+}) => (
   <>
     {!searchField.length ? (
       <ParentDiv>
         <Text>or view each product in a category:</Text>
 
         <BlackHr />
-        {categories.map((category) => (
+        {sortedCategories.map((category) => (
           <Fragment key={category}>
             <YellowGreenButton onClick={() => navigateToCategory(category)}>
               {category}

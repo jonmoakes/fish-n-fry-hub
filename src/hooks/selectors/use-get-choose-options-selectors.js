@@ -5,6 +5,7 @@ const useGetChooseOptionsSelectors = () => {
   const {
     selectedItem,
     categoryItems,
+    sortedCategoryItems,
     optionsPricesIsLoading,
     gratedCheesePrice,
     gratedCheesePriceError,
@@ -63,6 +64,7 @@ const useGetChooseOptionsSelectors = () => {
   return {
     selectedItem,
     categoryItems,
+    sortedCategoryItems,
     optionsPricesIsLoading,
     gratedCheesePrice,
     gratedCheesePriceError,

@@ -18,7 +18,7 @@ const CategoryItems = () => {
     searchField,
     resetSearchField,
     handleSearchFieldChange,
-    categoryItems,
+    sortedCategoryItems,
     categoryItemsFound,
   } = useChosenCategoryLogic();
 
@@ -44,7 +44,7 @@ const CategoryItems = () => {
         <ItemsReturnedAfterSearchRequest {...{ itemsReturnedFromSearch }} />
       ) : (
         <>
-          {categoryItems.map((item) => {
+          {sortedCategoryItems.map((item) => {
             const { $id } = item;
             return <ProductItemDetails key={$id} {...{ item }} />;
           })}

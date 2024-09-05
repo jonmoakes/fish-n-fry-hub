@@ -2,7 +2,7 @@ import useGetChooseOptionsSelectors from "../../../hooks/selectors/use-get-choos
 import useSetSearchField from "../../../hooks/use-set-search-field";
 
 const useCategoryItemsLogic = () => {
-  const { categoryItems } = useGetChooseOptionsSelectors();
+  const { categoryItems, sortedCategoryItems } = useGetChooseOptionsSelectors();
   const { searchField, resetSearchField, handleSearchFieldChange } =
     useSetSearchField();
 
@@ -23,7 +23,7 @@ const useCategoryItemsLogic = () => {
     resetSearchField,
     handleSearchFieldChange,
     itemsReturnedFromSearch,
-    categoryItems,
+    sortedCategoryItems,
     categoryItemsFound,
   };
 };

@@ -196,9 +196,14 @@ export const chooseOptionsSlice = createSlice({
         condimentsDocuments,
         condimentsDocumentsError
       ) => {
+        const sortedCategoryItems = [...categoryItems].sort((a, b) =>
+          a.name.localeCompare(b.name)
+        );
+
         return {
           selectedItem,
           categoryItems,
+          sortedCategoryItems,
           optionsPricesIsLoading,
           gratedCheesePrice,
           gratedCheesePriceError,
