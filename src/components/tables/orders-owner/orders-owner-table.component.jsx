@@ -10,14 +10,14 @@ import {
 
 import useOrdersOwnerLogic from "./orders-owner-hooks/use-orders-owner-logic";
 import useOrdersOwnerListener from "./orders-owner-hooks/use-orders-owner-listener";
-import useIsOnline from "../../hooks/use-is-online";
+import useIsOnline from "../../../hooks/use-is-online";
 
-import ShowFetchErrors from "../../components/errors/show-fetch-errors.component";
-import NoBookingDataFound from "./no-booking-data.found.component";
-import NetworkError from "../../components/errors/network-error.component";
-import TablePagination from "../../components/tables/table-pagination.component";
-import SearchBoxWhenNoChosenEntry from "../../components/tables/search-box-when-no-chosen-entry.component";
-import OrdersOwnerRenderTable from "./orders-owner-render-table.component";
+import ShowFetchErrors from "../../errors/show-fetch-errors.component";
+import NoBookingDataFound from "./no-orders-owner-found.component";
+import NetworkError from "../../errors/network-error.component";
+import TablePagination from "../table-pagination.component";
+import TableSearchBox from "../table-search-box.component";
+import RenderTable from "../render-table.component";
 import ErrorUpdatingOrderStatus from "./error-updating-order-status.component";
 
 const OrdersOwnerTable = () => {
@@ -80,7 +80,7 @@ const OrdersOwnerTable = () => {
         <>
           <NoBookingDataFound {...{ data }} />
 
-          <SearchBoxWhenNoChosenEntry
+          <TableSearchBox
             {...{
               rows,
               data,
@@ -93,7 +93,7 @@ const OrdersOwnerTable = () => {
 
           {data.length ? (
             <>
-              <OrdersOwnerRenderTable
+              <RenderTable
                 {...{
                   initialState,
                   headerGroups,

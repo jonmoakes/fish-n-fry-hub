@@ -1,14 +1,15 @@
 import { useMemo } from "react";
 import { useDispatch } from "react-redux";
-import useGetOrdersOwnerSelectors from "../../../hooks/selectors/use-get-orders-owner-selectors";
+
+import useGetOrdersOwnerSelectors from "../../../../hooks/selectors/use-get-orders-owner-selectors";
 import {
   resetUpdateOrderStatusError,
   resetUpdateOrderStatusResult,
-} from "../../../store/orders-owner/orders-owner-slice";
+} from "../../../../store/orders-owner/orders-owner-slice";
 
-import { ORDERS_OWNER_TABLE_COLUMNS } from "../orders-table-columns";
+import { ORDERS_OWNER_TABLE_COLUMNS } from "../orders-owner-table-columns";
 
-import { defaultTableSize } from "../../../constants/constants";
+import { defaultTableSize } from "../../../../constants/constants";
 
 const useOrdersOwnerLogic = () => {
   const {

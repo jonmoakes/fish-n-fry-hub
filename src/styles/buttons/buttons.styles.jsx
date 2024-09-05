@@ -5,7 +5,6 @@ import {
   customBlack,
   customBlue,
   customGrey,
-  customIosBlue,
   customLightGreen,
   customTomato,
   customWhite,
@@ -374,7 +373,7 @@ export const MinimalButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: ${customIosBlue};
+  background-color: ${googleOrange};
   font-family: inherit;
   outline: none;
   border: 1px solid ${customBlack};

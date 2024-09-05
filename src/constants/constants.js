@@ -11,6 +11,11 @@ export const optionsPricesCollectionId = import.meta.env
   .VITE_OPTIONS_PRICES_COLLECTION_ID;
 export const optionsPricesDocumentId = import.meta.env
   .VITE_OPTIONS_PRICES_DOCUMENT_ID;
+export const hasNewMenuItemsCollectionId = import.meta.env
+  .VITE_HAS_NEW_MENU_ITEMS_COLLECTION_ID;
+export const hasNewMenuItemsDocumentId = import.meta.env
+  .VITE_HAS_NEW_MENU_ITEMS_DOCUMENT_ID;
+
 export const burgersCollectionId = import.meta.env.VITE_BURGERS_COLLECTION_ID;
 export const chickenCollectionId = import.meta.env.VITE_CHICKEN_COLLECTION_ID;
 export const chickenCurryCollectionId = import.meta.env

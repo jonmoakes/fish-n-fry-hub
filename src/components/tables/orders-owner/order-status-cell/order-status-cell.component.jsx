@@ -1,9 +1,9 @@
 import useConfirmUpdateOrderStatus from "./hooks/use-confirm-update-order-status";
 
-import { UpdateOrderStatusButton } from "../../../styles/buttons/buttons.styles";
+import { UpdateOrderStatusButton } from "../../../../styles/buttons/buttons.styles";
 
-import { OrderStatusDiv } from "../../../styles/div/div.styles";
-import { OrderStatusSpan } from "../../../styles/span/span.styles";
+import { OrderStatusDiv } from "../../../../styles/div/div.styles";
+import { OrderStatusSpan } from "../../../../styles/span/span.styles";
 
 const OrderStatusCell = ({ row }) => {
   const { showUpdateOrderStatusButton, confirmUpdateOrderStatus, orderStatus } =

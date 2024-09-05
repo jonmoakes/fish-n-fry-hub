@@ -10,9 +10,15 @@ import useSetSearchField from "../../../hooks/use-set-search-field";
 import { categoryItemsRoute } from "../../../strings/routes/routes-strings";
 import useGetCurrentUserSelectors from "../../../hooks/selectors/use-get-current-user-selectors";
 import useGetCartItemsSelectors from "../../../hooks/selectors/use-get-cart-items-selectors";
+import { fetchMenuDocumentsAsync } from "../../../store/menu/menu-thunks";
+import {
+  resetHasNewMenuItems,
+  resetHasNewMenuItemsResult,
+} from "../../../store/menu/menu.slice";
 
 const useMenuLogic = () => {
-  const { menuIsLoading, menuError, menuDocuments } = useGetMenuSelectors();
+  const { menuIsLoading, menuError, menuDocuments, hasNewMenuItems } =
+    useGetMenuSelectors();
   const { currentUser } = useGetCurrentUserSelectors();
   const { cartItemsIsLoading, fetchCartItemsError } =
     useGetCartItemsSelectors();
@@ -80,6 +86,7 @@ const useMenuLogic = () => {
     noCurrentUserOrCartItemsFetchedOrCartFetchError,
     cartItemsIsLoading,
     noUserAndHasMenuDocs,
+    hasNewMenuItems,
   };
 };
 

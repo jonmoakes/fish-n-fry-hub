@@ -1,7 +1,7 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
 import {
   fetchOrdersOwnerFromCurrentDayAsync,
-  fetchOrdersOwnerAllOrdersAsync,
+  fetchOrdersOwnerAllTimeOrdersAsync,
   updateOrderStatusAsync,
 } from "./orders-owner.thunks";
 
@@ -54,15 +54,18 @@ export const ordersOwnerSlice = createSlice({
           state.ordersOwnerError = action.payload;
         }
       )
-      .addCase(fetchOrdersOwnerAllOrdersAsync.pending, (state) => {
+      .addCase(fetchOrdersOwnerAllTimeOrdersAsync.pending, (state) => {
         state.ordersOwnerIsLoading = true;
       })
-      .addCase(fetchOrdersOwnerAllOrdersAsync.fulfilled, (state, action) => {
-        state.ordersOwnerIsLoading = false;
-        state.ordersOwner = action.payload;
-        state.ordersOwnerError = null;
-      })
-      .addCase(fetchOrdersOwnerAllOrdersAsync.rejected, (state, action) => {
+      .addCase(
+        fetchOrdersOwnerAllTimeOrdersAsync.fulfilled,
+        (state, action) => {
+          state.ordersOwnerIsLoading = false;
+          state.ordersOwner = action.payload;
+          state.ordersOwnerError = null;
+        }
+      )
+      .addCase(fetchOrdersOwnerAllTimeOrdersAsync.rejected, (state, action) => {
         state.ordersOwnerIsLoading = false;
         state.ordersOwner = [];
         state.ordersOwnerError = action.payload;

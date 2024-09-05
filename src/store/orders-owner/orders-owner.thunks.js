@@ -47,8 +47,8 @@ export const fetchOrdersOwnerFromCurrentDayAsync = createAsyncThunk(
   }
 );
 
-export const fetchOrdersOwnerAllOrdersAsync = createAsyncThunk(
-  "fetchOrdersOwnerAllOrders",
+export const fetchOrdersOwnerAllTimeOrdersAsync = createAsyncThunk(
+  "fetchOrdersOwnerAllTimeOrders",
   async (_, thunkAPI) => {
     try {
       const documents = await getOrderDocuments(highRateLimit);

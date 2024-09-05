@@ -1,7 +1,7 @@
-import OrderCell from "./order-cell.component";
-import OrderCreatedAtCell from "../../components/tables/order-created-at-cell.component";
-import EmailCell from "../../components/tables/email-cell.component";
-import OrderStatusCell from "../../components/tables/order-status-cell/order-status-cell.component";
+import OrderCell from "../order-cell.component";
+import OrderCreatedAtCell from "../order-created-at-cell.component";
+import EmailCell from "../email-cell.component";
+import OrderStatusCell from "./order-status-cell/order-status-cell.component";
 
 export const ORDERS_OWNER_TABLE_COLUMNS = [
   {

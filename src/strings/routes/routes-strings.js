@@ -21,6 +21,7 @@ export const securityPolicyRoute = "/security-policy";
 export const refundsPolicyRoute = "/refunds-policy";
 export const dataProtectionPolicyRoute = "/data-protection-policy";
 export const ordersOwnerRoute = "/orders";
+export const ordersOwnerAllTimeOrdersRoute = "/all-time-orders";
 export const customerOrdersRoute = "/your-orders";
 export const menuRoute = "/menu";
 export const categoryItemsRoute = "/category-items";

@@ -1,5 +1,7 @@
 import useMenuLogic from "./menu-hooks/use-menu-logic";
 import useFetchMenuDocumentsThunkUseEffect from "./menu-hooks/use-fetch-menu-documents-thunk-use-effect";
+import useFetchCartItemsThunkUseEffect from "./menu-hooks/use-fetch-cart-tems-thunk-use-effect";
+import useCheckForNewMenuItemsThunkUseEffect from "./menu-hooks/use-check-for-new-menu-items-thunk-use-effect";
 
 import MenuTitleAndLoader from "./menu-title-and-loader.component";
 import ShowFetchErrors from "../../components/errors/show-fetch-errors.component";
@@ -10,11 +12,11 @@ import ItemsReturnedAfterSearchRequest from "../../components/items-returned-aft
 import { Container } from "../../styles/container/container.styles";
 
 import { searchTermHasBeenEntered } from "../../functions/search-term-has-been-entered";
-import useFetchCartItemsThunkUseEffect from "./menu-hooks/use-fetch-cart-tems-thunk-use-effect";
 
 const Menu = () => {
   useFetchMenuDocumentsThunkUseEffect();
   useFetchCartItemsThunkUseEffect();
+  useCheckForNewMenuItemsThunkUseEffect();
 
   const {
     menuIsLoading,
@@ -27,11 +29,14 @@ const Menu = () => {
     navigateToCategory,
     cartItemsIsLoading,
     cartItemsError,
+    hasNewMenuItems,
   } = useMenuLogic();
 
   return (
     <Container>
-      <MenuTitleAndLoader {...{ menuIsLoading, cartItemsIsLoading }} />
+      <MenuTitleAndLoader
+        {...{ menuIsLoading, cartItemsIsLoading, hasNewMenuItems }}
+      />
 
       {menuError || cartItemsError ? (
         <ShowFetchErrors />

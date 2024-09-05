@@ -4,7 +4,7 @@ import { BlackSpan } from "../../styles/span/span.styles";
 
 const headerKey = crypto.randomUUID();
 
-const OrdersOwnerRenderTable = ({
+const RenderTable = ({
   headerGroups,
   getTableProps,
   getTableBodyProps,
@@ -55,4 +55,4 @@ const OrdersOwnerRenderTable = ({
   );
 };
 
-export default OrdersOwnerRenderTable;
+export default RenderTable;

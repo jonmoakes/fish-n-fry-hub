@@ -24,6 +24,7 @@ import {
   checkoutRoute,
   paymentResultRoute,
   ordersOwnerRoute,
+  ordersOwnerAllTimeOrdersRoute,
   uploadOrderResultRoute,
   uploadOrderDeleteCartItemsRoute,
   uploadOrderSendEmailConfirmationRoute,
@@ -64,6 +65,11 @@ const UploadOrderDeleteCartItems = lazy(() =>
 );
 const OrdersOwner = lazy(() =>
   import("./routes/orders-owner/orders-owner.component")
+);
+const OrdersOwnerAllTimeOrders = lazy(() =>
+  import(
+    "./routes/orders-owner-all-time-orders/orders-owner-all-time-orders.component"
+  )
 );
 
 const App = () => {
@@ -119,6 +125,15 @@ const App = () => {
                 element={
                   currentUser && currentUser.id === appOwnerId ? (
                     <OrdersOwner />
+                  ) : null
+                }
+              />
+
+              <Route
+                path={ordersOwnerAllTimeOrdersRoute}
+                element={
+                  currentUser && currentUser.id === appOwnerId ? (
+                    <OrdersOwnerAllTimeOrders />
                   ) : null
                 }
               />

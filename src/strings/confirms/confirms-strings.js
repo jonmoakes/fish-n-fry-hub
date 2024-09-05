@@ -17,3 +17,5 @@ export const confirmUpdateOrderStatusMessage = (orderStatus) => {
       : `update the order status to be <br/><span style="color: yellow;">completed</span>?`
   }</span>`;
 };
+
+export const confirmGoToAllTimeOrdersRouteMessage = `<span style="font-size: 20px;">are you sure you want to view every order ever made?<br/><br/>please note that depending on the amount of orders you have, this may take a while to load so please be patient. ;)</span>`;

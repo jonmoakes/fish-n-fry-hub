@@ -60,9 +60,9 @@ export const NavLink = styled.p`
 `;
 
 export const ErrorImageText = styled.p`
-  color: ${customBlack};
+  color: ${customWhite};
   text-align: center;
-  padding: 5px 5px 5px 5px;
+  padding: 5px;
 `;
 
 export const PaginationText = styled.p`

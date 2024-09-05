@@ -1,14 +1,18 @@
 import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
 
-import { updateOrderStatusAsync } from "../../../../store/orders-owner/orders-owner.thunks";
+import { updateOrderStatusAsync } from "../../../../../store/orders-owner/orders-owner.thunks";
 
-import useConfirmSwal from "../../../../hooks/use-confirm-swal";
+import useConfirmSwal from "../../../../../hooks/use-confirm-swal";
 
-import { confirmUpdateOrderStatusMessage } from "../../../../strings/confirms/confirms-strings";
+import { confirmUpdateOrderStatusMessage } from "../../../../../strings/confirms/confirms-strings";
+import { ordersOwnerAllTimeOrdersRoute } from "../../../../../strings/routes/routes-strings";
 
 const useConfirmUpdateOrderStatus = (row) => {
   const { confirmSwal } = useConfirmSwal();
   const dispatch = useDispatch();
+  const location = useLocation();
+  const path = location.pathname;
 
   const orderStatus = row.original.orderStatus;
   const documentId = row.original.orderId;
@@ -18,6 +22,8 @@ const useConfirmUpdateOrderStatus = (row) => {
   const showUpdateOrderStatusButton = () => {
     if (isNaN(date.getTime())) {
       console.error("Invalid date provided");
+      return false;
+    } else if (path === ordersOwnerAllTimeOrdersRoute) {
       return false;
     }
 
