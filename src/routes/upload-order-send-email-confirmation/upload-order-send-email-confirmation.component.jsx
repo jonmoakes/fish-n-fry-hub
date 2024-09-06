@@ -11,12 +11,14 @@ import { Title } from "../../styles/h1/h1.styles";
 import { Text } from "../../styles/p/p.styles";
 import { YellowGreenButton } from "../../styles/buttons/buttons.styles";
 import { BlackHr } from "../../styles/hr/hr.styles";
+import useSendEmailOrderErrorSwal from "./send-email-confirmation-hooks/use-send-email-order-error-swal";
 
 // if we arrive here, the order must have been successfully uploaded to the database.
 const UploadOrderSendEmailConfirmation = () => {
   const { sendEmailIsLoading } = useGetSendEmailSelectors();
 
   const { sendEmail, dontSendEmail } = useSendEmailConfirmationFunctions();
+  useSendEmailOrderErrorSwal();
 
   return (
     <Container>

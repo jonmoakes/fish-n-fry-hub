@@ -27,4 +27,8 @@ export const errorReceivedMessage = (errorInfo, error) => {
   return `<span style="font-size:20px";>${errorInfo}<br/><br/>The error received was:<br/>'<span style="color:${customYellow}";>${error}</span>'<br/><br/><span style="font-size:20px";>please try again or contact us if the error persists.</span>`;
 };
 
+export const errorSendingEmailMessage = (error) => {
+  return `<span style="font-size:20px";>sorry, the email failed to send. If you still require this email, please contact us.<br/><br/>The error received was:<br/>'<span style="color:${customYellow}";>${error}</span>'</span>`;
+};
+
 export const errorUploadingOrderToDbMessage = `<span style="font-size:20px";>sorry, there has been an error. your payment was taken but there was an error uploading the order to the database.<br/><br/>please tap the 'send email' button below which will email the app owner with the details of your order.<br/><br/>They will then respond asap to confirm your order details. We apologise for the inconvenience!</span>`;
