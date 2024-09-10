@@ -7,7 +7,7 @@ import {
   resetUpdateOrderStatusResult,
 } from "../../../../store/orders-owner/orders-owner-slice";
 
-import { ORDERS_OWNER_TABLE_COLUMNS } from "../orders-owner-table-columns";
+import ORDERS_OWNER_TABLE_COLUMNS from "../orders-owner-table-columns";
 
 import { defaultTableSize } from "../../../../constants/constants";
 

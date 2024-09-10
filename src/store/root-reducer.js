@@ -15,6 +15,8 @@ import { databaseManagementReducer } from "./database-management/database-manage
 import { ordersOwnerReducer } from "./orders-owner/orders-owner-slice";
 import { sendEmailReducer } from "./send-email/send-email.slice";
 import { shouldShowElementReducer } from "./should-show-element/should-show-element.slice";
+import { getAllUsersReducer } from "./get-all-users/get-all-users.slice";
+import { incomeDataReducer } from "./income-data/income-data.slice";
 
 export const rootReducer = combineReducers({
   hamburgerMenu: hamburgerMenuReducer,
@@ -32,4 +34,6 @@ export const rootReducer = combineReducers({
   ordersOwner: ordersOwnerReducer,
   sendEmail: sendEmailReducer,
   shouldShowElement: shouldShowElementReducer,
+  getAllUsers: getAllUsersReducer,
+  incomeData: incomeDataReducer,
 });

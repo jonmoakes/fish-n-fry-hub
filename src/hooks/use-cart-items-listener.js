@@ -1,13 +1,12 @@
 import { useEffect } from "react";
-
+import { useDispatch } from "react-redux";
 import { client } from "../utils/appwrite/appwrite-config";
 
 import useGetCurrentUserSelectors from "./selectors/use-get-current-user-selectors";
+import useGetCartItemsSelectors from "./selectors/use-get-cart-items-selectors";
 import { setCartItems } from "../store/cart/cart.slice";
 
 import { databaseId, cartItemsCollectionId } from "../constants/constants";
-import { useDispatch } from "react-redux";
-import useGetCartItemsSelectors from "./selectors/use-get-cart-items-selectors";
 
 const useCartItemsListener = () => {
   const { id } = useGetCurrentUserSelectors();

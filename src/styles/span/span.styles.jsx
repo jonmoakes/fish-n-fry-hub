@@ -407,7 +407,7 @@ export const ClearButtonExampleSpan = styled.span`
   text-transform: lowercase;
 `;
 
-export const OrderStatusSpan = styled.span`
+export const SpanWithBackground = styled.span`
   color: ${customTomato};
   background-color: ${customBlack};
   padding: 5px;

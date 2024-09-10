@@ -28,6 +28,8 @@ import {
   uploadOrderResultRoute,
   uploadOrderDeleteCartItemsRoute,
   uploadOrderSendEmailConfirmationRoute,
+  allUsersRoute,
+  incomeRoute,
 } from "./strings/routes/routes-strings";
 
 const Navigation = lazy(() =>
@@ -71,6 +73,8 @@ const OrdersOwnerAllTimeOrders = lazy(() =>
     "./routes/orders-owner-all-time-orders/orders-owner-all-time-orders.component"
   )
 );
+const AllUsers = lazy(() => import("./routes/all-users/all-users.component"));
+const Income = lazy(() => import("./routes/income/income.component"));
 
 const App = () => {
   const { currentUser } = useGetCurrentUserSelectors();
@@ -134,6 +138,24 @@ const App = () => {
                 element={
                   currentUser && currentUser.id === appOwnerId ? (
                     <OrdersOwnerAllTimeOrders />
+                  ) : null
+                }
+              />
+
+              <Route
+                path={allUsersRoute}
+                element={
+                  currentUser && currentUser.id === appOwnerId ? (
+                    <AllUsers />
+                  ) : null
+                }
+              />
+
+              <Route
+                path={incomeRoute}
+                element={
+                  currentUser && currentUser.id === appOwnerId ? (
+                    <Income />
                   ) : null
                 }
               />

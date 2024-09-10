@@ -3,7 +3,7 @@ import OrderCreatedAtCell from "../order-created-at-cell.component";
 import EmailCell from "../email-cell.component";
 import OrderStatusCell from "./order-status-cell/order-status-cell.component";
 
-export const ORDERS_OWNER_TABLE_COLUMNS = [
+const ORDERS_OWNER_TABLE_COLUMNS = [
   {
     Header: "order",
     accessor: "order",
@@ -45,3 +45,5 @@ export const ORDERS_OWNER_TABLE_COLUMNS = [
     accessor: "orderId",
   },
 ];
+
+export default ORDERS_OWNER_TABLE_COLUMNS;

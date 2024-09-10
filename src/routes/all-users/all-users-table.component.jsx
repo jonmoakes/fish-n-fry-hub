@@ -8,27 +8,18 @@ import {
   useColumnOrder,
 } from "react-table";
 
-import useOrdersOwnerLogic from "./orders-owner-hooks/use-orders-owner-logic";
-import useOrdersOwnerListener from "./orders-owner-hooks/use-orders-owner-listener";
-import useIsOnline from "../../../hooks/use-is-online";
+import useAllUsersLogic from "./all-users-hooks/all-users-logic";
+import useIsOnline from "../../hooks/use-is-online";
 
-import ShowFetchErrors from "../../errors/show-fetch-errors.component";
-import NoOrdersOwnerFound from "./no-orders-owner-found.component";
-import NetworkError from "../../errors/network-error.component";
-import TablePagination from "../table-pagination.component";
-import TableSearchBox from "../table-search-box.component";
-import RenderTable from "../render-table.component";
-import ErrorUpdatingOrderStatus from "./error-updating-order-status.component";
+import ShowFetchErrors from "../../components/errors/show-fetch-errors.component";
+import NoUsersFound from "./no-users-found.component";
+import RenderTable from "../../components/tables/render-table.component";
+import NetworkError from "../../components/errors/network-error.component";
+import TablePagination from "../../components/tables/table-pagination.component";
+import TableSearchBox from "../../components/tables/table-search-box.component";
 
-const OrdersOwnerTable = () => {
-  useOrdersOwnerListener();
-  const {
-    data,
-    columns,
-    initialState,
-    ordersOwnerError,
-    updateOrderStatusError,
-  } = useOrdersOwnerLogic();
+const AllUsersTable = () => {
+  const { getAllUsersError, columns, data, initialState } = useAllUsersLogic();
   const { isOnline } = useIsOnline();
 
   const {
@@ -72,13 +63,11 @@ const OrdersOwnerTable = () => {
     <>
       {!isOnline ? (
         <NetworkError />
-      ) : ordersOwnerError ? (
+      ) : getAllUsersError ? (
         <ShowFetchErrors />
-      ) : updateOrderStatusError ? (
-        <ErrorUpdatingOrderStatus />
       ) : (
         <>
-          <NoOrdersOwnerFound {...{ data }} />
+          <NoUsersFound {...{ data }} />
 
           <TableSearchBox
             {...{
@@ -128,4 +117,4 @@ const OrdersOwnerTable = () => {
   );
 };
 
-export default OrdersOwnerTable;
+export default AllUsersTable;

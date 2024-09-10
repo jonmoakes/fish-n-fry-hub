@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useLocation } from "react-router-dom";
 import { useAsyncDebounce } from "react-table";
 
 import Loader from "../loader/loader.component";
@@ -7,6 +8,10 @@ import NoSearchResult from "./no-search-result.component";
 import { ClearSearchButton } from "../../styles/buttons/buttons.styles";
 import { TableSearchDiv } from "../../styles/div/div.styles";
 import { SearchInput } from "../../styles/form/form.styles";
+import {
+  allUsersRoute,
+  incomeRoute,
+} from "../../strings/routes/routes-strings";
 
 // This search box takes the value and setValue state from the tables that use it
 // incomeDataTable needs it this way to display the total amount when searchbox has length.
@@ -14,6 +19,8 @@ import { SearchInput } from "../../styles/form/form.styles";
 // Is given to the tables that use this searchbox instead.
 const TableSearchBox = ({ rows, data, setGlobalFilter, value, setValue }) => {
   const [isSearching, setIsSearching] = useState(false);
+  const location = useLocation();
+  const path = location.pathname;
 
   const onChange = useAsyncDebounce((value) => {
     setGlobalFilter(value || undefined);
@@ -32,7 +39,13 @@ const TableSearchBox = ({ rows, data, setGlobalFilter, value, setValue }) => {
         <TableSearchDiv className="no-checkbox">
           <SearchInput
             type="search"
-            placeholder={"Search Orders"}
+            placeholder={`Search ${
+              path === allUsersRoute
+                ? "Users"
+                : path === incomeRoute
+                ? "Income"
+                : "Orders"
+            }...`}
             onChange={(e) => {
               setIsSearching(true);
               setValue(e.target.value);

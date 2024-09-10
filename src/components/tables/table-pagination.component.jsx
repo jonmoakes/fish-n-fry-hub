@@ -9,7 +9,12 @@ import {
 } from "../../styles/form/form.styles";
 
 import { defaultTableSize } from "../../constants/constants";
-import { ordersOwnerRoute } from "../../strings/routes/routes-strings";
+import {
+  allUsersRoute,
+  ordersOwnerRoute,
+  incomeRoute,
+} from "../../strings/routes/routes-strings";
+import { SpanWithBackground } from "../../styles/span/span.styles";
 
 const TablePagination = ({
   pageIndex,
@@ -36,6 +41,12 @@ const TablePagination = ({
           selectedPageSize
         );
         break;
+      case allUsersRoute:
+        localStorage.setItem("allUsersChosenTablePageSize", selectedPageSize);
+        break;
+      case incomeRoute:
+        localStorage.setItem("incomeDataTablePageSize", selectedPageSize);
+        break;
       default:
         return;
     }
@@ -58,7 +69,9 @@ const TablePagination = ({
         <PaginationDiv>
           <div>
             <PaginationText>
-              showing Page {pageIndex + 1} Of {pageOptions.length}
+              showing Page{" "}
+              <SpanWithBackground>{pageIndex + 1}</SpanWithBackground> Of{" "}
+              <SpanWithBackground>{pageOptions.length}</SpanWithBackground>
             </PaginationText>
 
             <PaginationPageButton

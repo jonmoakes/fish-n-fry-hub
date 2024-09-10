@@ -21,7 +21,11 @@ import {
   ordersOwnerRoute,
   uploadOrderDeleteCartItemsRoute,
   ordersOwnerAllTimeOrdersRoute,
+  allUsersRoute,
+  incomeRoute,
 } from "../strings/routes/routes-strings";
+import { resetGetAllUsersState } from "../store/get-all-users/get-all-users.slice";
+import { resetIncomeDataState } from "../store/income-data/income-data.slice";
 
 const useResetStore = () => {
   const location = useLocation();
@@ -54,6 +58,12 @@ const useResetStore = () => {
       case ordersOwnerRoute:
       case ordersOwnerAllTimeOrdersRoute:
         dispatch(resetOrdersOwnerState());
+        break;
+      case allUsersRoute:
+        dispatch(resetGetAllUsersState());
+        break;
+      case incomeRoute:
+        dispatch(resetIncomeDataState());
         break;
       default:
         return;

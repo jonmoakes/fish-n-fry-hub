@@ -3,6 +3,8 @@ import useGetChooseOptionsSelectors from "../../../hooks/selectors/use-get-choos
 import useGetMenuSelectors from "../../../hooks/selectors/use-get-menu-selectors";
 import useGetHandlePaymentSelectors from "../../../hooks/selectors/use-get-handle-payment-selectors";
 import useGetOrdersOwnerSelectors from "../../../hooks/selectors/use-get-orders-owner-selectors";
+import useGetAllUsersSelectors from "../../../hooks/selectors/use-get-all-users-selectors";
+import useGetIncomeDataSelectors from "../../../hooks/selectors/use-get-income-data-selectors";
 
 const useHandleShowError = () => {
   const { menuError } = useGetMenuSelectors();
@@ -18,6 +20,8 @@ const useHandleShowError = () => {
   } = useGetChooseOptionsSelectors();
   const { handlePaymentError } = useGetHandlePaymentSelectors();
   const { ordersOwnerError } = useGetOrdersOwnerSelectors();
+  const { getAllUsersError } = useGetAllUsersSelectors();
+  const { incomeDataError } = useGetIncomeDataSelectors();
 
   const showErrorHeading = () => {
     if (menuError) return "failed to fetch menu data.";
@@ -34,6 +38,8 @@ const useHandleShowError = () => {
       return "failed to fetch our list of  condiments";
     if (handlePaymentError) return "failed to contact payment processor.";
     if (ordersOwnerError) return "failed to fetch orders.";
+    if (getAllUsersError) return "failed to fetch the list of users.";
+    if (incomeDataError) return "failed to fetch income data";
   };
 
   const errorToDisplay = () => {
@@ -49,6 +55,8 @@ const useHandleShowError = () => {
       condimentsDocumentsError,
       handlePaymentError,
       ordersOwnerError,
+      getAllUsersError,
+      incomeDataError,
     ];
 
     return errors.find((error) => error !== null);

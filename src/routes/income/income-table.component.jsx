@@ -6,30 +6,29 @@ import {
   usePagination,
   useRowSelect,
   useColumnOrder,
+  useFilters,
 } from "react-table";
 
-import useOrdersOwnerLogic from "./orders-owner-hooks/use-orders-owner-logic";
-import useOrdersOwnerListener from "./orders-owner-hooks/use-orders-owner-listener";
-import useIsOnline from "../../../hooks/use-is-online";
+import useIsOnline from "../../hooks/use-is-online";
+import useIncomeVariables from "./income-hooks/use-income-variables";
+import useIncomeFunctions from "./income-hooks/use-income-functions";
+import useFilterByWeekUseEffect from "./income-hooks/use-filter-by-week-use-effect";
 
-import ShowFetchErrors from "../../errors/show-fetch-errors.component";
-import NoOrdersOwnerFound from "./no-orders-owner-found.component";
-import NetworkError from "../../errors/network-error.component";
-import TablePagination from "../table-pagination.component";
-import TableSearchBox from "../table-search-box.component";
-import RenderTable from "../render-table.component";
-import ErrorUpdatingOrderStatus from "./error-updating-order-status.component";
+import NoIncomeDataFound from "./no-income-data-found.component";
+import TableSearchBox from "../../components/tables/table-search-box.component";
+import WeekFilterInput from "./week-filter-input.component";
+import RenderTable from "../../components/tables/render-table.component";
+import NetworkError from "../../components/errors/network-error.component";
+import TablePagination from "../../components/tables/table-pagination.component";
+import ShowTotalOfReturnedEntries from "./show-total-of-returned-entries.component";
+import ShowFetchErrors from "../../components/errors/show-fetch-errors.component";
 
-const OrdersOwnerTable = () => {
-  useOrdersOwnerListener();
-  const {
-    data,
-    columns,
-    initialState,
-    ordersOwnerError,
-    updateOrderStatusError,
-  } = useOrdersOwnerLogic();
+const IncomeTable = () => {
   const { isOnline } = useIsOnline();
+  const { data, columns, initialState, incomeDataError } = useIncomeVariables();
+  const { handleWeekFilterChange, weekNumber } = useIncomeFunctions();
+  useFilterByWeekUseEffect();
+  const { filteredData } = useFilterByWeekUseEffect(weekNumber);
 
   const {
     getTableProps,
@@ -51,9 +50,10 @@ const OrdersOwnerTable = () => {
   } = useTable(
     {
       columns,
-      data,
+      data: filteredData,
       initialState,
     },
+    useFilters,
     useGlobalFilter,
     useSortBy,
     usePagination,
@@ -65,6 +65,7 @@ const OrdersOwnerTable = () => {
       });
     }
   );
+
   const { globalFilter, pageIndex, pageSize } = state;
   const [value, setValue] = useState(globalFilter);
 
@@ -72,13 +73,12 @@ const OrdersOwnerTable = () => {
     <>
       {!isOnline ? (
         <NetworkError />
-      ) : ordersOwnerError ? (
+      ) : incomeDataError ? (
         <ShowFetchErrors />
-      ) : updateOrderStatusError ? (
-        <ErrorUpdatingOrderStatus />
       ) : (
         <>
-          <NoOrdersOwnerFound {...{ data }} />
+          <NoIncomeDataFound {...{ data }} />
+          <WeekFilterInput {...{ weekNumber, handleWeekFilterChange }} />
 
           <TableSearchBox
             {...{
@@ -88,6 +88,16 @@ const OrdersOwnerTable = () => {
               setGlobalFilter,
               value,
               setValue,
+            }}
+          />
+
+          <ShowTotalOfReturnedEntries
+            {...{
+              value,
+              rows,
+              initialState,
+              weekNumber,
+              handleWeekFilterChange,
             }}
           />
 
@@ -128,4 +138,4 @@ const OrdersOwnerTable = () => {
   );
 };
 
-export default OrdersOwnerTable;
+export default IncomeTable;

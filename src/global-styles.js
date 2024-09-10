@@ -51,6 +51,7 @@ export const GlobalStyle = createGlobalStyle`
 
         a {
             color: ${customBlue};
+            text-decoration: none;
 
             &:hover {
                 color: ${customTomato};
