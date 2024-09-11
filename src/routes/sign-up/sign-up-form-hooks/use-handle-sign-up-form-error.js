@@ -15,7 +15,12 @@ const useHandleSignUpFormError = () => {
   const { fireSwal } = useFireSwal();
 
   useEffect(() => {
-    if (!currentUserError || currentUserError === appwriteNoUserError) return;
+    if (
+      !currentUserError ||
+      currentUserError === appwriteNoUserError ||
+      currentUserError === "Failed to fetch"
+    )
+      return;
 
     fireSwal(
       "error",

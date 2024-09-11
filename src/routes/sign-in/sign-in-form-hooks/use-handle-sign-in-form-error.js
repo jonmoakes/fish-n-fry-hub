@@ -21,7 +21,9 @@ const useHandleSignInFormError = () => {
   useEffect(() => {
     if (
       !currentUserError ||
-      (currentUserError && currentUserError === appwriteNoUserError)
+      (currentUserError &&
+        (currentUserError === appwriteNoUserError ||
+          currentUserError === "Failed to fetch"))
     )
       return;
 

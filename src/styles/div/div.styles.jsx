@@ -240,7 +240,7 @@ export const RelativePositionDiv = styled.div`
 `;
 
 export const ErrorDiv = styled.div`
-  background-color: ${customGrey};
+  background-color: ${customLightPink};
   padding: 10px 10px 30px 10px;
   border: 2px solid ${customBlack};
   border-radius: 5px;
@@ -252,6 +252,10 @@ export const ErrorDiv = styled.div`
 
   &.fetch-error {
     margin: 20px auto;
+  }
+
+  &.margin {
+    margin: 50px auto;
   }
 
   @media screen and (max-width: 1366px) {

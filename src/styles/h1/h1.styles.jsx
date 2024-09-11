@@ -6,6 +6,11 @@ export const Title = styled.h1`
   color: ${customWhite};
   text-shadow: 1px 1px 1px ${customBlack};
 
+  &.black {
+    color: ${customBlack};
+    text-shadow: none;
+  }
+
   @media screen and (max-width: 600px) {
     font-size: 24px;
   }
