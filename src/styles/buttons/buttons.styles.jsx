@@ -97,14 +97,17 @@ export const YellowGreenButton = styled(Button)`
   &.facebook {
     background-color: ${facebookBlue};
     color: ${customWhite};
+    text-shadow: 0.5px 0.5px 0.5px ${customBlack};
 
     &:hover {
       background-color: ${customWhite};
       color: ${customBlack};
+      text-shadow: none;
 
       @media screen and (max-width: 1366px) {
         background-color: ${facebookBlue};
         color: ${customWhite};
+        text-shadow: 0.5px 0.5px 0.5px ${customBlack};
       }
     }
   }
