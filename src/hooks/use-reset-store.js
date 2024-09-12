@@ -11,6 +11,9 @@ import { resetOrdersOwnerState } from "../store/orders-owner/orders-owner-slice"
 import { resetCartState } from "../store/cart/cart.slice";
 import { resetDatabaseManagementState } from "../store/database-management/database-management.slice";
 import { resetSendEmailState } from "../store/send-email/send-email.slice";
+import { resetGetAllUsersState } from "../store/get-all-users/get-all-users.slice";
+import { resetIncomeDataState } from "../store/income-data/income-data.slice";
+import { resetOrdersCustomerState } from "../store/orders-customer/orders-customer-slice";
 
 import {
   signInRoute,
@@ -19,13 +22,12 @@ import {
   uploadMenuItemsRoute,
   paymentResultRoute,
   ordersOwnerRoute,
+  ordersCustomerRoute,
   uploadOrderDeleteCartItemsRoute,
   ordersOwnerAllTimeOrdersRoute,
   allUsersRoute,
   incomeRoute,
 } from "../strings/routes/routes-strings";
-import { resetGetAllUsersState } from "../store/get-all-users/get-all-users.slice";
-import { resetIncomeDataState } from "../store/income-data/income-data.slice";
 
 const useResetStore = () => {
   const location = useLocation();
@@ -58,6 +60,9 @@ const useResetStore = () => {
       case ordersOwnerRoute:
       case ordersOwnerAllTimeOrdersRoute:
         dispatch(resetOrdersOwnerState());
+        break;
+      case ordersCustomerRoute:
+        dispatch(resetOrdersCustomerState());
         break;
       case allUsersRoute:
         dispatch(resetGetAllUsersState());

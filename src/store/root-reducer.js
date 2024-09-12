@@ -13,10 +13,12 @@ import { handlePaymentReducer } from "./handle-payment/handle-payment.slice";
 import { cardInputResultReducer } from "./card-input-result/card-input-result.slice";
 import { databaseManagementReducer } from "./database-management/database-management.slice";
 import { ordersOwnerReducer } from "./orders-owner/orders-owner-slice";
+import { ordersCustomerReducer } from "./orders-customer/orders-customer-slice";
 import { sendEmailReducer } from "./send-email/send-email.slice";
 import { shouldShowElementReducer } from "./should-show-element/should-show-element.slice";
 import { getAllUsersReducer } from "./get-all-users/get-all-users.slice";
 import { incomeDataReducer } from "./income-data/income-data.slice";
+import { orderToRepeatReducer } from "./order-to-repeat/order-to-repeat.slice";
 
 export const rootReducer = combineReducers({
   hamburgerMenu: hamburgerMenuReducer,
@@ -32,8 +34,10 @@ export const rootReducer = combineReducers({
   cardInputResult: cardInputResultReducer,
   databaseManagement: databaseManagementReducer,
   ordersOwner: ordersOwnerReducer,
+  ordersCustomer: ordersCustomerReducer,
   sendEmail: sendEmailReducer,
   shouldShowElement: shouldShowElementReducer,
   getAllUsers: getAllUsersReducer,
   incomeData: incomeDataReducer,
+  orderToRepeat: orderToRepeatReducer,
 });

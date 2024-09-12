@@ -2,6 +2,7 @@ import EmailCell from "../../components/tables/email-cell.component";
 import FormattedDateCell from "../../components/tables/formatted-date-cell.component";
 
 import { BlackSpan } from "../../styles/span/span.styles";
+import PayeeNameCell from "./payee-name-cell.component";
 
 const INCOME_TABLE_COLUMNS = [
   {
@@ -22,7 +23,7 @@ const INCOME_TABLE_COLUMNS = [
     Header: "Payee Name",
     accessor: "name",
     Cell: ({ value }) => {
-      return <BlackSpan>{value}</BlackSpan>;
+      return <PayeeNameCell {...{ value }} />;
     },
   },
   {

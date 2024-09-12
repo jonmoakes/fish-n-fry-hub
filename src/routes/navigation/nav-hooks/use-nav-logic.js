@@ -1,4 +1,5 @@
 import useGetCurrentUserSelectors from "../../../hooks/selectors/use-get-current-user-selectors";
+import useGetCartItemsSelectors from "../../../hooks/selectors/use-get-cart-items-selectors";
 import useHamburgerHandlerNavigate from "../../../hooks/use-hamburger-handler-navigate";
 import useIsRouteWithNavWarning from "../../../hooks/use-is-route-with-nav-warning";
 import useConfirmSwal from "../../../hooks/use-confirm-swal";
@@ -17,7 +18,6 @@ import {
 } from "../../../strings/confirms/confirms-strings";
 import { loseAllDataMessage } from "../../../strings/info/info-strings";
 import { checkoutRoute } from "../../../strings/routes/routes-strings";
-import useGetCartItemsSelectors from "../../../hooks/selectors/use-get-cart-items-selectors";
 
 const useNavLogic = () => {
   const { currentUser, id } = useGetCurrentUserSelectors();
@@ -25,12 +25,6 @@ const useNavLogic = () => {
   const { hamburgerHandlerNavigate } = useHamburgerHandlerNavigate();
   const { isRouteWithNavWarning } = useIsRouteWithNavWarning();
   const { confirmForwardToNewRoute } = useConfirmSwal();
-
-  //   const routesToRender = !currentUser
-  //     ? signedOutRoutes
-  //     : currentUser && id === appOwnerId
-  //     ? ownerSignedInRoutes
-  //     : signedInRoutes;
 
   const routesWithFilteredCheckoutRoute = (routes) => {
     return routes.filter((route) => {

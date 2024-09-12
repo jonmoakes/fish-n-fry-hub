@@ -14,6 +14,12 @@ export const Text = styled.p`
     text-transform: lowercase;
   }
 
+  &.repeat-order {
+    white-space: pre-wrap;
+    color: ${customBlack};
+    text-shadow: none;
+  }
+
   &.amount {
     font-size: 16px;
     margin: 10px auto;
@@ -82,7 +88,6 @@ export const OptionsLabel = styled.p`
 `;
 
 export const RequiredError = styled.p`
-  /* margin-top: -20px; */
   color: ${customTomato};
   text-shadow: 1px 1px 1px ${customBlack};
   background-color: ${customBlack};

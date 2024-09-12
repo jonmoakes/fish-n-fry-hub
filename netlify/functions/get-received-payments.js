@@ -19,7 +19,7 @@ export async function handler(event, context) {
 
     while (hasMore && allPayments.length < limit) {
       const response = await stripeClient.charges.list({
-        limit: Math.min(100, limit - allPayments.length), // Fetch up to 100 or the remaining required
+        limit: Math.min(500, limit - allPayments.length), // Fetch up to 500 or the remaining required
         ...(startingAfter ? { starting_after: startingAfter } : {}), // Include starting_after only if it has a value
       });
 

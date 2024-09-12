@@ -5,10 +5,10 @@ import { manageDatabaseDocument } from "../../utils/appwrite/appwrite-functions"
 import { getParsedOrderItems } from "../../functions/get-parsed-order-items";
 import { getGrandTotalOfOrder } from "../../functions/get-grand-total-of-order";
 import {
-  getOrderDocuments,
-  orderObject,
-  sortedOrders,
+  getOrdersOwnerDocuments,
+  ordersOwnerObject,
 } from "./orders-owner-functions";
+import { sortedOrders } from "../../functions/sorted-orders";
 
 import {
   databaseId,
@@ -21,7 +21,7 @@ export const fetchOrdersOwnerFromCurrentDayAsync = createAsyncThunk(
   "fetchOrdersOwnerFromCurrentDay",
   async (_, thunkAPI) => {
     try {
-      const documents = await getOrderDocuments(standardRateLimit);
+      const documents = await getOrdersOwnerDocuments(standardRateLimit);
 
       if (!documents.length) {
         return [];
@@ -37,7 +37,7 @@ export const fetchOrdersOwnerFromCurrentDayAsync = createAsyncThunk(
         .map((order) => {
           const orderItems = getParsedOrderItems(order.order);
           const grandTotal = getGrandTotalOfOrder(orderItems);
-          return orderObject(order, grandTotal, orderItems);
+          return ordersOwnerObject(order, grandTotal, orderItems);
         });
 
       return sortedOrders(orders);
@@ -51,7 +51,7 @@ export const fetchOrdersOwnerAllTimeOrdersAsync = createAsyncThunk(
   "fetchOrdersOwnerAllTimeOrders",
   async (_, thunkAPI) => {
     try {
-      const documents = await getOrderDocuments(highRateLimit);
+      const documents = await getOrdersOwnerDocuments(highRateLimit);
 
       if (!documents.length) {
         return [];
@@ -60,7 +60,7 @@ export const fetchOrdersOwnerAllTimeOrdersAsync = createAsyncThunk(
       const orders = documents.map((order) => {
         const orderItems = getParsedOrderItems(order.order);
         const grandTotal = getGrandTotalOfOrder(orderItems);
-        return orderObject(order, grandTotal, orderItems);
+        return ordersOwnerObject(order, grandTotal, orderItems);
       });
 
       return sortedOrders(orders);

@@ -13,6 +13,7 @@ import {
   allUsersRoute,
   ordersOwnerRoute,
   incomeRoute,
+  ordersCustomerRoute,
 } from "../../strings/routes/routes-strings";
 import { SpanWithBackground } from "../../styles/span/span.styles";
 
@@ -38,6 +39,12 @@ const TablePagination = ({
       case ordersOwnerRoute:
         localStorage.setItem(
           "ordersOwnerChosenTablePageSize",
+          selectedPageSize
+        );
+        break;
+      case ordersCustomerRoute:
+        localStorage.setItem(
+          "ordersCustomerChosenTablePageSize",
           selectedPageSize
         );
         break;

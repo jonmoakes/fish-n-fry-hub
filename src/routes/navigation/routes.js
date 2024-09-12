@@ -4,7 +4,7 @@ import {
   signInRoute,
   signUpRoute,
   aboutRoute,
-  customerOrdersRoute,
+  ordersCustomerRoute,
   ordersOwnerRoute,
   menuRoute,
   checkoutRoute,
@@ -12,7 +12,7 @@ import {
 
 export const signedInRoutes = [
   menuRoute,
-  customerOrdersRoute,
+  ordersCustomerRoute,
   checkoutRoute,
   accountRoute,
   contactRoute,

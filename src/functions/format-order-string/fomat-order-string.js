@@ -41,7 +41,7 @@ export const formatOrderString = (cartItem) => {
     quantity,
   } = cartItem;
 
-  let itemString = `\n\n****************************:\n${name}:\n--------------------\n\n`;
+  let itemString = `\n\n****************************\n${name}:\n--------------------\n\n`;
 
   itemString += formatSimpleOption(hasChoosePieOption, pieChoice, "Pie");
   itemString += formatSimpleOption(hasSizeOption, sizeChoice, "Size");

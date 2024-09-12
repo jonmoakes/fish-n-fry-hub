@@ -5,6 +5,7 @@ import useGetHandlePaymentSelectors from "../../../hooks/selectors/use-get-handl
 import useGetOrdersOwnerSelectors from "../../../hooks/selectors/use-get-orders-owner-selectors";
 import useGetAllUsersSelectors from "../../../hooks/selectors/use-get-all-users-selectors";
 import useGetIncomeDataSelectors from "../../../hooks/selectors/use-get-income-data-selectors";
+import useGetOrderToRepeatSelectors from "../../../hooks/selectors/use-get-order-to-repeat-selectors";
 
 const useHandleShowError = () => {
   const { menuError } = useGetMenuSelectors();
@@ -22,6 +23,7 @@ const useHandleShowError = () => {
   const { ordersOwnerError } = useGetOrdersOwnerSelectors();
   const { getAllUsersError } = useGetAllUsersSelectors();
   const { incomeDataError } = useGetIncomeDataSelectors();
+  const { orderToRepeatError } = useGetOrderToRepeatSelectors();
 
   const showErrorHeading = () => {
     if (menuError) return "failed to fetch menu data.";
@@ -39,7 +41,9 @@ const useHandleShowError = () => {
     if (handlePaymentError) return "failed to contact payment processor.";
     if (ordersOwnerError) return "failed to fetch orders.";
     if (getAllUsersError) return "failed to fetch the list of users.";
-    if (incomeDataError) return "failed to fetch income data";
+    if (incomeDataError) return "failed to fetch income data.";
+    if (orderToRepeatError)
+      return "failed to fetch data needed to repeat your order.";
   };
 
   const errorToDisplay = () => {
@@ -57,6 +61,7 @@ const useHandleShowError = () => {
       ordersOwnerError,
       getAllUsersError,
       incomeDataError,
+      orderToRepeatError,
     ];
 
     return errors.find((error) => error !== null);

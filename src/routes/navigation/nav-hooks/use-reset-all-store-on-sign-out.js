@@ -10,6 +10,7 @@ import { resetOrdersOwnerState } from "../../../store/orders-owner/orders-owner-
 import { resetSendEmailState } from "../../../store/send-email/send-email.slice";
 import { resetSignInFormState } from "../../../store/sign-in-form/sign-in-form.slice";
 import { resetSignUpFormState } from "../../../store/sign-up-form/sign-up-form.slice";
+import { resetOrdersCustomerState } from "../../../store/orders-customer/orders-customer-slice";
 
 const useResetAllStoreOnSignOut = () => {
   const dispatch = useDispatch();
@@ -23,6 +24,7 @@ const useResetAllStoreOnSignOut = () => {
     dispatch(resetAllHandlePaymentState());
     dispatch(resetUploadMenuItemsState());
     dispatch(resetOrdersOwnerState());
+    dispatch(resetOrdersCustomerState());
     dispatch(resetSendEmailState());
     dispatch(resetSignInFormState());
     dispatch(resetSignUpFormState());

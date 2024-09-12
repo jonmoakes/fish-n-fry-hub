@@ -2,7 +2,7 @@ import { databaseId, ordersCollectionId } from "../../constants/constants";
 import { formatOrderString } from "../../functions/format-order-string/fomat-order-string";
 import { listDocumentsInACollection } from "../../utils/appwrite/appwrite-functions";
 
-export const getOrderDocuments = async (rateLimit) => {
+export const getOrdersOwnerDocuments = async (rateLimit) => {
   const orderDocuments = await listDocumentsInACollection(
     databaseId,
     ordersCollectionId,
@@ -10,11 +10,10 @@ export const getOrderDocuments = async (rateLimit) => {
   );
 
   const { documents } = orderDocuments;
-
   return documents;
 };
 
-export const orderObject = (order, grandTotal, orderItems) => {
+export const ordersOwnerObject = (order, grandTotal, orderItems) => {
   return {
     customerName: order.customerName,
     customerEmail: order.customerEmail,
@@ -25,12 +24,4 @@ export const orderObject = (order, grandTotal, orderItems) => {
     order: orderItems.map((ord) => formatOrderString(ord.cartItem)),
     createdAtAsDateObjectForSearching: new Date(order.$createdAt), // Create Date object for searching
   };
-};
-
-export const sortedOrders = (orders) => {
-  return orders.sort((orderA, orderB) => {
-    const dateA = new Date(orderA.createdAt);
-    const dateB = new Date(orderB.createdAt);
-    return dateB - dateA;
-  });
 };

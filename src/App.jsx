@@ -25,11 +25,13 @@ import {
   paymentResultRoute,
   ordersOwnerRoute,
   ordersOwnerAllTimeOrdersRoute,
+  ordersCustomerRoute,
   uploadOrderResultRoute,
   uploadOrderDeleteCartItemsRoute,
   uploadOrderSendEmailConfirmationRoute,
   allUsersRoute,
   incomeRoute,
+  repeatOrderRoute,
 } from "./strings/routes/routes-strings";
 
 const Navigation = lazy(() =>
@@ -49,6 +51,9 @@ const UploadMenuItems = lazy(() =>
   import("./routes/upload-menu-items/upload-menu-items.component")
 );
 const Checkout = lazy(() => import("./routes/checkout/checkout.component"));
+const RepeatOrder = lazy(() =>
+  import("./routes/repeat-order/repeat-order.component")
+);
 const PaymentResult = lazy(() =>
   import("./routes/payment-result/payment-result.component")
 );
@@ -72,6 +77,9 @@ const OrdersOwnerAllTimeOrders = lazy(() =>
   import(
     "./routes/orders-owner-all-time-orders/orders-owner-all-time-orders.component"
   )
+);
+const OrdersCustomer = lazy(() =>
+  import("./routes/orders-customer/orders-customer.component")
 );
 const AllUsers = lazy(() => import("./routes/all-users/all-users.component"));
 const Income = lazy(() => import("./routes/income/income.component"));
@@ -106,6 +114,7 @@ const App = () => {
                 }
               />
               <Route path={checkoutRoute} element={<Checkout />} />
+              <Route path={repeatOrderRoute} element={<RepeatOrder />} />
 
               <Route path={paymentResultRoute} element={<PaymentResult />} />
 
@@ -138,6 +147,15 @@ const App = () => {
                 element={
                   currentUser && currentUser.id === appOwnerId ? (
                     <OrdersOwnerAllTimeOrders />
+                  ) : null
+                }
+              />
+
+              <Route
+                path={ordersCustomerRoute}
+                element={
+                  currentUser && currentUser.id !== appOwnerId ? (
+                    <OrdersCustomer />
                   ) : null
                 }
               />

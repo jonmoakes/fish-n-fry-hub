@@ -1,6 +1,12 @@
 import { useState } from "react";
+import useHamburgerHandlerNavigate from "../../../hooks/use-hamburger-handler-navigate";
+
+import { allUsersRoute } from "../../../strings/routes/routes-strings";
+import useConfirmSwal from "../../../hooks/use-confirm-swal";
 
 const useIncomeFunctions = () => {
+  const { hamburgerHandlerNavigate } = useHamburgerHandlerNavigate();
+  const { confirmSwal } = useConfirmSwal();
   const [weekNumber, setWeekNumber] = useState("");
 
   const calculateTotalAmount = (filteredRows) => {
@@ -27,6 +33,17 @@ const useIncomeFunctions = () => {
     return value && value.length && rows.length && true;
   };
 
+  const navigateToUsersPage = () => {
+    confirmSwal(
+      "go to users page?",
+      "",
+      "yes",
+      "",
+      () => hamburgerHandlerNavigate(allUsersRoute),
+      null
+    );
+  };
+
   return {
     calculateTotalAmount,
     filteredRows,
@@ -34,6 +51,7 @@ const useIncomeFunctions = () => {
     handleWeekFilterChange,
     weekNumberEnteredAndTotalIsZero,
     searchHasValueAndHasReturnedRows,
+    navigateToUsersPage,
   };
 };
 

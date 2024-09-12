@@ -7,10 +7,13 @@ import {
   fetchOrdersOwnerFromCurrentDayAsync,
   fetchOrdersOwnerAllTimeOrdersAsync,
 } from "../../../../store/orders-owner/orders-owner.thunks";
+
 import {
   ordersOwnerAllTimeOrdersRoute,
   ordersOwnerRoute,
 } from "../../../../strings/routes/routes-strings";
+
+import { appOwnerId } from "../../../../constants/constants";
 
 const useFetchOrdersOwnerBasedOnPathThunkUseEffect = () => {
   const { currentUser } = useGetCurrentUserSelectors();
@@ -20,11 +23,7 @@ const useFetchOrdersOwnerBasedOnPathThunkUseEffect = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (
-      !currentUser ||
-      (path !== ordersOwnerRoute && path !== ordersOwnerAllTimeOrdersRoute)
-    )
-      return;
+    if (!currentUser || (currentUser && currentUser.id !== appOwnerId)) return;
 
     if (path === ordersOwnerRoute) {
       dispatch(fetchOrdersOwnerFromCurrentDayAsync());

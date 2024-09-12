@@ -12,7 +12,7 @@ import { ID } from "appwrite";
 
 export const addOrderToDatabaseAsync = createAsyncThunk(
   "addOrderToDatabase",
-  async ({ cartItems, name, email }, thunkAPI) => {
+  async ({ cartItems, name, email, id }, thunkAPI) => {
     try {
       const orderJsonString = JSON.stringify(cartItems);
 
@@ -20,6 +20,7 @@ export const addOrderToDatabaseAsync = createAsyncThunk(
         customerName: name,
         customerEmail: email,
         order: orderJsonString,
+        customerId: id,
       };
 
       await manageDatabaseDocument(

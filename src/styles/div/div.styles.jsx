@@ -16,6 +16,7 @@ import {
   customLightPink,
   backgroundBlue,
   customLightGreen,
+  customGoldenRod,
 } from "../colors";
 
 const slideInLeftAnimation = keyframes`${slideInLeft}`;
@@ -118,6 +119,10 @@ export const ParentDiv = styled.div`
   &.black {
     background: black;
     box-shadow: none;
+  }
+
+  &.repeat-order {
+    background-color: ${customGoldenRod};
   }
 
   &.no-result-found {

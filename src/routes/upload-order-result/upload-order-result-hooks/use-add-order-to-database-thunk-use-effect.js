@@ -16,7 +16,7 @@ const useAddOrderToDatabaseThunkUseEffect = () => {
 
   useEffect(() => {
     if (addOrderResult || addOrderError || hasRun.current) return;
-    dispatch(addOrderToDatabaseAsync({ cartItems, name, email }));
+    dispatch(addOrderToDatabaseAsync({ cartItems, name, email, id }));
     hasRun.current = true;
   }, [addOrderResult, addOrderError, cartItems, dispatch, name, email, id]);
 };
