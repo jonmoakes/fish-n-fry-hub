@@ -389,6 +389,8 @@ export const MinimalButton = styled.button`
 
   &.order-again {
     margin: 0px auto;
+    padding: 20px;
+    border-radius: 5px;
   }
 
   &.clear-week {

@@ -9,6 +9,7 @@ const useGetOrderToRepeatThunkUseEffect = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (!idOfOrderToRepeat) return;
     dispatch(fetchOrderToRepeatAsync({ idOfOrderToRepeat }));
   }, [dispatch, idOfOrderToRepeat]);
 };

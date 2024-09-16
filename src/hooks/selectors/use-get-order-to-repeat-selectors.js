@@ -6,18 +6,29 @@ const useGetOrderToRepeatSelectors = () => {
     orderToRepeatIsLoading,
     idOfOrderToRepeat,
     orderToRepeatDetails,
+    orderToRepeatResult,
     orderToRepeatError,
   } = useSelector(selectOrderToRepeatSelectors);
 
-  const { customerId, grandTotal } = orderToRepeatDetails ?? {};
+  const {
+    customerId,
+    repeatOrderForDisplayingToUser,
+    repeatOrderGrandTotal,
+    repeatOrderForDb,
+    repeatOrderAsEmail,
+  } = orderToRepeatDetails ?? {};
 
   return {
     orderToRepeatIsLoading,
     idOfOrderToRepeat,
-    orderToRepeatDetails,
+    orderToRepeatResult,
     orderToRepeatError,
-    grandTotal,
+    orderToRepeatDetails,
     customerId,
+    repeatOrderForDisplayingToUser,
+    repeatOrderGrandTotal,
+    repeatOrderForDb,
+    repeatOrderAsEmail,
   };
 };
 

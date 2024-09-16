@@ -1,10 +1,14 @@
 import { createSelector, createSlice } from "@reduxjs/toolkit";
-import { fetchOrderToRepeatAsync } from "./order-to-repeat.thunks";
+import {
+  fetchOrderToRepeatAsync,
+  addRepeatOrderToDatabaseAsync,
+} from "./order-to-repeat.thunks";
 
 const INITIAL_STATE = {
   orderToRepeatIsLoading: false,
   idOfOrderToRepeat: "",
   orderToRepeatDetails: null,
+  orderToRepeatResult: null,
   orderToRepeatError: null,
 };
 
@@ -14,6 +18,9 @@ export const orderToRepeatSlice = createSlice({
   reducers: {
     setIdOfOrderToRepeat(state, action) {
       state.idOfOrderToRepeat = action.payload;
+    },
+    resetOrderToRepeatResult(state) {
+      state.orderToRepeatResult = "";
     },
     resetOrderToRepeatError(state) {
       state.orderToRepeatError = null;
@@ -36,6 +43,19 @@ export const orderToRepeatSlice = createSlice({
         state.orderToRepeatIsLoading = false;
         state.orderToRepeatDetails = null;
         state.orderToRepeatError = action.payload;
+      })
+      .addCase(addRepeatOrderToDatabaseAsync.pending, (state) => {
+        state.orderToRepeatIsLoading = true;
+      })
+      .addCase(addRepeatOrderToDatabaseAsync.fulfilled, (state, action) => {
+        state.orderToRepeatIsLoading = false;
+        state.orderToRepeatResult = "fulfilled";
+        state.orderToRepeatError = null;
+      })
+      .addCase(addRepeatOrderToDatabaseAsync.rejected, (state, action) => {
+        state.orderToRepeatIsLoading = false;
+        state.orderToRepeatResult = "rejected";
+        state.orderToRepeatError = action.payload;
       });
   },
   selectors: {
@@ -43,18 +63,24 @@ export const orderToRepeatSlice = createSlice({
       (state) => state.orderToRepeatIsLoading,
       (state) => state.idOfOrderToRepeat,
       (state) => state.orderToRepeatDetails,
+      (state) => state.orderToRepeatResult,
       (state) => state.orderToRepeatError,
+      (state) => state.INITIAL_STATE,
       (
         orderToRepeatIsLoading,
         idOfOrderToRepeat,
         orderToRepeatDetails,
-        orderToRepeatError
+        orderToRepeatResult,
+        orderToRepeatError,
+        INITIAL_STATE
       ) => {
         return {
           orderToRepeatIsLoading,
           idOfOrderToRepeat,
           orderToRepeatDetails,
+          orderToRepeatResult,
           orderToRepeatError,
+          INITIAL_STATE,
         };
       }
     ),
@@ -63,6 +89,7 @@ export const orderToRepeatSlice = createSlice({
 
 export const {
   setIdOfOrderToRepeat,
+  resetOrderToRepeatResult,
   resetOrderToRepeatError,
   resetOrderToRepeatState,
 } = orderToRepeatSlice.actions;

@@ -2,10 +2,10 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useStripe, useElements } from "@stripe/react-stripe-js";
 
-import useGetCardInputResultSelectors from "../../../../hooks/selectors/use-get-card-input-result-selectors";
-import useGetHandlePaymentSelectors from "../../../../hooks/selectors/use-get-handle-payment-selectors";
+import useGetCardInputResultSelectors from "../../../hooks/selectors/use-get-card-input-result-selectors";
+import useGetHandlePaymentSelectors from "../../../hooks/selectors/use-get-handle-payment-selectors";
 import useGetPaymentResultObjectThunk from "./use-get-payment-result-object-thunk";
-import useConfirmSwal from "../../../../hooks/use-confirm-swal";
+import useConfirmSwal from "../../../hooks/use-confirm-swal";
 
 const useConfirmPaymentAfterGettingClientSecretUseEffect = () => {
   const { showPrePayButton } = useGetCardInputResultSelectors();
@@ -20,7 +20,7 @@ const useConfirmPaymentAfterGettingClientSecretUseEffect = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const shouldShowConfirmAddFundsSwal = () => {
+    const shouldShowConfirmPlaceOrderSwal = () => {
       return showPrePayButton && showConfirmButton && client_secret
         ? true
         : false;
@@ -29,7 +29,7 @@ const useConfirmPaymentAfterGettingClientSecretUseEffect = () => {
     if (
       !stripe ||
       !elements ||
-      !shouldShowConfirmAddFundsSwal() ||
+      !shouldShowConfirmPlaceOrderSwal() ||
       userHasConfirmedPayment
     )
       return;

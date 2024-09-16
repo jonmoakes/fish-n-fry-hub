@@ -4,7 +4,7 @@ import { CREATE_PAYMENT_INTENT_ENDPOINT } from "../../../netlify/api-endpoints/a
 
 export const getClientSecretAsync = createAsyncThunk(
   "getClientSecret",
-  async ({ stripeSecretKey, grandTotal }, thunkAPI) => {
+  async ({ stripeSecretKey, orderTotal }, thunkAPI) => {
     try {
       const response = await fetch(CREATE_PAYMENT_INTENT_ENDPOINT, {
         method: "post",
@@ -13,7 +13,7 @@ export const getClientSecretAsync = createAsyncThunk(
         },
         body: JSON.stringify({
           stripeSecretKey,
-          amount: grandTotal,
+          amount: orderTotal,
         }),
       }).then((res) => res.json());
 

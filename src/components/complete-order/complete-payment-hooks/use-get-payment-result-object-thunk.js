@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
 import { useStripe, CardElement, useElements } from "@stripe/react-stripe-js";
 
-import useGetHandlePaymentSelectors from "../../../../hooks/selectors/use-get-handle-payment-selectors";
-import useGetCurrentUserSelectors from "../../../../hooks/selectors/use-get-current-user-selectors";
-import { getPaymentResultObjectAsync } from "../../../../store/handle-payment/handle-payment.thunks";
+import useGetHandlePaymentSelectors from "../../../hooks/selectors/use-get-handle-payment-selectors";
+import useGetCurrentUserSelectors from "../../../hooks/selectors/use-get-current-user-selectors";
+import { getPaymentResultObjectAsync } from "../../../store/handle-payment/handle-payment.thunks";
 
 const useGetPaymentResultObjectThunk = () => {
   const { client_secret } = useGetHandlePaymentSelectors();

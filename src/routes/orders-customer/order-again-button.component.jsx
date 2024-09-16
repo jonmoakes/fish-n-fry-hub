@@ -1,15 +1,17 @@
-import useRepeatOrder from "./orders-customer-hooks/use-repeat-order";
+import useGetOrderAndGoToRepeatOrderPage from "./orders-customer-hooks/use-get-order-and-go-to-repeat-order-page";
 import { MinimalButton } from "../../styles/buttons/buttons.styles";
 
 const OrderAgainButton = ({ value }) => {
-  const { addPreviousOrderToCartAndGoToRepeatOrderPage } = useRepeatOrder();
+  const { getOrderAndGoToRepeatOrderPage } =
+    useGetOrderAndGoToRepeatOrderPage();
+
   return (
     <>
       <MinimalButton
         className="order-again"
-        onClick={() => addPreviousOrderToCartAndGoToRepeatOrderPage(value)}
+        onClick={() => getOrderAndGoToRepeatOrderPage(value)}
       >
-        order again?
+        Order Again
       </MinimalButton>
     </>
   );

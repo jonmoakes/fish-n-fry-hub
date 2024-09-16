@@ -10,9 +10,11 @@ import Loader from "../../components/loader/loader.component";
 import { Container } from "../../styles/container/container.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
 import { Title } from "../../styles/h1/h1.styles";
+import useGetOrderToRepeatSelectors from "../../hooks/selectors/use-get-order-to-repeat-selectors";
 
 const UploadOrderResult = () => {
   const { databaseManagementIsLoading } = useGetDatabaseManagementSelectors();
+  const { orderToRepeatIsLoading } = useGetOrderToRepeatSelectors();
   const { sendEmailIsLoading } = useGetSendEmailSelectors();
 
   useUploadOrderThunkUseEffect();
@@ -20,7 +22,11 @@ const UploadOrderResult = () => {
 
   return (
     <Container>
-      {databaseManagementIsLoading || sendEmailIsLoading ? <Loader /> : null}
+      {databaseManagementIsLoading ||
+      orderToRepeatIsLoading ||
+      sendEmailIsLoading ? (
+        <Loader />
+      ) : null}
       <ParentDiv>
         <Title>
           <Balancer>uploading order to database...</Balancer>

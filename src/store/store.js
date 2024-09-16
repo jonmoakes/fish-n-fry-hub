@@ -7,7 +7,7 @@ const middlewares = [process.env.NODE_ENV === "development" && logger].filter(
   Boolean
 );
 
-const rememberedKeys = ["menu", "cart"];
+const rememberedKeys = ["menu", "cart", "orderToRepeat"];
 
 export const store = configureStore({
   reducer: rememberReducer(rootReducer),

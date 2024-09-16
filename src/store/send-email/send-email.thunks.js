@@ -8,16 +8,14 @@ import {
 
 export const sendEmailOrderConfirmationAsync = createAsyncThunk(
   "sendEmailOrderConfirmation",
-  async ({ email, name, formattedStringOfOrderForEmail }, thunkAPI) => {
+  async ({ email, name, emailOfOrder }, thunkAPI) => {
     try {
-      const orderDetails = formattedStringOfOrderForEmail;
-
       const response = await axios.post(
         SEND_EMAIL_ORDER_CONFIRMATION_ENDPOINT,
         {
           email,
           name,
-          orderDetails,
+          emailOfOrder,
         }
       );
 

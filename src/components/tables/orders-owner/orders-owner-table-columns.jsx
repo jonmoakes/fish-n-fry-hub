@@ -37,7 +37,7 @@ const ORDERS_OWNER_TABLE_COLUMNS = [
     },
   },
   {
-    Header: "Grand Total",
+    Header: "order price",
     accessor: "grandTotal",
   },
   {

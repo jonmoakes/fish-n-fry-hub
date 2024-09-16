@@ -14,9 +14,12 @@ import useHamburgerHandlerNavigate from "../../../hooks/use-hamburger-handler-na
 
 import { uploadOrderSendEmailConfirmationRoute } from "../../../strings/routes/routes-strings";
 import { errorUploadingOrderToDbMessage } from "../../../strings/errors/errors-strings";
+import useGetOrderToRepeatSelectors from "../../../hooks/selectors/use-get-order-to-repeat-selectors";
 
 const useAddOrderToDatabaseResultSwalUseEffect = () => {
   const { addOrderResult, addOrderError } = useGetDatabaseManagementSelectors();
+  const { orderToRepeatResult, orderToRepeatError } =
+    useGetOrderToRepeatSelectors();
   const { name, email } = useGetCurrentUserSelectors();
   const { cartItems } = useGetCartItemsSelectors();
 
@@ -32,11 +35,21 @@ const useAddOrderToDatabaseResultSwalUseEffect = () => {
   const swalShown = useRef(false);
 
   useEffect(() => {
-    if ((!addOrderResult && !addOrderError) || swalShown.current) return;
+    if (
+      (!addOrderResult &&
+        !addOrderError &&
+        !orderToRepeatResult &&
+        !orderToRepeatError) ||
+      swalShown.current
+    )
+      return;
 
-    if (addOrderResult === "fulfilled") {
+    if (addOrderResult === "fulfilled" || orderToRepeatResult === "fulfilled") {
       hamburgerHandlerNavigate(uploadOrderSendEmailConfirmationRoute);
-    } else if (addOrderResult === "rejected") {
+    } else if (
+      addOrderResult === "rejected" ||
+      orderToRepeatResult === "rejected"
+    ) {
       swalShown.current = true;
       fireSwal(
         "error",
@@ -74,6 +87,8 @@ const useAddOrderToDatabaseResultSwalUseEffect = () => {
   }, [
     addOrderResult,
     addOrderError,
+    orderToRepeatResult,
+    orderToRepeatError,
     fireSwal,
     hamburgerHandlerNavigate,
     confirmSwal,

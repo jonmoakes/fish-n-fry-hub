@@ -1,6 +1,6 @@
-import { StripeLogoDiv } from "../../../styles/div/div.styles";
-import { ItalicStripeText } from "../../../styles/p/p.styles";
-import { StripeLogo } from "../../../styles/svg/svg.styles";
+import { StripeLogoDiv } from "../../styles/div/div.styles";
+import { ItalicStripeText } from "../../styles/p/p.styles";
+import { StripeLogo } from "../../styles/svg/svg.styles";
 
 const AccountStripeLogo = () => (
   <StripeLogoDiv>

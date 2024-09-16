@@ -1,10 +1,10 @@
 import { Navigate } from "react-router-dom";
 
-import useGetHandlePaymentSelectors from "../../../../hooks/selectors/use-get-handle-payment-selectors";
+import useGetHandlePaymentSelectors from "../../../hooks/selectors/use-get-handle-payment-selectors";
 
-import Loader from "../../../../components/loader/loader.component";
+import Loader from "../../loader/loader.component";
 
-import { paymentResultRoute } from "../../../../strings/routes/routes-strings";
+import { paymentResultRoute } from "../../../strings/routes/routes-strings";
 
 const RedirectAndLoader = () => {
   const { handlePaymentIsLoading, paymentResultObject } =

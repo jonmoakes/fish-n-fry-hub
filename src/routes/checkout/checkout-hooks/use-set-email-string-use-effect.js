@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import useGetCartItemsSelectors from "../../../../hooks/selectors/use-get-cart-items-selectors";
-import { setFormattedStringOfOrderForEmail } from "../../../../store/database-management/database-management.slice";
+import useGetCartItemsSelectors from "../../../hooks/selectors/use-get-cart-items-selectors";
+import { setFormattedStringOfOrderForEmail } from "../../../store/database-management/database-management.slice";
 
-import { formatOrderString } from "../../../../functions/format-order-string/fomat-order-string";
+import { formatOrderString } from "../../../functions/format-order-string/fomat-order-string";
 
 const useSetEmailStringUseEffect = () => {
   const { cartItems } = useGetCartItemsSelectors();

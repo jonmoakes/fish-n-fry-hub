@@ -3,9 +3,9 @@ import useConfirmPaymentAfterGettingClientSecretUseEffect from "./complete-payme
 import RedirectAndLoader from "./errors-and-redirect/redirect-and-loader.component";
 
 import CardInput from "./card-input.component";
-import ShowFetchErrors from "../../../components/errors/show-fetch-errors.component";
+import ShowFetchErrors from "../errors/show-fetch-errors.component";
 
-import { CompleteOrderDiv } from "../../../styles/div/div.styles";
+import { CompleteOrderDiv } from "../../styles/div/div.styles";
 
 const CompleteOrder = () => {
   //once confimed and succsessful, a paymentObject will be available and will redirect to payment result route.

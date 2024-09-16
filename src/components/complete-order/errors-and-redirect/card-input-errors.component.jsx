@@ -1,7 +1,7 @@
-import useGetCardInputResultSelectors from "../../../../hooks/selectors/use-get-card-input-result-selectors";
+import useGetCardInputResultSelectors from "../../../hooks/selectors/use-get-card-input-result-selectors";
 
-import { PaymentErrorDiv, WarningDiv } from "../../../../styles/div/div.styles";
-import { BlackText } from "../../../../styles/p/p.styles";
+import { PaymentErrorDiv, WarningDiv } from "../../../styles/div/div.styles";
+import { BlackText } from "../../../styles/p/p.styles";
 
 const CardInputErrors = () => {
   const { warning, error } = useGetCardInputResultSelectors();

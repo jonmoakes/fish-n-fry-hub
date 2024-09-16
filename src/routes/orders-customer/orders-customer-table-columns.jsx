@@ -20,22 +20,22 @@ const ORDERS_CUSTOMER_TABLE_COLUMNS = [
     },
   },
   {
-    Header: "Grand Total",
+    Header: "order price",
     accessor: "grandTotal",
     id: "grandTotal",
   },
   {
-    Header: "order id",
-    accessor: "orderId",
-    id: "orderId",
-  },
-  {
-    Header: "Order again",
+    Header: "order again",
     accessor: "orderId",
     id: "orderAgain",
     Cell: ({ value }) => {
       return <OrderAgainButton {...{ value }} />;
     },
+  },
+  {
+    Header: "order id",
+    accessor: "orderId",
+    id: "orderId",
   },
 ];
 
