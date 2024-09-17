@@ -3,7 +3,9 @@ import {
   customBlack,
   customBlue,
   customLightGrey,
+  customRed,
   customTomato,
+  customYellow,
 } from "./styles/colors";
 
 export const GlobalStyle = createGlobalStyle`
@@ -53,8 +55,12 @@ export const GlobalStyle = createGlobalStyle`
             color: ${customBlue};
             text-decoration: none;
 
-            &:hover {
+            &.red {
                 color: ${customTomato};
+            }
+
+            &:hover {
+                color: ${customRed};
             }
         }
     }

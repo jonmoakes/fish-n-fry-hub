@@ -33,6 +33,8 @@ import {
   incomeRoute,
   repeatOrderRoute,
   contactRoute,
+  accountRoute,
+  pwaInfoRoute,
 } from "./strings/routes/routes-strings";
 
 const Navigation = lazy(() =>
@@ -85,6 +87,11 @@ const OrdersCustomer = lazy(() =>
 const AllUsers = lazy(() => import("./routes/all-users/all-users.component"));
 const Income = lazy(() => import("./routes/income/income.component"));
 const Contact = lazy(() => import("./routes/contact/contact.component"));
+const Account = lazy(() => import("./routes/account/account.component"));
+const PwaInformation = lazy(() =>
+  import("./routes/pwa-info/pwa-information.component")
+);
+
 const App = () => {
   const { currentUser } = useGetCurrentUserSelectors();
   useGetUserOnLoadThunkUseEffect();
@@ -108,6 +115,7 @@ const App = () => {
             <Route path={contactRoute} element={<Contact />} />
 
             <Route element={<PrivateRoutes />}>
+              <Route path={accountRoute} element={<Account />} />
               <Route
                 path={uploadMenuItemsRoute}
                 element={
@@ -180,6 +188,7 @@ const App = () => {
                   ) : null
                 }
               />
+              <Route path={pwaInfoRoute} element={<PwaInformation />} />
             </Route>
           </Routes>
         </Suspense>
