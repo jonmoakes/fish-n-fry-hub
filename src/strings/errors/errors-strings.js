@@ -38,3 +38,6 @@ export const errorEmailOrderToAppOwnerMessage = (message) => {
 };
 
 export const errorDeletingCartItemsFromDbMessage = `<span style="font-size:20px";>Please note, we had an error when trying to clear your cart items.<br/>This does not affect your order that you have just placed, but please go to your account page and tap the clear cart items button to clear them manually.<br/>We apologise for the inconvenience!</span>`;
+export const errorSendingContactFormMessage = (error) => {
+  return `<span style="font-size:20px";>sorry, there was an error sending your message.<br/>Please Try Again.<br/><br/>The error received was:<br/>'<span style="color:${customYellow}";>${error}</span>'</span>`;
+};

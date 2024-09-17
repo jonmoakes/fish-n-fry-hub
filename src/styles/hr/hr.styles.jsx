@@ -5,6 +5,10 @@ import { customBlack } from "../colors";
 export const BlackHr = styled.hr`
   width: 90%;
   border: 1px solid ${customBlack};
+
+  &.margin {
+    margin-bottom: 50px;
+  }
 `;
 
 export const HrWithMargin = styled(BlackHr)`

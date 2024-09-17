@@ -14,6 +14,7 @@ import { resetSendEmailState } from "../store/send-email/send-email.slice";
 import { resetGetAllUsersState } from "../store/get-all-users/get-all-users.slice";
 import { resetIncomeDataState } from "../store/income-data/income-data.slice";
 import { resetOrdersCustomerState } from "../store/orders-customer/orders-customer-slice";
+import { resetContactFormState } from "../store/contact-form/contact-form.slice";
 
 import {
   signInRoute,
@@ -27,6 +28,7 @@ import {
   ordersOwnerAllTimeOrdersRoute,
   allUsersRoute,
   incomeRoute,
+  contactRoute,
 } from "../strings/routes/routes-strings";
 
 const useResetStore = () => {
@@ -69,6 +71,9 @@ const useResetStore = () => {
         break;
       case incomeRoute:
         dispatch(resetIncomeDataState());
+        break;
+      case contactRoute:
+        dispatch(resetContactFormState());
         break;
       default:
         return;

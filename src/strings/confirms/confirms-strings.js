@@ -27,3 +27,5 @@ export const confirmReorderMessage =
   "do you want to reorder this meal? You will have the chance to review and confirm before purchasing.";
 export const confirmCancelRepeatOrderMessage =
   "cancel repeat order and return to your orders table?";
+export const sureSendContactFormMessage =
+  "are you sure you want to send this message?";

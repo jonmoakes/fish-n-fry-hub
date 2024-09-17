@@ -7,3 +7,5 @@ export const emailSentAfterErrorUploadingOrderMessage =
   "email sent! we will contact you asap to confirm your order.";
 export const emailSentMessage = "email sent!";
 export const yesAddItMessage = "yes, add it!";
+export const emailResponseTimeMessage =
+  "Your Message Has Been Sent! We aim to respond to your email within 24hrs.";

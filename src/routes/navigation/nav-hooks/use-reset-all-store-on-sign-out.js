@@ -12,6 +12,7 @@ import { resetSignInFormState } from "../../../store/sign-in-form/sign-in-form.s
 import { resetSignUpFormState } from "../../../store/sign-up-form/sign-up-form.slice";
 import { resetOrdersCustomerState } from "../../../store/orders-customer/orders-customer-slice";
 import { resetOrderToRepeatState } from "../../../store/order-to-repeat/order-to-repeat.slice";
+import { resetContactFormState } from "../../../store/contact-form/contact-form.slice";
 
 const useResetAllStoreOnSignOut = () => {
   const dispatch = useDispatch();
@@ -30,6 +31,7 @@ const useResetAllStoreOnSignOut = () => {
     dispatch(resetSignInFormState());
     dispatch(resetSignUpFormState());
     dispatch(resetOrderToRepeatState());
+    dispatch(resetContactFormState());
     localStorage.clear();
   };
 

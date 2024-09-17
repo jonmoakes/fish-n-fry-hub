@@ -32,6 +32,7 @@ import {
   allUsersRoute,
   incomeRoute,
   repeatOrderRoute,
+  contactRoute,
 } from "./strings/routes/routes-strings";
 
 const Navigation = lazy(() =>
@@ -83,7 +84,7 @@ const OrdersCustomer = lazy(() =>
 );
 const AllUsers = lazy(() => import("./routes/all-users/all-users.component"));
 const Income = lazy(() => import("./routes/income/income.component"));
-
+const Contact = lazy(() => import("./routes/contact/contact.component"));
 const App = () => {
   const { currentUser } = useGetCurrentUserSelectors();
   useGetUserOnLoadThunkUseEffect();
@@ -104,6 +105,8 @@ const App = () => {
             <Route path={menuRoute} element={<Menu />} />
             <Route path={categoryItemsRoute} element={<CategoryItems />} />
             <Route path={chooseOptionsRoute} element={<ChooseOptions />} />
+            <Route path={contactRoute} element={<Contact />} />
+
             <Route element={<PrivateRoutes />}>
               <Route
                 path={uploadMenuItemsRoute}

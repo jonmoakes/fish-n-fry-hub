@@ -19,6 +19,7 @@ import { shouldShowElementReducer } from "./should-show-element/should-show-elem
 import { getAllUsersReducer } from "./get-all-users/get-all-users.slice";
 import { incomeDataReducer } from "./income-data/income-data.slice";
 import { orderToRepeatReducer } from "./order-to-repeat/order-to-repeat.slice";
+import { contactFormReducer } from "./contact-form/contact-form.slice";
 
 export const rootReducer = combineReducers({
   hamburgerMenu: hamburgerMenuReducer,
@@ -40,4 +41,5 @@ export const rootReducer = combineReducers({
   getAllUsers: getAllUsersReducer,
   incomeData: incomeDataReducer,
   orderToRepeat: orderToRepeatReducer,
+  contactForm: contactFormReducer,
 });
