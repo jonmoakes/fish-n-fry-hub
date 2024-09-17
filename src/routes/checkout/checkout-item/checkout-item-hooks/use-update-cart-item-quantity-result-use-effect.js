@@ -9,6 +9,7 @@ import {
 import useFireSwal from "../../../../hooks/use-fire-swal";
 
 import { errorReceivedMessage } from "../../../../strings/errors/errors-strings";
+import { successMessage } from "../../../../strings/successes/sucesses-strings";
 
 const useUpdateCartItemQuantityResultUseEffect = () => {
   const { updateCartItemQuantityResult, updateCartItemQuantityError } =
@@ -21,7 +22,7 @@ const useUpdateCartItemQuantityResultUseEffect = () => {
     if (!updateCartItemQuantityResult && !updateCartItemQuantityError) return;
 
     if (updateCartItemQuantityResult === "fulfilled") {
-      fireSwal("success", "success", "", 1000, "", false, "", true);
+      fireSwal("success", successMessage, "", 1000, "", false, "", true);
 
       dispatch(resetUpdateCartItemQuantityResult());
     } else if (updateCartItemQuantityResult === "rejected") {

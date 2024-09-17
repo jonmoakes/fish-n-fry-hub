@@ -7,6 +7,7 @@ import useConfirmSwal from "../../../../../hooks/use-confirm-swal";
 
 import { confirmUpdateOrderStatusMessage } from "../../../../../strings/confirms/confirms-strings";
 import { ordersOwnerAllTimeOrdersRoute } from "../../../../../strings/routes/routes-strings";
+import { updateStatusMessage } from "../../../../../strings/info/info-strings";
 
 const useConfirmUpdateOrderStatus = (row) => {
   const { confirmSwal } = useConfirmSwal();
@@ -60,7 +61,7 @@ const useConfirmUpdateOrderStatus = (row) => {
     confirmSwal(
       confirmUpdateOrderStatusMessage(orderStatus),
       "",
-      "yes, update status!",
+      updateStatusMessage,
       "",
       confirmResult,
       null

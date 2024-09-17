@@ -5,6 +5,8 @@ import useHamburgerHandlerNavigate from "../../../hooks/use-hamburger-handler-na
 import { resetOrderToRepeatState } from "../../../store/order-to-repeat/order-to-repeat.slice";
 
 import { ordersCustomerRoute } from "../../../strings/routes/routes-strings";
+import { confirmCancelRepeatOrderMessage } from "../../../strings/confirms/confirms-strings";
+import { yesReturnMessage } from "../../../strings/info/info-strings";
 
 const useCancelRepeatOrder = () => {
   const { confirmSwal } = useConfirmSwal();
@@ -18,9 +20,9 @@ const useCancelRepeatOrder = () => {
     };
 
     confirmSwal(
-      "cancel repeat order and return to your orders table?",
+      confirmCancelRepeatOrderMessage,
       "",
-      "yes, return",
+      yesReturnMessage,
       "",
       confirmResult,
       null

@@ -2,7 +2,7 @@ import postmark from "postmark";
 const client = new postmark.ServerClient(process.env.VITE_POSTMARK_API_KEY);
 
 export const handler = async (event) => {
-  const { name, email, orderDetails } = JSON.parse(event.body);
+  const { name, email, customerId, orderDetails } = JSON.parse(event.body);
 
   try {
     await client.sendEmailWithTemplate({
@@ -14,6 +14,7 @@ export const handler = async (event) => {
         product_name: "Fish 'n' Fry Hub",
         name,
         email,
+        customerId,
         orderDetails,
       },
     });

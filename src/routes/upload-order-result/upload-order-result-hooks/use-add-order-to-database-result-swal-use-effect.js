@@ -15,12 +15,17 @@ import useHamburgerHandlerNavigate from "../../../hooks/use-hamburger-handler-na
 import { uploadOrderSendEmailConfirmationRoute } from "../../../strings/routes/routes-strings";
 import { errorUploadingOrderToDbMessage } from "../../../strings/errors/errors-strings";
 import useGetOrderToRepeatSelectors from "../../../hooks/selectors/use-get-order-to-repeat-selectors";
+import { sendEmailText } from "../../../strings/info/info-strings";
 
 const useAddOrderToDatabaseResultSwalUseEffect = () => {
   const { addOrderResult, addOrderError } = useGetDatabaseManagementSelectors();
-  const { orderToRepeatResult, orderToRepeatError } =
-    useGetOrderToRepeatSelectors();
-  const { name, email } = useGetCurrentUserSelectors();
+  const {
+    orderToRepeatResult,
+    orderToRepeatError,
+    orderToRepeatDetails,
+    repeatOrderForDb,
+  } = useGetOrderToRepeatSelectors();
+  const { name, email, id } = useGetCurrentUserSelectors();
   const { cartItems } = useGetCartItemsSelectors();
 
   const { emailSentToAppOwnerAfterUploadOrderErrorSwal } =
@@ -56,17 +61,22 @@ const useAddOrderToDatabaseResultSwalUseEffect = () => {
         errorUploadingOrderToDbMessage,
         "",
         0,
-        "send email",
+        sendEmailText,
         false,
         "",
         false
       ).then((isConfirmed) => {
         if (isConfirmed) {
+          const customerId = id;
+          const orderDetails = orderToRepeatDetails
+            ? repeatOrderForDb
+            : JSON.stringify(cartItems);
           dispatch(
             sendEmailOrderNotAddedToDatabaseAsync({
-              cartItems,
               name,
               email,
+              customerId,
+              orderDetails,
             })
           ).then((resultAction) => {
             if (
@@ -98,6 +108,9 @@ const useAddOrderToDatabaseResultSwalUseEffect = () => {
     errorEmailingOrderToAppOwnerSwal,
     emailSentToAppOwnerAfterUploadOrderErrorSwal,
     cartItems,
+    orderToRepeatDetails,
+    repeatOrderForDb,
+    id,
   ]);
 };
 

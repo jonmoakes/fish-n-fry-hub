@@ -9,6 +9,7 @@ import {
 import useFireSwal from "../../../../hooks/use-fire-swal";
 
 import { errorReceivedMessage } from "../../../../strings/errors/errors-strings";
+import { itemRemovedMessage } from "../../../../strings/successes/sucesses-strings";
 
 const useRemoveCartItemResultUseEffect = () => {
   const { removeCartItemResult, removeCartItemError } =
@@ -21,7 +22,7 @@ const useRemoveCartItemResultUseEffect = () => {
     if (!removeCartItemResult && !removeCartItemError) return;
 
     if (removeCartItemResult === "fulfilled") {
-      fireSwal("success", "item removed!", "", 1000, "", false, "", false);
+      fireSwal("success", itemRemovedMessage, "", 1000, "", false, "", false);
       dispatch(resetRemoveCartItemResult());
     } else if (removeCartItemResult === "rejected") {
       fireSwal(

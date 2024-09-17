@@ -5,6 +5,7 @@ import { setIdOfOrderToRepeat } from "../../../store/order-to-repeat/order-to-re
 
 import { repeatOrderRoute } from "../../../strings/routes/routes-strings";
 import useConfirmSwal from "../../../hooks/use-confirm-swal";
+import { confirmReorderMessage } from "../../../strings/confirms/confirms-strings";
 
 const useGetOrderAndGoToRepeatOrderPage = () => {
   const { hamburgerHandlerNavigate } = useHamburgerHandlerNavigate();
@@ -17,14 +18,7 @@ const useGetOrderAndGoToRepeatOrderPage = () => {
       hamburgerHandlerNavigate(repeatOrderRoute);
     };
 
-    confirmSwal(
-      "do you want to reorder this meal? You will have the chance to review and confirm before purchasing.",
-      "",
-      "yes",
-      "",
-      confirmResult,
-      null
-    );
+    confirmSwal(confirmReorderMessage, "", "yes", "", confirmResult, null);
   };
 
   return { getOrderAndGoToRepeatOrderPage };

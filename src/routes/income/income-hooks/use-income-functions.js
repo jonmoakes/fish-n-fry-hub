@@ -3,6 +3,7 @@ import useHamburgerHandlerNavigate from "../../../hooks/use-hamburger-handler-na
 
 import { allUsersRoute } from "../../../strings/routes/routes-strings";
 import useConfirmSwal from "../../../hooks/use-confirm-swal";
+import { confirmGoToUsersPageMessage } from "../../../strings/confirms/confirms-strings";
 
 const useIncomeFunctions = () => {
   const { hamburgerHandlerNavigate } = useHamburgerHandlerNavigate();
@@ -35,7 +36,7 @@ const useIncomeFunctions = () => {
 
   const navigateToUsersPage = () => {
     confirmSwal(
-      "go to users page?",
+      confirmGoToUsersPageMessage,
       "",
       "yes",
       "",

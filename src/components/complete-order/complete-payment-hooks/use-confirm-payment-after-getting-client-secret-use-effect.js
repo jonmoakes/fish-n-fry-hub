@@ -6,6 +6,10 @@ import useGetCardInputResultSelectors from "../../../hooks/selectors/use-get-car
 import useGetHandlePaymentSelectors from "../../../hooks/selectors/use-get-handle-payment-selectors";
 import useGetPaymentResultObjectThunk from "./use-get-payment-result-object-thunk";
 import useConfirmSwal from "../../../hooks/use-confirm-swal";
+import {
+  confirmCompleteOrderMessage,
+  yesPlaceOrderMessage,
+} from "../../../strings/confirms/confirms-strings";
 
 const useConfirmPaymentAfterGettingClientSecretUseEffect = () => {
   const { showPrePayButton } = useGetCardInputResultSelectors();
@@ -43,9 +47,9 @@ const useConfirmPaymentAfterGettingClientSecretUseEffect = () => {
     };
 
     confirmSwal(
-      "complete your order?",
+      confirmCompleteOrderMessage,
       "",
-      "yes, place order",
+      yesPlaceOrderMessage,
       "",
       confirmResult,
       cancelResult

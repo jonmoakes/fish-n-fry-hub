@@ -13,6 +13,7 @@ import { YellowGreenButton } from "../../styles/buttons/buttons.styles";
 import { Container } from "../../styles/container/container.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
 import { Title } from "../../styles/h1/h1.styles";
+import { errorReceivedMessage } from "../../strings/errors/errors-strings";
 
 const UploadMenuItems = () => {
   const { uploadMenuItemsIsLoading, uploadMenuItemsError } =
@@ -30,8 +31,8 @@ const UploadMenuItems = () => {
 
     fireSwal(
       "error",
-      "error uploading menu items",
-      uploadMenuItemsError,
+      errorReceivedMessage("error uploading menu items", uploadMenuItemsError),
+      "",
       0,
       "",
       false,

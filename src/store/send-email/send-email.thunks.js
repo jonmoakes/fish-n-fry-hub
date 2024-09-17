@@ -29,15 +29,14 @@ export const sendEmailOrderConfirmationAsync = createAsyncThunk(
 
 export const sendEmailOrderNotAddedToDatabaseAsync = createAsyncThunk(
   "sendEmailOrderNotAddedToDatabase",
-  async ({ cartItems, name, email }, thunkAPI) => {
+  async ({ name, email, customerId, orderDetails }, thunkAPI) => {
     try {
-      const orderDetails = JSON.stringify(cartItems);
-
       const response = await axios.post(
         SEND_EMAIL_ORDER_NOT_ADDED_TO_DATABASE_ENDPOINT,
         {
           name,
           email,
+          customerId,
           orderDetails,
         }
       );

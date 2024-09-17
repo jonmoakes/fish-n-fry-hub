@@ -12,6 +12,7 @@ import {
   ordersCustomerRoute,
   uploadOrderDeleteCartItemsRoute,
 } from "../../../strings/routes/routes-strings";
+import { emailSentMessage } from "../../../strings/successes/sucesses-strings";
 
 const useSendEmailConfirmationFunctions = () => {
   const { email, name } = useGetCurrentUserSelectors();
@@ -37,7 +38,7 @@ const useSendEmailConfirmationFunctions = () => {
       })
     ).then((resultAction) => {
       if (sendEmailOrderConfirmationAsync.fulfilled.match(resultAction)) {
-        fireSwal("success", "email sent!", "", 2000, "", false, "", true);
+        fireSwal("success", emailSentMessage, "", 2000, "", false, "", true);
         if (orderToRepeatDetails) {
           dispatch(resetOrderToRepeatState());
           hamburgerHandlerNavigate(ordersCustomerRoute);

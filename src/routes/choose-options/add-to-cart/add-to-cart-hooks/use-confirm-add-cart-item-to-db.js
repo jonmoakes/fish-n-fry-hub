@@ -4,6 +4,8 @@ import useGetCurrentUserSelectors from "../../../../hooks/selectors/use-get-curr
 import { addCartItemToDatabaseAsync } from "../../../../store/cart/cart.thunks";
 import useGetItemToAddToCart from "./use-get-item-to-add-to-cart";
 import useConfirmSwal from "../../../../hooks/use-confirm-swal";
+import { confirmAddItemToCartMessage } from "../../../../strings/confirms/confirms-strings";
+import { yesAddItMessage } from "../../../../strings/successes/sucesses-strings";
 
 const useConfirmAddCartItemToDb = () => {
   const { id } = useGetCurrentUserSelectors();
@@ -19,9 +21,9 @@ const useConfirmAddCartItemToDb = () => {
 
   const confirmAddCartItemToDb = () => {
     confirmSwal(
-      "add this item to your cart?",
+      confirmAddItemToCartMessage,
       "",
-      "yes, add it!",
+      yesAddItMessage,
       "",
       confirmResult
     );

@@ -6,6 +6,7 @@ import useHamburgerHandlerNavigate from "../../../hooks/use-hamburger-handler-na
 import useFireSwal from "../../../hooks/use-fire-swal";
 
 import { menuRoute } from "../../../strings/routes/routes-strings";
+import { errorDeletingCartItemsFromDbMessage } from "../../../strings/errors/errors-strings";
 
 const useDeleteCartItemsFromDbResultUseEffect = () => {
   const { deleteUserCartItemsResult, deleteUserCartItemsError } =
@@ -22,7 +23,7 @@ const useDeleteCartItemsFromDbResultUseEffect = () => {
     } else if (deleteUserCartItemsResult === "rejected") {
       fireSwal(
         "error",
-        "Please note, we had an error when trying to clear your cart items. This does not affect your order that you have just placed, but please go to your account page and tap the clear cart items button to clear them manually. We apologise for the inconvenience!",
+        errorDeletingCartItemsFromDbMessage,
         "",
         0,
         "",

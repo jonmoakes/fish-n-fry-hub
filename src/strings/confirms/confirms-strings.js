@@ -19,3 +19,11 @@ export const confirmUpdateOrderStatusMessage = (orderStatus) => {
 };
 
 export const confirmGoToAllTimeOrdersRouteMessage = `<span style="font-size: 20px;">are you sure you want to view every order ever made?<br/><br/>please note that depending on the amount of orders you have, this may take a while to load so please be patient. ;)</span>`;
+export const confirmCompleteOrderMessage = "complete your order?";
+export const yesPlaceOrderMessage = "yes, place order!";
+export const confirmAddItemToCartMessage = "add this item to your cart?";
+export const confirmGoToUsersPageMessage = "go to users page?";
+export const confirmReorderMessage =
+  "do you want to reorder this meal? You will have the chance to review and confirm before purchasing.";
+export const confirmCancelRepeatOrderMessage =
+  "cancel repeat order and return to your orders table?";

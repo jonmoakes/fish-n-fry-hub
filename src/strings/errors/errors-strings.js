@@ -32,3 +32,9 @@ export const errorSendingEmailMessage = (error) => {
 };
 
 export const errorUploadingOrderToDbMessage = `<span style="font-size:20px";>sorry, there has been an error. your payment was taken but there was an error uploading the order to the database.<br/><br/>please tap the 'send email' button below which will email the app owner with the details of your order.<br/><br/>They will then respond asap to confirm your order details. We apologise for the inconvenience!</span>`;
+
+export const errorEmailOrderToAppOwnerMessage = (message) => {
+  return `<span style="font-size:20px";>well this is embarassing..The email failed to send. ${message} Please DO NOT try to place the order again as you would be charged twice. We sincerely apologise for the inconvenience.</span>`;
+};
+
+export const errorDeletingCartItemsFromDbMessage = `<span style="font-size:20px";>Please note, we had an error when trying to clear your cart items.<br/>This does not affect your order that you have just placed, but please go to your account page and tap the clear cart items button to clear them manually.<br/>We apologise for the inconvenience!</span>`;

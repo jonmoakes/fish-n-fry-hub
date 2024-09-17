@@ -12,7 +12,7 @@ export const fetchOrderToRepeatAsync = createAsyncThunk(
   async ({ idOfOrderToRepeat }, thunkAPI) => {
     try {
       if (!idOfOrderToRepeat) {
-        return null;
+        throw new Error("missing order id");
       }
       const getOrderToRepeat = await manageDatabaseDocument(
         "get",
