@@ -37,6 +37,7 @@ import {
   accountRoute,
   pwaInfoRoute,
   databaseManagementRoute,
+  aboutRoute,
 } from "./strings/routes/routes-strings";
 
 const Navigation = lazy(() =>
@@ -45,6 +46,7 @@ const Navigation = lazy(() =>
 const Home = lazy(() => import("./routes/home/home.component"));
 const SignUp = lazy(() => import("./routes/sign-up/sign-up.component"));
 const SignIn = lazy(() => import("./routes/sign-in/sign-in.component"));
+const About = lazy(() => import("./routes/about/about.component"));
 const Menu = lazy(() => import("./routes/menu/menu.component"));
 const CategoryItems = lazy(() =>
   import("./routes/category-items/category-items.component")
@@ -114,6 +116,7 @@ const App = () => {
             <Route path="/" element={<Home />} />
             <Route path={signUpRoute} element={<SignUp />} />
             <Route path={signInRoute} element={<SignIn />} />
+            <Route path={aboutRoute} element={<About />} />
             <Route path={menuRoute} element={<Menu />} />
             <Route path={categoryItemsRoute} element={<CategoryItems />} />
             <Route path={chooseOptionsRoute} element={<ChooseOptions />} />

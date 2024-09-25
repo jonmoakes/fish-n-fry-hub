@@ -29,6 +29,15 @@ const useSendEmailConfirmationFunctions = () => {
     ? repeatOrderAsEmail
     : formattedStringOfOrderForEmail;
 
+  const handleAfterSendEmailChoice = () => {
+    if (orderToRepeatDetails) {
+      dispatch(resetOrderToRepeatState());
+      hamburgerHandlerNavigate(ordersCustomerRoute);
+    } else {
+      hamburgerHandlerNavigate(uploadOrderDeleteCartItemsRoute);
+    }
+  };
+
   const sendEmail = () => {
     dispatch(
       sendEmailOrderConfirmationAsync({
@@ -39,23 +48,13 @@ const useSendEmailConfirmationFunctions = () => {
     ).then((resultAction) => {
       if (sendEmailOrderConfirmationAsync.fulfilled.match(resultAction)) {
         fireSwal("success", emailSentMessage, "", 2000, "", false, "", true);
-        if (orderToRepeatDetails) {
-          dispatch(resetOrderToRepeatState());
-          hamburgerHandlerNavigate(ordersCustomerRoute);
-        } else {
-          hamburgerHandlerNavigate(uploadOrderDeleteCartItemsRoute);
-        }
+        handleAfterSendEmailChoice();
       }
     });
   };
 
   const dontSendEmail = () => {
-    if (orderToRepeatDetails) {
-      dispatch(resetOrderToRepeatState());
-      hamburgerHandlerNavigate(ordersCustomerRoute);
-    } else {
-      hamburgerHandlerNavigate(uploadOrderDeleteCartItemsRoute);
-    }
+    handleAfterSendEmailChoice();
   };
 
   return { sendEmail, dontSendEmail };

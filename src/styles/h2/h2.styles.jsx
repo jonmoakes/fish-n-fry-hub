@@ -10,6 +10,10 @@ import {
 export const H2 = styled.h2`
   color: ${customYellow};
   text-shadow: 0.5px 0.5px 0.5px ${customBlack};
+
+  &.underline {
+    text-decoration: underline;
+  }
 `;
 
 export const TotalPriceH2 = styled.h2`

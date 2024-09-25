@@ -5,7 +5,7 @@ import useGetDatabaseManagementSelectors from "../../../hooks/selectors/use-get-
 import useHamburgerHandlerNavigate from "../../../hooks/use-hamburger-handler-navigate";
 import useFireSwal from "../../../hooks/use-fire-swal";
 
-import { menuRoute } from "../../../strings/routes/routes-strings";
+import { ordersCustomerRoute } from "../../../strings/routes/routes-strings";
 import { errorDeletingCartItemsFromDbMessage } from "../../../strings/errors/errors-strings";
 
 const useDeleteCartItemsFromDbResultUseEffect = () => {
@@ -19,7 +19,7 @@ const useDeleteCartItemsFromDbResultUseEffect = () => {
     if (!deleteUserCartItemsResult && !deleteUserCartItemsError) return;
 
     if (deleteUserCartItemsResult === "fulfilled") {
-      hamburgerHandlerNavigate(menuRoute);
+      hamburgerHandlerNavigate(ordersCustomerRoute);
     } else if (deleteUserCartItemsResult === "rejected") {
       fireSwal(
         "error",
@@ -32,7 +32,7 @@ const useDeleteCartItemsFromDbResultUseEffect = () => {
         false
       ).then((isConfirmed) => {
         if (isConfirmed) {
-          hamburgerHandlerNavigate(menuRoute);
+          hamburgerHandlerNavigate(ordersCustomerRoute);
         }
       });
     }
