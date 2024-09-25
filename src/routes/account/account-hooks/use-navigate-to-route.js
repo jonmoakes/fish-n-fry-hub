@@ -22,7 +22,7 @@ const useNavigateToRoute = () => {
   const appOwnerButtons = [
     {
       id: 1,
-      text: "view Orders",
+      text: "view todays orders",
       onClick: () => hamburgerHandlerNavigate(ordersOwnerRoute),
     },
     {

@@ -7,7 +7,6 @@ import {
   customBlue,
   customLightGreen,
   customYellow,
-  customRed,
   customWhite,
   customLightYellow,
   customSalmon,
@@ -27,7 +26,7 @@ export const HamburgerSpan = styled.span`
 `;
 
 export const HamburgerSpanCloseMenu = styled(HamburgerSpan)`
-  background-color: ${customRed};
+  background-color: ${customTomato};
 `;
 
 export const BorderLink = styled.span`

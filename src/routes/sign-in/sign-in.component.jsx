@@ -18,19 +18,27 @@ import { StyledLink } from "../../styles/link/link.styles";
 import { Text } from "../../styles/p/p.styles";
 import { BlackHr } from "../../styles/hr/hr.styles";
 
-import { menuRoute, signUpRoute } from "../../strings/routes/routes-strings";
+import { appOwnerId } from "../../constants/constants";
+import {
+  accountRoute,
+  menuRoute,
+  signUpRoute,
+} from "../../strings/routes/routes-strings";
 
 const SignIn = () => {
-  const { currentUser, currentUserIsLoading } = useGetCurrentUserSelectors();
+  const { currentUser, currentUserIsLoading, id } =
+    useGetCurrentUserSelectors();
   useHandleSignInFormError();
   const { dispatchHandleSignInFormChange } = useSignInFormFunctions();
 
   return (
     <Container>
-      {currentUser !== null && currentUser !== undefined && (
-        <Navigate replace to={menuRoute} />
-      )}
-
+      {currentUser &&
+        (id === appOwnerId ? (
+          <Navigate replace to={accountRoute} />
+        ) : (
+          <Navigate replace to={menuRoute} />
+        ))}
       {currentUserIsLoading ? <Loader /> : null}
 
       <ParentDiv>
