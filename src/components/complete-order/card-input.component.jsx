@@ -87,6 +87,7 @@ const CardInput = () => {
                   real items / payments.
                 </Balancer>
               </Text>
+
               <YellowGreenButton onClick={() => setUserHasConfirmed(true)}>
                 i understand
               </YellowGreenButton>
