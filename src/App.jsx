@@ -35,6 +35,7 @@ import {
   contactRoute,
   accountRoute,
   pwaInfoRoute,
+  databaseManagementRoute,
 } from "./strings/routes/routes-strings";
 
 const Navigation = lazy(() =>
@@ -90,6 +91,9 @@ const Contact = lazy(() => import("./routes/contact/contact.component"));
 const Account = lazy(() => import("./routes/account/account.component"));
 const PwaInformation = lazy(() =>
   import("./routes/pwa-info/pwa-information.component")
+);
+const DatabaseManagement = lazy(() =>
+  import("./routes/database-management/database-management.component")
 );
 
 const App = () => {
@@ -188,6 +192,16 @@ const App = () => {
                   ) : null
                 }
               />
+
+              <Route
+                path={databaseManagementRoute}
+                element={
+                  currentUser && currentUser.id === appOwnerId ? (
+                    <DatabaseManagement />
+                  ) : null
+                }
+              />
+
               <Route path={pwaInfoRoute} element={<PwaInformation />} />
             </Route>
           </Routes>

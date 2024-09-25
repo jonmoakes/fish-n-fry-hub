@@ -5,7 +5,6 @@ import {
   customLightGrey,
   customRed,
   customTomato,
-  customYellow,
 } from "./styles/colors";
 
 export const GlobalStyle = createGlobalStyle`

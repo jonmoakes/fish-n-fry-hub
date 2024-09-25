@@ -35,3 +35,7 @@ export const uploadOrderDeleteCartItemsRoute = "/delete-cart-items";
 export const incomeRoute = "/income";
 export const repeatOrderRoute = "/repeat-order";
 export const pwaInfoRoute = "/pwa-info";
+export const databaseManagementAddOrderRoute =
+  "/database-manangement/add-order";
+export const databaseManagementDeleteUserRoute =
+  "/database-manangement/delete-user";
