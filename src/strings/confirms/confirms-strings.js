@@ -29,3 +29,4 @@ export const confirmCancelRepeatOrderMessage =
   "cancel repeat order and return to your orders table?";
 export const sureSendContactFormMessage =
   "are you sure you want to send this message?";
+export const areYouSureMessage = "are you sure?";

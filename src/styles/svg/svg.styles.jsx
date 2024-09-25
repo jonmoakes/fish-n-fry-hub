@@ -4,6 +4,7 @@ import LoaderSVG from "../../assets/loader.svg?react";
 import StripeSVG from "../../assets/stripe-logo.svg?react";
 import AddArrowSVG from "../../assets/add-arrow.svg?react";
 import MinusArrowSVG from "../../assets/minus-arrow.svg?react";
+import BackArrowSVG from "../../assets/back-arrow.svg?react";
 
 export const StripeLogo = styled(StripeSVG)`
   width: 300px;
@@ -41,3 +42,5 @@ export const AddArrow = styled(AddArrowSVG)`
 export const MinusArrow = styled(MinusArrowSVG)`
   cursor: pointer;
 `;
+
+export const BackArrow = styled(BackArrowSVG)``;

@@ -10,7 +10,8 @@ import useGetUserOnLoadThunkUseEffect from "./hooks/use-get-user-on-load-thunk-u
 
 import { appOwnerId } from "./constants/constants";
 
-import useScrollToTop from "./hooks/use-scroll-to-top";
+import ScrollToTop from "./components/scroll-to-top/scroll-to-top";
+import FloatingBackButton from "./components/floating-back-button/floating-back-button.component";
 import PrivateRoutes from "./components/private-routes/private-routes.component";
 import ErrorFallback from "./components/errors/error-fallback.component";
 import Loader from "./components/loader/loader.component";
@@ -100,12 +101,12 @@ const App = () => {
   const { currentUser } = useGetCurrentUserSelectors();
   useGetUserOnLoadThunkUseEffect();
   useCartItemsListener();
-  useScrollToTop();
 
   return (
     <>
       <GlobalStyle />
-      {/* <FloatingBackButton /> */}
+      <ScrollToTop />
+      <FloatingBackButton />
       <Navigation />
       <ErrorBoundary FallbackComponent={ErrorFallback}>
         <Suspense fallback={<Loader />}>
