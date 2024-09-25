@@ -7,7 +7,7 @@ import { ParentDiv } from "../../../styles/div/div.styles";
 const MenuInfo = () => (
   <ParentDiv>
     <H2 className="underline">the menu</H2>
-    <Text>the user is initially greated with a list of categories.</Text>
+    <Text>the user is initially greeted with a list of categories.</Text>
     <Text>
       <Balancer>
         they can tap on any category to view its products or, if they know what
@@ -16,9 +16,13 @@ const MenuInfo = () => (
       </Balancer>
     </Text>
     <Text>
+      having chosen a category, a list of products from within that category are
+      displayed.
+    </Text>
+    <Text>
       <Balancer>
-        a user taps on the 'select & choose options' button, where they are then
-        taken to the product details page.
+        a user taps on the 'select & choose options' button on the product that
+        they want, where they are then taken to the product details page.
       </Balancer>
     </Text>
     <Text>
@@ -38,9 +42,9 @@ const MenuInfo = () => (
     <Text>when they are happy, they tap on the 'add to cart button'.</Text>
     <Text>
       <Balancer>
-        once a user has at leat one item in their cart, the checkout option will
-        appear in the navigation menu - clearly highlighted so that the user
-        does not have to hunt around for the option.
+        once a user has at least one item in their cart, the checkout option
+        will appear in the navigation menu - clearly highlighted so that the
+        user does not have to hunt around for the option.
       </Balancer>
     </Text>
     <Text>
