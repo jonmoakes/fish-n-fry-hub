@@ -121,6 +121,10 @@ export const ParentDiv = styled.div`
     box-shadow: none;
   }
 
+  &.grey {
+    background-color: ${customGrey};
+  }
+
   &.repeat-order {
     background-color: ${customGoldenRod};
   }
@@ -838,4 +842,23 @@ export const OrderStatusDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+export const VideoWrapper = styled.div`
+  background-color: ${customGrey};
+  padding: 50px;
+  margin: 20px auto;
+  border: 2px solid ${customBlack};
+  border-radius: 10px;
+  box-shadow: 6px 6px 15px ${customBlack};
+  height: auto;
+  max-width: 95%;
+
+  @media screen and (max-width: 1366px) {
+    box-shadow: none;
+  }
+
+  @media screen and (max-width: 400px) {
+    padding: 20px;
+  }
 `;

@@ -22,7 +22,7 @@ const NoOrdersMadeYet = () => {
       <H2>no orders found</H2>
 
       {path === ordersOwnerRoute || path === ordersOwnerAllTimeOrdersRoute ? (
-        <Text>orders will appear here in realtime as they are made.</Text>
+        <Text>orders will appear here in real-time as they are made.</Text>
       ) : (
         <Text>orders will appear here when you have placed an order.</Text>
       )}

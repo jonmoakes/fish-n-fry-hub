@@ -1,3 +1,4 @@
+import Video from "../../components/video/video.component";
 import { ParentDiv } from "../../styles/div/div.styles";
 import { Title } from "../../styles/h1/h1.styles";
 import { Text } from "../../styles/p/p.styles";
@@ -24,7 +25,7 @@ const AboutIntro = () => (
       </Text>
       <Text>
         for the app owner, they can manage their business more efficiently by
-        seeing orders appear in realtime on their screen.
+        seeing orders appear in real-time on their screen.
       </Text>
       <Text>
         they can mark off orders as completed once they are cooked and also
@@ -36,6 +37,8 @@ const AboutIntro = () => (
         and then from the owners.
       </Text>
     </ParentDiv>
+
+    <Video />
   </>
 );
 

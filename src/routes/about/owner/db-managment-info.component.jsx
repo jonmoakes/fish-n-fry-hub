@@ -14,7 +14,7 @@ const DbManagementInfo = () => (
       <ListItem>update prices</ListItem>
       <ListItem>delete users</ListItem>
       <ListItem>create orders manually</ListItem>
-      <ListItem>sned emails manually</ListItem>
+      <ListItem>send emails manually</ListItem>
       <ListItem>and more!</ListItem>
     </StyledUnorderedList>
 

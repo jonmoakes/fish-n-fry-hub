@@ -26,8 +26,8 @@ const AboutOutro = () => (
     </Text>
     <Text>
       <Balancer>
-        if you want to see what the usewr experience is like, feel free to
-        create an account as a test user by{" "}
+        if you want to see what the user experience is like, feel free to create
+        an account as a test user by{" "}
         <StyledLink to={signUpRoute} className="yellow">
           signing up
         </StyledLink>
@@ -42,7 +42,7 @@ const AboutOutro = () => (
     </Text>
     <Text>
       <Balancer>
-        I welcome any feedback that you may have, so please don't hesistate to{" "}
+        I welcome any feedback that you may have, so please don't hesitate to{" "}
         <StyledLink to={contactRoute} className="yellow">
           contact me
         </StyledLink>{" "}
