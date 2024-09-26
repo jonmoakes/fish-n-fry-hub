@@ -1,4 +1,3 @@
-import Video from "../../components/video/video.component";
 import { ParentDiv } from "../../styles/div/div.styles";
 import { Title } from "../../styles/h1/h1.styles";
 import { Text } from "../../styles/p/p.styles";
@@ -37,8 +36,6 @@ const AboutIntro = () => (
         and then from the owners.
       </Text>
     </ParentDiv>
-
-    <Video />
   </>
 );
 

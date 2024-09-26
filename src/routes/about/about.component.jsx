@@ -15,10 +15,12 @@ import UserTableInfo from "./owner/user-table-info.component";
 import IncomeInfo from "./owner/income-info.component";
 import DbManagementInfo from "./owner/db-managment-info.component";
 import AboutOutro from "./about-outro.component";
+import ProcessVideo from "../../components/process-video/process-video.component";
 
 const About = () => (
   <Container>
     <AboutIntro />
+    <ProcessVideo />
     <ParentDiv>
       <H2>customer usage:</H2>
     </ParentDiv>
