@@ -20,7 +20,13 @@ const ProcessVideo = () => {
         below!
       </Text>
       <VideoWrapper>
-        <IphoneVideo src={videoBg} controls ref={videoRef} type="video/mp4">
+        <IphoneVideo
+          src={videoBg}
+          controls
+          playsInline
+          ref={videoRef}
+          type="video/mp4"
+        >
           Your browser does not support the video tag.
         </IphoneVideo>
       </VideoWrapper>
