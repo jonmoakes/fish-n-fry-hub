@@ -3,6 +3,7 @@ import {
   addOrderToDatabaseAsync,
   deleteUserCartItemsAsync,
   deleteDocumentAsync,
+  dbManageAddOrderToDatabaseAsync,
 } from "./database-management.thunks";
 
 const INITIAL_STATE = {
@@ -96,6 +97,19 @@ export const databaseManagementSlice = createSlice({
         state.databaseManagementIsLoading = false;
         state.deleteDocumentResult = "rejected";
         state.deleteDocumentError = action.payload;
+      })
+      .addCase(dbManageAddOrderToDatabaseAsync.pending, (state) => {
+        state.databaseManagementIsLoading = true;
+      })
+      .addCase(dbManageAddOrderToDatabaseAsync.fulfilled, (state) => {
+        state.databaseManagementIsLoading = false;
+        state.addOrderResult = "fulfilled";
+        state.addOrderError = null;
+      })
+      .addCase(dbManageAddOrderToDatabaseAsync.rejected, (state, action) => {
+        state.databaseManagementIsLoading = false;
+        state.addOrderResult = "rejected";
+        state.addOrderError = action.payload;
       });
   },
   selectors: {

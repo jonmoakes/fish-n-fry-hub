@@ -4,7 +4,7 @@ import useHamburgerHandlerNavigate from "../../../hooks/use-hamburger-handler-na
 import { setErrorIdFromEmail } from "../../../store/database-management/database-management.slice";
 
 import {
-  databaseManagementAddOrderRoute,
+  databaseManagementAddOrderAfterErrorRoute,
   databaseManagementDeleteUserRoute,
 } from "../../../strings/routes/routes-strings";
 
@@ -13,7 +13,7 @@ const useNavigateToDbManagementButtons = () => {
   const dispatch = useDispatch();
 
   const handleNavWithErrorId = (errorId, route) => {
-    dispatch(setErrorIdFromEmail());
+    dispatch(setErrorIdFromEmail(errorId));
     hamburgerHandlerNavigate(route);
   };
 
@@ -30,9 +30,10 @@ const useNavigateToDbManagementButtons = () => {
   const dbManagementForErrorReceivedButtons = [
     {
       id: 2,
-      heading: "create an order after you received an error email",
-      text: "create order",
-      onClick: () => handleNavWithErrorId("1", databaseManagementAddOrderRoute),
+      heading: "email error id",
+      text: "1",
+      onClick: () =>
+        handleNavWithErrorId("1", databaseManagementAddOrderAfterErrorRoute),
     },
   ];
 

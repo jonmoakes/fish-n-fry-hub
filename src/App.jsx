@@ -40,6 +40,7 @@ import {
   databaseManagementRoute,
   databaseManagementDeleteUserRoute,
   aboutRoute,
+  databaseManagementAddOrderAfterErrorRoute,
 } from "./strings/routes/routes-strings";
 
 const Navigation = lazy(() =>
@@ -103,6 +104,11 @@ const DatabaseManagement = lazy(() =>
 const DBManageDeleteUser = lazy(() =>
   import(
     "./routes/database-management-delete-user/db-manage-delete-user.component"
+  )
+);
+const DBManageAddOrderAfterError = lazy(() =>
+  import(
+    "./routes/database-management-add-order-after-error/db-manage-add-order-after-error.component"
   )
 );
 
@@ -216,6 +222,11 @@ const App = () => {
               <Route
                 path={databaseManagementDeleteUserRoute}
                 element={<DBManageDeleteUser />}
+              />
+
+              <Route
+                path={databaseManagementAddOrderAfterErrorRoute}
+                element={<DBManageAddOrderAfterError />}
               />
 
               <Route path={pwaInfoRoute} element={<PwaInformation />} />

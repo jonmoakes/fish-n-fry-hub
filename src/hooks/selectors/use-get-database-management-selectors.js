@@ -15,8 +15,14 @@ const useGetDatabaseManagementSelectors = () => {
     deleteDocumentError,
   } = useSelector(selectDatabaseManagementSelectors);
 
-  const { usersDocumentId, userToDeleteDocumentId } =
-    dataToUpdateDocument ?? {};
+  const {
+    usersDocumentId,
+    userToDeleteDocumentId,
+    customerName,
+    customerEmail,
+    customerId,
+    orderDetails,
+  } = dataToUpdateDocument ?? {};
 
   return {
     databaseManagementIsLoading,
@@ -31,6 +37,10 @@ const useGetDatabaseManagementSelectors = () => {
     deleteDocumentError,
     usersDocumentId,
     userToDeleteDocumentId,
+    customerName,
+    customerEmail,
+    customerId,
+    orderDetails,
   };
 };
 

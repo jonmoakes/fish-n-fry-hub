@@ -88,3 +88,30 @@ export const deleteDocumentAsync = createAsyncThunk(
     }
   }
 );
+
+export const dbManageAddOrderToDatabaseAsync = createAsyncThunk(
+  "dbManageAddOrderToDatabase",
+  async (
+    { orderDetails, customerName, customerEmail, customerId },
+    thunkAPI
+  ) => {
+    try {
+      const orderDocument = {
+        order: orderDetails,
+        customerName,
+        customerEmail,
+        customerId,
+      };
+
+      await manageDatabaseDocument(
+        "create",
+        databaseId,
+        ordersCollectionId,
+        ID.unique(),
+        orderDocument
+      );
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

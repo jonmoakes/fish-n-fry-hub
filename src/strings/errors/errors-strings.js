@@ -42,6 +42,8 @@ export const errorSendingContactFormMessage = (error) => {
   return `<span style="font-size:20px";>sorry, there was an error sending your message.<br/>Please Try Again.<br/><br/>The error received was:<br/>'<span style="color:${customYellow}";>${error}</span>'</span>`;
 };
 export const cantHaveUppercaseCharactersErrorMessage = `<span style="font-size: 20px;">  the input can't have uppercase characters.</span>`;
+
+export const dbManageAddOrdercantHaveUppercaseCharactersErrorMessage = `<span style="font-size: 20px;">the only input that is allowed to have uppercase characters is the 'order details' section.<br/><br/>please make sure that all other inputs are lowercase.</span>`;
 export const cantIncludeCommaMessage = "names can't include a comma";
 export const documentLengthErrorMessage =
   "the id field should be 20 characters in length";

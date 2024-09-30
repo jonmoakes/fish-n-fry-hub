@@ -32,6 +32,7 @@ const useResetAllStoreOnSignOut = () => {
     dispatch(resetSignUpFormState());
     dispatch(resetOrderToRepeatState());
     dispatch(resetContactFormState());
+    dispatch(resetDatabaseManagementState());
     localStorage.clear();
   };
 

@@ -30,6 +30,7 @@ import {
   incomeRoute,
   contactRoute,
   databaseManagementDeleteUserRoute,
+  databaseManagementAddOrderAfterErrorRoute,
 } from "../strings/routes/routes-strings";
 
 const useResetStore = () => {
@@ -77,6 +78,7 @@ const useResetStore = () => {
         dispatch(resetContactFormState());
         break;
       case databaseManagementDeleteUserRoute:
+      case databaseManagementAddOrderAfterErrorRoute:
         dispatch(resetDatabaseManagementState());
         break;
       default:

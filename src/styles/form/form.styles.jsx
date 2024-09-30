@@ -300,6 +300,7 @@ export const Label = styled.label`
   color: ${customBlack};
   float: left;
   padding-left: 20px;
+  margin-top: 20px;
 
   &.no-padding {
     margin-top: 10px;

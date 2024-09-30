@@ -119,7 +119,7 @@ const DatabaseManagement = () => {
 
           <ParentDiv>
             <WhiteH2>
-              <Balancer>for if you received an error email</Balancer>
+              <Balancer>for if you received an email with an error id</Balancer>
             </WhiteH2>
             <BlackHr />
             <RenderButtonsList

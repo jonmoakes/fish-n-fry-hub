@@ -39,3 +39,5 @@ export const databaseManagementAddOrderRoute =
   "/database-manangement/add-order";
 export const databaseManagementDeleteUserRoute =
   "/database-manangement/delete-user";
+export const databaseManagementAddOrderAfterErrorRoute =
+  "/database-manangement/add-order-after-error";
