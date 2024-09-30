@@ -15,6 +15,7 @@ import FloatingBackButton from "./components/floating-back-button/floating-back-
 import PrivateRoutes from "./components/private-routes/private-routes.component";
 import ErrorFallback from "./components/errors/error-fallback.component";
 import Loader from "./components/loader/loader.component";
+
 import {
   menuRoute,
   signInRoute,
@@ -37,6 +38,7 @@ import {
   accountRoute,
   pwaInfoRoute,
   databaseManagementRoute,
+  databaseManagementDeleteUserRoute,
   aboutRoute,
 } from "./strings/routes/routes-strings";
 
@@ -97,6 +99,11 @@ const PwaInformation = lazy(() =>
 );
 const DatabaseManagement = lazy(() =>
   import("./routes/database-management/database-management.component")
+);
+const DBManageDeleteUser = lazy(() =>
+  import(
+    "./routes/database-management-delete-user/db-manage-delete-user.component"
+  )
 );
 
 const App = () => {
@@ -204,6 +211,11 @@ const App = () => {
                     <DatabaseManagement />
                   ) : null
                 }
+              />
+
+              <Route
+                path={databaseManagementDeleteUserRoute}
+                element={<DBManageDeleteUser />}
               />
 
               <Route path={pwaInfoRoute} element={<PwaInformation />} />

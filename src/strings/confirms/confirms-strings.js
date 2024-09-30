@@ -30,3 +30,5 @@ export const confirmCancelRepeatOrderMessage =
 export const sureSendContactFormMessage =
   "are you sure you want to send this message?";
 export const areYouSureMessage = "are you sure?";
+export const confirmDeleteUserDocument =
+  "are you sure you want to delete the user?";

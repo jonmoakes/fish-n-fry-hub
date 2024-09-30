@@ -9,7 +9,14 @@ const useGetDatabaseManagementSelectors = () => {
     deleteUserCartItemsResult,
     deleteUserCartItemsError,
     formattedStringOfOrderForEmail,
+    errorIdFromEmail,
+    dataToUpdateDocument,
+    deleteDocumentResult,
+    deleteDocumentError,
   } = useSelector(selectDatabaseManagementSelectors);
+
+  const { usersDocumentId, userToDeleteDocumentId } =
+    dataToUpdateDocument ?? {};
 
   return {
     databaseManagementIsLoading,
@@ -18,6 +25,12 @@ const useGetDatabaseManagementSelectors = () => {
     deleteUserCartItemsResult,
     deleteUserCartItemsError,
     formattedStringOfOrderForEmail,
+    errorIdFromEmail,
+    dataToUpdateDocument,
+    deleteDocumentResult,
+    deleteDocumentError,
+    usersDocumentId,
+    userToDeleteDocumentId,
   };
 };
 

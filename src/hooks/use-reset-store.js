@@ -29,6 +29,7 @@ import {
   allUsersRoute,
   incomeRoute,
   contactRoute,
+  databaseManagementDeleteUserRoute,
 } from "../strings/routes/routes-strings";
 
 const useResetStore = () => {
@@ -74,6 +75,9 @@ const useResetStore = () => {
         break;
       case contactRoute:
         dispatch(resetContactFormState());
+        break;
+      case databaseManagementDeleteUserRoute:
+        dispatch(resetDatabaseManagementState());
         break;
       default:
         return;

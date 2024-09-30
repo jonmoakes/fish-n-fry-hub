@@ -2,6 +2,7 @@ import { createSelector, createSlice } from "@reduxjs/toolkit";
 import {
   addOrderToDatabaseAsync,
   deleteUserCartItemsAsync,
+  deleteDocumentAsync,
 } from "./database-management.thunks";
 
 const INITIAL_STATE = {
@@ -12,6 +13,9 @@ const INITIAL_STATE = {
   deleteUserCartItemsError: null,
   formattedStringOfOrderForEmail: "",
   errorIdFromEmail: "",
+  dataToUpdateDocument: {},
+  deleteDocumentResult: "",
+  deleteDocumentError: null,
 };
 
 export const databaseManagementSlice = createSlice({
@@ -35,6 +39,18 @@ export const databaseManagementSlice = createSlice({
     },
     setErrorIdFromEmail(state, action) {
       state.errorIdFromEmail = action.payload;
+    },
+    setDataToUpdateDocument(state, action) {
+      state.dataToUpdateDocument = action.payload;
+    },
+    resetDataToUpdateDocument(state) {
+      state.dataToUpdateDocument = {};
+    },
+    resetDeleteDocumentResult(state) {
+      state.deleteDocumentResult = "";
+    },
+    resetDeleteDocumentError(state) {
+      state.deleteDocumentError = null;
     },
     resetDatabaseManagementState: () => {
       return INITIAL_STATE;
@@ -67,6 +83,19 @@ export const databaseManagementSlice = createSlice({
         state.databaseManagementIsLoading = false;
         state.deleteUserCartItemsResult = "rejected";
         state.deleteUserCartItemsError = action.payload;
+      })
+      .addCase(deleteDocumentAsync.pending, (state) => {
+        state.databaseManagementIsLoading = true;
+      })
+      .addCase(deleteDocumentAsync.fulfilled, (state) => {
+        state.databaseManagementIsLoading = false;
+        state.deleteDocumentResult = "fulfilled";
+        state.deleteDocumentError = null;
+      })
+      .addCase(deleteDocumentAsync.rejected, (state, action) => {
+        state.databaseManagementIsLoading = false;
+        state.deleteDocumentResult = "rejected";
+        state.deleteDocumentError = action.payload;
       });
   },
   selectors: {
@@ -78,6 +107,9 @@ export const databaseManagementSlice = createSlice({
       (state) => state.deleteUserCartItemsError,
       (state) => state.formattedStringOfOrderForEmail,
       (state) => state.errorIdFromEmail,
+      (state) => state.dataToUpdateDocument,
+      (state) => state.deleteDocumentResult,
+      (state) => state.deleteDocumentError,
       (
         databaseManagementIsLoading,
         addOrderResult,
@@ -85,7 +117,10 @@ export const databaseManagementSlice = createSlice({
         deleteUserCartItemsResult,
         deleteUserCartItemsError,
         formattedStringOfOrderForEmail,
-        errorIdFromEmail
+        errorIdFromEmail,
+        dataToUpdateDocument,
+        deleteDocumentResult,
+        deleteDocumentError
       ) => {
         return {
           databaseManagementIsLoading,
@@ -95,6 +130,9 @@ export const databaseManagementSlice = createSlice({
           deleteUserCartItemsError,
           formattedStringOfOrderForEmail,
           errorIdFromEmail,
+          dataToUpdateDocument,
+          deleteDocumentResult,
+          deleteDocumentError,
         };
       }
     ),
@@ -108,6 +146,10 @@ export const {
   resetDeleteUserCartItemsError,
   setFormattedStringOfOrderForEmail,
   setErrorIdFromEmail,
+  setDataToUpdateDocument,
+  resetDataToUpdateDocument,
+  resetDeleteDocumentResult,
+  resetDeleteDocumentError,
   resetDatabaseManagementState,
 } = databaseManagementSlice.actions;
 export const { selectDatabaseManagementSelectors } =

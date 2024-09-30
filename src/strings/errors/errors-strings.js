@@ -41,3 +41,13 @@ export const errorDeletingCartItemsFromDbMessage = `<span style="font-size:20px"
 export const errorSendingContactFormMessage = (error) => {
   return `<span style="font-size:20px";>sorry, there was an error sending your message.<br/>Please Try Again.<br/><br/>The error received was:<br/>'<span style="color:${customYellow}";>${error}</span>'</span>`;
 };
+export const cantHaveUppercaseCharactersErrorMessage = `<span style="font-size: 20px;">  the input can't have uppercase characters.</span>`;
+export const cantIncludeCommaMessage = "names can't include a comma";
+export const documentLengthErrorMessage =
+  "the id field should be 20 characters in length";
+export const phoneNumberLengthErrorMessage =
+  "your phone number must be 11 digits long";
+export const whiteSpaceErrorMessage = `<span style="font-size: 20px;">one or some of your entered values starts or ends with a space ( ' ' ). please make sure there is no white space at the beginning or end of the data you are trying to input.</span>`;
+export const errorDeletingUserMessage = (error) => {
+  return `<span style="font-size:20px";>sorry, there was an error deleting the user.<br/>Please Try Again or contact us if the error persists.<br/><br/>The error received was:<br/>'<span style="color:${customYellow}";>${error}</span>'</span>`;
+};

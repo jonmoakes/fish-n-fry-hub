@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import {
   customBlack,
+  customBlue,
   customLightGreen,
   customTomato,
   customWhite,
@@ -41,4 +42,8 @@ export const WhiteH2 = styled.h2`
 export const RedH2 = styled.h2`
   color: ${customTomato};
   text-shadow: 1px 1px 1px ${customBlack};
+`;
+
+export const BlueH2 = styled.h2`
+  color: ${customBlue};
 `;
