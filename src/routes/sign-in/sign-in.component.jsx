@@ -5,7 +5,7 @@ import useGetCurrentUserSelectors from "../../hooks/selectors/use-get-current-us
 import useHandleSignInFormError from "./sign-in-form-hooks/use-handle-sign-in-form-error";
 import useSignInFormFunctions from "./sign-in-form-hooks/use-sign-in-form-functions";
 
-import Loader from "../../components/loader/loader.component";
+import SkeletonBox from "../../components/skeleton-box/skeleton-box.component";
 import SignInEmail from "./sign-in-email.component";
 import SignInPassword from "./sign-in-password.component";
 import SignInButton from "./sign-in-button.component";
@@ -39,7 +39,9 @@ const SignIn = () => {
         ) : (
           <Navigate replace to={menuRoute} />
         ))}
-      {currentUserIsLoading ? <Loader /> : null}
+      {currentUserIsLoading ? (
+        <SkeletonBox loadingText="Signing You In..." />
+      ) : null}
 
       <ParentDiv>
         <Title>sign in</Title>

@@ -3,7 +3,7 @@ import useOrdersOwnerListener from "../../components/tables/orders-owner/orders-
 import useFetchOrdersOwnerBasedOnPathThunkUseEffect from "../../components/tables/orders-owner/orders-owner-hooks/use-fetch-orders-owner-based-on-path-thunk-use-effect";
 import useConfirmMoveToAllTimeOrdersRoute from "./hooks/use-confirm-move-to-all-time-orders-route";
 
-import Loader from "../../components/loader/loader.component";
+import SkeletonBox from "../../components/skeleton-box/skeleton-box.component";
 import OrdersOwnerTable from "../../components/tables/orders-owner/orders-owner-table.component";
 
 import { Container } from "../../styles/container/container.styles";
@@ -21,7 +21,9 @@ const OrdersOwner = () => {
 
   return (
     <Container>
-      {ordersOwnerIsLoading ? <Loader /> : null}
+      {ordersOwnerIsLoading ? (
+        <SkeletonBox loadingText="Fetching Todays Orders..." />
+      ) : null}
       <ParentDiv>
         <Title>todays orders</Title>
         <MinimalButton onClick={confirmMoveToAllTimeOrdersRoute}>

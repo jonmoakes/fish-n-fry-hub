@@ -5,7 +5,7 @@ import useGetSendEmailSelectors from "../../hooks/selectors/use-get-send-email-s
 import useAddOrderToDatabaseResultSwalUseEffect from "./upload-order-result-hooks/use-add-order-to-database-result-swal-use-effect";
 import useUploadOrderThunkUseEffect from "./upload-order-result-hooks/use-add-order-to-database-thunk-use-effect";
 
-import Loader from "../../components/loader/loader.component";
+import SkeletonBox from "../../components/skeleton-box/skeleton-box.component";
 
 import { Container } from "../../styles/container/container.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
@@ -25,7 +25,7 @@ const UploadOrderResult = () => {
       {databaseManagementIsLoading ||
       orderToRepeatIsLoading ||
       sendEmailIsLoading ? (
-        <Loader />
+        <SkeletonBox loadingText="Uploading Order To Database..." />
       ) : null}
       <ParentDiv>
         <Title>

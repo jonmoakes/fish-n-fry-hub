@@ -13,12 +13,13 @@ import { resetSignUpFormState } from "../../../store/sign-up-form/sign-up-form.s
 import { resetOrdersCustomerState } from "../../../store/orders-customer/orders-customer-slice";
 import { resetOrderToRepeatState } from "../../../store/order-to-repeat/order-to-repeat.slice";
 import { resetContactFormState } from "../../../store/contact-form/contact-form.slice";
+import { resetMenuState } from "../../../store/menu/menu.slice";
 
 const useResetAllStoreOnSignOut = () => {
   const dispatch = useDispatch();
 
-  // not including resetMenu as none user needs the menu.
   const resetAllStoreOnSignOut = () => {
+    dispatch(resetMenuState());
     dispatch(resetCardInputResultState());
     dispatch(resetCartState());
     dispatch(resetChooseOptionsState());

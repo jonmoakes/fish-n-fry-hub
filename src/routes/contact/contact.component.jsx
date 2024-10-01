@@ -1,7 +1,7 @@
 import useSendContactFormMessageResultSwal from "./contact-form-hooks/use-send-contact-form-message-result-swal";
 import useGetContactFormSelectors from "../../hooks/selectors/use-get-contact-form-selectors";
 
-import Loader from "../../components/loader/loader.component";
+import SkeletonBox from "../../components/skeleton-box/skeleton-box.component";
 import ContactForm from "./sections/contact-form.component";
 
 import { Container } from "../../styles/container/container.styles";
@@ -14,7 +14,9 @@ const Contact = () => {
 
   return (
     <Container>
-      {contactFormIsLoading ? <Loader /> : null}
+      {contactFormIsLoading ? (
+        <SkeletonBox loadingText="Sending Message..." />
+      ) : null}
 
       <ParentDiv>
         <Title>contact us</Title>

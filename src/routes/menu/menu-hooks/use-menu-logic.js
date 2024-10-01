@@ -37,28 +37,12 @@ const useMenuLogic = () => {
     doc.name.toLowerCase().includes(searchField.toLowerCase())
   );
 
-  //menu
-  const menuHasBeenFetched = localStorage.getItem("menuHasBeenFetched");
   const cartItemsHaveBeenFetched = localStorage.getItem(
     "cartItemsHaveBeenFetched"
   );
 
-  const hasMenuErrorOrMenuHasBeenFetched =
-    menuError || menuHasBeenFetched === "true" ? true : false;
+  const hasMenuError = menuError ? true : false;
 
-  // this will occur the first time a non logged in user visits the menu page.
-  const noUserAndNoMenuDocs =
-    !currentUser && !menuDocuments.length ? true : false;
-
-  // this will occure after the user signs out as we don't clear the menu state as no users also need it
-  const noUserAndHasMenuDocs =
-    !currentUser && menuDocuments && menuDocuments.length ? true : false;
-
-  // this will occur if user signs in or up without having visited the menu page first.
-  const isCurrentUserAndMenuHasNotBeenFetched =
-    currentUser && menuHasBeenFetched !== "true" ? true : false;
-
-  //cart
   const noCurrentUserOrCartItemsFetchedOrCartFetchError =
     !currentUser || cartItemsHaveBeenFetched === "true" || fetchCartItemsError
       ? true
@@ -76,12 +60,9 @@ const useMenuLogic = () => {
     itemsReturnedFromSearch,
     sortedCategories,
     menuDocuments,
-    hasMenuErrorOrMenuHasBeenFetched,
-    noUserAndNoMenuDocs,
-    isCurrentUserAndMenuHasNotBeenFetched,
+    hasMenuError,
     noCurrentUserOrCartItemsFetchedOrCartFetchError,
     cartItemsIsLoading,
-    noUserAndHasMenuDocs,
   };
 };
 

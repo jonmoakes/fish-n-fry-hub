@@ -1,7 +1,7 @@
 import useFetchIncomeDataThunkUseEffect from "./income-hooks/use-fetch-income-data-thunk-use-effect";
 import useGetIncomeDataSelectors from "../../hooks/selectors/use-get-income-data-selectors";
 
-import Loader from "../../components/loader/loader.component";
+import SkeletonBox from "../../components/skeleton-box/skeleton-box.component";
 import IncomeTable from "./income-table.component";
 
 import { Container } from "../../styles/container/container.styles";
@@ -18,7 +18,9 @@ const Income = () => {
 
   return (
     <Container>
-      {incomeDataIsLoading ? <Loader /> : null}
+      {incomeDataIsLoading ? (
+        <SkeletonBox loadingText="Fetching Income Data..." />
+      ) : null}
       <ParentDiv>
         <Title>your income</Title>
         <BlackHr />

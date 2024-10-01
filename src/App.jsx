@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { ErrorBoundary } from "react-error-boundary";
 import { GlobalStyle } from "./global-styles";
 import "./App.css";
-
+import "react-loading-skeleton/dist/skeleton.css";
 import useGetCurrentUserSelectors from "./hooks/selectors/use-get-current-user-selectors";
 import useCartItemsListener from "./hooks/use-cart-items-listener";
 import useGetUserOnLoadThunkUseEffect from "./hooks/use-get-user-on-load-thunk-use-effect";
@@ -14,7 +14,6 @@ import ScrollToTop from "./components/scroll-to-top/scroll-to-top";
 import FloatingBackButton from "./components/floating-back-button/floating-back-button.component";
 import PrivateRoutes from "./components/private-routes/private-routes.component";
 import ErrorFallback from "./components/errors/error-fallback.component";
-import Loader from "./components/loader/loader.component";
 
 import {
   menuRoute,
@@ -41,7 +40,10 @@ import {
   databaseManagementDeleteUserRoute,
   aboutRoute,
   databaseManagementAddOrderAfterErrorRoute,
+  databaseManagementManageMenuRoute,
 } from "./strings/routes/routes-strings";
+import Skeleton from "react-loading-skeleton";
+import SkeletonBox from "./components/skeleton-box/skeleton-box.component";
 
 const Navigation = lazy(() =>
   import("./routes/navigation/navigation.component")
@@ -111,6 +113,11 @@ const DBManageAddOrderAfterError = lazy(() =>
     "./routes/database-management-add-order-after-error/db-manage-add-order-after-error.component"
   )
 );
+const DBManageManageMenu = lazy(() =>
+  import(
+    "./routes/database-management-manage-menu/db-manage-manage-menu.component"
+  )
+);
 
 const App = () => {
   const { currentUser } = useGetCurrentUserSelectors();
@@ -124,7 +131,7 @@ const App = () => {
       <FloatingBackButton />
       <Navigation />
       <ErrorBoundary FallbackComponent={ErrorFallback}>
-        <Suspense fallback={<Loader />}>
+        <Suspense fallback={<SkeletonBox />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path={signUpRoute} element={<SignUp />} />
@@ -227,6 +234,11 @@ const App = () => {
               <Route
                 path={databaseManagementAddOrderAfterErrorRoute}
                 element={<DBManageAddOrderAfterError />}
+              />
+
+              <Route
+                path={databaseManagementManageMenuRoute}
+                element={<DBManageManageMenu />}
               />
 
               <Route path={pwaInfoRoute} element={<PwaInformation />} />

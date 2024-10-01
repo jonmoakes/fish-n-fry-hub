@@ -3,11 +3,12 @@ import { Navigate } from "react-router-dom";
 import useHandleSignUpFormError from "./sign-up-form-hooks/use-handle-sign-up-form-error";
 import useGetCurrentUserSelectors from "../../hooks/selectors/use-get-current-user-selectors";
 
-import Loader from "../../components/loader/loader.component";
+import SkeletonBox from "../../components/skeleton-box/skeleton-box.component";
 import SignUpName from "./sign-up-name.component";
 import useSignUpFormFunctions from "./sign-up-form-hooks/use-sign-up-form-functions";
 import SignUpEmail from "./sign-up-email.component";
 import SignUpPasswords from "./sign-up-passwords.component";
+import SignUpButton from "./sign-up-button.component";
 
 import { Container } from "../../styles/container/container.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
@@ -18,7 +19,6 @@ import { Text } from "../../styles/p/p.styles";
 import { BlackHr } from "../../styles/hr/hr.styles";
 
 import { signInRoute, menuRoute } from "../../strings/routes/routes-strings";
-import SignUpButton from "./sign-up-button.component";
 
 const SignUp = () => {
   useHandleSignUpFormError();
@@ -28,7 +28,9 @@ const SignUp = () => {
   return (
     <Container>
       {currentUser !== null && <Navigate replace to={menuRoute} />}
-      {currentUserIsLoading ? <Loader /> : null}
+      {currentUserIsLoading ? (
+        <SkeletonBox loadingText="Signing You Up..." />
+      ) : null}
 
       <ParentDiv>
         <Title>sign up</Title>

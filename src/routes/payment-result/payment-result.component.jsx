@@ -1,7 +1,7 @@
 import useGetPaymentResultStatus from "./payment-result-hooks/use-get-payment-result-status";
 import useGetHandlePaymentSelectors from "../../hooks/selectors/use-get-handle-payment-selectors";
 
-import Loader from "../../components/loader/loader.component";
+import SkeletonBox from "../../components/skeleton-box/skeleton-box.component";
 
 import { Container } from "../../styles/container/container.styles";
 import { Title } from "../../styles/h1/h1.styles";
@@ -13,7 +13,9 @@ const PaymentResult = () => {
 
   return (
     <Container>
-      {handlePaymentIsLoading ? <Loader /> : null}
+      {handlePaymentIsLoading ? (
+        <SkeletonBox loadingText="Getting Payment Result..." />
+      ) : null}
 
       <ParentDiv>
         <Title>payment result</Title>

@@ -31,7 +31,9 @@ import {
   contactRoute,
   databaseManagementDeleteUserRoute,
   databaseManagementAddOrderAfterErrorRoute,
+  menuRoute,
 } from "../strings/routes/routes-strings";
+import { resetMenuState } from "../store/menu/menu.slice";
 
 const useResetStore = () => {
   const location = useLocation();
@@ -45,6 +47,9 @@ const useResetStore = () => {
         break;
       case signUpRoute:
         dispatch(resetSignUpFormState());
+        break;
+      case menuRoute:
+        dispatch(resetMenuState());
         break;
       case chooseOptionsRoute:
         dispatch(resetChooseOptionsState());

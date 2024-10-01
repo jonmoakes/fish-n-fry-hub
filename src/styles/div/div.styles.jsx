@@ -90,17 +90,6 @@ export const Menu = styled.div.withConfig({
   }
 `;
 
-export const LoaderDiv = styled.div`
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 30;
-  background-color: ${customBlack};
-  opacity: 0.8;
-`;
-
 // Main Divs
 export const ParentDiv = styled.div`
   display: flex;
@@ -861,4 +850,38 @@ export const VideoWrapper = styled.div`
   @media screen and (max-width: 400px) {
     padding: 20px;
   }
+`;
+
+export const SkeletonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+`;
+
+export const SkeletonWrapper = styled.div`
+  width: 40%;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+`;
+
+export const SkeletonDiv = styled.div`
+  line-height: 2;
+  padding: 5rem;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  background-color: ${customBlack};
+  opacity: 0.9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
 `;

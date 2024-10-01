@@ -2,7 +2,7 @@ import { Navigate } from "react-router-dom";
 
 import useGetHandlePaymentSelectors from "../../../hooks/selectors/use-get-handle-payment-selectors";
 
-import Loader from "../../loader/loader.component";
+import SkeletonBox from "../../skeleton-box/skeleton-box.component";
 
 import { paymentResultRoute } from "../../../strings/routes/routes-strings";
 
@@ -15,7 +15,9 @@ const RedirectAndLoader = () => {
       {Object.keys(paymentResultObject).length ? (
         <Navigate replace to={paymentResultRoute} />
       ) : null}
-      {handlePaymentIsLoading ? <Loader /> : null}
+      {handlePaymentIsLoading ? (
+        <SkeletonBox loadingText="Processing..." />
+      ) : null}
     </>
   );
 };

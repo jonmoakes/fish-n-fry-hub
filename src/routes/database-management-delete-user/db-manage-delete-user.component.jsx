@@ -1,7 +1,7 @@
 import useGetDatabaseManagementSelectors from "../../hooks/selectors/use-get-database-management-selectors";
 import useDeleteUserResultSwal from "./hooks/use-delete-user-result-swal";
 
-import Loader from "../../components/loader/loader.component";
+import SkeletonBox from "../../components/skeleton-box/skeleton-box.component";
 import DeleteUserInstructions from "./delete-user-instructions.component";
 import IntroAndRequiredData from "./intro-and-required-data.component";
 import DeleteUserForm from "./delete-user-form.component";
@@ -21,7 +21,7 @@ const DBManageDeleteUser = () => {
       </ParentDiv>
 
       {databaseManagementIsLoading ? (
-        <Loader />
+        <SkeletonBox loadingText="Deleting User..." />
       ) : (
         <>
           <IntroAndRequiredData />

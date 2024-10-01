@@ -79,7 +79,7 @@ const ShowFetchErrors = () => {
                 contact us
               </StyledLink>
             )}{" "}
-            and quote the error in the grey box above.
+            and quote the error in the pink box above.
           </Text>
           <Text>we apologise for the inconvenience!</Text>
 

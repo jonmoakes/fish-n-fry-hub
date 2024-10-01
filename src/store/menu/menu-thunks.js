@@ -1,8 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import {
-  listDocumentsInACollection,
-  // manageDatabaseDocument,
-} from "../../utils/appwrite/appwrite-functions";
+import { listDocumentsInACollection } from "../../utils/appwrite/appwrite-functions";
 
 import {
   standardRateLimit,
@@ -21,8 +18,6 @@ import {
   piesCollectionId,
   savouriesCollectionId,
   specialsCollectionId,
-  // hasNewMenuItemsCollectionId,
-  // hasNewMenuItemsDocumentId,
 } from "../../constants/constants";
 
 const collections = [
@@ -59,23 +54,3 @@ export const fetchMenuDocumentsAsync = createAsyncThunk(
     }
   }
 );
-
-// export const checkForNewMenuItemsAsync = createAsyncThunk(
-//   "checkForNewMenuItems",
-//   async (_, thunkAPI) => {
-//     try {
-//       const getHasNewMenuItemsValue = await manageDatabaseDocument(
-//         "get",
-//         databaseId,
-//         hasNewMenuItemsCollectionId,
-//         hasNewMenuItemsDocumentId
-//       );
-
-//       const { hasNewMenuItems } = getHasNewMenuItemsValue;
-
-//       return hasNewMenuItems;
-//     } catch (error) {
-//       return thunkAPI.rejectWithValue(error.message);
-//     }
-//   }
-// );

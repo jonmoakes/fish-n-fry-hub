@@ -94,3 +94,9 @@ export const RequiredError = styled.p`
   padding: 5px 10px;
   border-radius: 2px;
 `;
+
+export const LoadingText = styled.p`
+  margin-top: 1rem;
+  color: ${customWhite};
+  text-align: center;
+`;

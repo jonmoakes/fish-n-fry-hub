@@ -3,7 +3,7 @@ import Balancer from "react-wrap-balancer";
 import useGetDatabaseManagementSelectors from "../../hooks/selectors/use-get-database-management-selectors";
 import useDbManageAddOrderResultSwalUseEffect from "./hooks/use-db-manage-add-order-result-swal-use-effect";
 
-import Loader from "../../components/loader/loader.component";
+import SkeletonBox from "../../components/skeleton-box/skeleton-box.component";
 import AddOrderIntroAndRequiredData from "./add-order-intro-and-required-data.component";
 import AddOrderAfterErrorInstructions from "./add-order-after-error-instructions.component";
 import AddOrderAfterErrorForm from "./add-order-after-error-form.component";
@@ -25,7 +25,7 @@ const DBManageAddOrderAfterError = () => {
       </ParentDiv>
 
       {databaseManagementIsLoading ? (
-        <Loader />
+        <SkeletonBox loadingText="Uploading Order..." />
       ) : (
         <>
           <AddOrderIntroAndRequiredData />

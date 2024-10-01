@@ -1,18 +1,18 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
+import useGetMenuSelectors from "../../../hooks/selectors/use-get-menu-selectors";
 import { fetchMenuDocumentsAsync } from "../../../store/menu/menu-thunks";
-import useMenuLogic from "./use-menu-logic";
 
-const useFetchMenuDocumentsThunkUseEffect = () => {
-  const { hasMenuError } = useMenuLogic();
+const useFetchMenu = () => {
+  const { menuError } = useGetMenuSelectors();
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    if (hasMenuError) return;
-
+    if (menuError) return;
     dispatch(fetchMenuDocumentsAsync());
-  }, [dispatch, hasMenuError]);
+  }, [dispatch, menuError]);
 };
 
-export default useFetchMenuDocumentsThunkUseEffect;
+export default useFetchMenu;

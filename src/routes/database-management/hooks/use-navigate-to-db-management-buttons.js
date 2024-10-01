@@ -6,6 +6,7 @@ import { setErrorIdFromEmail } from "../../../store/database-management/database
 import {
   databaseManagementAddOrderAfterErrorRoute,
   databaseManagementDeleteUserRoute,
+  databaseManagementManageMenuRoute,
 } from "../../../strings/routes/routes-strings";
 
 const useNavigateToDbManagementButtons = () => {
@@ -20,7 +21,14 @@ const useNavigateToDbManagementButtons = () => {
   const dbManagementButtons = [
     {
       id: 1,
-      heading: "delete a user",
+      heading: "",
+      text: "manage menu",
+      onClick: () =>
+        handleNavWithErrorId("", databaseManagementManageMenuRoute),
+    },
+    {
+      id: 2,
+      heading: "",
       text: "delete user",
       onClick: () =>
         handleNavWithErrorId("", databaseManagementDeleteUserRoute),
@@ -29,7 +37,7 @@ const useNavigateToDbManagementButtons = () => {
 
   const dbManagementForErrorReceivedButtons = [
     {
-      id: 2,
+      id: 3,
       heading: "email error id",
       text: "1",
       onClick: () =>

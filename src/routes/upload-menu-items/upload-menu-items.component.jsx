@@ -7,7 +7,7 @@ import { uploadMenuItemsToDatabaseAsync } from "../../store/upload-menu-items/up
 import { resetUploadMenuItemsError } from "../../store/upload-menu-items/upload-menu-items.slice";
 import useFireSwal from "../../hooks/use-fire-swal";
 
-import Loader from "../../components/loader/loader.component";
+import SkeletonBox from "../../components/skeleton-box/skeleton-box.component";
 
 import { YellowGreenButton } from "../../styles/buttons/buttons.styles";
 import { Container } from "../../styles/container/container.styles";
@@ -47,7 +47,9 @@ const UploadMenuItems = () => {
 
   return (
     <Container>
-      {uploadMenuItemsIsLoading ? <Loader /> : null}
+      {uploadMenuItemsIsLoading ? (
+        <SkeletonBox loadingText="Uploading Menu Items..." />
+      ) : null}
       <ParentDiv>
         <Title>upload menu items</Title>
       </ParentDiv>

@@ -5,7 +5,7 @@ import useRemoveCartItemResultUseEffect from "./checkout-item/checkout-item-hook
 import useSetEmailStringUseEffect from "./checkout-hooks/use-set-email-string-use-effect";
 import useResetOrderToRepeatStateUseEffect from "./checkout-hooks/use-reset-order-to-repeat-state-use-effect";
 
-import Loader from "../../components/loader/loader.component";
+import SkeletonBox from "../../components/skeleton-box/skeleton-box.component";
 import CheckoutTitleAndIntro from "./checkout-title-and-intro.component";
 import CheckoutNoUser from "./checkout-no-user.component";
 import NoCartItemsFound from "./no-cart-items-found.component";
@@ -27,7 +27,9 @@ const Checkout = () => {
 
   return (
     <Container>
-      {cartItemsIsLoading ? <Loader /> : null}
+      {cartItemsIsLoading ? (
+        <SkeletonBox loadingText="Updating Cart Items..." />
+      ) : null}
       <CheckoutTitleAndIntro {...{ currentUser, cartItems }} />
       <CheckoutNoUser {...{ currentUser }} />
       <NoCartItemsFound {...{ currentUser, cartItems }} />

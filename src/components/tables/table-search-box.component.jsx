@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import { useAsyncDebounce } from "react-table";
 
-import Loader from "../loader/loader.component";
+import SkeletonBox from "../skeleton-box/skeleton-box.component";
 import NoSearchResult from "./no-search-result.component";
 
 import { ClearSearchButton } from "../../styles/buttons/buttons.styles";
@@ -34,7 +34,7 @@ const TableSearchBox = ({ rows, data, setGlobalFilter, value, setValue }) => {
 
   return (
     <>
-      {isSearching && <Loader />}
+      {isSearching && <SkeletonBox loadingText="Searching..." />}
       {data.length ? (
         <TableSearchDiv className="no-checkbox">
           <SearchInput

@@ -2,7 +2,7 @@ import useGetOrdersCustomerSelectors from "../../hooks/selectors/use-get-orders-
 
 import useFetchOrdersCustomerThunkUseEffect from "./orders-customer-hooks/use-fetch-orders-customer-thunk-use-effect";
 
-import Loader from "../../components/loader/loader.component";
+import SkeletonBox from "../../components/skeleton-box/skeleton-box.component";
 import OrdersCustomerTable from "./orders-customer-table.component";
 
 import { Container } from "../../styles/container/container.styles";
@@ -15,7 +15,9 @@ const OrdersCustomer = () => {
 
   return (
     <Container>
-      {ordersCustomerIsLoading ? <Loader /> : null}
+      {ordersCustomerIsLoading ? (
+        <SkeletonBox loadingText="Fetching Your Orders..." />
+      ) : null}
       <ParentDiv>
         <Title>your orders</Title>
       </ParentDiv>

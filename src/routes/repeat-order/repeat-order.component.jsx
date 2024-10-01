@@ -2,7 +2,7 @@ import { useState } from "react";
 import useGetOrderToRepeatSelectors from "../../hooks/selectors/use-get-order-to-repeat-selectors";
 import useGetOrderToRepeatThunkUseEffect from "./repeat-order-hooks/use-get-order-to-repeat-thunk-use-effect";
 
-import Loader from "../../components/loader/loader.component";
+import SkeletonBox from "../../components/skeleton-box/skeleton-box.component";
 import ShowFetchErrors from "../../components/errors/show-fetch-errors.component";
 
 import NoRepeatOrderFound from "./no-repeat-order-found.component";
@@ -25,7 +25,9 @@ const RepeatOrder = () => {
 
   return (
     <Container>
-      {orderToRepeatIsLoading ? <Loader /> : null}
+      {orderToRepeatIsLoading ? (
+        <SkeletonBox loadingText="Getting Order Details..." />
+      ) : null}
 
       {orderToRepeatError ? (
         <ShowFetchErrors />
