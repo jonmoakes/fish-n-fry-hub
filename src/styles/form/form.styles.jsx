@@ -30,6 +30,10 @@ export const Form = styled.form`
     margin: 20px auto 70px auto;
   }
 
+  &.no-margin {
+    margin: 0px auto;
+  }
+
   input {
     accent-color: ${customRed};
   }

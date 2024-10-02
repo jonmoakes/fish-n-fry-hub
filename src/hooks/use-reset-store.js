@@ -32,6 +32,7 @@ import {
   databaseManagementDeleteUserRoute,
   databaseManagementAddOrderAfterErrorRoute,
   menuRoute,
+  databaseManagementManageMenuRoute,
 } from "../strings/routes/routes-strings";
 import { resetMenuState } from "../store/menu/menu.slice";
 
@@ -84,6 +85,7 @@ const useResetStore = () => {
         break;
       case databaseManagementDeleteUserRoute:
       case databaseManagementAddOrderAfterErrorRoute:
+      case databaseManagementManageMenuRoute:
         dispatch(resetDatabaseManagementState());
         break;
       default:

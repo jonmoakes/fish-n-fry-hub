@@ -13,6 +13,7 @@ const useGetDatabaseManagementSelectors = () => {
     dataToUpdateDocument,
     deleteDocumentResult,
     deleteDocumentError,
+    productToEdit,
   } = useSelector(selectDatabaseManagementSelectors);
 
   const {
@@ -41,6 +42,7 @@ const useGetDatabaseManagementSelectors = () => {
     customerEmail,
     customerId,
     orderDetails,
+    productToEdit,
   };
 };
 

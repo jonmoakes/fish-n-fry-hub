@@ -464,7 +464,7 @@ export const ToggleShowPhoneNumberButton = styled(
     `url(${props.showPhone ? eyeIconHide : eyeIcon})`};
 `;
 
-export const ChooseOptionsButton = styled.button`
+export const SelectProductButton = styled.button`
   width: 50%;
   height: 50px;
   background-color: ${customTomato};
@@ -479,6 +479,11 @@ export const ChooseOptionsButton = styled.button`
   text-transform: capitalize;
   outline: none;
   transition: all 0.5s ease-in-out;
+
+  &.margin {
+    margin-top: 50px;
+    background-color: ${customYellow};
+  }
 
   &:hover {
     transform: scale(1.1);

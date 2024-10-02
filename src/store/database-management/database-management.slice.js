@@ -17,6 +17,7 @@ const INITIAL_STATE = {
   dataToUpdateDocument: {},
   deleteDocumentResult: "",
   deleteDocumentError: null,
+  productToEdit: {},
 };
 
 export const databaseManagementSlice = createSlice({
@@ -52,6 +53,12 @@ export const databaseManagementSlice = createSlice({
     },
     resetDeleteDocumentError(state) {
       state.deleteDocumentError = null;
+    },
+    setProductToEdit(state, action) {
+      state.productToEdit = action.payload;
+    },
+    resetProductToEdit(state) {
+      state.productToEdit = {};
     },
     resetDatabaseManagementState: () => {
       return INITIAL_STATE;
@@ -124,6 +131,7 @@ export const databaseManagementSlice = createSlice({
       (state) => state.dataToUpdateDocument,
       (state) => state.deleteDocumentResult,
       (state) => state.deleteDocumentError,
+      (state) => state.productToEdit,
       (
         databaseManagementIsLoading,
         addOrderResult,
@@ -134,7 +142,8 @@ export const databaseManagementSlice = createSlice({
         errorIdFromEmail,
         dataToUpdateDocument,
         deleteDocumentResult,
-        deleteDocumentError
+        deleteDocumentError,
+        productToEdit
       ) => {
         return {
           databaseManagementIsLoading,
@@ -147,6 +156,7 @@ export const databaseManagementSlice = createSlice({
           dataToUpdateDocument,
           deleteDocumentResult,
           deleteDocumentError,
+          productToEdit,
         };
       }
     ),
@@ -164,6 +174,8 @@ export const {
   resetDataToUpdateDocument,
   resetDeleteDocumentResult,
   resetDeleteDocumentError,
+  setProductToEdit,
+  resetProductToEdit,
   resetDatabaseManagementState,
 } = databaseManagementSlice.actions;
 export const { selectDatabaseManagementSelectors } =

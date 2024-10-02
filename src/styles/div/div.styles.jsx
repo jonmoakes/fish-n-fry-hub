@@ -885,3 +885,12 @@ export const SkeletonDiv = styled.div`
   width: 100%;
   height: 100vh;
 `;
+
+export const WholeMenuListDiv = styled.div`
+  margin: 0px auto 50px auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
