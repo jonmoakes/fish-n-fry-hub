@@ -115,3 +115,23 @@ export const dbManageAddOrderToDatabaseAsync = createAsyncThunk(
     }
   }
 );
+
+export const updateProductAttributeAsync = createAsyncThunk(
+  "updateProductAttribute",
+  async ({ attributeKey, value, $collectionId, $id }, thunkAPI) => {
+    try {
+      const dataToUpdate = {
+        [attributeKey]: value,
+      };
+      await manageDatabaseDocument(
+        "update",
+        databaseId,
+        $collectionId,
+        $id,
+        dataToUpdate
+      );
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);

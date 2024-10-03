@@ -10,6 +10,7 @@ import {
   customWhite,
   customLightYellow,
   customSalmon,
+  customOrange,
 } from "../colors";
 
 import eyeIcon from "../../assets/eye.png";
@@ -88,6 +89,10 @@ export const LightGreenSpan = styled.span`
 
 export const BlackSpan = styled.span`
   color: ${customBlack};
+`;
+
+export const OrangeSpan = styled.span`
+  color: ${customOrange};
 `;
 
 export const WhiteSpan = styled.span`

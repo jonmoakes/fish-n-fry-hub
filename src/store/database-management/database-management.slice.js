@@ -4,6 +4,7 @@ import {
   deleteUserCartItemsAsync,
   deleteDocumentAsync,
   dbManageAddOrderToDatabaseAsync,
+  updateProductAttributeAsync,
 } from "./database-management.thunks";
 
 const INITIAL_STATE = {
@@ -17,6 +18,8 @@ const INITIAL_STATE = {
   dataToUpdateDocument: {},
   deleteDocumentResult: "",
   deleteDocumentError: null,
+  updateAttributeResult: "",
+  updateAttributeError: null,
   productToEdit: {},
 };
 
@@ -59,6 +62,12 @@ export const databaseManagementSlice = createSlice({
     },
     resetProductToEdit(state) {
       state.productToEdit = {};
+    },
+    resetUpdateAttributeResult(state) {
+      state.updateAttributeResult = "";
+    },
+    resetUpdateAttributeError(state) {
+      state.updateAttributeError = null;
     },
     resetDatabaseManagementState: () => {
       return INITIAL_STATE;
@@ -117,6 +126,19 @@ export const databaseManagementSlice = createSlice({
         state.databaseManagementIsLoading = false;
         state.addOrderResult = "rejected";
         state.addOrderError = action.payload;
+      })
+      .addCase(updateProductAttributeAsync.pending, (state) => {
+        state.databaseManagementIsLoading = true;
+      })
+      .addCase(updateProductAttributeAsync.fulfilled, (state) => {
+        state.databaseManagementIsLoading = false;
+        state.updateAttributeResult = "fulfilled";
+        state.updateAttributeError = null;
+      })
+      .addCase(updateProductAttributeAsync.rejected, (state, action) => {
+        state.databaseManagementIsLoading = false;
+        state.updateAttributeResult = "rejected";
+        state.updateAttributeError = action.payload;
       });
   },
   selectors: {
@@ -132,6 +154,8 @@ export const databaseManagementSlice = createSlice({
       (state) => state.deleteDocumentResult,
       (state) => state.deleteDocumentError,
       (state) => state.productToEdit,
+      (state) => state.updateAttributeResult,
+      (state) => state.updateAttributeError,
       (
         databaseManagementIsLoading,
         addOrderResult,
@@ -143,7 +167,9 @@ export const databaseManagementSlice = createSlice({
         dataToUpdateDocument,
         deleteDocumentResult,
         deleteDocumentError,
-        productToEdit
+        productToEdit,
+        updateAttributeResult,
+        updateAttributeError
       ) => {
         return {
           databaseManagementIsLoading,
@@ -157,6 +183,8 @@ export const databaseManagementSlice = createSlice({
           deleteDocumentResult,
           deleteDocumentError,
           productToEdit,
+          updateAttributeResult,
+          updateAttributeError,
         };
       }
     ),
@@ -176,6 +204,8 @@ export const {
   resetDeleteDocumentError,
   setProductToEdit,
   resetProductToEdit,
+  resetUpdateAttributeResult,
+  resetUpdateAttributeError,
   resetDatabaseManagementState,
 } = databaseManagementSlice.actions;
 export const { selectDatabaseManagementSelectors } =
