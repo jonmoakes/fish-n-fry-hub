@@ -3,8 +3,7 @@ import SizeOptionDoublePrice from "./attributes-to-update/size-option-double-pri
 import SizeOptionTripePrice from "./attributes-to-update/size-option-triple-price.component";
 
 import BasePrice from "./attributes-to-update/base-price.component";
-import CheeseSlice from "./attributes-to-update/sauces/number-of-sauces.component";
-import NumberOfSauces from "./attributes-to-update/sauces/number-of-sauces.component";
+import DeleteProduct from "./attributes-to-update/delete-product.component";
 
 const ProductToEditDetails = () => (
   <>
@@ -12,7 +11,7 @@ const ProductToEditDetails = () => (
     <BasePrice />
     <SizeOptionDoublePrice />
     <SizeOptionTripePrice />
-    <NumberOfSauces />
+    <DeleteProduct />
   </>
 );
 

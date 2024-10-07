@@ -1,6 +1,11 @@
 import { useDispatch } from "react-redux";
 import useConfirmSwal from "../../../hooks/use-confirm-swal";
-import { updateProductAttributeAsync } from "../../../store/database-management/database-management.thunks";
+import {
+  deleteDocumentAsync,
+  updateProductAttributeAsync,
+} from "../../../store/database-management/database-management.thunks";
+
+import { imSureMessage } from "../../../strings/confirms/confirms-strings";
 
 const useConfirmUpdateProperty = () => {
   const { confirmSwal } = useConfirmSwal();
@@ -25,7 +30,24 @@ const useConfirmUpdateProperty = () => {
     );
   };
 
-  return { confirmUpdateProperty };
+  const confirmDeleteProduct = (name, $collectionId, $id) => {
+    confirmSwal(
+      `are you sure you want to delete ${name} from the menu?`,
+      "",
+      imSureMessage,
+      "",
+      () =>
+        dispatch(
+          deleteDocumentAsync({
+            collectionId: $collectionId,
+            documentId: $id,
+          })
+        ),
+      null
+    );
+  };
+
+  return { confirmUpdateProperty, confirmDeleteProduct };
 };
 
 export default useConfirmUpdateProperty;

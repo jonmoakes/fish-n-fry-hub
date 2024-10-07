@@ -114,6 +114,10 @@ export const ParentDiv = styled.div`
     background-color: ${customGrey};
   }
 
+  &.warning {
+    background-color: ${customTomato};
+  }
+
   &.repeat-order {
     background-color: ${customGoldenRod};
   }

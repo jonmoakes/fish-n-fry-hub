@@ -3,7 +3,6 @@ import {
   cartItemsCollectionId,
   databaseId,
   ordersCollectionId,
-  userCollectionId,
 } from "../../constants/constants";
 import {
   listDocumentsByQueryOrSearch,
@@ -75,12 +74,12 @@ export const deleteUserCartItemsAsync = createAsyncThunk(
 
 export const deleteDocumentAsync = createAsyncThunk(
   "deleteDocument",
-  async ({ documentId }, thunkAPI) => {
+  async ({ collectionId, documentId }, thunkAPI) => {
     try {
       await manageDatabaseDocument(
         "delete",
         databaseId,
-        userCollectionId,
+        collectionId,
         documentId
       );
     } catch (error) {
@@ -129,6 +128,23 @@ export const updateProductAttributeAsync = createAsyncThunk(
         $collectionId,
         $id,
         dataToUpdate
+      );
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const createNewMenuProductAsync = createAsyncThunk(
+  "createNewMenuProduct",
+  async ({ collectionId, product }, thunkAPI) => {
+    try {
+      await manageDatabaseDocument(
+        "create",
+        databaseId,
+        collectionId,
+        ID.unique(),
+        product
       );
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

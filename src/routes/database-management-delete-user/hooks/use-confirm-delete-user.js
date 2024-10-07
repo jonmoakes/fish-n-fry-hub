@@ -11,6 +11,7 @@ import {
   confirmDeleteUserDocument,
   imSureMessage,
 } from "../../../strings/confirms/confirms-strings";
+import { userCollectionId } from "../../../constants/constants";
 
 const useConfirmDeleteUser = () => {
   const { userToDeleteDocumentId } = useGetDatabaseManagementSelectors();
@@ -29,7 +30,12 @@ const useConfirmDeleteUser = () => {
   const dispatch = useDispatch();
 
   const confirmResult = () => {
-    dispatch(deleteDocumentAsync({ documentId: userToDeleteDocumentId }));
+    dispatch(
+      deleteDocumentAsync({
+        collectionId: userCollectionId,
+        documentId: userToDeleteDocumentId,
+      })
+    );
   };
 
   const confirmDeleteUser = () => {
