@@ -19,11 +19,14 @@ import { Text } from "../../styles/p/p.styles";
 import { BlackHr } from "../../styles/hr/hr.styles";
 
 import { signInRoute, menuRoute } from "../../strings/routes/routes-strings";
+import { resetSignUpFormState } from "../../store/sign-up-form/sign-up-form.slice";
+import { useDispatch } from "react-redux";
 
 const SignUp = () => {
   useHandleSignUpFormError();
   const { currentUser, currentUserIsLoading } = useGetCurrentUserSelectors();
   const { dispatchHandleSignUpFormChange } = useSignUpFormFunctions();
+  const dispatch = useDispatch();
 
   return (
     <Container>
@@ -38,7 +41,11 @@ const SignUp = () => {
         <BlackHr />
         <Text>
           already have an account?{" "}
-          <StyledLink className="yellow" to={signInRoute}>
+          <StyledLink
+            onClick={() => dispatch(resetSignUpFormState())}
+            className="yellow"
+            to={signInRoute}
+          >
             sign in!
           </StyledLink>
         </Text>

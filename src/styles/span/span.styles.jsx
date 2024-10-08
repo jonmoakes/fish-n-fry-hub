@@ -165,7 +165,7 @@ export const SignInPasswordEye = styled.span.withConfig({
   shouldForwardProp: (prop) => prop !== "signInPasswordIsVisible",
 })`
   position: absolute;
-  top: 62%;
+  top: 69%;
   right: 50px;
   transform: translateY(-50%);
   cursor: pointer;

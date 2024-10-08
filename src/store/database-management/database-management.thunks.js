@@ -9,6 +9,8 @@ import {
   manageDatabaseDocument,
 } from "../../utils/appwrite/appwrite-functions";
 import { ID } from "appwrite";
+import { updateProductInMenuStore } from "../menu/menu.slice";
+import { updateProductToEdit } from "./database-management.slice";
 
 export const addOrderToDatabaseAsync = createAsyncThunk(
   "addOrderToDatabase",
@@ -115,19 +117,45 @@ export const dbManageAddOrderToDatabaseAsync = createAsyncThunk(
   }
 );
 
-export const updateProductAttributeAsync = createAsyncThunk(
-  "updateProductAttribute",
-  async ({ attributeKey, value, $collectionId, $id }, thunkAPI) => {
+export const updateProductPricesAsync = createAsyncThunk(
+  "updateProductPrices",
+  async ({ attributeKey, newValue, $collectionId, $id }, thunkAPI) => {
     try {
+      const priceAsNumber = Number(newValue);
+
       const dataToUpdate = {
-        [attributeKey]: value,
+        [attributeKey]: priceAsNumber,
       };
+
       await manageDatabaseDocument(
         "update",
         databaseId,
         $collectionId,
         $id,
         dataToUpdate
+      );
+
+      const state = thunkAPI.getState();
+      const menuDocuments = state.menu.menuDocuments;
+
+      const updatedProductInMenu = menuDocuments.find(
+        (product) => product.$id === $id
+      );
+      const newUpdatedProduct = {
+        ...updatedProductInMenu,
+        [attributeKey]: priceAsNumber,
+      };
+
+      thunkAPI.dispatch(updateProductInMenuStore(newUpdatedProduct));
+
+      // this will update the appropriate keys and values with whatever the users types in so that it is updated in the ui after successfully changing the values in the database. When you edit the product, the productToEdit is added as separate state. So we update the actual menu store and now also the productToEdit object which will now reflect the latest values for the app owner in case they want to change anything else before navigating away from the screen.
+      const productToEdit = state.databaseManagement.productToEdit;
+
+      thunkAPI.dispatch(
+        updateProductToEdit({
+          ...productToEdit,
+          [attributeKey]: priceAsNumber,
+        })
       );
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

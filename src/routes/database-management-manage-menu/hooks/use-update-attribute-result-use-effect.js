@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 
-import useGetDatabaseManagementSelectors from "../../../hooks/selectors/use-get-database-management-selectors";
+import useManageMenuLogic from "./use-manage-menu-logic";
+
 import useFireSwal from "../../../hooks/use-fire-swal";
 import {
   resetUpdateAttributeError,
@@ -8,10 +9,11 @@ import {
 } from "../../../store/database-management/database-management.slice";
 import { useDispatch } from "react-redux";
 import { errorReceivedMessage } from "../../../strings/errors/errors-strings";
+import { priceUpdatedMessage } from "../../../strings/successes/sucesses-strings";
 
 const useUpdateAttributeResultUseEffect = () => {
-  const { updateAttributeResult, updateAttributeError } =
-    useGetDatabaseManagementSelectors();
+  const { $id, $collectionId, updateAttributeResult, updateAttributeError } =
+    useManageMenuLogic();
 
   const { fireSwal } = useFireSwal();
   const dispatch = useDispatch();
@@ -20,13 +22,20 @@ const useUpdateAttributeResultUseEffect = () => {
     if (!updateAttributeResult && !updateAttributeError) return;
 
     if (updateAttributeResult === "fulfilled") {
-      fireSwal("success", "product updated!", "", 0, "", false, "", false).then(
-        (isConfirmed) => {
-          if (isConfirmed) {
-            dispatch(resetUpdateAttributeResult());
-          }
+      fireSwal(
+        "success",
+        priceUpdatedMessage,
+        "",
+        0,
+        "",
+        false,
+        "",
+        false
+      ).then((isConfirmed) => {
+        if (isConfirmed) {
+          dispatch(resetUpdateAttributeResult());
         }
-      );
+      });
     } else {
       fireSwal(
         "error",
@@ -44,7 +53,14 @@ const useUpdateAttributeResultUseEffect = () => {
         }
       });
     }
-  }, [updateAttributeResult, updateAttributeError, fireSwal, dispatch]);
+  }, [
+    updateAttributeResult,
+    updateAttributeError,
+    fireSwal,
+    dispatch,
+    $collectionId,
+    $id,
+  ]);
 };
 
 export default useUpdateAttributeResultUseEffect;

@@ -4,7 +4,7 @@ import {
   deleteUserCartItemsAsync,
   deleteDocumentAsync,
   dbManageAddOrderToDatabaseAsync,
-  updateProductAttributeAsync,
+  updateProductPricesAsync,
 } from "./database-management.thunks";
 
 const INITIAL_STATE = {
@@ -58,6 +58,9 @@ export const databaseManagementSlice = createSlice({
       state.deleteDocumentError = null;
     },
     setProductToEdit(state, action) {
+      state.productToEdit = action.payload;
+    },
+    updateProductToEdit: (state, action) => {
       state.productToEdit = action.payload;
     },
     resetProductToEdit(state) {
@@ -127,15 +130,15 @@ export const databaseManagementSlice = createSlice({
         state.addOrderResult = "rejected";
         state.addOrderError = action.payload;
       })
-      .addCase(updateProductAttributeAsync.pending, (state) => {
+      .addCase(updateProductPricesAsync.pending, (state) => {
         state.databaseManagementIsLoading = true;
       })
-      .addCase(updateProductAttributeAsync.fulfilled, (state) => {
+      .addCase(updateProductPricesAsync.fulfilled, (state) => {
         state.databaseManagementIsLoading = false;
         state.updateAttributeResult = "fulfilled";
         state.updateAttributeError = null;
       })
-      .addCase(updateProductAttributeAsync.rejected, (state, action) => {
+      .addCase(updateProductPricesAsync.rejected, (state, action) => {
         state.databaseManagementIsLoading = false;
         state.updateAttributeResult = "rejected";
         state.updateAttributeError = action.payload;
@@ -203,6 +206,7 @@ export const {
   resetDeleteDocumentResult,
   resetDeleteDocumentError,
   setProductToEdit,
+  updateProductToEdit,
   resetProductToEdit,
   resetUpdateAttributeResult,
   resetUpdateAttributeError,

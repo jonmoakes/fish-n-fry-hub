@@ -8,6 +8,7 @@ const UpdatePriceButton = ({
   newValue,
   attributeDescription,
   confirmUpdateProperty,
+  name,
   attributeKey,
   $collectionId,
   $id,
@@ -18,7 +19,7 @@ const UpdatePriceButton = ({
         <>
           <BlackText>
             <Balancer>
-              the new {attributeDescription} price for this product will be{" "}
+              the new {attributeDescription} for this product will be{" "}
               <BlueSpan>£{Number(newValue / 100).toFixed(2)}</BlueSpan>
             </Balancer>
           </BlackText>
@@ -26,14 +27,16 @@ const UpdatePriceButton = ({
             type="button"
             onClick={() =>
               confirmUpdateProperty(
+                name,
+                attributeDescription,
+                newValue,
                 attributeKey,
-                Number(newValue),
                 $collectionId,
                 $id
               )
             }
           >
-            update {attributeDescription} price
+            update {attributeDescription}
           </YellowGreenButton>
         </>
       ) : null}

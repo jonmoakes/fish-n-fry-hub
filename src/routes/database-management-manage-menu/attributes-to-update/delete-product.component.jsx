@@ -1,5 +1,5 @@
 import useManageMenuLogic from "../hooks/use-manage-menu-logic";
-import useConfirmUpdateProperty from "../hooks/use-confirm-update-property";
+import useConfirmUpdatePropertySwals from "../hooks/use-confirm-update-property-swals";
 
 import { ParentDiv } from "../../../styles/div/div.styles";
 import { BlackH2 } from "../../../styles/h2/h2.styles";
@@ -8,7 +8,7 @@ import { YellowGreenButton } from "../../../styles/buttons/buttons.styles";
 
 const DeleteProduct = () => {
   const { name, $id, $collectionId } = useManageMenuLogic();
-  const { confirmDeleteProduct } = useConfirmUpdateProperty();
+  const { confirmDeleteProduct } = useConfirmUpdatePropertySwals();
 
   return (
     <ParentDiv className="warning">

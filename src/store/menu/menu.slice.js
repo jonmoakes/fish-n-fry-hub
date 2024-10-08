@@ -11,6 +11,14 @@ export const menuSlice = createSlice({
   name: "menu",
   initialState: INITIAL_STATE,
   reducers: {
+    updateProductInMenuStore: (state, action) => {
+      const index = state.menuDocuments.findIndex(
+        (product) => product.$id === action.payload.$id
+      );
+      if (index !== -1) {
+        state.menuDocuments[index] = action.payload;
+      }
+    },
     resetMenuError(state) {
       state.menuError = null;
     },
@@ -51,7 +59,8 @@ export const menuSlice = createSlice({
   },
 });
 
-export const { resetMenuError, resetMenuState } = menuSlice.actions;
+export const { updateProductInMenuStore, resetMenuError, resetMenuState } =
+  menuSlice.actions;
 export const { selectMenuSelectors } = menuSlice.selectors;
 
 export const menuReducer = menuSlice.reducer;

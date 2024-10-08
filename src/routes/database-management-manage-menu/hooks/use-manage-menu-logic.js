@@ -1,14 +1,18 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import useGetMenuSelectors from "../../../hooks/selectors/use-get-menu-selectors";
 
-import { setProductToEdit } from "../../../store/database-management/database-management.slice";
+import useGetMenuSelectors from "../../../hooks/selectors/use-get-menu-selectors";
 import useGetDatabaseManagementSelectors from "../../../hooks/selectors/use-get-database-management-selectors";
+import { setProductToEdit } from "../../../store/database-management/database-management.slice";
 
 const useManageMenuLogic = () => {
   const { menuDocuments, menuError, menuIsLoading } = useGetMenuSelectors();
-  const { databaseManagementIsLoading, productToEdit } =
-    useGetDatabaseManagementSelectors();
+  const {
+    databaseManagementIsLoading,
+    productToEdit,
+    updateAttributeResult,
+    updateAttributeError,
+  } = useGetDatabaseManagementSelectors();
 
   const {
     $id,
@@ -79,6 +83,8 @@ const useManageMenuLogic = () => {
     sizeOptionTriplePrice,
     handleAttributeChange,
     newValue,
+    updateAttributeResult,
+    updateAttributeError,
   };
 };
 

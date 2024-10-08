@@ -7,6 +7,7 @@ import useIsMobileDevice from "../../hooks/use-is-mobile-device";
 import { BackArrow } from "../../styles/svg/svg.styles";
 import { RelativePositionDiv } from "../../styles/div/div.styles";
 import { BackButton } from "../../styles/buttons/buttons.styles";
+import { databaseManagementManageMenuRoute } from "../../strings/routes/routes-strings";
 
 const FloatingBackButton = () => {
   const { confirmGoBack } = useBackButton();
@@ -26,7 +27,9 @@ const FloatingBackButton = () => {
   };
 
   const dontShowButton = () => {
-    return path === "/" ? true : false;
+    return path === "/" || path === databaseManagementManageMenuRoute
+      ? true
+      : false;
   };
 
   return (

@@ -1,4 +1,4 @@
-import useConfirmUpdateProperty from "../hooks/use-confirm-update-property";
+import useConfirmUpdatePropertySwals from "../hooks/use-confirm-update-property-swals";
 import useManageMenuLogic from "../hooks/use-manage-menu-logic";
 
 import FormInfoAndLabel from "../resuable-components/form-info-and-label.component";
@@ -11,15 +11,16 @@ import { H2 } from "../../../styles/h2/h2.styles";
 
 const SizeOptionDoublePrice = () => {
   const {
+    name,
     $id,
     $collectionId,
     sizeOptionDoublePrice,
     handleAttributeChange,
     newValue,
   } = useManageMenuLogic();
-  const { confirmUpdateProperty } = useConfirmUpdateProperty();
+  const { confirmUpdateProperty } = useConfirmUpdatePropertySwals();
 
-  const attributeDescription = "double";
+  const attributeDescription = "double price";
   const attributeKey = "sizeOptionDoublePrice";
   const propertyValue = sizeOptionDoublePrice;
 
@@ -37,6 +38,7 @@ const SizeOptionDoublePrice = () => {
                 newValue,
                 attributeDescription,
                 confirmUpdateProperty,
+                name,
                 attributeKey,
                 $collectionId,
                 $id,

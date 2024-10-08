@@ -24,12 +24,15 @@ import {
   menuRoute,
   signUpRoute,
 } from "../../strings/routes/routes-strings";
+import { useDispatch } from "react-redux";
+import { resetSignInFormState } from "../../store/sign-in-form/sign-in-form.slice";
 
 const SignIn = () => {
   const { currentUser, currentUserIsLoading, id } =
     useGetCurrentUserSelectors();
   useHandleSignInFormError();
   const { dispatchHandleSignInFormChange } = useSignInFormFunctions();
+  const dispatch = useDispatch();
 
   return (
     <Container>
@@ -48,7 +51,11 @@ const SignIn = () => {
         <BlackHr />
         <Text>
           don't have an account yet?{" "}
-          <StyledLink className="yellow" to={signUpRoute}>
+          <StyledLink
+            onClick={() => dispatch(resetSignInFormState())}
+            className="yellow"
+            to={signUpRoute}
+          >
             sign up!
           </StyledLink>
         </Text>

@@ -18,7 +18,6 @@ const useSetEmailStringUseEffect = () => {
 
   useEffect(() => {
     if (path !== checkoutRoute) return;
-    console.log("ji");
     dispatch(resetOrderToRepeatState());
     const parsedCartItems = cartItems.map((cartItem) =>
       JSON.parse(cartItem.cartItem)

@@ -10,7 +10,7 @@ const FormInfoAndLabel = ({ propertyValue, attributeDescription }) => (
     </BlackText>
     <BlackHr />
 
-    <Label>new {attributeDescription} price:</Label>
+    <Label>new {attributeDescription}:</Label>
   </>
 );
 

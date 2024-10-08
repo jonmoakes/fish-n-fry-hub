@@ -1,4 +1,8 @@
+import { customYellow, customLightGreen } from "../../styles/colors";
+
 export const confirmSureMessage = "are you sure?";
+export const confirmCancelEditingMessage =
+  "are you sure you want to cancel editing this product?";
 export const imSureMessage = "i'm sure";
 export const confirmSignOutMessage = "are you sure you want to sign out?";
 export const yesSignOutMessage = "yes, sign out";
@@ -32,3 +36,21 @@ export const sureSendContactFormMessage =
 export const areYouSureMessage = "are you sure?";
 export const confirmDeleteUserDocument =
   "are you sure you want to delete the user?";
+export const confirmUpdateProductPriceMessage = (
+  attributeDescription,
+  name,
+  newValue
+) => {
+  return `<span style="font-size: 20px;">
+      do you want to update the <span style="color: ${customYellow};">${attributeDescription}</span> of the following product:<br/><br/><span style="color: ${customLightGreen};">${name}</span><br/><br/>
+      to be <span style="color: ${customYellow};">£${(newValue / 100).toFixed(
+    2
+  )}</span>?
+    </span>`;
+};
+
+export const confirmRemoveProductMessage = (name) => {
+  return `<span style="font-size: 20px;">
+      are you sure you want to completely remove <span style="color: ${customYellow};">${name}</span> from the menu?<br/>the user will not be able to purchase this product any more.
+    </span>`;
+};
