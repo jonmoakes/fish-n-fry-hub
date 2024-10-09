@@ -85,6 +85,10 @@ export const AdditionalPrice = styled.p`
 export const OptionsLabel = styled.p`
   color: ${customBlack};
   margin-top: 5px;
+
+  &.wrap {
+    white-space: pre-wrap;
+  }
 `;
 
 export const RequiredError = styled.p`

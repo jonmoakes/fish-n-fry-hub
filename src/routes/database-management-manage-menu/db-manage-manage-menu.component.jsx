@@ -18,6 +18,8 @@ import { ParentDiv } from "../../styles/div/div.styles";
 import { Title } from "../../styles/h1/h1.styles";
 import { Text } from "../../styles/p/p.styles";
 import { YellowGreenButton } from "../../styles/buttons/buttons.styles";
+import { Link } from "react-router-dom";
+import { databaseManagementCreateNewProductRoute } from "../../strings/routes/routes-strings";
 
 const DBManageManageMenu = () => {
   useFetchMenu();
@@ -64,7 +66,9 @@ const DBManageManageMenu = () => {
               <ManageMenuInstructions />
 
               <ParentDiv>
-                <YellowGreenButton>create a new product</YellowGreenButton>
+                <Link to={databaseManagementCreateNewProductRoute}>
+                  <YellowGreenButton>create a new product</YellowGreenButton>
+                </Link>
               </ParentDiv>
 
               <ParentDiv>

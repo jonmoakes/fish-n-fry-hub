@@ -41,10 +41,12 @@ const ManageMenuInstructions = () => {
           {shouldShowElement && (
             <AccordionContent>
               <Text>here, you can manage your menu.</Text>
-              <Text>you can remove products or update their prices.</Text>
               <Text>
-                to start, choose the menu item that you wish to edit from the
-                list below.
+                you can add or remove products, or update their prices.
+              </Text>
+              <Text>
+                to start, tap the create new product button, or choose the menu
+                item that you wish to edit from the list below.
               </Text>
               <Text>
                 alternatively, type in a word or words of the product you want

@@ -16,6 +16,7 @@ const useGetDatabaseManagementSelectors = () => {
     productToEdit,
     updateAttributeResult,
     updateAttributeError,
+    productToAdd,
   } = useSelector(selectDatabaseManagementSelectors);
 
   const {
@@ -26,6 +27,8 @@ const useGetDatabaseManagementSelectors = () => {
     customerId,
     orderDetails,
   } = dataToUpdateDocument ?? {};
+
+  const { category } = productToAdd ?? {};
 
   return {
     databaseManagementIsLoading,
@@ -47,6 +50,8 @@ const useGetDatabaseManagementSelectors = () => {
     productToEdit,
     updateAttributeResult,
     updateAttributeError,
+    productToAdd,
+    category,
   };
 };
 

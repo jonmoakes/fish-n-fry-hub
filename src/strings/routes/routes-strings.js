@@ -43,3 +43,5 @@ export const databaseManagementAddOrderAfterErrorRoute =
   "/database-manangement/add-order-after-error";
 export const databaseManagementManageMenuRoute =
   "/database-manangement/manage-menu";
+export const databaseManagementCreateNewProductRoute =
+  "/database-manangement/create-new-product";

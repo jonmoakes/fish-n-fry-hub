@@ -41,8 +41,8 @@ import {
   aboutRoute,
   databaseManagementAddOrderAfterErrorRoute,
   databaseManagementManageMenuRoute,
+  databaseManagementCreateNewProductRoute,
 } from "./strings/routes/routes-strings";
-import Skeleton from "react-loading-skeleton";
 import SkeletonBox from "./components/skeleton-box/skeleton-box.component";
 
 const Navigation = lazy(() =>
@@ -116,6 +116,12 @@ const DBManageAddOrderAfterError = lazy(() =>
 const DBManageManageMenu = lazy(() =>
   import(
     "./routes/database-management-manage-menu/db-manage-manage-menu.component"
+  )
+);
+
+const DBManageCreateNewProduct = lazy(() =>
+  import(
+    "./routes/database-management-create-new-product/datatabase-management-create-new-product.component"
   )
 );
 
@@ -239,6 +245,11 @@ const App = () => {
               <Route
                 path={databaseManagementManageMenuRoute}
                 element={<DBManageManageMenu />}
+              />
+
+              <Route
+                path={databaseManagementCreateNewProductRoute}
+                element={<DBManageCreateNewProduct />}
               />
 
               <Route path={pwaInfoRoute} element={<PwaInformation />} />
