@@ -11,6 +11,7 @@ import {
 import { ID } from "appwrite";
 import { updateProductInMenuStore } from "../menu/menu.slice";
 import { updateProductToEdit } from "./database-management.slice";
+import { collectionIdOfNewProduct, productToUpload } from "./product-to upload";
 
 export const addOrderToDatabaseAsync = createAsyncThunk(
   "addOrderToDatabase",
@@ -165,14 +166,16 @@ export const updateProductPricesAsync = createAsyncThunk(
 
 export const createNewMenuProductAsync = createAsyncThunk(
   "createNewMenuProduct",
-  async ({ collectionId, product }, thunkAPI) => {
+  async ({ productToAdd }, thunkAPI) => {
+    const { category } = productToAdd;
+
     try {
       await manageDatabaseDocument(
         "create",
         databaseId,
-        collectionId,
+        collectionIdOfNewProduct(category),
         ID.unique(),
-        product
+        productToUpload(category, productToAdd)
       );
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

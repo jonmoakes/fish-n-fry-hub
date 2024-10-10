@@ -29,7 +29,9 @@ export const collectionsAttributeData = [
       },
       {
         attributeName: "hasSizeOption",
-        displayName: "does the product have size options?",
+        displayName: `does the product have size options?
+
+if selected, at least one size price below must be given a value.`,
         inputType: "checkbox",
         changeHandler: "handleChangeCheckbox",
         required: false,
@@ -62,10 +64,12 @@ export const collectionsAttributeData = [
       {
         attributeName: "numberOfSaucesAvailable",
         displayName: `maximum number of sauces a customer can choose for this product?
-( leave blank if not required )`,
+
+Must have a value of 1 or 3 if the 'has sauces option?' has been checked above.
+( leave blank if 'has sauces option?' above has NOT been checked ).`,
         inputType: "number",
         changeHandler: "handleChange",
-        placeholder: "number value - ie 3 not three",
+        placeholder: "either 1 or 3",
         required: false,
       },
       {

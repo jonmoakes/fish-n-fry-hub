@@ -6,6 +6,7 @@ import AttributesDataForm from "./sections/attributes-data-form.component";
 
 import { Container } from "../../styles/container/container.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
+import CreateProductButton from "./sections/create-product-button.component";
 
 const DBManageCreateNewProduct = () => {
   const {
@@ -14,26 +15,35 @@ const DBManageCreateNewProduct = () => {
     category,
     productToAdd,
     handleChangeCheckbox,
+    confirmChangeCategory,
+    allChecksPassed,
+    addProduct,
   } = useCreateProductLogic();
 
   return (
     <Container>
       <CreateProductTitleAndInstructions />
-      <ChooseCollection {...{ handleChange }} />
+      <ChooseCollection
+        {...{ category, handleChange, confirmChangeCategory }}
+      />
 
       {attributes ? (
-        <ParentDiv>
-          <AttributeInputInstructions {...{ category }} />
+        <>
+          <ParentDiv>
+            <AttributeInputInstructions {...{ category }} />
 
-          <AttributesDataForm
-            {...{
-              attributes,
-              productToAdd,
-              handleChangeCheckbox,
-              handleChange,
-            }}
-          />
-        </ParentDiv>
+            <AttributesDataForm
+              {...{
+                attributes,
+                productToAdd,
+                handleChangeCheckbox,
+                handleChange,
+              }}
+            />
+          </ParentDiv>
+
+          <CreateProductButton {...{ allChecksPassed, addProduct }} />
+        </>
       ) : null}
     </Container>
   );

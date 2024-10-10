@@ -7,31 +7,56 @@ import { Form, Label } from "../../../styles/form/form.styles";
 import { BlackHr } from "../../../styles/hr/hr.styles";
 
 import { categories } from "../../../constants/constants";
+import { YellowGreenButton } from "../../../styles/buttons/buttons.styles";
+import Balancer from "react-wrap-balancer";
 
-const ChooseCollection = ({ handleChange }) => (
+const ChooseCollection = ({
+  category,
+  handleChange,
+  confirmChangeCategory,
+}) => (
   <ParentDiv>
-    <H2>choose collection</H2>
-    <Text>which collection will this new product belong to?</Text>
+    {!category ? (
+      <>
+        <H2>choose collection</H2>
+        <Text>
+          <Balancer>which collection will this new product belong to?</Balancer>
+        </Text>
 
-    <Form className="no-margin-top">
-      <InnerFormDiv>
-        {categories.map((category) => {
-          return (
-            <Fragment key={category}>
-              <Label className="no-padding">{category}</Label>
-              <input
-                type="radio"
-                name="category"
-                value={category}
-                onChange={handleChange}
-              />
+        <Form className="no-margin-top">
+          <InnerFormDiv>
+            {categories.map((category) => {
+              return (
+                <Fragment key={category}>
+                  <Label className="no-padding">{category}</Label>
+                  <input
+                    type="radio"
+                    name="category"
+                    value={category}
+                    onChange={handleChange}
+                  />
 
-              <BlackHr />
-            </Fragment>
-          );
-        })}
-      </InnerFormDiv>
-    </Form>
+                  <BlackHr />
+                </Fragment>
+              );
+            })}
+          </InnerFormDiv>
+        </Form>
+      </>
+    ) : (
+      <>
+        <Text>
+          to change the category your new product will go in, tap the button
+          below.
+        </Text>
+        <Text>
+          note that this will reset any data that you have entered so far.
+        </Text>
+        <YellowGreenButton type="button" onClick={confirmChangeCategory}>
+          change category
+        </YellowGreenButton>
+      </>
+    )}
   </ParentDiv>
 );
 

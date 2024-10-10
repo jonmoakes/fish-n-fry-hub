@@ -54,3 +54,6 @@ export const confirmRemoveProductMessage = (name) => {
       are you sure you want to completely remove <span style="color: ${customYellow};">${name}</span> from the menu?<br/>the user will not be able to purchase this product any more.
     </span>`;
 };
+
+export const confirmChangeCategoryMessage =
+  "are you sure you want to change the category? this will reset any data that you have entered so far.";
