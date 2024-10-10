@@ -7,15 +7,12 @@ import {
   resetDeleteDocumentError,
   resetDeleteDocumentResult,
 } from "../../../store/database-management/database-management.slice";
+import useManageMenuLogic from "./use-manage-menu-logic";
 import useFireSwal from "../../../hooks/use-fire-swal";
 import useHamburgerHandlerNavigate from "../../../hooks/use-hamburger-handler-navigate";
 
 import { errorReceivedMessage } from "../../../strings/errors/errors-strings";
-import {
-  databaseManagementManageMenuRoute,
-  databaseManagementRoute,
-} from "../../../strings/routes/routes-strings";
-import useManageMenuLogic from "./use-manage-menu-logic";
+import { databaseManagementRoute } from "../../../strings/routes/routes-strings";
 
 const useDeleteProductResultSwal = () => {
   const { deleteDocumentResult, deleteDocumentError } =
@@ -43,7 +40,6 @@ const useDeleteProductResultSwal = () => {
       ).then((isConfirmed) => {
         if (isConfirmed) {
           dispatch(resetDatabaseManagementState());
-
           hamburgerHandlerNavigate(databaseManagementRoute);
         }
       });

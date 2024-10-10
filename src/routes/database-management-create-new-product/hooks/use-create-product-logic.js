@@ -5,14 +5,16 @@ import {
   resetProductToAdd,
   setProductToAdd,
 } from "../../../store/database-management/database-management.slice";
+import { createNewMenuProductAsync } from "../../../store/database-management/database-management.thunks";
 
-import { collectionsAttributeData } from "../collections-attribute-data";
-import useConfirmSwal from "../../../hooks/use-confirm-swal";
-import { confirmChangeCategoryMessage } from "../../../strings/confirms/confirms-strings";
 import useCreateProductSaucesCheck from "./attribute-checks/use-create-product-sauces-check";
 import useRequiredFieldsFilledCheck from "./attribute-checks/use-required-fields-filled-check";
 import useCreateProductSizesCheck from "./attribute-checks/use-create-product-sizes-check";
-import { createNewMenuProductAsync } from "../../../store/database-management/database-management.thunks";
+import useConfirmSwal from "../../../hooks/use-confirm-swal";
+
+import { confirmChangeCategoryMessage } from "../../../strings/confirms/confirms-strings";
+
+import { collectionsAttributeData } from "../collections-attribute-data";
 
 const useCreateProductLogic = () => {
   const { productToAdd, category } = useGetDatabaseManagementSelectors();
@@ -92,11 +94,6 @@ const useCreateProductLogic = () => {
   };
 
   const allChecksPassed = () => {
-    console.log(
-      allRequiredFieldsFilled(attributes, productToAdd),
-      sizesOptionCheckPassed(attributes, productToAdd),
-      saucesOptionCheckPassed(attributes, productToAdd)
-    );
     return (
       allRequiredFieldsFilled(attributes, productToAdd) &&
       sizesOptionCheckPassed(attributes, productToAdd) &&
