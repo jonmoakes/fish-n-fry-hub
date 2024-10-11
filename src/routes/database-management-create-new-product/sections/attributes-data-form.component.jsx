@@ -15,56 +15,50 @@ const AttributesDataForm = ({
   productToAdd,
   handleChangeCheckbox,
   handleChange,
-}) => {
-  return (
-    <>
-      <BlackHr />
-      <Form>
-        {attributes.map((attribute) => {
-          const {
-            attributeName,
-            displayName,
-            required,
-            inputType,
-            placeholder,
-          } = attribute;
+}) => (
+  <>
+    <BlackHr />
+    <Form>
+      {attributes.map((attribute) => {
+        const { attributeName, displayName, required, inputType, placeholder } =
+          attribute;
 
-          return (
-            <InnerFormDiv key={attributeName}>
-              <OptionsLabel className="wrap">
-                <Balancer>{displayName}</Balancer>
-              </OptionsLabel>
+        return (
+          <InnerFormDiv key={attributeName}>
+            <OptionsLabel className="wrap">
+              <Balancer>{displayName}</Balancer>
+            </OptionsLabel>
 
-              {required ? (
-                <RequiredDiv>
-                  <RequiredSpan>required</RequiredSpan>
-                </RequiredDiv>
-              ) : null}
+            {required ? (
+              <RequiredDiv>
+                <RequiredSpan>required</RequiredSpan>
+              </RequiredDiv>
+            ) : null}
 
-              {inputType === "checkbox" ? (
-                <StyledCheckbox
-                  type={inputType}
-                  name={attributeName}
-                  checked={productToAdd[attributeName] || false}
-                  onChange={handleChangeCheckbox}
-                />
-              ) : (
-                <StyledInput
-                  type={inputType}
-                  name={attributeName}
-                  value={productToAdd[attributeName] || ""}
-                  onChange={handleChange}
-                  placeholder={placeholder}
-                />
-              )}
+            {inputType === "checkbox" ? (
+              <StyledCheckbox
+                type={inputType}
+                name={attributeName}
+                checked={productToAdd[attributeName] || false}
+                onChange={handleChangeCheckbox}
+              />
+            ) : (
+              <StyledInput
+                type={inputType}
+                name={attributeName}
+                value={productToAdd[attributeName] || ""}
+                onChange={handleChange}
+                onWheel={(e) => e.target.blur()}
+                placeholder={placeholder}
+              />
+            )}
 
-              <HrWithMargin />
-            </InnerFormDiv>
-          );
-        })}
-      </Form>
-    </>
-  );
-};
+            <HrWithMargin />
+          </InnerFormDiv>
+        );
+      })}
+    </Form>
+  </>
+);
 
 export default AttributesDataForm;

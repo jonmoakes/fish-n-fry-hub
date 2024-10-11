@@ -4,14 +4,43 @@ import { YellowGreenButton } from "../../../styles/buttons/buttons.styles";
 import { Text } from "../../../styles/p/p.styles";
 import { ParentDiv } from "../../../styles/div/div.styles";
 import { RequiredSpan } from "../../../styles/span/span.styles";
+import useConfirmCreateProduct from "../hooks/use-confirm-create-product";
+import { useState } from "react";
 
-const CreateProductButton = ({ allChecksPassed, addProduct }) => {
+const CreateProductButton = ({ allChecksPassed }) => {
+  const { confirmCreateProduct } = useConfirmCreateProduct();
+  const [showFinalButton, setShowFinalButton] = useState(false);
+
   return (
     <ParentDiv>
       {allChecksPassed() ? (
-        <YellowGreenButton type="button" onClick={addProduct}>
-          create product
-        </YellowGreenButton>
+        <>
+          {!showFinalButton ? (
+            <>
+              <Text>
+                have you double checked all of the data required to create this
+                product?
+              </Text>
+
+              <YellowGreenButton onClick={() => setShowFinalButton(true)}>
+                i've checked
+              </YellowGreenButton>
+            </>
+          ) : (
+            <>
+              <Text>
+                you have confirmed that you have checked all of the data. tap
+                the button below to continue.
+              </Text>
+              <Text>
+                you will have chance to confirm before creating the product.
+              </Text>
+              <YellowGreenButton type="button" onClick={confirmCreateProduct}>
+                create product
+              </YellowGreenButton>
+            </>
+          )}
+        </>
       ) : (
         <>
           <Text>some fields that are marked</Text>

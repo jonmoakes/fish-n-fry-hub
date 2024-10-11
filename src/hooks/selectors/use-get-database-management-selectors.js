@@ -17,6 +17,8 @@ const useGetDatabaseManagementSelectors = () => {
     updateAttributeResult,
     updateAttributeError,
     productToAdd,
+    createProductResult,
+    createProductError,
   } = useSelector(selectDatabaseManagementSelectors);
 
   const {
@@ -52,6 +54,8 @@ const useGetDatabaseManagementSelectors = () => {
     updateAttributeError,
     productToAdd,
     category,
+    createProductResult,
+    createProductError,
   };
 };
 

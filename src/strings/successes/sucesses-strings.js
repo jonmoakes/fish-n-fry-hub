@@ -10,3 +10,5 @@ export const yesAddItMessage = "yes, add it!";
 export const emailResponseTimeMessage =
   "Your Message Has Been Sent! We aim to respond to your email within 24hrs.";
 export const priceUpdatedMessage = "price updated!";
+export const productCreatedMessage =
+  "product created! It has been added to the menu for your customers to purchase.";

@@ -12,7 +12,11 @@ import useFireSwal from "../../../hooks/use-fire-swal";
 import useHamburgerHandlerNavigate from "../../../hooks/use-hamburger-handler-navigate";
 
 import { errorReceivedMessage } from "../../../strings/errors/errors-strings";
-import { databaseManagementRoute } from "../../../strings/routes/routes-strings";
+import {
+  databaseManagementManageMenuRoute,
+  databaseManagementRoute,
+} from "../../../strings/routes/routes-strings";
+import { fetchMenuDocumentsAsync } from "../../../store/menu/menu-thunks";
 
 const useDeleteProductResultSwal = () => {
   const { deleteDocumentResult, deleteDocumentError } =
@@ -40,7 +44,8 @@ const useDeleteProductResultSwal = () => {
       ).then((isConfirmed) => {
         if (isConfirmed) {
           dispatch(resetDatabaseManagementState());
-          hamburgerHandlerNavigate(databaseManagementRoute);
+          dispatch(fetchMenuDocumentsAsync());
+          hamburgerHandlerNavigate(databaseManagementManageMenuRoute);
         }
       });
     } else {

@@ -5,7 +5,6 @@ import {
   resetProductToAdd,
   setProductToAdd,
 } from "../../../store/database-management/database-management.slice";
-import { createNewMenuProductAsync } from "../../../store/database-management/database-management.thunks";
 
 import useCreateProductSaucesCheck from "./attribute-checks/use-create-product-sauces-check";
 import useRequiredFieldsFilledCheck from "./attribute-checks/use-required-fields-filled-check";
@@ -17,7 +16,8 @@ import { confirmChangeCategoryMessage } from "../../../strings/confirms/confirms
 import { collectionsAttributeData } from "../collections-attribute-data";
 
 const useCreateProductLogic = () => {
-  const { productToAdd, category } = useGetDatabaseManagementSelectors();
+  const { productToAdd, category, databaseManagementIsLoading } =
+    useGetDatabaseManagementSelectors();
   const { allRequiredFieldsFilled } = useRequiredFieldsFilledCheck();
   const { sizesOptionCheckPassed } = useCreateProductSizesCheck();
   const { saucesOptionCheckPassed } = useCreateProductSaucesCheck();
@@ -101,11 +101,8 @@ const useCreateProductLogic = () => {
     );
   };
 
-  const addProduct = () => {
-    dispatch(createNewMenuProductAsync({ productToAdd }));
-  };
-
   return {
+    databaseManagementIsLoading,
     handleChange,
     attributes,
     category,
@@ -113,7 +110,6 @@ const useCreateProductLogic = () => {
     handleChangeCheckbox,
     confirmChangeCategory,
     allChecksPassed,
-    addProduct,
   };
 };
 

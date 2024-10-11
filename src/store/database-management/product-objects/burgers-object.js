@@ -15,10 +15,10 @@ export const burgersObject = (productToAdd) => {
     sizeOptionTriplePrice,
   } = productToAdd;
   return {
-    name,
+    name: name.toLowerCase(),
     price: Number(price),
-    description: description ? description : "",
-    category,
+    description: description ? description.toLowerCase() : "",
+    category: category.toLowerCase(),
     hasCheeseSliceOption: !hasCheeseSliceOption ? false : true,
     hasDonerMeatOption: !hasDonerMeatOption ? false : true,
     hasGratedCheeseOption: !hasGratedCheeseOption ? false : true,

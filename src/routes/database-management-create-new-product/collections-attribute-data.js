@@ -13,7 +13,7 @@ export const collectionsAttributeData = [
       },
       {
         attributeName: "price",
-        displayName: "base product price:",
+        displayName: "base product price ( in PENCE ):",
         inputType: "number",
         changeHandler: "handleChange",
         placeholder: "base price in pence",
@@ -38,7 +38,7 @@ if selected, at least one size price below must be given a value.`,
       },
       {
         attributeName: "sizeOptionDoublePrice",
-        displayName: `double size price:
+        displayName: `double size price ( in PENCE ):
 ( leave blank if not required )`,
         inputType: "number",
         changeHandler: "handleChange",
@@ -47,7 +47,7 @@ if selected, at least one size price below must be given a value.`,
       },
       {
         attributeName: "sizeOptionTriplePrice",
-        displayName: `triple size price:
+        displayName: `triple size price ( in PENCE ):
 ( leave blank if not required )`,
         inputType: "number",
         changeHandler: "handleChange",
@@ -98,6 +98,123 @@ Must have a value of 1 or 3 if the 'has sauces option?' has been checked above.
         displayName: "has salad option?",
         inputType: "checkbox",
         changeHandler: "handleChangeCheckbox",
+        required: false,
+      },
+    ],
+  },
+  {
+    id: 2,
+    collectionName: "chicken",
+    attributes: [
+      {
+        attributeName: "name",
+        displayName: "product name:",
+        inputType: "text",
+        changeHandler: "handleChange",
+        placeholder: "the product's name",
+        required: true,
+      },
+      {
+        attributeName: "price",
+        displayName: "base product price ( in PENCE ):",
+        inputType: "number",
+        changeHandler: "handleChange",
+        placeholder: "base price in pence",
+        required: true,
+      },
+      {
+        attributeName: "description",
+        displayName: "description:",
+        inputType: "text",
+        changeHandler: "handleChange",
+        placeholder: "omit if not required",
+        required: false,
+      },
+      {
+        attributeName: "hasSaltAndVinegarOption",
+        displayName: "has salt & vinegar option?",
+        inputType: "checkbox",
+        changeHandler: "handleChangeCheckbox",
+        required: false,
+      },
+      {
+        attributeName: "hasChooseCanOption",
+        displayName: "has choose can option?",
+        inputType: "checkbox",
+        changeHandler: "handleChangeCheckbox",
+        required: false,
+      },
+      {
+        attributeName: "hasSaucesOption",
+        displayName: "has sauces option?",
+        inputType: "checkbox",
+        changeHandler: "handleChangeCheckbox",
+        required: false,
+      },
+      {
+        attributeName: "numberOfSaucesAvailable",
+        displayName: `maximum number of sauces a customer can choose for this product?
+
+Must have a value of 1 or 3 if the 'has sauces option?' has been checked above.
+( leave blank if 'has sauces option?' above has NOT been checked ).`,
+        inputType: "number",
+        changeHandler: "handleChange",
+        placeholder: "either 1 or 3",
+        required: false,
+      },
+      {
+        attributeName: "hasSaladOption",
+        displayName: "has salad option?",
+        inputType: "checkbox",
+        changeHandler: "handleChangeCheckbox",
+        required: false,
+      },
+    ],
+  },
+  {
+    id: 3,
+    collectionName: "chicken curry",
+    attributes: [
+      {
+        attributeName: "name",
+        displayName: "product name:",
+        inputType: "text",
+        changeHandler: "handleChange",
+        placeholder: "the product's name",
+        required: true,
+      },
+      {
+        attributeName: "price",
+        displayName: "base product price ( in PENCE ):",
+        inputType: "number",
+        changeHandler: "handleChange",
+        placeholder: "base price in pence",
+        required: true,
+      },
+      {
+        attributeName: "description",
+        displayName: "description:",
+        inputType: "text",
+        changeHandler: "handleChange",
+        placeholder: "omit if not required",
+        required: false,
+      },
+      {
+        attributeName: "hasSizeOption",
+        displayName: `does the product have size options?
+
+if selected, the large price below must be given a value.`,
+        inputType: "checkbox",
+        changeHandler: "handleChangeCheckbox",
+        required: false,
+      },
+      {
+        attributeName: "sizeOptionLargePrice",
+        displayName: `large size price ( in PENCE ):
+( leave blank if not required )`,
+        inputType: "number",
+        changeHandler: "handleChange",
+        placeholder: "in pence",
         required: false,
       },
     ],

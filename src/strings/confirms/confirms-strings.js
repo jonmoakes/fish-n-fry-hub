@@ -57,3 +57,5 @@ export const confirmRemoveProductMessage = (name) => {
 
 export const confirmChangeCategoryMessage =
   "are you sure you want to change the category? this will reset any data that you have entered so far.";
+export const confirmCreateProductMessage =
+  "do you want to create this product? It will be added to the menu immediately.";
