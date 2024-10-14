@@ -7,37 +7,39 @@ const ItemsMap = ({
   menuDocuments,
   filteredDocuments,
   addProductToEdit,
-}) => (
-  <WholeMenuListDiv>
-    {!inputText ? (
-      menuDocuments.map((doc) => (
-        <SelectProductButton
-          className="margin"
-          key={doc.$id}
-          onClick={() => addProductToEdit(doc)}
-        >
-          {doc.name}
-        </SelectProductButton>
-      ))
-    ) : !filteredDocuments.length ? (
-      <>
-        <Text>no results found..</Text>
-        <Text>
-          try changing your search query or empty it to show all items again.
-        </Text>
-      </>
-    ) : (
-      filteredDocuments.map((doc) => (
-        <SelectProductButton
-          className="margin"
-          key={doc.$id}
-          onClick={() => addProductToEdit(doc)}
-        >
-          {doc.name}
-        </SelectProductButton>
-      ))
-    )}
-  </WholeMenuListDiv>
-);
+}) => {
+  return (
+    <WholeMenuListDiv>
+      {!inputText ? (
+        menuDocuments.map((doc) => (
+          <SelectProductButton
+            className="margin"
+            key={doc.$id}
+            onClick={() => addProductToEdit(doc)}
+          >
+            {doc.name}
+          </SelectProductButton>
+        ))
+      ) : !filteredDocuments.length ? (
+        <>
+          <Text>no results found..</Text>
+          <Text>
+            try changing your search query or empty it to show all items again.
+          </Text>
+        </>
+      ) : (
+        filteredDocuments.map((doc) => (
+          <SelectProductButton
+            className="margin"
+            key={doc.$id}
+            onClick={() => addProductToEdit(doc)}
+          >
+            {doc.name}
+          </SelectProductButton>
+        ))
+      )}
+    </WholeMenuListDiv>
+  );
+};
 
 export default ItemsMap;

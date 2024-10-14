@@ -1,5 +1,7 @@
+import { Link } from "react-router-dom";
+
 import useUpdateAttributeResultUseEffect from "./hooks/use-update-attribute-result-use-effect";
-import useDeleteProductResultSwal from "./hooks/use-delete-product-result-swal";
+import useDeleteProductResultSwalUseEffect from "./hooks/use-delete-product-result-swal-use-effect";
 import useFetchMenu from "./hooks/use-fetch-menu";
 import useManageMenuLogic from "./hooks/use-manage-menu-logic";
 
@@ -18,15 +20,16 @@ import { ParentDiv } from "../../styles/div/div.styles";
 import { Title } from "../../styles/h1/h1.styles";
 import { Text } from "../../styles/p/p.styles";
 import { YellowGreenButton } from "../../styles/buttons/buttons.styles";
-import { Link } from "react-router-dom";
+
 import { databaseManagementCreateNewProductRoute } from "../../strings/routes/routes-strings";
 
 const DBManageManageMenu = () => {
   useFetchMenu();
   useUpdateAttributeResultUseEffect();
-  useDeleteProductResultSwal();
+  useDeleteProductResultSwalUseEffect();
 
   const {
+    productToEdit,
     databaseManagementIsLoading,
     menuIsLoading,
     menuError,
@@ -36,7 +39,6 @@ const DBManageManageMenu = () => {
     menuDocuments,
     filteredDocuments,
     addProductToEdit,
-    productToEdit,
   } = useManageMenuLogic();
 
   const ContainerComponent = Object.keys(productToEdit).length
@@ -49,7 +51,7 @@ const DBManageManageMenu = () => {
         <Title>manage menu</Title>
       </ParentDiv>
 
-      {databaseManagementIsLoading || menuIsLoading ? (
+      {menuIsLoading || databaseManagementIsLoading ? (
         <SkeletonBox
           loadingText={
             databaseManagementIsLoading ? "Updating Item..." : "fetching menu"

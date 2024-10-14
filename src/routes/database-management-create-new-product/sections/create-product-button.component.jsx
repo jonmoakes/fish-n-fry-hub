@@ -17,13 +17,14 @@ const CreateProductButton = ({ allChecksPassed }) => {
         <>
           {!showFinalButton ? (
             <>
+              <Text>the product looks good to upload!</Text>
               <Text>
                 have you double checked all of the data required to create this
                 product?
               </Text>
 
               <YellowGreenButton onClick={() => setShowFinalButton(true)}>
-                i've checked
+                yes i've checked
               </YellowGreenButton>
             </>
           ) : (

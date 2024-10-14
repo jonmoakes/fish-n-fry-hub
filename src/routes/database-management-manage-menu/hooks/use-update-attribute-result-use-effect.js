@@ -12,8 +12,7 @@ import { errorReceivedMessage } from "../../../strings/errors/errors-strings";
 import { priceUpdatedMessage } from "../../../strings/successes/sucesses-strings";
 
 const useUpdateAttributeResultUseEffect = () => {
-  const { $id, $collectionId, updateAttributeResult, updateAttributeError } =
-    useManageMenuLogic();
+  const { updateAttributeResult, updateAttributeError } = useManageMenuLogic();
 
   const { fireSwal } = useFireSwal();
   const dispatch = useDispatch();
@@ -39,7 +38,7 @@ const useUpdateAttributeResultUseEffect = () => {
     } else {
       fireSwal(
         "error",
-        errorReceivedMessage("error updating product", updateAttributeError),
+        errorReceivedMessage("error updating product.", updateAttributeError),
         "",
         0,
         "",
@@ -53,14 +52,7 @@ const useUpdateAttributeResultUseEffect = () => {
         }
       });
     }
-  }, [
-    updateAttributeResult,
-    updateAttributeError,
-    fireSwal,
-    dispatch,
-    $collectionId,
-    $id,
-  ]);
+  }, [updateAttributeResult, updateAttributeError, fireSwal, dispatch]);
 };
 
 export default useUpdateAttributeResultUseEffect;

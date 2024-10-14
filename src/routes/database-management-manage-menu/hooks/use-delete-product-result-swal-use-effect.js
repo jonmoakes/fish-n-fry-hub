@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import useGetDatabaseManagementSelectors from "../../../hooks/selectors/use-get-database-management-selectors";
 import {
   resetDatabaseManagementState,
   resetDeleteDocumentError,
@@ -12,16 +11,12 @@ import useFireSwal from "../../../hooks/use-fire-swal";
 import useHamburgerHandlerNavigate from "../../../hooks/use-hamburger-handler-navigate";
 
 import { errorReceivedMessage } from "../../../strings/errors/errors-strings";
-import {
-  databaseManagementManageMenuRoute,
-  databaseManagementRoute,
-} from "../../../strings/routes/routes-strings";
+import { databaseManagementManageMenuRoute } from "../../../strings/routes/routes-strings";
 import { fetchMenuDocumentsAsync } from "../../../store/menu/menu-thunks";
 
-const useDeleteProductResultSwal = () => {
-  const { deleteDocumentResult, deleteDocumentError } =
-    useGetDatabaseManagementSelectors();
-  const { name } = useManageMenuLogic();
+const useDeleteProductResultSwalUseEffect = () => {
+  const { deleteDocumentResult, deleteDocumentError, name } =
+    useManageMenuLogic();
 
   const { hamburgerHandlerNavigate } = useHamburgerHandlerNavigate();
   const { fireSwal } = useFireSwal();
@@ -78,4 +73,4 @@ const useDeleteProductResultSwal = () => {
   ]);
 };
 
-export default useDeleteProductResultSwal;
+export default useDeleteProductResultSwalUseEffect;

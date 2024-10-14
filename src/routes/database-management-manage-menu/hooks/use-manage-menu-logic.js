@@ -12,20 +12,18 @@ const useManageMenuLogic = () => {
     productToEdit,
     updateAttributeResult,
     updateAttributeError,
+    deleteDocumentResult,
+    deleteDocumentError,
   } = useGetDatabaseManagementSelectors();
 
   const {
     $id,
     $collectionId,
     name,
-    hasCheeseSliceOption,
-    hasDonerMeatOption,
-    hasGratedCheeseOption,
-    hasSaladOption,
-    hasSaucesOption,
-    hasSizeOption,
-    numberOfSaucesAvailable,
+
     price,
+    sizeOptionMediumPrice,
+    sizeOptionLargePrice,
     sizeOptionDoublePrice,
     sizeOptionTriplePrice,
   } = productToEdit ?? {};
@@ -71,20 +69,17 @@ const useManageMenuLogic = () => {
     $id,
     $collectionId,
     name,
-    hasCheeseSliceOption,
-    hasDonerMeatOption,
-    hasGratedCheeseOption,
-    hasSaladOption,
-    hasSaucesOption,
-    hasSizeOption,
-    numberOfSaucesAvailable,
     price,
+    sizeOptionMediumPrice,
+    sizeOptionLargePrice,
     sizeOptionDoublePrice,
     sizeOptionTriplePrice,
     handleAttributeChange,
     newValue,
     updateAttributeResult,
     updateAttributeError,
+    deleteDocumentResult,
+    deleteDocumentError,
   };
 };
 

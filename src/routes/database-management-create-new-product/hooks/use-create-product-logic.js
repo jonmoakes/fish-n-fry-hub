@@ -9,6 +9,8 @@ import {
 import useCreateProductSaucesCheck from "./attribute-checks/use-create-product-sauces-check";
 import useRequiredFieldsFilledCheck from "./attribute-checks/use-required-fields-filled-check";
 import useCreateProductSizesCheck from "./attribute-checks/use-create-product-sizes-check";
+import useCreateProductCondimentsCheck from "./attribute-checks/use-create-product-condiments-check";
+import useCreateProductMeatsCheck from "./attribute-checks/use-create-product-meats-check";
 import useConfirmSwal from "../../../hooks/use-confirm-swal";
 
 import { confirmChangeCategoryMessage } from "../../../strings/confirms/confirms-strings";
@@ -21,6 +23,8 @@ const useCreateProductLogic = () => {
   const { allRequiredFieldsFilled } = useRequiredFieldsFilledCheck();
   const { sizesOptionCheckPassed } = useCreateProductSizesCheck();
   const { saucesOptionCheckPassed } = useCreateProductSaucesCheck();
+  const { condimentsOptionCheckPassed } = useCreateProductCondimentsCheck();
+  const { meatsOptionCheckPassed } = useCreateProductMeatsCheck();
 
   const { confirmSwal } = useConfirmSwal();
   const dispatch = useDispatch();
@@ -60,6 +64,22 @@ const useCreateProductLogic = () => {
           numberOfSaucesAvailable: null,
         })
       );
+    } else if (name === "hasCondimentsOption" && !checked) {
+      dispatch(
+        setProductToAdd({
+          ...productToAdd,
+          [name]: checked,
+          numberOfCondimentsAvailable: null,
+        })
+      );
+    } else if (name === "hasMeatsOption" && !checked) {
+      dispatch(
+        setProductToAdd({
+          ...productToAdd,
+          [name]: checked,
+          numberOfMeatsAvailable: null,
+        })
+      );
     } else if (name === "hasSizeOption" && !checked) {
       const sizesToReset = [];
 
@@ -97,7 +117,9 @@ const useCreateProductLogic = () => {
     return (
       allRequiredFieldsFilled(attributes, productToAdd) &&
       sizesOptionCheckPassed(attributes, productToAdd) &&
-      saucesOptionCheckPassed(attributes, productToAdd)
+      saucesOptionCheckPassed(attributes, productToAdd) &&
+      condimentsOptionCheckPassed(attributes, productToAdd) &&
+      meatsOptionCheckPassed(attributes, productToAdd)
     );
   };
 
