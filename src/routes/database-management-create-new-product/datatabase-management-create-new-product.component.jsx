@@ -21,7 +21,7 @@ const DBManageCreateNewProduct = () => {
     productToAdd,
     handleChangeCheckbox,
     confirmChangeCategory,
-    allChecksPassed,
+    requiredFieldsCheckPassed,
   } = useCreateProductLogic();
 
   return (
@@ -49,7 +49,7 @@ const DBManageCreateNewProduct = () => {
             />
           </ParentDiv>
 
-          <CreateProductButton {...{ allChecksPassed }} />
+          <CreateProductButton {...{ requiredFieldsCheckPassed }} />
         </>
       ) : null}
     </Container>

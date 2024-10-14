@@ -5,12 +5,6 @@ import {
   resetProductToAdd,
   setProductToAdd,
 } from "../../../store/database-management/database-management.slice";
-
-import useCreateProductSaucesCheck from "./attribute-checks/use-create-product-sauces-check";
-import useRequiredFieldsFilledCheck from "./attribute-checks/use-required-fields-filled-check";
-import useCreateProductSizesCheck from "./attribute-checks/use-create-product-sizes-check";
-import useCreateProductCondimentsCheck from "./attribute-checks/use-create-product-condiments-check";
-import useCreateProductMeatsCheck from "./attribute-checks/use-create-product-meats-check";
 import useConfirmSwal from "../../../hooks/use-confirm-swal";
 
 import { confirmChangeCategoryMessage } from "../../../strings/confirms/confirms-strings";
@@ -20,14 +14,23 @@ import { collectionsAttributeData } from "../collections-attribute-data";
 const useCreateProductLogic = () => {
   const { productToAdd, category, databaseManagementIsLoading } =
     useGetDatabaseManagementSelectors();
-  const { allRequiredFieldsFilled } = useRequiredFieldsFilledCheck();
-  const { sizesOptionCheckPassed } = useCreateProductSizesCheck();
-  const { saucesOptionCheckPassed } = useCreateProductSaucesCheck();
-  const { condimentsOptionCheckPassed } = useCreateProductCondimentsCheck();
-  const { meatsOptionCheckPassed } = useCreateProductMeatsCheck();
 
   const { confirmSwal } = useConfirmSwal();
   const dispatch = useDispatch();
+
+  const {
+    hasSizeOption,
+    sizeOptionMediumPrice,
+    sizeOptionLargePrice,
+    sizeOptionDoublePrice,
+    sizeOptionTriplePrice,
+    hasSaucesOption,
+    numberOfSaucesAvailable,
+    hasCondimentsOption,
+    numberOfCondimentsAvailable,
+    hasMeatsOption,
+    numberOfMeatsAvailable,
+  } = productToAdd ?? {};
 
   const attributes = Object.keys(productToAdd).length
     ? collectionsAttributeData.find(
@@ -113,15 +116,41 @@ const useCreateProductLogic = () => {
     );
   };
 
-  const allChecksPassed = () => {
-    return (
-      allRequiredFieldsFilled(attributes, productToAdd) &&
-      sizesOptionCheckPassed(attributes, productToAdd) &&
-      saucesOptionCheckPassed(attributes, productToAdd) &&
-      condimentsOptionCheckPassed(attributes, productToAdd) &&
-      meatsOptionCheckPassed(attributes, productToAdd)
-    );
-  };
+  const requiredFieldsCheckPassed = attributes
+    ? attributes.every((attribute) => {
+        if (attribute.required) {
+          // This checks if the corresponding value in productToAdd exists (i.e., it’s not undefined, null, or an empty string).
+          // Returns true: if the value is defined, not null, and not an empty string.
+          // Returns false: if the value is undefined, null, or an empty string.
+          const value = productToAdd[attribute.attributeName];
+          return value !== undefined && value !== null && value !== "";
+        }
+        return true; // If not required, it's considered valid
+      })
+    : false; // Return false if there are no attributes
+
+  const hasSizeError =
+    hasSizeOption &&
+    !sizeOptionMediumPrice &&
+    !sizeOptionLargePrice &&
+    !sizeOptionTriplePrice &&
+    !sizeOptionDoublePrice &&
+    true;
+
+  const hasSaucesError =
+    hasSaucesOption &&
+    numberOfSaucesAvailable !== "1" &&
+    numberOfSaucesAvailable !== "3" &&
+    true;
+
+  const hasCondimentsError =
+    hasCondimentsOption &&
+    numberOfCondimentsAvailable !== "1" &&
+    numberOfCondimentsAvailable !== "2" &&
+    true;
+
+  const hasMeatsError =
+    hasMeatsOption && numberOfMeatsAvailable !== "2" && true;
 
   return {
     databaseManagementIsLoading,
@@ -131,7 +160,11 @@ const useCreateProductLogic = () => {
     productToAdd,
     handleChangeCheckbox,
     confirmChangeCategory,
-    allChecksPassed,
+    requiredFieldsCheckPassed,
+    hasSizeError,
+    hasSaucesError,
+    hasCondimentsError,
+    hasMeatsError,
   };
 };
 

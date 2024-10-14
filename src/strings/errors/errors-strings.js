@@ -53,3 +53,11 @@ export const whiteSpaceErrorMessage = `<span style="font-size: 20px;">one or som
 export const errorDeletingUserMessage = (error) => {
   return `<span style="font-size:20px";>sorry, there was an error deleting the user.<br/>Please Try Again or contact us if the error persists.<br/><br/>The error received was:<br/>'<span style="color:${customYellow}";>${error}</span>'</span>`;
 };
+
+export const hasSizeErrorMessage = `<span style="font-size:20px";>as you have checked the<br/>'<span style="color:${customYellow}";>has size option?</span>'<br/>box, please enter<br/><span style="color:${customYellow}";>at least once size price value</span>.<br/><br/>or uncheck the 'has size option' box if the product doesn't have size options.</span>`;
+
+export const hasSaucesErrorMessage = `<span style="font-size:20px";>as you have checked the<br/>'<span style="color:${customYellow}";>has sauces option?</span>'<br/>box, please make sure that the<br/><span style="color:${customYellow}";>number of sauces available</span><br/>box has a value of<br/><span style="color:${customYellow}";>1 or 3</span>.<br/><br/>or uncheck the 'has sauces option' box if the product doesn't have sauce options.</span>`;
+
+export const hasCondimentsErrorMessage = `<span style="font-size:20px";>as you have checked the<br/>'<span style="color:${customYellow}";>has condiments option?</span>'<br/>box, please make sure that the<br/>'<span style="color:${customYellow}";>number of condiments available</span>'<br/>box has a value of<br/><span style="color:${customYellow}";>1 or 2</span>.<br/><br/>or uncheck the 'has condiments option' box if the product doesn't have condiment options.</span>`;
+
+export const hasMeatsErrorMessage = `<span style="font-size:20px";>as you have checked the<br/>'<span style="color:${customYellow}";>has meats option?</span>'<br/>box, please make sure that the<br/>'<span style="color:${customYellow}";>number of meats available</span>'<br/>box has a value of<br/><span style="color:${customYellow}";>2</span>.<br/><br/>or uncheck the 'has meats option' box if the product doesn't have meat options.</span>`;

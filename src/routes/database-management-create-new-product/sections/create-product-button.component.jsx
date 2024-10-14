@@ -1,46 +1,32 @@
 import Balancer from "react-wrap-balancer";
 
+import useConfirmCreateProduct from "../hooks/use-confirm-create-product";
+
 import { YellowGreenButton } from "../../../styles/buttons/buttons.styles";
 import { Text } from "../../../styles/p/p.styles";
 import { ParentDiv } from "../../../styles/div/div.styles";
 import { RequiredSpan } from "../../../styles/span/span.styles";
-import useConfirmCreateProduct from "../hooks/use-confirm-create-product";
-import { useState } from "react";
 
-const CreateProductButton = ({ allChecksPassed }) => {
+const CreateProductButton = ({ requiredFieldsCheckPassed }) => {
   const { confirmCreateProduct } = useConfirmCreateProduct();
-  const [showFinalButton, setShowFinalButton] = useState(false);
 
   return (
     <ParentDiv>
-      {allChecksPassed() ? (
+      {requiredFieldsCheckPassed ? (
         <>
-          {!showFinalButton ? (
-            <>
-              <Text>the product looks good to upload!</Text>
-              <Text>
-                have you double checked all of the data required to create this
-                product?
-              </Text>
-
-              <YellowGreenButton onClick={() => setShowFinalButton(true)}>
-                yes i've checked
-              </YellowGreenButton>
-            </>
-          ) : (
-            <>
-              <Text>
-                you have confirmed that you have checked all of the data. tap
-                the button below to continue.
-              </Text>
-              <Text>
-                you will have chance to confirm before creating the product.
-              </Text>
-              <YellowGreenButton type="button" onClick={confirmCreateProduct}>
-                create product
-              </YellowGreenButton>
-            </>
-          )}
+          <Text>
+            <Balancer>
+              by tapping the 'create product' button below, you have confirmed
+              that you have checked that all of the data is correct for the
+              product you are going to create.
+            </Balancer>
+          </Text>
+          <Text>
+            you will have chance to confirm before creating the product.
+          </Text>
+          <YellowGreenButton type="button" onClick={confirmCreateProduct}>
+            create product
+          </YellowGreenButton>
         </>
       ) : (
         <>
