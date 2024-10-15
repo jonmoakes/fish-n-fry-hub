@@ -4,12 +4,13 @@ import useUpdateOptionPriceResultUseEffect from "./hooks/use-update-option-price
 
 import ShowFetchErrors from "../../components/errors/show-fetch-errors.component";
 import SkeletonBox from "../../components/skeleton-box/skeleton-box.component";
-import DonerMeatPrice from "./sections/doner-meat-price.component";
-import GratedCheesePrice from "./sections/grated-cheese-price.component";
+import DonerMeatPrice from "./doner-meat-price.component";
+import GratedCheesePrice from "./grated-cheese-price.component";
 
 import { Container } from "../../styles/container/container.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
 import { Title } from "../../styles/h1/h1.styles";
+import EditOptionsPricesInstructions from "./edit-options-prices-instructions.component";
 
 const DBManageEditOptionsPrices = () => {
   const {
@@ -30,6 +31,7 @@ const DBManageEditOptionsPrices = () => {
     <Container>
       <ParentDiv>
         <Title>edit options prices</Title>
+        <EditOptionsPricesInstructions />
       </ParentDiv>
 
       {databaseManagementIsLoading ? (

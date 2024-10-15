@@ -17,6 +17,7 @@ import {
   backgroundBlue,
   customLightGreen,
   customGoldenRod,
+  customRed,
 } from "../colors";
 
 const slideInLeftAnimation = keyframes`${slideInLeft}`;
@@ -115,7 +116,7 @@ export const ParentDiv = styled.div`
   }
 
   &.warning {
-    background-color: ${customTomato};
+    background-color: ${customRed};
   }
 
   &.repeat-order {
@@ -901,4 +902,12 @@ export const WholeMenuListDiv = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+`;
+
+export const WarningInnerDiv = styled.div`
+  margin: 30px auto 10px auto;
+  background-color: ${customLightGrey};
+  padding: 20px;
+  border: 2px solid ${customBlack};
+  border-radius: 5px;
 `;

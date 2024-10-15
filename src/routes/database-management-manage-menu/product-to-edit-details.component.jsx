@@ -3,12 +3,13 @@ import useConfirmUpdatePropertySwals from "./hooks/use-confirm-update-property-s
 
 import UpdatePrice from "./update-price.component";
 
-import { ParentDiv } from "../../styles/div/div.styles";
+import { ParentDiv, WarningInnerDiv } from "../../styles/div/div.styles";
 import { BlackText, Text } from "../../styles/p/p.styles";
 import { YellowShadowSpan } from "../../styles/span/span.styles";
 import { BlackHr } from "../../styles/hr/hr.styles";
 import { YellowGreenButton } from "../../styles/buttons/buttons.styles";
 import { BlackH2 } from "../../styles/h2/h2.styles";
+import Balancer from "react-wrap-balancer";
 
 const ProductToEditDetails = () => {
   const {
@@ -37,8 +38,11 @@ const ProductToEditDetails = () => {
         </YellowGreenButton>
 
         <Text>
-          these are the following details that you can edit for this product.
+          <Balancer>
+            these are the details that you can edit for this product{" "}
+          </Balancer>
         </Text>
+        <Text>&darr; &darr;</Text>
       </ParentDiv>
 
       <UpdatePrice
@@ -77,14 +81,18 @@ const ProductToEditDetails = () => {
       />
 
       <ParentDiv className="warning left">
-        <BlackH2 className="no-underline">delete {name}</BlackH2>
-        <BlackText>
-          to delete this product from your menu, tap the button below.
-        </BlackText>
-        <BlackText>
-          you will have a chance to confirm before the deletion occurs.
-        </BlackText>
-
+        <WarningInnerDiv>
+          <BlackH2 className="no-underline">
+            <Balancer>delete {name}?</Balancer>
+          </BlackH2>
+          <BlackHr />
+          <BlackText>
+            to delete this product from your menu, tap the button below.
+          </BlackText>
+          <BlackText>
+            you will have a chance to confirm before the deletion occurs.
+          </BlackText>
+        </WarningInnerDiv>
         <YellowGreenButton
           onClick={() => confirmDeleteProduct(name, $collectionId, $id)}
         >

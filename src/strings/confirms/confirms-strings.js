@@ -59,3 +59,9 @@ export const confirmChangeCategoryMessage =
   "are you sure you want to change the category? this will reset any data that you have entered so far.";
 export const confirmCreateProductMessage =
   "do you want to create this product? It will be added to the menu immediately.";
+
+export const confirmUpdateOptionPriceMessage = (optionName, newOptionPrice) => {
+  return `<span style="font-size: 20px;">are you sure you want to update the price of your<br/><span style="color: ${customYellow};">${optionName}</span> option<br/>to be<br/><span style="color: ${customYellow};">£${(
+    newOptionPrice / 100
+  ).toFixed(2)}</span>?</span>`;
+};

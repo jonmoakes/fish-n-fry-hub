@@ -12,10 +12,7 @@ import SkeletonBox from "../../components/skeleton-box/skeleton-box.component";
 import ItemSearch from "./item-search.component";
 import ItemsMap from "./items-map.component";
 
-import {
-  Container,
-  NoHeaderFooterContainer,
-} from "../../styles/container/container.styles";
+import { Container } from "../../styles/container/container.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
 import { Title } from "../../styles/h1/h1.styles";
 import { Text } from "../../styles/p/p.styles";
@@ -44,12 +41,8 @@ const DBManageManageMenu = () => {
     addProductToEdit,
   } = useManageMenuLogic();
 
-  const ContainerComponent = Object.keys(productToEdit).length
-    ? NoHeaderFooterContainer
-    : Container;
-
   return (
-    <ContainerComponent>
+    <Container>
       <ParentDiv>
         <Title>manage menu</Title>
       </ParentDiv>
@@ -102,7 +95,7 @@ const DBManageManageMenu = () => {
           )}
         </>
       )}
-    </ContainerComponent>
+    </Container>
   );
 };
 

@@ -3,6 +3,8 @@ import { useLocation } from "react-router-dom";
 import {
   checkoutRoute,
   chooseOptionsRoute,
+  databaseManagementCreateNewProductRoute,
+  databaseManagementEditOptionsPricesRoute,
   databaseManagementManageMenuRoute,
   repeatOrderRoute,
 } from "../strings/routes/routes-strings";
@@ -15,7 +17,9 @@ const useIsRouteWithNavWarning = () => {
     return path === chooseOptionsRoute ||
       path === checkoutRoute ||
       path === repeatOrderRoute ||
-      path === databaseManagementManageMenuRoute
+      path === databaseManagementManageMenuRoute ||
+      path === databaseManagementCreateNewProductRoute ||
+      path === databaseManagementEditOptionsPricesRoute
       ? true
       : false;
   };

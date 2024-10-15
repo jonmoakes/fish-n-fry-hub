@@ -2,6 +2,10 @@ import { useDispatch } from "react-redux";
 
 import useConfirmSwal from "../../../hooks/use-confirm-swal";
 import { updateOptionPriceAsync } from "../../../store/database-management/database-management.thunks";
+import {
+  confirmUpdateOptionPriceMessage,
+  imSureMessage,
+} from "../../../strings/confirms/confirms-strings";
 
 const useConfirmUpdateOptionPrice = () => {
   const { confirmSwal } = useConfirmSwal();
@@ -14,11 +18,9 @@ const useConfirmUpdateOptionPrice = () => {
     attributeKey
   ) => {
     confirmSwal(
-      `are you sure you want to update the price of your ${optionName} option to be £${(
-        newOptionPrice / 100
-      ).toFixed(2)}`,
+      confirmUpdateOptionPriceMessage(optionName, newOptionPrice),
       "",
-      "yes",
+      imSureMessage,
       "",
       () => dispatch(updateOptionPriceAsync({ newOptionPrice, attributeKey })),
       null
