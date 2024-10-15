@@ -45,3 +45,5 @@ export const databaseManagementManageMenuRoute =
   "/database-manangement/manage-menu";
 export const databaseManagementCreateNewProductRoute =
   "/database-manangement/create-new-product";
+export const databaseManagementEditOptionsPricesRoute =
+  "/database-manangement/edit-options-prices";

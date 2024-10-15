@@ -11,7 +11,7 @@ const PlaceOrderButton = () => {
     <>
       {shouldShowPaymentButton() ? (
         <YellowGreenButton
-          className="place-order"
+          className="bounce-down"
           onClick={getClientSecretThunk}
         >
           place order

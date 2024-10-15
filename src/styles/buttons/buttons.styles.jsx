@@ -82,7 +82,7 @@ export const YellowGreenButton = styled(Button)`
     background-color: ${customLightGreen};
   }
 
-  &.place-order {
+  &.bounce-down {
     animation: 1s ${bounceInDownAnimation};
   }
 

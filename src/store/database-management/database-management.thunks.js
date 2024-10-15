@@ -2,6 +2,8 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import {
   cartItemsCollectionId,
   databaseId,
+  optionsPricesCollectionId,
+  optionsPricesDocumentId,
   ordersCollectionId,
 } from "../../constants/constants";
 import {
@@ -176,6 +178,46 @@ export const createNewMenuProductAsync = createAsyncThunk(
         collectionIdOfNewProduct(category),
         ID.unique(),
         productToUpload(category, productToAdd)
+      );
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const fetchOptionsPricesAsync = createAsyncThunk(
+  "fetchOptionsPrices",
+  async (_, thunkAPI) => {
+    try {
+      const optionsPrices = await manageDatabaseDocument(
+        "get",
+        databaseId,
+        optionsPricesCollectionId,
+        optionsPricesDocumentId
+      );
+
+      return optionsPrices;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const updateOptionPriceAsync = createAsyncThunk(
+  "updateOptionPrice",
+  async ({ newOptionPrice, attributeKey }, thunkAPI) => {
+    try {
+      const priceAsNumber = Number(newOptionPrice);
+
+      const dataToUpdate = {
+        [attributeKey]: priceAsNumber,
+      };
+
+      await manageDatabaseDocument(
+        "update",
+        databaseId,
+        optionsPricesCollectionId,
+        optionsPricesDocumentId,
+        dataToUpdate
       );
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

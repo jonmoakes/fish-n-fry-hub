@@ -21,7 +21,10 @@ import { Title } from "../../styles/h1/h1.styles";
 import { Text } from "../../styles/p/p.styles";
 import { YellowGreenButton } from "../../styles/buttons/buttons.styles";
 
-import { databaseManagementCreateNewProductRoute } from "../../strings/routes/routes-strings";
+import {
+  databaseManagementCreateNewProductRoute,
+  databaseManagementEditOptionsPricesRoute,
+} from "../../strings/routes/routes-strings";
 
 const DBManageManageMenu = () => {
   useFetchMenu();
@@ -70,6 +73,10 @@ const DBManageManageMenu = () => {
               <ParentDiv>
                 <Link to={databaseManagementCreateNewProductRoute}>
                   <YellowGreenButton>create a new product</YellowGreenButton>
+                </Link>
+
+                <Link to={databaseManagementEditOptionsPricesRoute}>
+                  <YellowGreenButton>edit options prices</YellowGreenButton>
                 </Link>
               </ParentDiv>
 

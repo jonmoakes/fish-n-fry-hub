@@ -6,6 +6,7 @@ import useGetOrdersOwnerSelectors from "../../../hooks/selectors/use-get-orders-
 import useGetAllUsersSelectors from "../../../hooks/selectors/use-get-all-users-selectors";
 import useGetIncomeDataSelectors from "../../../hooks/selectors/use-get-income-data-selectors";
 import useGetOrderToRepeatSelectors from "../../../hooks/selectors/use-get-order-to-repeat-selectors";
+import useGetDatabaseManagementSelectors from "../../../hooks/selectors/use-get-database-management-selectors";
 
 const useHandleShowError = () => {
   const { menuError } = useGetMenuSelectors();
@@ -24,6 +25,7 @@ const useHandleShowError = () => {
   const { getAllUsersError } = useGetAllUsersSelectors();
   const { incomeDataError } = useGetIncomeDataSelectors();
   const { orderToRepeatError } = useGetOrderToRepeatSelectors();
+  const { databaseError } = useGetDatabaseManagementSelectors();
 
   const showErrorHeading = () => {
     if (menuError) return "failed to fetch menu data.";
@@ -44,6 +46,7 @@ const useHandleShowError = () => {
     if (incomeDataError) return "failed to fetch income data.";
     if (orderToRepeatError)
       return "failed to fetch data needed to repeat your order.";
+    if (databaseError) return "failed to fetch the options prices.";
   };
 
   const errorToDisplay = () => {
@@ -62,6 +65,7 @@ const useHandleShowError = () => {
       getAllUsersError,
       incomeDataError,
       orderToRepeatError,
+      databaseError,
     ];
 
     return errors.find((error) => error !== null);

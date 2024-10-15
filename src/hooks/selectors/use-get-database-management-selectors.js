@@ -19,6 +19,11 @@ const useGetDatabaseManagementSelectors = () => {
     productToAdd,
     createProductResult,
     createProductError,
+    getOptionsPricesResult,
+    optionsPrices,
+    getOptionsPricesError,
+    updateOptionPriceResult,
+    updateOptionPriceError,
   } = useSelector(selectDatabaseManagementSelectors);
 
   const {
@@ -56,6 +61,11 @@ const useGetDatabaseManagementSelectors = () => {
     category,
     createProductResult,
     createProductError,
+    getOptionsPricesResult,
+    optionsPrices,
+    getOptionsPricesError,
+    updateOptionPriceResult,
+    updateOptionPriceError,
   };
 };
 

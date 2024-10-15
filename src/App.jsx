@@ -10,6 +10,7 @@ import useGetUserOnLoadThunkUseEffect from "./hooks/use-get-user-on-load-thunk-u
 
 import { appOwnerId } from "./constants/constants";
 
+import SkeletonBox from "./components/skeleton-box/skeleton-box.component";
 import ScrollToTop from "./components/scroll-to-top/scroll-to-top";
 import FloatingBackButton from "./components/floating-back-button/floating-back-button.component";
 import PrivateRoutes from "./components/private-routes/private-routes.component";
@@ -42,8 +43,8 @@ import {
   databaseManagementAddOrderAfterErrorRoute,
   databaseManagementManageMenuRoute,
   databaseManagementCreateNewProductRoute,
+  databaseManagementEditOptionsPricesRoute,
 } from "./strings/routes/routes-strings";
-import SkeletonBox from "./components/skeleton-box/skeleton-box.component";
 
 const Navigation = lazy(() =>
   import("./routes/navigation/navigation.component")
@@ -122,6 +123,12 @@ const DBManageManageMenu = lazy(() =>
 const DBManageCreateNewProduct = lazy(() =>
   import(
     "./routes/database-management-create-new-product/datatabase-management-create-new-product.component"
+  )
+);
+
+const DBManageEditOptionsPrices = lazy(() =>
+  import(
+    "./routes/database-management-edit-options-prices/db-manage-edit-options-prices.component"
   )
 );
 
@@ -250,6 +257,11 @@ const App = () => {
               <Route
                 path={databaseManagementCreateNewProductRoute}
                 element={<DBManageCreateNewProduct />}
+              />
+
+              <Route
+                path={databaseManagementEditOptionsPricesRoute}
+                element={<DBManageEditOptionsPrices />}
               />
 
               <Route path={pwaInfoRoute} element={<PwaInformation />} />

@@ -6,6 +6,8 @@ import {
   dbManageAddOrderToDatabaseAsync,
   updateProductPricesAsync,
   createNewMenuProductAsync,
+  fetchOptionsPricesAsync,
+  updateOptionPriceAsync,
 } from "./database-management.thunks";
 
 const INITIAL_STATE = {
@@ -25,6 +27,11 @@ const INITIAL_STATE = {
   productToAdd: {},
   createProductResult: "",
   createProductError: null,
+  optionsPrices: {},
+  getOptionsPricesResult: "",
+  getOptionsPricesError: null,
+  updateOptionPriceResult: "",
+  updateOptionPriceError: "",
 };
 
 export const databaseManagementSlice = createSlice({
@@ -87,6 +94,18 @@ export const databaseManagementSlice = createSlice({
     },
     resetCreateProductError(state) {
       state.createProductError = null;
+    },
+    resetGetOptionsPricesResult(state) {
+      state.getOptionsPricesResult = "";
+    },
+    resetGetOptionsPricesError(state) {
+      state.getOptionsPricesError = null;
+    },
+    resetUpdateOptionPriceResult(state) {
+      state.updateOptionPriceResult = "";
+    },
+    resetUpdateOptionPriceError(state) {
+      state.updateOptionPriceError = null;
     },
     resetDatabaseManagementState: () => {
       return INITIAL_STATE;
@@ -171,6 +190,34 @@ export const databaseManagementSlice = createSlice({
         state.databaseManagementIsLoading = false;
         state.createProductResult = "rejected";
         state.createProductError = action.payload;
+      })
+      .addCase(fetchOptionsPricesAsync.pending, (state) => {
+        state.databaseManagementIsLoading = true;
+      })
+      .addCase(fetchOptionsPricesAsync.fulfilled, (state, action) => {
+        state.databaseManagementIsLoading = false;
+        state.optionsPrices = action.payload;
+        state.getOptionsPricesResult = "fulfilled";
+        state.getOptionsPricesError = null;
+      })
+      .addCase(fetchOptionsPricesAsync.rejected, (state, action) => {
+        state.databaseManagementIsLoading = false;
+        state.getOptionsPricesResult = "rejected";
+        state.optionsPrices = {};
+        state.getOptionsPricesError = action.payload;
+      })
+      .addCase(updateOptionPriceAsync.pending, (state) => {
+        state.databaseManagementIsLoading = true;
+      })
+      .addCase(updateOptionPriceAsync.fulfilled, (state) => {
+        state.databaseManagementIsLoading = false;
+        state.updateOptionPriceResult = "fulfilled";
+        state.updateOptionPriceError = null;
+      })
+      .addCase(updateOptionPriceAsync.rejected, (state, action) => {
+        state.databaseManagementIsLoading = false;
+        state.updateOptionPriceResult = "rejected";
+        state.updateOptionPriceError = action.payload;
       });
   },
   selectors: {
@@ -191,6 +238,11 @@ export const databaseManagementSlice = createSlice({
       (state) => state.productToAdd,
       (state) => state.createProductResult,
       (state) => state.createProductError,
+      (state) => state.getOptionsPricesResult,
+      (state) => state.optionsPrices,
+      (state) => state.getOptionsPricesError,
+      (state) => state.updateOptionPriceResult,
+      (state) => state.updateOptionPriceError,
       (
         databaseManagementIsLoading,
         addOrderResult,
@@ -207,7 +259,12 @@ export const databaseManagementSlice = createSlice({
         updateAttributeError,
         productToAdd,
         createProductResult,
-        createProductError
+        createProductError,
+        getOptionsPricesResult,
+        optionsPrices,
+        getOptionsPricesError,
+        updateOptionPriceResult,
+        updateOptionPriceError
       ) => {
         return {
           databaseManagementIsLoading,
@@ -226,6 +283,11 @@ export const databaseManagementSlice = createSlice({
           productToAdd,
           createProductResult,
           createProductError,
+          getOptionsPricesResult,
+          optionsPrices,
+          getOptionsPricesError,
+          updateOptionPriceResult,
+          updateOptionPriceError,
         };
       }
     ),
@@ -252,6 +314,10 @@ export const {
   resetProductToAdd,
   resetCreateProductResult,
   resetCreateProductError,
+  resetGetOptionsPricesResult,
+  resetGetOptionsPricesError,
+  resetUpdateOptionPriceResult,
+  resetUpdateOptionPriceError,
   resetDatabaseManagementState,
 } = databaseManagementSlice.actions;
 export const { selectDatabaseManagementSelectors } =

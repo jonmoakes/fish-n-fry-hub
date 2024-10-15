@@ -134,6 +134,10 @@ export const ParentDiv = styled.div`
     animation: 0.5s ${slideInLeftAnimation};
   }
 
+  &.bottom-padding {
+    padding: 10px 10px 40px 10px;
+  }
+
   &.amount {
     margin: -20px auto 30px auto;
     padding: 0px 10px;
