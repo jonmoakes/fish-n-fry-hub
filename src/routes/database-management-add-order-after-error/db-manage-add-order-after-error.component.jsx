@@ -1,5 +1,6 @@
 import Balancer from "react-wrap-balancer";
 
+import useGetSendEmailSelectors from "../../hooks/selectors/use-get-send-email-selectors";
 import useGetDatabaseManagementSelectors from "../../hooks/selectors/use-get-database-management-selectors";
 import useDbManageAddOrderResultSwalUseEffect from "./hooks/use-db-manage-add-order-result-swal-use-effect";
 
@@ -11,10 +12,13 @@ import AddOrderAfterErrorForm from "./add-order-after-error-form.component";
 import { Container } from "../../styles/container/container.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
 import { Title } from "../../styles/h1/h1.styles";
+import useSendEmailResultSwalUseEffect from "./hooks/use-send-email-result-swal-use-effect";
 
 const DBManageAddOrderAfterError = () => {
-  useDbManageAddOrderResultSwalUseEffect();
   const { databaseManagementIsLoading } = useGetDatabaseManagementSelectors();
+  const { sendEmailIsLoading } = useGetSendEmailSelectors();
+  useDbManageAddOrderResultSwalUseEffect();
+  useSendEmailResultSwalUseEffect();
 
   return (
     <Container>
@@ -24,8 +28,14 @@ const DBManageAddOrderAfterError = () => {
         </Title>
       </ParentDiv>
 
-      {databaseManagementIsLoading ? (
-        <SkeletonBox loadingText="Uploading Order..." />
+      {databaseManagementIsLoading || sendEmailIsLoading ? (
+        <SkeletonBox
+          loadingText={
+            databaseManagementIsLoading
+              ? "Uploading Order..."
+              : "Sending Email..."
+          }
+        />
       ) : (
         <>
           <AddOrderIntroAndRequiredData />

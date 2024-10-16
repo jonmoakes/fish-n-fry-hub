@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
 
 import useGetCartItemsSelectors from "../../../../hooks/selectors/use-get-cart-items-selectors";
-import { setFormattedStringOfOrderForEmail } from "../../../../store/database-management/database-management.slice";
+import { setHumanReadableOrderDetails } from "../../../../store/database-management/database-management.slice";
 
 import { formatOrderString } from "../../../../functions/format-order-string/fomat-order-string";
 import { checkoutRoute } from "../../../strings/routes/routes-strings";
@@ -19,18 +19,16 @@ const useSetEmailStringUseEffect = () => {
   useEffect(() => {
     if (path !== checkoutRoute) return;
     dispatch(resetOrderToRepeatState());
+
     const parsedCartItems = cartItems.map((cartItem) =>
       JSON.parse(cartItem.cartItem)
     );
-
-    const formattedStringOfOrderForEmail = parsedCartItems.map((item) =>
+    const humanReadableOrderDetails = parsedCartItems.map((item) =>
       formatOrderString(item)
     );
 
     dispatch(
-      setFormattedStringOfOrderForEmail(
-        formattedStringOfOrderForEmail.join("\n")
-      )
+      setHumanReadableOrderDetails(humanReadableOrderDetails.join("\n"))
     );
   }, [cartItems, dispatch, path]);
 };

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
 import useGetCartItemsSelectors from "../../../hooks/selectors/use-get-cart-items-selectors";
-import { setFormattedStringOfOrderForEmail } from "../../../store/database-management/database-management.slice";
+import { setHumanReadableOrderDetails } from "../../../store/database-management/database-management.slice";
 
 import { formatOrderString } from "../../../functions/format-order-string/fomat-order-string";
 
@@ -16,14 +16,12 @@ const useSetEmailStringUseEffect = () => {
       JSON.parse(cartItem.cartItem)
     );
 
-    const formattedStringOfOrderForEmail = parsedCartItems.map((item) =>
+    const humanReadableOrderDetails = parsedCartItems.map((item) =>
       formatOrderString(item)
     );
 
     dispatch(
-      setFormattedStringOfOrderForEmail(
-        formattedStringOfOrderForEmail.join("\n")
-      )
+      setHumanReadableOrderDetails(humanReadableOrderDetails.join("\n"))
     );
   }, [cartItems, dispatch]);
 };

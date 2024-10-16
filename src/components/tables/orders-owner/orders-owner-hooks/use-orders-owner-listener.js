@@ -35,11 +35,10 @@ const useOrdersOwnerListener = () => {
           $createdAt: createdAt,
         } = response.payload;
 
-        // Parse and format the order data
         const orderItems = getParsedOrderItems(orderString);
         const grandTotal = getGrandTotalOfOrder(orderItems);
 
-        const formattedOrder = orderItems.map((order) =>
+        const humanReadableOrder = orderItems.map((order) =>
           formatOrderString(order.cartItem)
         );
 
@@ -49,7 +48,7 @@ const useOrdersOwnerListener = () => {
           createdAt,
           orderId,
           grandTotal: `£${(grandTotal / 100).toFixed(2)}`,
-          order: formattedOrder,
+          order: humanReadableOrder,
           orderStatus,
         };
 

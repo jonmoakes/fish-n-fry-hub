@@ -16,7 +16,7 @@ const INITIAL_STATE = {
   addOrderError: null,
   deleteUserCartItemsResult: "",
   deleteUserCartItemsError: null,
-  formattedStringOfOrderForEmail: "",
+  humanReadableOrderDetails: "",
   errorIdFromEmail: "",
   dataToUpdateDocument: {},
   deleteDocumentResult: "",
@@ -50,8 +50,8 @@ export const databaseManagementSlice = createSlice({
     resetDeleteUserCartItemsError(state) {
       state.deleteUserCartItemsError = null;
     },
-    setFormattedStringOfOrderForEmail(state, action) {
-      state.formattedStringOfOrderForEmail = action.payload;
+    setHumanReadableOrderDetails(state, action) {
+      state.humanReadableOrderDetails = action.payload;
     },
     setErrorIdFromEmail(state, action) {
       state.errorIdFromEmail = action.payload;
@@ -227,7 +227,7 @@ export const databaseManagementSlice = createSlice({
       (state) => state.addOrderError,
       (state) => state.deleteUserCartItemsResult,
       (state) => state.deleteUserCartItemsError,
-      (state) => state.formattedStringOfOrderForEmail,
+      (state) => state.humanReadableOrderDetails,
       (state) => state.errorIdFromEmail,
       (state) => state.dataToUpdateDocument,
       (state) => state.deleteDocumentResult,
@@ -249,7 +249,7 @@ export const databaseManagementSlice = createSlice({
         addOrderError,
         deleteUserCartItemsResult,
         deleteUserCartItemsError,
-        formattedStringOfOrderForEmail,
+        humanReadableOrderDetails,
         errorIdFromEmail,
         dataToUpdateDocument,
         deleteDocumentResult,
@@ -272,7 +272,7 @@ export const databaseManagementSlice = createSlice({
           addOrderError,
           deleteUserCartItemsResult,
           deleteUserCartItemsError,
-          formattedStringOfOrderForEmail,
+          humanReadableOrderDetails,
           errorIdFromEmail,
           dataToUpdateDocument,
           deleteDocumentResult,
@@ -299,7 +299,7 @@ export const {
   resetAddOrderError,
   resetDeleteUserCartItemsResult,
   resetDeleteUserCartItemsError,
-  setFormattedStringOfOrderForEmail,
+  setHumanReadableOrderDetails,
   setErrorIdFromEmail,
   setDataToUpdateDocument,
   resetDataToUpdateDocument,

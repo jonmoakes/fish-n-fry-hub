@@ -86,11 +86,14 @@ const useResetStore = () => {
         dispatch(resetContactFormState());
         break;
       case databaseManagementDeleteUserRoute:
-      case databaseManagementAddOrderAfterErrorRoute:
       case databaseManagementManageMenuRoute:
       case databaseManagementCreateNewProductRoute:
       case databaseManagementEditOptionsPricesRoute:
         dispatch(resetDatabaseManagementState());
+        break;
+      case databaseManagementAddOrderAfterErrorRoute:
+        dispatch(resetDatabaseManagementState());
+        dispatch(resetSendEmailState());
         break;
       default:
         return;

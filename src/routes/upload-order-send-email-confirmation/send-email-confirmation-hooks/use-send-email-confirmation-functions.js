@@ -16,8 +16,7 @@ import { emailSentMessage } from "../../../strings/successes/sucesses-strings";
 
 const useSendEmailConfirmationFunctions = () => {
   const { email, name } = useGetCurrentUserSelectors();
-  const { formattedStringOfOrderForEmail } =
-    useGetDatabaseManagementSelectors();
+  const { humanReadableOrderDetails } = useGetDatabaseManagementSelectors();
   const { orderToRepeatDetails, repeatOrderAsEmail } =
     useGetOrderToRepeatSelectors();
 
@@ -27,7 +26,7 @@ const useSendEmailConfirmationFunctions = () => {
 
   const emailOfOrder = orderToRepeatDetails
     ? repeatOrderAsEmail
-    : formattedStringOfOrderForEmail;
+    : humanReadableOrderDetails;
 
   const handleAfterSendEmailChoice = () => {
     if (orderToRepeatDetails) {
