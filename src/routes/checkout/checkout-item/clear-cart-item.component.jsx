@@ -28,7 +28,11 @@ const ClearCartItem = ({ $id }) => {
     );
   };
 
-  return <RemoveItemSpan onClick={confirmRemoveItem}>&#x2716;</RemoveItemSpan>;
+  return (
+    <RemoveItemSpan onClick={confirmRemoveItem}>
+      &#10006;&#xFE0E;
+    </RemoveItemSpan>
+  );
 };
 
 export default ClearCartItem;
