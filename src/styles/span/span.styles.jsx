@@ -396,6 +396,8 @@ export const RemoveItemSpan = styled.span`
   color: ${customTomato};
   text-shadow: 1px 1px 1px ${customBlack};
   font-size: calc(1.7rem);
+  -webkit-appearance: none; // disable iOS button styles
+  appearance: none;
 
   @media screen and (max-width: 450px) {
     font-size: calc(1.3rem);
