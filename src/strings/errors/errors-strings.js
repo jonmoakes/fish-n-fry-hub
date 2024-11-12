@@ -61,3 +61,5 @@ export const hasSaucesErrorMessage = `<span style="font-size:20px";>as you have 
 export const hasCondimentsErrorMessage = `<span style="font-size:20px";>as you have checked the<br/>'<span style="color:${customYellow}";>has condiments option?</span>'<br/>box, please make sure that the<br/>'<span style="color:${customYellow}";>number of condiments available</span>'<br/>box has a value of<br/><span style="color:${customYellow}";>1 or 2</span>.<br/><br/>or uncheck the 'has condiments option' box if the product doesn't have condiment options.</span>`;
 
 export const hasMeatsErrorMessage = `<span style="font-size:20px";>as you have checked the<br/>'<span style="color:${customYellow}";>has meats option?</span>'<br/>box, please make sure that the<br/>'<span style="color:${customYellow}";>number of meats available</span>'<br/>box has a value of<br/><span style="color:${customYellow}";>2</span>.<br/><br/>or uncheck the 'has meats option' box if the product doesn't have meat options.</span>`;
+export const dbAccessPasswordError =
+  "your password is incorrect. please try again.";

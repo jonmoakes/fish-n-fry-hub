@@ -8,6 +8,7 @@ import {
   createNewMenuProductAsync,
   fetchOptionsPricesAsync,
   updateOptionPriceAsync,
+  confirmPasswordForDbManagementAccessAsync,
 } from "./database-management.thunks";
 
 const INITIAL_STATE = {
@@ -32,6 +33,7 @@ const INITIAL_STATE = {
   getOptionsPricesError: null,
   updateOptionPriceResult: "",
   updateOptionPriceError: "",
+  passwordForDbAccessResult: "",
 };
 
 export const databaseManagementSlice = createSlice({
@@ -106,6 +108,9 @@ export const databaseManagementSlice = createSlice({
     },
     resetUpdateOptionPriceError(state) {
       state.updateOptionPriceError = null;
+    },
+    resetPasswordForDbAccessResult(state) {
+      state.passwordForDbAccessResult = "";
     },
     resetDatabaseManagementState: () => {
       return INITIAL_STATE;
@@ -218,7 +223,17 @@ export const databaseManagementSlice = createSlice({
         state.databaseManagementIsLoading = false;
         state.updateOptionPriceResult = "rejected";
         state.updateOptionPriceError = action.payload;
-      });
+      })
+      .addCase(confirmPasswordForDbManagementAccessAsync.pending, (state) => {
+        state.databaseManagementIsLoading = true;
+      })
+      .addCase(
+        confirmPasswordForDbManagementAccessAsync.rejected,
+        (state, action) => {
+          state.databaseManagementIsLoading = false;
+          state.passwordForDbAccessResult = action.payload;
+        }
+      );
   },
   selectors: {
     selectDatabaseManagementSelectors: createSelector(
@@ -243,6 +258,7 @@ export const databaseManagementSlice = createSlice({
       (state) => state.getOptionsPricesError,
       (state) => state.updateOptionPriceResult,
       (state) => state.updateOptionPriceError,
+      (state) => state.passwordForDbAccessResult,
       (
         databaseManagementIsLoading,
         addOrderResult,
@@ -264,7 +280,8 @@ export const databaseManagementSlice = createSlice({
         optionsPrices,
         getOptionsPricesError,
         updateOptionPriceResult,
-        updateOptionPriceError
+        updateOptionPriceError,
+        passwordForDbAccessResult
       ) => {
         return {
           databaseManagementIsLoading,
@@ -288,6 +305,7 @@ export const databaseManagementSlice = createSlice({
           getOptionsPricesError,
           updateOptionPriceResult,
           updateOptionPriceError,
+          passwordForDbAccessResult,
         };
       }
     ),
@@ -318,6 +336,7 @@ export const {
   resetGetOptionsPricesError,
   resetUpdateOptionPriceResult,
   resetUpdateOptionPriceError,
+  resetPasswordForDbAccessResult,
   resetDatabaseManagementState,
 } = databaseManagementSlice.actions;
 export const { selectDatabaseManagementSelectors } =

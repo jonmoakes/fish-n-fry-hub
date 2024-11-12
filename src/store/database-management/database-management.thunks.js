@@ -10,6 +10,7 @@ import {
   listDocumentsByQueryOrSearch,
   manageDatabaseDocument,
 } from "../../utils/appwrite/appwrite-functions";
+import { account } from "../../utils/appwrite/appwrite-config";
 import { ID } from "appwrite";
 import { updateProductInMenuStore } from "../menu/menu.slice";
 import { updateProductToEdit } from "./database-management.slice";
@@ -221,6 +222,29 @@ export const updateOptionPriceAsync = createAsyncThunk(
       );
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+// if updateEmail succeeds, it will still throw an error as it will try to update the email to be what it already is.
+// This will also confirm that the password is correct though which is what we need.
+// As we don't pass an email other than the one already in the store, It can't ever be updated to another email address here.
+// we only want to check the password to allow access to managing the db.
+export const confirmPasswordForDbManagementAccessAsync = createAsyncThunk(
+  "confirmPasswordForDbManagementAccess",
+  async ({ email, password }, thunkAPI) => {
+    try {
+      await account.updateEmail(email, password);
+    } catch (error) {
+      if (error.message === "A target with the same ID already exists.") {
+        localStorage.setItem(
+          "userHasSuccessfullyEnteredPasswordToAccessDbManagement",
+          true
+        );
+        return thunkAPI.rejectWithValue("success");
+      } else {
+        return thunkAPI.rejectWithValue("failure");
+      }
     }
   }
 );

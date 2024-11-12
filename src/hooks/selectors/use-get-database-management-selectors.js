@@ -24,6 +24,7 @@ const useGetDatabaseManagementSelectors = () => {
     getOptionsPricesError,
     updateOptionPriceResult,
     updateOptionPriceError,
+    passwordForDbAccessResult,
   } = useSelector(selectDatabaseManagementSelectors);
 
   const {
@@ -66,6 +67,7 @@ const useGetDatabaseManagementSelectors = () => {
     getOptionsPricesError,
     updateOptionPriceResult,
     updateOptionPriceError,
+    passwordForDbAccessResult,
   };
 };
 
