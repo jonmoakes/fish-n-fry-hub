@@ -4,6 +4,7 @@ import axios from "axios";
 import {
   SEND_EMAIL_ORDER_CONFIRMATION_ENDPOINT,
   SEND_EMAIL_ORDER_NOT_ADDED_TO_DATABASE_ENDPOINT,
+  SEND_EMAIL_TO_ADMIN_CLOSE_ACCOUNT_REQUEST_ENDPOINT,
 } from "../../../netlify/api-endpoints/api-endpoints";
 
 export const sendEmailOrderConfirmationAsync = createAsyncThunk(
@@ -38,6 +39,26 @@ export const sendEmailOrderNotAddedToDatabaseAsync = createAsyncThunk(
           email,
           customerId,
           orderDetails,
+        }
+      );
+
+      const statusCode = response.status;
+      return statusCode;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const sendEmailToAdminCloseAccountRequestAsync = createAsyncThunk(
+  "sendEmailToAdminCloseAccountRequest",
+  async ({ id, email }, thunkAPI) => {
+    try {
+      const response = await axios.post(
+        SEND_EMAIL_TO_ADMIN_CLOSE_ACCOUNT_REQUEST_ENDPOINT,
+        {
+          id,
+          email,
         }
       );
 

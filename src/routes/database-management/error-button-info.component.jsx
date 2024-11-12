@@ -2,16 +2,16 @@ import Balancer from "react-wrap-balancer";
 
 import { ParentDiv } from "../../styles/div/div.styles";
 import { Text } from "../../styles/p/p.styles";
-import { RedSpan } from "../../styles/span/span.styles";
+import { YellowShadowSpan } from "../../styles/span/span.styles";
 
 const ErrorButtonInfo = () => (
   <ParentDiv>
     <Text>
       <Balancer>
         please also note that any button under the heading of '
-        <RedSpan>For If You Received An Error Email</RedSpan>', should only be
-        pressed if you have received an email telling you that there was an
-        error when a user tried to perform an action in the app.
+        <YellowShadowSpan>For If You Received An Error Email</YellowShadowSpan>
+        ', should only be pressed if you have received an email telling you that
+        there was an error when a user tried to perform an action in the app.
       </Balancer>
     </Text>
     <Text>

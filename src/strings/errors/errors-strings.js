@@ -63,3 +63,5 @@ export const hasCondimentsErrorMessage = `<span style="font-size:20px";>as you h
 export const hasMeatsErrorMessage = `<span style="font-size:20px";>as you have checked the<br/>'<span style="color:${customYellow}";>has meats option?</span>'<br/>box, please make sure that the<br/>'<span style="color:${customYellow}";>number of meats available</span>'<br/>box has a value of<br/><span style="color:${customYellow}";>2</span>.<br/><br/>or uncheck the 'has meats option' box if the product doesn't have meat options.</span>`;
 export const dbAccessPasswordError =
   "your password is incorrect. please try again.";
+export const errorSendingAccountClosureRequest =
+  "sorry, there was an error sending your request.";

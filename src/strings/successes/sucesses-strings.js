@@ -12,3 +12,5 @@ export const emailResponseTimeMessage =
 export const priceUpdatedMessage = "price updated!";
 export const productCreatedMessage =
   "product created! It has been added to the menu for your customers to purchase.";
+export const successSendingCloseAccountEmailMessage =
+  "request successfuly sent!";

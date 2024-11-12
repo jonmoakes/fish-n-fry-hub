@@ -65,3 +65,5 @@ export const confirmUpdateOptionPriceMessage = (optionName, newOptionPrice) => {
     newOptionPrice / 100
   ).toFixed(2)}</span>?</span>`;
 };
+export const sureCloseAccountQuestion =
+  "are you sure you wish to close your account with us?";

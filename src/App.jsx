@@ -44,6 +44,7 @@ import {
   databaseManagementManageMenuRoute,
   databaseManagementCreateNewProductRoute,
   databaseManagementEditOptionsPricesRoute,
+  closeAccountRoute,
 } from "./strings/routes/routes-strings";
 
 const Navigation = lazy(() =>
@@ -131,6 +132,9 @@ const DBManageEditOptionsPrices = lazy(() =>
     "./routes/database-management-edit-options-prices/db-manage-edit-options-prices.component"
   )
 );
+const CloseAccount = lazy(() =>
+  import("./routes/close-account/close-account.component")
+);
 
 const App = () => {
   const { currentUser } = useGetCurrentUserSelectors();
@@ -157,6 +161,7 @@ const App = () => {
 
             <Route element={<PrivateRoutes />}>
               <Route path={accountRoute} element={<Account />} />
+              <Route path={closeAccountRoute} element={<CloseAccount />} />
               <Route
                 path={uploadMenuItemsRoute}
                 element={
@@ -167,24 +172,19 @@ const App = () => {
               />
               <Route path={checkoutRoute} element={<Checkout />} />
               <Route path={repeatOrderRoute} element={<RepeatOrder />} />
-
               <Route path={paymentResultRoute} element={<PaymentResult />} />
-
               <Route
                 path={uploadOrderResultRoute}
                 element={<UploadOrderResult />}
               />
-
               <Route
                 path={uploadOrderSendEmailConfirmationRoute}
                 element={<UploadOrderSendEmailConfirmation />}
               />
-
               <Route
                 path={uploadOrderDeleteCartItemsRoute}
                 element={<UploadOrderDeleteCartItems />}
               />
-
               <Route
                 path={ordersOwnerRoute}
                 element={
@@ -193,7 +193,6 @@ const App = () => {
                   ) : null
                 }
               />
-
               <Route
                 path={ordersOwnerAllTimeOrdersRoute}
                 element={
@@ -202,7 +201,6 @@ const App = () => {
                   ) : null
                 }
               />
-
               <Route
                 path={ordersCustomerRoute}
                 element={
@@ -211,7 +209,6 @@ const App = () => {
                   ) : null
                 }
               />
-
               <Route
                 path={allUsersRoute}
                 element={
@@ -220,7 +217,6 @@ const App = () => {
                   ) : null
                 }
               />
-
               <Route
                 path={incomeRoute}
                 element={
@@ -229,7 +225,6 @@ const App = () => {
                   ) : null
                 }
               />
-
               <Route
                 path={databaseManagementRoute}
                 element={
@@ -238,32 +233,26 @@ const App = () => {
                   ) : null
                 }
               />
-
               <Route
                 path={databaseManagementDeleteUserRoute}
                 element={<DBManageDeleteUser />}
               />
-
               <Route
                 path={databaseManagementAddOrderAfterErrorRoute}
                 element={<DBManageAddOrderAfterError />}
               />
-
               <Route
                 path={databaseManagementManageMenuRoute}
                 element={<DBManageManageMenu />}
               />
-
               <Route
                 path={databaseManagementCreateNewProductRoute}
                 element={<DBManageCreateNewProduct />}
               />
-
               <Route
                 path={databaseManagementEditOptionsPricesRoute}
                 element={<DBManageEditOptionsPrices />}
               />
-
               <Route path={pwaInfoRoute} element={<PwaInformation />} />
             </Route>
           </Routes>
