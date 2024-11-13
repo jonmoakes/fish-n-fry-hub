@@ -5,7 +5,6 @@ import {
   signInAsync,
   signUpAsync,
   signOutAsync,
-  signInWithGoogleAsync,
 } from "./user.thunks";
 
 const initialState = {
@@ -60,19 +59,6 @@ const userSlice = createSlice({
         state.currentUserError = null;
       })
       .addCase(signInAsync.rejected, (state, action) => {
-        state.currentUserIsLoading = false;
-        state.currentUser = null;
-        state.currentUserError = action.payload;
-      })
-      .addCase(signInWithGoogleAsync.pending, (state) => {
-        state.currentUserIsLoading = true;
-      })
-      .addCase(signInWithGoogleAsync.fulfilled, (state, action) => {
-        state.currentUserIsLoading = false;
-        state.currentUser = action.payload;
-        state.currentUserError = null;
-      })
-      .addCase(signInWithGoogleAsync.rejected, (state, action) => {
         state.currentUserIsLoading = false;
         state.currentUser = null;
         state.currentUserError = action.payload;

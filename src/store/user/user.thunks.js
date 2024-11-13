@@ -1,8 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { account } from "../../utils/appwrite/appwrite-config";
-import { ID, OAuthProvider } from "appwrite";
-
-import { menuRoute, signInRoute } from "../../strings/routes/routes-strings";
+import { ID } from "appwrite";
 
 import {
   getRetrievedUserFromDocument,
@@ -54,32 +52,6 @@ export const signUpAsync = createAsyncThunk(
       await account.create(ID.unique(), email, password, name);
       await account.createEmailPasswordSession(email, password);
       return await createDocumentAndSetUser();
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
-
-export const signInWithGoogleAsync = createAsyncThunk(
-  "user/signInWithGoogle",
-  async (_, thunkAPI) => {
-    try {
-      const redirectUrl =
-        import.meta.env.MODE === "development"
-          ? "http://localhost:8888/menu"
-          : `https://fishnfry-hub.netlify.app${menuRoute}`;
-
-      const fallbackUrl =
-        import.meta.env.MODE === "development"
-          ? "http://localhost:8888/sign-in"
-          : `https://fishnfry-hub.netlify.app${signInRoute}`;
-
-      await account.createOAuth2Session(
-        OAuthProvider.Google,
-        redirectUrl,
-        fallbackUrl
-      );
-      return await getRetrievedUserFromDocument();
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }

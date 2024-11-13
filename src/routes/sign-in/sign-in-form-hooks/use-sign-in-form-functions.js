@@ -2,10 +2,7 @@ import { useDispatch } from "react-redux";
 import useGetSignInFormSelectors from "../../../hooks/selectors/use-get-sign-in-form-selectors";
 
 import { resetCurrentUserErrorMessage } from "../../../store/user/user.slice";
-import {
-  signInAsync,
-  signInWithGoogleAsync,
-} from "../../../store/user/user.thunks";
+import { signInAsync } from "../../../store/user/user.thunks";
 import {
   hideSignInPasswordIsVisible,
   toggleSignInPasswordIsVisible,
@@ -40,17 +37,12 @@ const useSignInFormFunctions = () => {
     dispatch(setSignInFormDetails({ ...signInFormDetails, [name]: value }));
   };
 
-  const signInWithGoogle = async () => {
-    dispatch(signInWithGoogleAsync());
-  };
-
   return {
     resetSignInError,
     signInThunk,
     dispatchToggleSignInPasswordIsVisible,
     dispatchHideSignInPasswordIsVisible,
     dispatchHandleSignInFormChange,
-    signInWithGoogle,
   };
 };
 
