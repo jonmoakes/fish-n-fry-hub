@@ -11,3 +11,7 @@ export const yesReturnMessage = "yes, return";
 export const updateAtrributeMessage = "yes, update!";
 export const receiveEmailWhenCompleteMessage =
   "you will receive an email when the process is complete.";
+export const logoutSoCanSignInWithNewPasswordMessage =
+  "we will now log you out so that you can sign in with your new password.";
+export const signInWithNewPasswordMessage =
+  "you can now sign in with your new password.";

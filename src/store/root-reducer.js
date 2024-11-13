@@ -20,6 +20,8 @@ import { getAllUsersReducer } from "./get-all-users/get-all-users.slice";
 import { incomeDataReducer } from "./income-data/income-data.slice";
 import { orderToRepeatReducer } from "./order-to-repeat/order-to-repeat.slice";
 import { contactFormReducer } from "./contact-form/contact-form.slice";
+import { generateNewPasswordRequestReducer } from "./generate-new-password-request/generate-new-password-request.slice";
+import { chooseNewPasswordReducer } from "./choose-new-password/choose-new-password.slice";
 
 export const rootReducer = combineReducers({
   hamburgerMenu: hamburgerMenuReducer,
@@ -42,4 +44,6 @@ export const rootReducer = combineReducers({
   incomeData: incomeDataReducer,
   orderToRepeat: orderToRepeatReducer,
   contactForm: contactFormReducer,
+  generateNewPasswordRequest: generateNewPasswordRequestReducer,
+  chooseNewPassword: chooseNewPasswordReducer,
 });

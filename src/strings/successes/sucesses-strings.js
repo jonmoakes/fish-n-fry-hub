@@ -14,3 +14,5 @@ export const productCreatedMessage =
   "product created! It has been added to the menu for your customers to purchase.";
 export const successSendingCloseAccountEmailMessage =
   "request successfuly sent!";
+export const passwordResetSuccessMessage =
+  "your password has been successfuly reset!";

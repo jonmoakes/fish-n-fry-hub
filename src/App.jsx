@@ -45,6 +45,8 @@ import {
   databaseManagementCreateNewProductRoute,
   databaseManagementEditOptionsPricesRoute,
   closeAccountRoute,
+  forgotPasswordRequestRoute,
+  chooseNewPasswordRoute,
 } from "./strings/routes/routes-strings";
 
 const Navigation = lazy(() =>
@@ -135,6 +137,12 @@ const DBManageEditOptionsPrices = lazy(() =>
 const CloseAccount = lazy(() =>
   import("./routes/close-account/close-account.component")
 );
+const ForgotPasswordRequest = lazy(() =>
+  import("./routes/forgot-password-request/forgot-password-request.component")
+);
+const ChooseNewPassword = lazy(() =>
+  import("./routes/choose-new-password/choose-new-password.component")
+);
 
 const App = () => {
   const { currentUser } = useGetCurrentUserSelectors();
@@ -158,6 +166,14 @@ const App = () => {
             <Route path={categoryItemsRoute} element={<CategoryItems />} />
             <Route path={chooseOptionsRoute} element={<ChooseOptions />} />
             <Route path={contactRoute} element={<Contact />} />
+            <Route
+              path={forgotPasswordRequestRoute}
+              element={<ForgotPasswordRequest />}
+            />
+            <Route
+              path={chooseNewPasswordRoute}
+              element={<ChooseNewPassword />}
+            />
 
             <Route element={<PrivateRoutes />}>
               <Route path={accountRoute} element={<Account />} />

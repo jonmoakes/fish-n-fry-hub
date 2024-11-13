@@ -67,3 +67,7 @@ export const confirmUpdateOptionPriceMessage = (optionName, newOptionPrice) => {
 };
 export const sureCloseAccountQuestion =
   "are you sure you wish to close your account with us?";
+export const sureResetPasswordMessage =
+  "are you sure you wish to reset your password?";
+export const sureUpdatePasswordMessage =
+  "are you sure you wish to update your password?";

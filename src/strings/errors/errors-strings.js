@@ -65,3 +65,7 @@ export const dbAccessPasswordError =
   "your password is incorrect. please try again.";
 export const errorSendingAccountClosureRequest =
   "sorry, there was an error sending your request.";
+export const appwriteUserNotFoundMessage =
+  "User with the requested ID could not be found.";
+export const emailAddressNotInDatabase =
+  "the email address you entered does not match any email in our database.";
