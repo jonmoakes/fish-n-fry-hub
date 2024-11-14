@@ -15,7 +15,7 @@ export const generateNewPasswordRequestAsync = createAsyncThunk(
       } else if (import.meta.env.MODE === "production") {
         await account.createRecovery(
           generateNewPasswordRequestEmail,
-          `https://fishnfry-hub.netlify.app/${chooseNewPasswordRoute}`
+          `https://fishnfry-hub.netlify.app${chooseNewPasswordRoute}`
         );
       }
     } catch (error) {
