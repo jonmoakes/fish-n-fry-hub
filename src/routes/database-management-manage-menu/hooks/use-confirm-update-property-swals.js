@@ -68,8 +68,8 @@ const useConfirmUpdatePropertySwals = () => {
     confirmSwal(
       confirmCancelEditingMessage,
       loseUnsavedChangesMessage,
-      imSureMessage,
-      "",
+      "yes, cancel editing",
+      "stay here",
       () => dispatch(resetProductToEdit()),
       null
     );

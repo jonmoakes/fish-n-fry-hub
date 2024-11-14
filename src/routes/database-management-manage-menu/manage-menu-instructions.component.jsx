@@ -45,7 +45,7 @@ const ManageMenuInstructions = () => {
                 you can create or delete products, or update their prices.
               </Text>
               <Text>
-                to create anew product, tap the 'create new product' button.
+                to create a new product, tap the 'create new product' button.
               </Text>
               <Text>
                 to edit prices of your options ( if the product has the options
