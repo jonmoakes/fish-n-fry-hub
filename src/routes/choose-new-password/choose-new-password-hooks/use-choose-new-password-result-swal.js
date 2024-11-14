@@ -8,7 +8,7 @@ import useHamburgerHandlerNavigate from "../../../hooks/use-hamburger-handler-na
 
 import { errorReceivedMessage } from "../../../strings/errors/errors-strings";
 import {
-  logoutSoCanSignInWithNewPasswordMessage,
+  signOutSoCanSignInWithNewPasswordMessage,
   signInWithNewPasswordMessage,
 } from "../../../strings/info/info-strings";
 import { passwordResetSuccessMessage } from "../../../strings/successes/sucesses-strings";
@@ -34,7 +34,7 @@ const useChooseNewPasswordResultSwal = () => {
       fireSwal(
         "success",
         passwordResetSuccessMessage,
-        logoutSoCanSignInWithNewPasswordMessage,
+        signOutSoCanSignInWithNewPasswordMessage,
         0,
         "",
         false,
