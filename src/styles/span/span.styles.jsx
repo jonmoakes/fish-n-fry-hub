@@ -120,6 +120,10 @@ export const YellowShadowSpan = styled.span`
   &.small {
     font-size: 16px;
   }
+
+  &.email {
+    text-transform: lowercase;
+  }
 `;
 
 export const BlackSpanHover = styled(BlackSpan)`

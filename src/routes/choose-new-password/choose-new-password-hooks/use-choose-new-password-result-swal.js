@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import useGetCurrentUserSelectors from "../../../hooks/selectors/use-get-current-user-selectors";
 import useFireSwal from "../../../hooks/use-fire-swal";
@@ -25,8 +25,10 @@ const useChooseNewPasswordResultSwal = () => {
   const { signOutSubmitThunk } = useSignOutSubmitThunk();
   const { hamburgerHandlerNavigate } = useHamburgerHandlerNavigate();
 
+  const [swalConfirmed, setSwalConfirmed] = useState(false);
+
   useEffect(() => {
-    if (!newPasswordError && !newPasswordResult) return;
+    if ((!newPasswordError && !newPasswordResult) || swalConfirmed) return;
 
     if (newPasswordResult && currentUser) {
       fireSwal(
@@ -40,6 +42,7 @@ const useChooseNewPasswordResultSwal = () => {
         false
       ).then((isConfirmed) => {
         if (isConfirmed) {
+          setSwalConfirmed(true);
           signOutSubmitThunk();
         }
       });
@@ -55,6 +58,7 @@ const useChooseNewPasswordResultSwal = () => {
         false
       ).then((isConfirmed) => {
         if (isConfirmed) {
+          setSwalConfirmed(true);
           hamburgerHandlerNavigate(signInRoute);
         }
       });
@@ -91,6 +95,7 @@ const useChooseNewPasswordResultSwal = () => {
     currentUser,
     dispatchResetPasswordResultError,
     signOutSubmitThunk,
+    swalConfirmed,
   ]);
 };
 

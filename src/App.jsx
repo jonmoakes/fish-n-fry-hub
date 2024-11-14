@@ -47,6 +47,7 @@ import {
   closeAccountRoute,
   forgotPasswordRequestRoute,
   chooseNewPasswordRoute,
+  updatePasswordRoute,
 } from "./strings/routes/routes-strings";
 
 const Navigation = lazy(() =>
@@ -143,6 +144,9 @@ const ForgotPasswordRequest = lazy(() =>
 const ChooseNewPassword = lazy(() =>
   import("./routes/choose-new-password/choose-new-password.component")
 );
+const UpdatePassword = lazy(() =>
+  import("./routes/update-password/update-password.component")
+);
 
 const App = () => {
   const { currentUser } = useGetCurrentUserSelectors();
@@ -178,6 +182,7 @@ const App = () => {
             <Route element={<PrivateRoutes />}>
               <Route path={accountRoute} element={<Account />} />
               <Route path={closeAccountRoute} element={<CloseAccount />} />
+              <Route path={updatePasswordRoute} element={<UpdatePassword />} />
               <Route
                 path={uploadMenuItemsRoute}
                 element={
