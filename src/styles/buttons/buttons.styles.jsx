@@ -508,6 +508,7 @@ export const SelectProductButton = styled.button`
 
 export const UpdateOrderStatusButton = styled.button`
   font-family: inherit;
+  color: ${customBlack};
   outline: none;
   cursor: pointer;
   border: 1px solid ${customBlack};
