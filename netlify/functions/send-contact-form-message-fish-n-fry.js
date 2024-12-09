@@ -7,7 +7,7 @@ export const handler = async (event) => {
   try {
     await client.sendEmailWithTemplate({
       From: process.env.VITE_APP_ADMIN_EMAIL,
-      To: import.meta.env.VITE_APP_ADMIN_EMAIL,
+      To: process.env.VITE_APP_ADMIN_EMAIL,
       TemplateAlias: "send-contact-form-message-fish-n-fry",
       TemplateModel: {
         product_url: "https://fishnfry-hub.netlify.app",

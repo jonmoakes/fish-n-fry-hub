@@ -8,6 +8,8 @@ const DetailsCorrectButton = ({ showPaymentForm, setShowPaymentForm }) => {
 
   return (
     <>
+      {showPaymentForm ? <CompleteOrder /> : null}
+
       <ParentDiv>
         {!showPaymentForm ? (
           <YellowGreenButton onClick={() => setShowPaymentForm(true)}>
@@ -21,8 +23,6 @@ const DetailsCorrectButton = ({ showPaymentForm, setShowPaymentForm }) => {
           </>
         )}
       </ParentDiv>
-
-      {showPaymentForm ? <CompleteOrder /> : null}
     </>
   );
 };

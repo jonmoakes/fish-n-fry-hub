@@ -22,7 +22,7 @@ export const confirmUpdateOrderStatusMessage = (orderStatus) => {
   }</span>`;
 };
 
-export const confirmGoToAllTimeOrdersRouteMessage = `<span style="font-size: 20px;">are you sure you want to view every order ever made?<br/><br/>please note that depending on the amount of orders you have, this may take a while to load so please be patient. ;)</span>`;
+export const confirmGoToAllTimeOrdersRouteMessage = `<span style="font-size: 20px;">are you sure you want to view every order ever made?<br/><br/>please note that depending on the amount of orders you have, this may take a while to load so please be patient. :)</span>`;
 export const confirmCompleteOrderMessage = "complete your order?";
 export const yesPlaceOrderMessage = "yes, place order!";
 export const confirmAddItemToCartMessage = "add this item to your cart?";
