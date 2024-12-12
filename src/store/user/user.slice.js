@@ -3,6 +3,8 @@ import { createSelector, createSlice } from "@reduxjs/toolkit";
 import {
   getUserOnLoadAsync,
   signInAsync,
+  requestSignInEmailOtpAsync,
+  signInWithOtpAsync,
   signUpAsync,
   signOutAsync,
 } from "./user.thunks";
@@ -11,6 +13,7 @@ const initialState = {
   currentUser: null,
   currentUserIsLoading: false,
   currentUserError: null,
+  emailOtpUserId: "",
 };
 
 const userSlice = createSlice({
@@ -26,11 +29,13 @@ const userSlice = createSlice({
       (state) => state.currentUser,
       (state) => state.currentUserIsLoading,
       (state) => state.currentUserError,
-      (currentUser, currentUserIsLoading, currentUserError) => {
+      (state) => state.emailOtpUserId,
+      (currentUser, currentUserIsLoading, currentUserError, emailOtpUserId) => {
         return {
           currentUser,
           currentUserIsLoading,
           currentUserError,
+          emailOtpUserId,
         };
       }
     ),
@@ -63,6 +68,31 @@ const userSlice = createSlice({
         state.currentUser = null;
         state.currentUserError = action.payload;
       })
+      .addCase(requestSignInEmailOtpAsync.pending, (state) => {
+        state.currentUserIsLoading = true;
+      })
+      .addCase(requestSignInEmailOtpAsync.fulfilled, (state, action) => {
+        state.currentUserIsLoading = false;
+        state.emailOtpUserId = action.payload;
+        state.currentUserError = null;
+      })
+      .addCase(requestSignInEmailOtpAsync.rejected, (state, action) => {
+        state.currentUserIsLoading = false;
+        state.emailOtpUserId = "";
+        state.currentUserError = action.payload;
+      })
+      .addCase(signInWithOtpAsync.pending, (state) => {
+        state.currentUserIsLoading = true;
+      })
+      .addCase(signInWithOtpAsync.fulfilled, (state, action) => {
+        state.currentUserIsLoading = false;
+        state.emailOtpUserId = "";
+        state.currentUserError = null;
+      })
+      .addCase(signInWithOtpAsync.rejected, (state, action) => {
+        state.currentUserIsLoading = false;
+        state.currentUserError = action.payload;
+      })
       .addCase(signUpAsync.pending, (state) => {
         state.currentUserIsLoading = true;
       })
@@ -83,6 +113,7 @@ const userSlice = createSlice({
         state.currentUserIsLoading = false;
         state.currentUser = null;
         state.currentUserError = null;
+        state.emailOtpUserId = "";
       })
       .addCase(signOutAsync.rejected, (state, action) => {
         state.currentUserIsLoading = false;

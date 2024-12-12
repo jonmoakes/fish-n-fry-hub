@@ -5,12 +5,13 @@ import { selectSignInFormSelectors } from "../../store/sign-in-form/sign-in-form
 const useGetSignInFormSelectors = () => {
   const { signInFormDetails } = useSelector(selectSignInFormSelectors);
 
-  const { email, password } = signInFormDetails;
+  const { email, password, otp } = signInFormDetails;
 
   return {
     signInFormDetails,
     email,
     password,
+    otp,
   };
 };
 

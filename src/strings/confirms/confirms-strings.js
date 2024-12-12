@@ -71,3 +71,9 @@ export const sureResetPasswordMessage =
   "are you sure you wish to reset your password?";
 export const sureUpdatePasswordMessage =
   "are you sure you wish to update your password?";
+
+export const confirmSendOtpCode = (email) => {
+  return `<span style="font-size: 20px;">the one time passcode will be sent to<br/><span style="color: ${customYellow}; text-transform: lowercase">${email}</span><br/>
+    is this correct?
+      </span>`;
+};

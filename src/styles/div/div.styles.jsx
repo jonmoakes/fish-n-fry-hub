@@ -18,6 +18,7 @@ import {
   customLightGreen,
   customGoldenRod,
   customRed,
+  customIosBlue,
 } from "../colors";
 
 const slideInLeftAnimation = keyframes`${slideInLeft}`;
@@ -354,6 +355,10 @@ export const Accordion = styled.div.withConfig({
     margin: 10px auto 2rem auto;
   }
 
+  &.otp {
+    margin: 20px auto;
+  }
+
   @media screen and (max-width: 1366px) {
     width: ${({ shouldShowElement }) => (shouldShowElement ? "90%" : "50%")};
   }
@@ -377,6 +382,11 @@ export const AccordionTitle = styled.div.withConfig({
     shouldShowElement ? `2px solid ${customBlack}` : "none"};
   border-radius: ${({ shouldShowElement }) =>
     shouldShowElement ? "5px 5px 0px 0px" : "5px 5px 5px 5px"};
+
+  &.otp {
+    background-color: ${({ shouldShowElement }) =>
+      shouldShowElement ? customLightGreen : customOrange};
+  }
 
   @media screen and (max-width: 450px) {
     font-size: 14px;
@@ -639,7 +649,7 @@ export const NoSearchResultDiv = styled.div`
 `;
 
 export const ForgotPasswordDiv = styled.div`
-  margin-top: 20px;
+  margin: 5px auto 20px auto;
 `;
 
 export const TableCellErrorDiv = styled.div`

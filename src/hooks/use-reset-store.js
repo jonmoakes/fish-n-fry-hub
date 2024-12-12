@@ -18,6 +18,7 @@ import { resetContactFormState } from "../store/contact-form/contact-form.slice"
 
 import {
   signInRoute,
+  signInEmailOtpRoute,
   signUpRoute,
   chooseOptionsRoute,
   uploadMenuItemsRoute,
@@ -46,6 +47,7 @@ const useResetStore = () => {
   const resetStore = () => {
     switch (path) {
       case signInRoute:
+      case signInEmailOtpRoute:
         dispatch(resetSignInFormState());
         break;
       case signUpRoute:

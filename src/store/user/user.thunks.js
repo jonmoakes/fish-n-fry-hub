@@ -45,6 +45,32 @@ export const signInAsync = createAsyncThunk(
   }
 );
 
+export const requestSignInEmailOtpAsync = createAsyncThunk(
+  "user/requestSignInEmailOtp",
+  async ({ email }, thunkAPI) => {
+    try {
+      const sessionToken = await account.createEmailToken(ID.unique(), email);
+      const emailOtpUserId = sessionToken.userId;
+
+      return emailOtpUserId;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const signInWithOtpAsync = createAsyncThunk(
+  "user/signInWithOtp",
+  async ({ emailOtpUserId, otp }, thunkAPI) => {
+    try {
+      await account.createSession(emailOtpUserId, otp);
+      await thunkAPI.dispatch(getUserOnLoadAsync());
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const signUpAsync = createAsyncThunk(
   "user/signUp",
   async ({ email, password, name }, thunkAPI) => {

@@ -2,9 +2,12 @@ import { useSelector } from "react-redux";
 import { selectCurrentUserSelectors } from "../../store/user/user.slice";
 
 const useGetCurrentUserSelectors = () => {
-  const { currentUser, currentUserIsLoading, currentUserError } = useSelector(
-    selectCurrentUserSelectors
-  );
+  const {
+    currentUser,
+    currentUserIsLoading,
+    currentUserError,
+    emailOtpUserId,
+  } = useSelector(selectCurrentUserSelectors);
 
   const { email, id, name, phoneNumber } = currentUser ?? {};
 
@@ -16,6 +19,7 @@ const useGetCurrentUserSelectors = () => {
     name,
     email,
     phoneNumber,
+    emailOtpUserId,
   };
 };
 

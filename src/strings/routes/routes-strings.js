@@ -2,6 +2,7 @@ export const contactRoute = "/contact";
 export const accountRoute = "/account";
 export const signInRoute = "/sign-in";
 export const signUpRoute = "/sign-up";
+export const signInEmailOtpRoute = "/sign-in-otp";
 export const forgotPasswordRequestRoute = "/forgot-password-request";
 export const updatePasswordRoute = "/update-password";
 export const chooseNewPasswordRoute = "/choose-new-password";
