@@ -49,6 +49,8 @@ import {
   forgotPasswordRequestRoute,
   chooseNewPasswordRoute,
   updatePasswordRoute,
+  socialSignInSuccessRoute,
+  socialSignInFailRoute,
 } from "./strings/routes/routes-strings";
 
 const Navigation = lazy(() =>
@@ -151,6 +153,12 @@ const ChooseNewPassword = lazy(() =>
 const UpdatePassword = lazy(() =>
   import("./routes/update-password/update-password.component")
 );
+const SocialSignInSuccess = lazy(() =>
+  import("./routes/social-sign-in-success/social-sign-in-success.component")
+);
+const SocialSignInFail = lazy(() =>
+  import("./routes/social-sign-in-fail/social-sign-in-fail.component")
+);
 
 const App = () => {
   const { currentUser } = useGetCurrentUserSelectors();
@@ -170,6 +178,14 @@ const App = () => {
             <Route path={signUpRoute} element={<SignUp />} />
             <Route path={signInRoute} element={<SignIn />} />
             <Route path={signInEmailOtpRoute} element={<SignInEmailOtp />} />
+            <Route
+              path={socialSignInSuccessRoute}
+              element={<SocialSignInSuccess />}
+            />
+            <Route
+              path={socialSignInFailRoute}
+              element={<SocialSignInFail />}
+            />
             <Route path={aboutRoute} element={<About />} />
             <Route path={menuRoute} element={<Menu />} />
             <Route path={categoryItemsRoute} element={<CategoryItems />} />

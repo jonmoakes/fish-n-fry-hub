@@ -25,8 +25,8 @@ const SignInButtons = () => {
   const signInWithGoogle = async () => {
     account.createOAuth2Session(
       OAuthProvider.Google,
-      "https://fishnfry-hub.netlify.app/menu",
-      "https://fishnfry-hub.netlify.app/sign-in"
+      "https://fishnfry-hub.netlify.app/success",
+      "https://fishnfry-hub.netlify.app/fail"
     );
   };
 

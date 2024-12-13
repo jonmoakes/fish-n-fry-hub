@@ -48,3 +48,5 @@ export const databaseManagementCreateNewProductRoute =
   "/database-manangement/create-new-product";
 export const databaseManagementEditOptionsPricesRoute =
   "/database-manangement/edit-options-prices";
+export const socialSignInSuccessRoute = "/social-sign-in-success";
+export const socialSignInFailRoute = "/social-sign-in-fail";
