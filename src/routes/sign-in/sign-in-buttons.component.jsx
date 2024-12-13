@@ -1,5 +1,3 @@
-import Balancer from "react-wrap-balancer";
-
 import useHandleSignInFormSubmit from "./sign-in-form-hooks/use-handle-sign-in-form-submit";
 import useIsOnline from "../../hooks/use-is-online";
 import useSignInFormFunctions from "./sign-in-form-hooks/use-sign-in-form-functions";
@@ -13,22 +11,12 @@ import { StyledLink } from "../../styles/link/link.styles";
 import { BlackText } from "../../styles/p/p.styles";
 
 import { forgotPasswordRequestRoute } from "../../strings/routes/routes-strings";
-import { account } from "../../utils/appwrite/appwrite-config";
-import { OAuthProvider } from "appwrite";
 
 const SignInButtons = () => {
   const { handleSignInFormSubmit } = useHandleSignInFormSubmit();
-  const { goToOtpRoute } = useSignInFormFunctions();
+  const { goToOtpRoute, signInWithGoogle } = useSignInFormFunctions();
 
   const { isOnline } = useIsOnline();
-
-  const signInWithGoogle = async () => {
-    account.createOAuth2Session(
-      OAuthProvider.Google,
-      "https://fishnfry-hub.netlify.app/social-sign-in-success",
-      "https://fishnfry-hub.netlify.app/social-sign-in-fail"
-    );
-  };
 
   return (
     <>
@@ -46,23 +34,22 @@ const SignInButtons = () => {
 
           <BlackHr />
 
-          <YellowGreenButton type="button" onClick={signInWithGoogle}>
+          <BlackText>or sign in with our other options:</BlackText>
+          <YellowGreenButton
+            className="google"
+            type="button"
+            onClick={signInWithGoogle}
+          >
             sign in with google
           </YellowGreenButton>
           <BlackHr />
-          <BlackText>or sign in with google:</BlackText>
 
-          <BlackText>
-            <Balancer>
-              or tap the button below to sign in with a one time passcode ( OTP
-              ) sent to your email address.
-            </Balancer>
-          </BlackText>
-
-          <BlackHr />
-
-          <YellowGreenButton type="button" onClick={goToOtpRoute}>
-            Sign In with a OTP
+          <YellowGreenButton
+            className="otp"
+            type="button"
+            onClick={goToOtpRoute}
+          >
+            email a passcode
           </YellowGreenButton>
         </TopMarginDiv>
       ) : (

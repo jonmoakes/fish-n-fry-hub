@@ -1,4 +1,6 @@
 import { useDispatch } from "react-redux";
+import { account } from "../../../utils/appwrite/appwrite-config";
+import { OAuthProvider } from "appwrite";
 
 import useGetSignInFormSelectors from "../../../hooks/selectors/use-get-sign-in-form-selectors";
 import { resetCurrentUserErrorMessage } from "../../../store/user/user.slice";
@@ -13,7 +15,11 @@ import {
 } from "../../../store/sign-in-form/sign-in-form.slice";
 import useHamburgerHandlerNavigate from "../../../hooks/use-hamburger-handler-navigate";
 
-import { signInEmailOtpRoute } from "../../../strings/routes/routes-strings";
+import {
+  signInEmailOtpRoute,
+  socialSignInSuccessRoute,
+  socialSignInFailRoute,
+} from "../../../strings/routes/routes-strings";
 
 const useSignInFormFunctions = () => {
   const { password, signInFormDetails } = useGetSignInFormSelectors();
@@ -52,6 +58,28 @@ const useSignInFormFunctions = () => {
     dispatch(setSignInFormDetails({ ...signInFormDetails, [name]: value }));
   };
 
+  const signInWithGoogle = async () => {
+    const successRedirectUrl =
+      import.meta.env.MODE === "development"
+        ? `http://localhost:8888${socialSignInSuccessRoute}`
+        : `https://fishnfry-hub.netlify.app${socialSignInSuccessRoute}`;
+
+    const failureRedirectUrl =
+      import.meta.env.MODE === "development"
+        ? `http://localhost:8888${socialSignInFailRoute}`
+        : `https://fishnfry-hub.netlify.app${socialSignInFailRoute}`;
+
+    try {
+      await account.createOAuth2Session(
+        OAuthProvider.Google,
+        successRedirectUrl,
+        failureRedirectUrl
+      );
+    } catch (error) {
+      console.error("Google sign-in failed:", error);
+    }
+  };
+
   return {
     resetSignInError,
     dispatchResetSignInFormState,
@@ -60,6 +88,7 @@ const useSignInFormFunctions = () => {
     dispatchHideSignInPasswordIsVisible,
     dispatchHandleSignInFormChange,
     goToOtpRoute,
+    signInWithGoogle,
   };
 };
 

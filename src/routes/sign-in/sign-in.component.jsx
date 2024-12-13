@@ -27,11 +27,13 @@ const SignIn = () => {
       <ParentDiv>
         <Text>
           <Balancer>
-            please enter your email and password and then tap the sign in button
+            please enter your email and password and then tap the sign in
+            button.
           </Balancer>
         </Text>
+        <Text>Or choose from other methods to sign in below!</Text>
 
-        <Form className="no-margin-top">
+        <Form className="small-margin-top">
           <SignInEmail {...{ dispatchHandleSignInFormChange }} />
           <SignInPassword {...{ dispatchHandleSignInFormChange }} />
           <SignInButtons />

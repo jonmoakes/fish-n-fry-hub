@@ -6,7 +6,9 @@ import {
   customBlue,
   customGrey,
   customLightGreen,
+  customLightPink,
   customTomato,
+  customViolet,
   customWhite,
   customYellow,
   facebookBlue,
@@ -86,11 +88,27 @@ export const YellowGreenButton = styled(Button)`
     animation: 1s ${bounceInDownAnimation};
   }
 
+  &.otp {
+    background-color: ${customLightPink};
+
+    &:hover {
+      background-color: ${customViolet};
+
+      @media screen and (max-width: 1366px) {
+        background-color: ${customLightPink};
+      }
+    }
+  }
+
   &.google {
     background-color: ${googleOrange};
 
     &:hover {
       background-color: ${googleRed};
+
+      @media screen and (max-width: 1366px) {
+        background-color: ${googleOrange};
+      }
     }
   }
 

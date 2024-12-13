@@ -26,6 +26,10 @@ export const Form = styled.form`
     margin: 0px auto 50px auto;
   }
 
+  &.small-margin-top {
+    margin: 20px auto 70px auto;
+  }
+
   &.below-accordion {
     margin: 20px auto 70px auto;
   }

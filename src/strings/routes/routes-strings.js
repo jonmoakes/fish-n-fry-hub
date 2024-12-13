@@ -14,8 +14,6 @@ export const privacyRoute = "/privacy-policy";
 export const aboutRoute = "/about";
 export const allUsersRoute = "/users-list";
 export const databaseManagementRoute = "/database-management/*";
-// export const databaseManagementViewBookingClosingTimesRoute =
-//   "/database-management/booking-closing-times";
 export const termsRoute = "/terms-and-conditions";
 export const privacyPolicyRoute = "/privacy-policy";
 export const securityPolicyRoute = "/security-policy";
