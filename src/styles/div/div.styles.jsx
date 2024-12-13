@@ -18,7 +18,6 @@ import {
   customLightGreen,
   customGoldenRod,
   customRed,
-  customIosBlue,
 } from "../colors";
 
 const slideInLeftAnimation = keyframes`${slideInLeft}`;

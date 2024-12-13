@@ -13,12 +13,22 @@ import { StyledLink } from "../../styles/link/link.styles";
 import { BlackText } from "../../styles/p/p.styles";
 
 import { forgotPasswordRequestRoute } from "../../strings/routes/routes-strings";
+import { account } from "../../utils/appwrite/appwrite-config";
+import { OAuthProvider } from "appwrite";
 
 const SignInButtons = () => {
   const { handleSignInFormSubmit } = useHandleSignInFormSubmit();
   const { goToOtpRoute } = useSignInFormFunctions();
 
   const { isOnline } = useIsOnline();
+
+  const signInWithGoogle = async () => {
+    account.createOAuth2Session(
+      OAuthProvider.Google,
+      "http://localhost:8888",
+      "http://localhost:8888/fail"
+    );
+  };
 
   return (
     <>
@@ -33,7 +43,15 @@ const SignInButtons = () => {
               forgot password?
             </StyledLink>
           </ForgotPasswordDiv>
+
           <BlackHr />
+
+          <YellowGreenButton type="button" onClick={signInWithGoogle}>
+            sign in with google
+          </YellowGreenButton>
+          <BlackHr />
+          <BlackText>or sign in with google:</BlackText>
+
           <BlackText>
             <Balancer>
               or tap the button below to sign in with a one time passcode ( OTP
