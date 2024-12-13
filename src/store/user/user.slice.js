@@ -23,6 +23,9 @@ const userSlice = createSlice({
     resetCurrentUserErrorMessage(state) {
       state.currentUserError = null;
     },
+    resetEmailOtpUserId(state) {
+      state.emailOtpUserId = "";
+    },
   },
   selectors: {
     selectCurrentUserSelectors: createSelector(
@@ -122,7 +125,7 @@ const userSlice = createSlice({
   },
 });
 
-export const { resetCurrentUserErrorMessage } = userSlice.actions;
+export const { resetCurrentUserErrorMessage, resetEmailOtpUserId } = userSlice.actions;
 export const { selectCurrentUserSelectors } = userSlice.selectors;
 
 export const userReducer = userSlice.reducer;

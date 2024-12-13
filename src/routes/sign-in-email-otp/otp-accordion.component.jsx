@@ -41,6 +41,7 @@ const OtpAccordion = () => {
               it is classed as secure, as only you should have access to your
               emails.
             </Text>
+            <Text>it has the added benefit of not having to remember a password for your account!</Text>
             <Text>Here's how it works:</Text>
             <Text>
               a request is sent to our servers for a one-time passcode.
@@ -56,8 +57,7 @@ const OtpAccordion = () => {
             </Text>
             <Text>
               Tips: Make sure to check your spam or junk folder if you don’t see
-              the email. The code is valid for a limited time, so use it
-              quickly!
+              the email. The code is valid for 15mins, after which, you will need to request another code.
             </Text>
             <Text>
               If you have trouble, you can always request a new code.{" "}
