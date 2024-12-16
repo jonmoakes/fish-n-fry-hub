@@ -15,6 +15,11 @@ export const ListItem = styled.li`
   color: ${customWhite};
   text-shadow: 1px 1px 1px ${customBlack};
 
+  &.black {
+    color: ${customBlack};
+    text-shadow: none;
+  }
+
   &.clickable {
     &:hover {
       cursor: pointer;

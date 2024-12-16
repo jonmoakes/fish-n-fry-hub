@@ -6,6 +6,7 @@ import NetworkError from "../../components/errors/network-error.component";
 import { YellowGreenButton } from "../../styles/buttons/buttons.styles";
 import { BlackHr } from "../../styles/hr/hr.styles";
 import { TopMarginDiv } from "../../styles/div/div.styles";
+import OtherSignInOptions from "../../components/other-sign-in-options/other-sign-in-options.component";
 
 const SignUpButton = () => {
   const { handleSignUpFormSubmit } = useHandleSignUpFormSubmit();
@@ -19,6 +20,9 @@ const SignUpButton = () => {
           <YellowGreenButton type="button" onClick={handleSignUpFormSubmit}>
             Sign Up
           </YellowGreenButton>
+
+          <BlackHr />
+          <OtherSignInOptions />
         </TopMarginDiv>
       ) : (
         <NetworkError />

@@ -63,7 +63,7 @@ export const createDocumentAndSetUser = async () => {
     const dataToAdd = {
       id: user.$id,
       createdAt: user.$createdAt,
-      name: user.name.toLowerCase(),
+      name: user.name ? user.name.toLowerCase() : "customer",
       email: user.email,
       phoneNumber: null,
     };

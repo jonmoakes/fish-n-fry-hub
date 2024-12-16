@@ -16,7 +16,9 @@ const OtpInputAndConfirmButton = ({
           <RedSpan>* </RedSpan>one time passcode:
         </Label>
         <StyledInput
-          type="text"
+          type="number"
+          pattern="[1-9]*"
+          inputMode="numeric"
           name="otp"
           value={otp || ""}
           onChange={dispatchHandleSignInFormOtpChange}
