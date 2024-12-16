@@ -51,6 +51,7 @@ import {
   updatePasswordRoute,
   socialSignInSuccessRoute,
   socialSignInFailRoute,
+  updateEmailRoute,
 } from "./strings/routes/routes-strings";
 
 const Navigation = lazy(() =>
@@ -159,6 +160,9 @@ const SocialSignInSuccess = lazy(() =>
 const SocialSignInFail = lazy(() =>
   import("./routes/social-sign-in-fail/social-sign-in-fail.component")
 );
+const UpdateEmail = lazy(() =>
+  import("./routes/update-email/update-email.component")
+);
 
 const App = () => {
   const { currentUser } = useGetCurrentUserSelectors();
@@ -204,6 +208,7 @@ const App = () => {
               <Route path={accountRoute} element={<Account />} />
               <Route path={closeAccountRoute} element={<CloseAccount />} />
               <Route path={updatePasswordRoute} element={<UpdatePassword />} />
+              <Route path={updateEmailRoute} element={<UpdateEmail />} />
               <Route
                 path={uploadMenuItemsRoute}
                 element={

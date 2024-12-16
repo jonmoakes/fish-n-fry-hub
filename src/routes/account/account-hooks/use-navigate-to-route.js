@@ -1,3 +1,4 @@
+import useGetCurrentUserSelectors from "../../../hooks/selectors/use-get-current-user-selectors";
 import useHamburgerHandlerNavigate from "../../../hooks/use-hamburger-handler-navigate";
 import useConfirmMoveToAllTimeOrdersRoute from "../../orders-owner/hooks/use-confirm-move-to-all-time-orders-route";
 
@@ -15,6 +16,7 @@ import {
 } from "../../../strings/routes/routes-strings";
 
 const useNavigateToRoute = () => {
+  const { provider } = useGetCurrentUserSelectors();
   const { hamburgerHandlerNavigate } = useHamburgerHandlerNavigate();
   const { confirmMoveToAllTimeOrdersRoute } =
     useConfirmMoveToAllTimeOrdersRoute();
@@ -68,12 +70,12 @@ const useNavigateToRoute = () => {
       text: "your orders",
       onClick: () => hamburgerHandlerNavigate(ordersCustomerRoute),
     },
-    {
+    provider === "email" && {
       id: 10,
-      text: " update email",
+      text: "update email",
       onClick: () => hamburgerHandlerNavigate(updateEmailRoute),
     },
-    {
+    provider === "email" && {
       id: 11,
       text: " update password",
       onClick: () => hamburgerHandlerNavigate(updatePasswordRoute),
@@ -93,7 +95,7 @@ const useNavigateToRoute = () => {
       text: " install our app!",
       onClick: () => hamburgerHandlerNavigate(pwaInfoRoute),
     },
-  ];
+  ].filter(Boolean);
 
   return {
     appOwnerButtons,

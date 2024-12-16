@@ -36,8 +36,10 @@ import {
   databaseManagementManageMenuRoute,
   databaseManagementCreateNewProductRoute,
   databaseManagementEditOptionsPricesRoute,
+  updateEmailRoute,
 } from "../strings/routes/routes-strings";
 import { resetMenuState } from "../store/menu/menu.slice";
+import { resetUpdateEmailState } from "../store/update-email/update-email.slice";
 
 const useResetStore = () => {
   const location = useLocation();
@@ -96,6 +98,9 @@ const useResetStore = () => {
       case databaseManagementAddOrderAfterErrorRoute:
         dispatch(resetDatabaseManagementState());
         dispatch(resetSendEmailState());
+        break;
+      case updateEmailRoute:
+        dispatch(resetUpdateEmailState());
         break;
       default:
         return;

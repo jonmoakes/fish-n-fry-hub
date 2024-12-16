@@ -22,6 +22,7 @@ import { orderToRepeatReducer } from "./order-to-repeat/order-to-repeat.slice";
 import { contactFormReducer } from "./contact-form/contact-form.slice";
 import { generateNewPasswordRequestReducer } from "./generate-new-password-request/generate-new-password-request.slice";
 import { chooseNewPasswordReducer } from "./choose-new-password/choose-new-password.slice";
+import { updateEmailReducer } from "./update-email/update-email.slice";
 
 export const rootReducer = combineReducers({
   hamburgerMenu: hamburgerMenuReducer,
@@ -46,4 +47,5 @@ export const rootReducer = combineReducers({
   contactForm: contactFormReducer,
   generateNewPasswordRequest: generateNewPasswordRequestReducer,
   chooseNewPassword: chooseNewPasswordReducer,
+  updateEmail: updateEmailReducer,
 });

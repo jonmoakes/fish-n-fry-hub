@@ -77,3 +77,6 @@ export const confirmSendOtpCode = (email) => {
     is this correct?
       </span>`;
 };
+export const confirmUpdateEmailMessage = (newEmail) => {
+  return `are you sure you wish to update your email to be <span style="text-transform: lowercase;  color: hsl(60, 100%, 50%);">${newEmail}</span>?`;
+};

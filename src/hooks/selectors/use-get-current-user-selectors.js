@@ -9,7 +9,7 @@ const useGetCurrentUserSelectors = () => {
     emailOtpUserId,
   } = useSelector(selectCurrentUserSelectors);
 
-  const { email, id, name, phoneNumber } = currentUser ?? {};
+  const { email, id, name, phoneNumber, provider } = currentUser ?? {};
 
   return {
     currentUser,
@@ -19,6 +19,7 @@ const useGetCurrentUserSelectors = () => {
     name,
     email,
     phoneNumber,
+    provider,
     emailOtpUserId,
   };
 };

@@ -27,7 +27,7 @@ export const getRetrievedUserFromDocument = async () => {
   const { total, documents } = userDocument;
 
   if (total && documents.length) {
-    const { id, name, email, createdAt, phoneNumber } = documents[0];
+    const { id, name, email, createdAt, phoneNumber, provider } = documents[0];
 
     return {
       id,
@@ -35,6 +35,7 @@ export const getRetrievedUserFromDocument = async () => {
       name,
       email,
       phoneNumber,
+      provider,
     };
   } else {
     return;
@@ -43,6 +44,7 @@ export const getRetrievedUserFromDocument = async () => {
 
 export const createDocumentAndSetUser = async () => {
   const user = await account.get();
+  const session = await account.getSession("current");
 
   const queryIndex = "$id";
   const queryValue = user.$id;
@@ -66,6 +68,7 @@ export const createDocumentAndSetUser = async () => {
       name: user.name ? user.name.toLowerCase() : "customer",
       email: user.email,
       phoneNumber: null,
+      provider: session.provider,
     };
 
     await manageDatabaseDocument(

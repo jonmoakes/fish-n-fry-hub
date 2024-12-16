@@ -69,3 +69,7 @@ export const appwriteUserNotFoundMessage =
   "User with the requested ID could not be found.";
 export const emailAddressNotInDatabase =
   "the email address you entered does not match any email in our database.";
+export const passwordErrorMessage = "password error";
+export const passwordErrorInstructions =
+  "please check your password and try again";
+export const emailsDontMatchMessage = `<span style="font-size: 20px;">the emails dont match.<br/>please try again.</span>`;

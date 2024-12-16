@@ -14,6 +14,7 @@ import { resetOrdersCustomerState } from "../store/orders-customer/orders-custom
 import { resetOrderToRepeatState } from "../store/order-to-repeat/order-to-repeat.slice";
 import { resetContactFormState } from "../store/contact-form/contact-form.slice";
 import { resetMenuState } from "../store/menu/menu.slice";
+import { resetUpdateEmailState } from "../store/update-email/update-email.slice";
 
 const useResetAllStoreOnSignOut = () => {
   const dispatch = useDispatch();
@@ -34,6 +35,7 @@ const useResetAllStoreOnSignOut = () => {
     dispatch(resetOrderToRepeatState());
     dispatch(resetContactFormState());
     dispatch(resetDatabaseManagementState());
+    dispatch(resetUpdateEmailState());
     localStorage.clear();
   };
 
