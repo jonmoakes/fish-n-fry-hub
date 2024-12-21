@@ -23,6 +23,7 @@ export const specialsObject = (productToAdd) => {
     hasChooseCanOption,
     hasChoosePieOption,
   } = productToAdd;
+
   return {
     name: name.toLowerCase(),
     price: Number(price),
@@ -57,11 +58,8 @@ export const specialsObject = (productToAdd) => {
     hasChooseCanOption: !hasChooseCanOption ? false : true,
     hasChoosePieOption: !hasChoosePieOption ? false : true,
     hasMeatsOption: !hasMeatsOption ? false : true,
-    numberOfMeatsAvailable:
-      !hasMeatsOption || (hasMeatsOption && numberOfMeatsAvailable === 3)
-        ? null
-        : Number(numberOfMeatsAvailable),
+    numberOfMeatsAvailable: !hasMeatsOption
+      ? null
+      : Number(numberOfMeatsAvailable),
   };
 };
-
-// if # of meats available is 3, the db needs to see null as that is how it determines to not show the meat options as all including in the meal.

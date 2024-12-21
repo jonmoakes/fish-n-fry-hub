@@ -764,9 +764,7 @@ Must have a value of 1 or 3 if the 'has sauces option?' has been checked above.
         attributeName: "hasMeatsOption",
         displayName: `has meats option?
 
-if you want the product to have all 3 meats available, make sure to leave the box below unchecked.
-
-also, provide a description in the 'description' box above, so that the customer knows they are getting all 3 meats.`,
+if the product includes all 3 meats, make sure to leave the box below unchecked and provide a description in the 'description' box above, so that the customer knows they are getting all 3 meats.`,
         inputType: "checkbox",
         changeHandler: "handleChangeCheckbox",
         required: false,
@@ -775,10 +773,10 @@ also, provide a description in the 'description' box above, so that the customer
         attributeName: "numberOfMeatsAvailable",
         displayName: `maximum number of Meats a customer can choose for this product?
 
-MUST have a value of 2 if the 'has Meats option?' has been checked above.
+MUST have a value of 1, 2 or 3, if the 'has Meats option?' has been checked above.
 ( leave blank if 'has meats option?' above has NOT been checked ).
  
-if you provide the value of 2 here, you MUST check the 'has meats option' box above in order to show the meats choices to the customer.`,
+if you provide the value of 1, 2 or 3 here, you MUST check the 'has meats option' box above in order to show the meats choices to the customer.`,
         inputType: "number",
         changeHandler: "handleChange",
         placeholder: "",

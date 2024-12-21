@@ -150,7 +150,11 @@ const useCreateProductLogic = () => {
     true;
 
   const hasMeatsError =
-    hasMeatsOption && numberOfMeatsAvailable !== "2" && true;
+    hasMeatsOption &&
+    (!numberOfMeatsAvailable ||
+      (numberOfMeatsAvailable !== "1" &&
+        numberOfMeatsAvailable !== "2" &&
+        numberOfMeatsAvailable !== "3"));
 
   return {
     databaseManagementIsLoading,
