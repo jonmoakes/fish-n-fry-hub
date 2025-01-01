@@ -6,6 +6,7 @@ import MenuInfo from "./customer/menu-info.component";
 import Outro from "./customer/outro.component";
 import SignInProcess from "./customer/sign-in-process.component";
 import OwnerTable from "./owner/owner-table.component";
+import Footer from "../../components/footer/footer.component";
 
 import { Container } from "../../styles/container/container.styles";
 import { BlackHr } from "../../styles/hr/hr.styles";
@@ -39,6 +40,7 @@ const About = () => (
     <IncomeInfo />
     <DbManagementInfo />
     <AboutOutro />
+    <Footer />
   </Container>
 );
 

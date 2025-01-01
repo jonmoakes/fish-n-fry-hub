@@ -15,6 +15,7 @@ import { Container } from "../../styles/container/container.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
 import { Form } from "../../styles/form/form.styles";
 import { Title } from "../../styles/h1/h1.styles";
+import Footer from "../../components/footer/footer.component";
 
 const SignInEmailOtp = () => {
   useSignInEmailOtpRequestResultUseEffect();
@@ -63,6 +64,7 @@ const SignInEmailOtp = () => {
           />
         </Form>
       </ParentDiv>
+      <Footer />
     </Container>
   );
 };

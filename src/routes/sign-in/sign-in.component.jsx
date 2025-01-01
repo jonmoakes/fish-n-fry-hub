@@ -8,6 +8,7 @@ import TitleAndSignUpLink from "./title-and-sign-up-link.component";
 import SignInEmail from "./sign-in-email.component";
 import SignInPassword from "./sign-in-password.component";
 import SignInButtons from "./sign-in-buttons.component";
+import Footer from "../../components/footer/footer.component";
 
 import { Container } from "../../styles/container/container.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
@@ -39,6 +40,7 @@ const SignIn = () => {
           <SignInButtons />
         </Form>
       </ParentDiv>
+      <Footer />
     </Container>
   );
 };

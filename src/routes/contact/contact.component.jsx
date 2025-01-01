@@ -7,6 +7,7 @@ import ContactForm from "./sections/contact-form.component";
 import { Container } from "../../styles/container/container.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
 import { Title } from "../../styles/h1/h1.styles";
+import Footer from "../../components/footer/footer.component";
 
 const Contact = () => {
   const { contactFormIsLoading } = useGetContactFormSelectors();
@@ -23,6 +24,7 @@ const Contact = () => {
       </ParentDiv>
 
       <ContactForm />
+      <Footer />
     </Container>
   );
 };

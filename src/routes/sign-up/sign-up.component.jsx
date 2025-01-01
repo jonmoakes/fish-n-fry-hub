@@ -9,6 +9,7 @@ import useSignUpFormFunctions from "./sign-up-form-hooks/use-sign-up-form-functi
 import SignUpEmail from "./sign-up-email.component";
 import SignUpPasswords from "./sign-up-passwords.component";
 import SignUpButton from "./sign-up-button.component";
+import Footer from "../../components/footer/footer.component";
 
 import { Container } from "../../styles/container/container.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
@@ -59,6 +60,7 @@ const SignUp = () => {
           <SignUpButton />
         </Form>
       </ParentDiv>
+      <Footer />
     </Container>
   );
 };

@@ -7,7 +7,7 @@ import ShowFetchErrors from "../../components/errors/show-fetch-errors.component
 import ItemSearch from "../../components/item-search/item-search.component";
 import CategoryButtons from "./category-buttons.component";
 import ItemsReturnedAfterSearchRequest from "../../components/items-returned-after-search-request/items-returned-after-search-request.component";
-
+import Footer from "../../components/footer/footer.component";
 import { Container } from "../../styles/container/container.styles";
 
 import { searchTermHasBeenEntered } from "../../functions/search-term-has-been-entered";
@@ -54,6 +54,7 @@ const Menu = () => {
           ) : null}
         </>
       )}
+      <Footer />
     </Container>
   );
 };

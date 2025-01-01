@@ -106,6 +106,10 @@ export const ParentDiv = styled.div`
   box-shadow: 6px 6px 15px ${customBlack};
   padding: 10px;
 
+  &.footer {
+    margin: -50px auto 50px auto;
+  }
+
   &.black {
     background: black;
     box-shadow: none;

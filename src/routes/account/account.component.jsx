@@ -6,6 +6,7 @@ import AccountButtonLinks from "./account-button-links.component";
 import { Container } from "../../styles/container/container.styles";
 import { ParentDiv } from "../../styles/div/div.styles";
 import { Title } from "../../styles/h1/h1.styles";
+import Footer from "../../components/footer/footer.component";
 
 const Account = () => {
   useCheckForAndClearFormDetails();
@@ -17,6 +18,7 @@ const Account = () => {
       </ParentDiv>
       <Intro />
       <AccountButtonLinks />
+      <Footer />
     </Container>
   );
 };
