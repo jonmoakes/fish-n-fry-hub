@@ -1,8 +1,18 @@
-# React + Vite
+# Fish 'n' Fry Hub 🍟
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+An intuitive online ordering system tailored to the unique needs of fish & chip shops in the UK.
 
-Currently, two official plugins are available:
+## Who It's For
+Local takeaway owners looking to modernise customer ordering and streamline operations.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
+- Online menu browsing and ordering
+- Real-time order status updates
+- Secure Stripe payments
+- Admin dashboard for managing incoming orders
+- Customisable for different shop locations
+
+## Tech Stack
+React • Redux Toolkit • Appwrite • Netlify • Stripe
+
+[Live Demo](https://fishnfry-hub.netlify.app)
